@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/holidayIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/holiday_48px" />
+
+    <TextView
+        android:id="@+id/holidayReason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/title"
+        android:layout_alignStart="@+id/holidayIcon"
+        android:layout_marginStart="60dp"
+        android:text="Holiday Reason"/>
+    <TextView
+        android:id="@+id/holidayDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/desc"
+        android:layout_below="@+id/holidayReason"
+        android:layout_alignStart="@+id/holidayIcon"
+        android:layout_marginStart="60dp"
+        android:text="22 December, 2021"/>
+</RelativeLayout>

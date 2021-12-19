@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AcademicCalendar">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.AcademicCalendarFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/previousMonth"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/academicCalendarView"
+        android:layout_alignStart="@+id/academicCalendarMonthName"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/rectangle_button_background"
+        app:backgroundTint="@color/blue"
+        android:text="@string/previous"/>
+
     <TextView
+        android:id="@+id/academicCalendarMonthName"
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/nextMonth"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/academicCalendarView"
+        android:layout_alignEnd="@+id/academicCalendarMonthName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/rectangle_button_background"
+        app:backgroundTint="@color/blue"
+        android:text="NEXT"/>
+    <com.github.sundeepk.compactcalendarview.CompactCalendarView
+        android:id="@+id/academicCalendarView"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/academicCalendarMonthName"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_height="250dp"
+        app:compactCalendarTargetHeight="250dp"
+        app:compactCalendarTextSize="12sp"
+        app:compactCalendarBackgroundColor="@color/blue"
+        app:compactCalendarTextColor="@color/white"
+        app:compactCalendarCurrentDayBackgroundColor="@color/primary_color"
+        app:compactCalendarMultiEventIndicatorColor="@color/teal_200" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/academicCalendarView"
+        tools:listitem="@layout/academic_recycler_view_event" />
 
-</FrameLayout>
+
+
+</RelativeLayout>

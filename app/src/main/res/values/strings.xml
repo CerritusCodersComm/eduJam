@@ -19,4 +19,29 @@
     <string name="help">Help</string>
     <string name="feedback">Feedback</string>
     <string name="aboutUs">About us</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="checkout_modules">Checkout Modules</string>
+    <string name="syllabus_title_text">SE 4th SEMESTER 2022</string>
+    <string name="checkout_tutorials">Checkout tutorials</string>
+    <string name="sign_in_title">Welcome back! \nSign in to continue</string>
+    <string name="maths">MATHS</string>
+    <string name="design_analysis_of_alogorithms">Design Analysis Of Algorithms</string>
+    <string name="operating_systems">Operating Systems</string>
+    <string name="computer_networks">Computer Networks</string>
+    <string name="computer_graphics">Computer Graphics</string>
+    <string name="checkout_practicals">Checkout Practicals</string>
+
+                    Fourth Sem MATHS Modules
+                            Module 1
+    <string name="fourth_sem_maths_module_one">Basic Probability</string>
+    <string name="fourth_sem_maths_module_one_topic_one_title">Probability spaces</string>
+    <string name="fourth_sem_maths_module_one_topic_two_title">Conditional probability</string>
+    <string name="fourth_sem_maths_module_one_topic_three_title">Independence</string>
+    <string name="fourth_sem_maths_module_one_topic_four_title">Discrete random variables</string>
+    <string name="fourth_sem_maths_module_one_topic_five_title">Independent random variables</string>
+    <string name="fourth_sem_maths_module_one_topic_six_title">Sums of independent random variables</string>
+    <string name="fourth_sem_maths_module_one_topic_seven_title">Expectation of Discrete and Continuous Random Variables</string>
+    <string name="fourth_sem_maths_module_one_topic_eight_title">Moments</string>
+    <string name="fourth_sem_maths_module_one_topic_nine_title">Variance of a sum</string>
+    <string name="fourth_sem_maths_module_one_topic_ten_title">Conditional Probability</string>
 </resources>

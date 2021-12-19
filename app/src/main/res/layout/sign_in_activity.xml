@@ -22,22 +22,63 @@
             android:background="#00000000"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
-            android:text="@string/sign_in"
+            android:text="@string/sign_in_title"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/desc"
+<!--        <TextView-->
+<!--            android:id="@+id/desc"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="75dp"-->
+<!--            android:fontFamily="@font/roboto"-->
+<!--            android:gravity="center"-->
+<!--            android:lineSpacingExtra="8sp"-->
+<!--            android:text="@string/desc"-->
+<!--            android:textAppearance="@style/desc"-->
+<!--            android:translationY="-3.8sp" />-->
+
+        <RelativeLayout
+            android:id="@+id/google_sign_in_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_height="60dp"
+            android:layout_below="@id/title"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="75dp"
-            android:fontFamily="@font/roboto"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/background_border">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="26dp"
+                android:src="@drawable/google_icon_48px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Log in with Google"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/google_sign_in_layout"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:lineSpacingExtra="8sp"
-            android:text="@string/desc"
+            android:textStyle="bold"
+            android:text="@string/or"
+            android:textSize="18sp"
             android:textAppearance="@style/desc"
+            android:textColor="@color/grey"
             android:translationY="-3.8sp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -45,37 +86,40 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_below="@+id/desc"
+            android:layout_below="@+id/google_sign_in_layout"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="59dp"
-            app:boxStrokeColor="@color/primary_color"
-            android:hint="Email">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Email"
+            app:boxStrokeColor="@color/primary_color">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_below="@+id/emailLayout"
             android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="39dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Password"
             app:boxStrokeColor="@color/primary_color"
-            app:endIconMode="password_toggle"
-            android:hint="Password">
+            app:endIconMode="password_toggle">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,30 +164,9 @@
 
             <View
                 android:id="@+id/left_line"
-                android:layout_width="68dp"
+                android:layout_width="168dp"
                 android:layout_height="01dp"
-                android:layout_marginTop="07dp"
-                android:layout_marginStart="-11dp"
-                android:background="@drawable/line" />
-
-            <TextView
-                android:id="@+id/or"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@id/left_line"
-                android:layout_alignEnd="@id/right_line"
-                android:gravity="center"
-                android:text="@string/or"
-                android:textAppearance="@style/desc"
-                android:textColor="@color/grey"
-                android:translationY="-3.8sp" />
-
-            <View
-                android:id="@+id/right_line"
-                android:layout_width="68dp"
-                android:layout_height="01dp"
-                android:layout_marginEnd="-12dp"
-                android:layout_marginStart="74dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="07dp"
                 android:background="@drawable/line" />
         </RelativeLayout>

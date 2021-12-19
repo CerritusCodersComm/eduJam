@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/eventIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_baseline_event_48" />
+
+    <TextView
+        android:id="@+id/eventTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/title"
+        android:layout_alignStart="@+id/eventIcon"
+        android:layout_marginStart="60dp"
+        android:text="EVENT TITLE"/>
+    <TextView
+        android:id="@+id/eventSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/desc"
+        android:layout_below="@+id/eventTitle"
+        android:layout_alignStart="@+id/eventIcon"
+        android:layout_marginStart="60dp"
+        android:text="TIME: 16:00"/>
+</RelativeLayout>

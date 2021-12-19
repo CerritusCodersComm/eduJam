@@ -1,0 +1,13 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:shape="rectangle">
+    <!-- This is the stroke you want to define -->
+<solid
+    android:color="@color/white"/>
+
+    <!-- Optional, round your corners -->
+    <corners android:bottomLeftRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:bottomRightRadius="10dp"
+        android:topRightRadius="10dp" />
+</shape>

@@ -53,7 +53,8 @@ dependencies {
     // transition button library
     implementation 'com.royrodriguez:transitionbutton:0.2.0'
 
-    //spinner library
-//    implementation 'com.github.arcadefire:nice-spinner:1.4.4'
+    //calendar library
+    implementation 'com.github.sundeepk:compact-calendar-view:3.0.0'
+
 
 }
