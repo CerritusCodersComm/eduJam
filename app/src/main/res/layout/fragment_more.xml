@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:background="@drawable/primary_background">
+
+    <RelativeLayout
+        android:id="@+id/moreFragmentRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+        <RelativeLayout
+            android:id="@+id/syllabusLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@+id/weeklyTimeTableLayout"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/syallbusIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/syllabus_48px" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/syllabusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/syllabusLayout"
+            android:layout_toStartOf="@+id/weeklyTimeTableText"
+            android:layout_marginEnd="35dp"
+            android:textColor="@color/white"
+            android:text="Syllabus" />
+
+        <RelativeLayout
+            android:id="@+id/weeklyTimeTableLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/weeklyTimeTableIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/weekly_time_table_48px" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/weeklyTimeTableText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weeklyTimeTableLayout"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:text="Weekly time table" />
+
+        <RelativeLayout
+            android:id="@+id/holidayLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/weeklyTimeTableLayout"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/holidayIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/holiday_48px" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/holidayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/weeklyTimeTableText"
+            android:layout_below="@id/holidayLayout"
+            android:layout_marginStart="35dp"
+            android:textColor="@color/white"
+            android:text="Holidays" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/moreFragmentRow2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/moreFragmentRow1"
+        android:layout_marginTop="50dp">
+
+        <RelativeLayout
+            android:id="@+id/examTimeConstraintLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@+id/practicalLayout"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/examTimeConstraintIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/exam_syllabus_constraint_time_48px" />
+
+        </RelativeLayout>
+
+        <!--Exam Time Constrained Syllabus  -->
+        <TextView
+            android:id="@+id/examTimeConstraintText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/examTimeConstraintLayout"
+            android:layout_marginEnd="68dp"
+            android:layout_toStartOf="@+id/practicalText"
+            android:text="ETCS"
+            android:textColor="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/practicalLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/practicalIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/practical_48px" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/practicalText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/practicalLayout"
+            android:textColor="@color/white"
+            android:text="Practicals" />
+
+        <RelativeLayout
+            android:id="@+id/previousYearPapersLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/practicalLayout"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/previousYearPapersIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/previous_year_question_paper_48px" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/previousYearPapersText"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/previousYearPapersLayout"
+            android:layout_marginStart="45dp"
+            android:layout_toEndOf="@+id/practicalText"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="Previous Year Papers"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/moreFragmentRow3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/moreFragmentRow2"
+        android:layout_marginTop="50dp">
+
+        <RelativeLayout
+            android:id="@+id/academicCalendarLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@+id/todolist_layout"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/academicCalendarIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_academic_calendar_48" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/academicCalendarText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/academicCalendarLayout"
+            android:layout_toStartOf="@+id/todo_list_text"
+            android:layout_marginEnd="30dp"
+            android:gravity="center"
+            android:text="Academic calendar"
+            android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:id="@+id/todolist_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_layout">
+
+        <ImageView
+            android:id="@+id/todo_list_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="18dp"
+            android:src="@drawable/todo_list_48px" />
+    </RelativeLayout>
+
+        <TextView
+            android:id="@+id/todo_list_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/todolist_layout"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="To-do list"
+            android:textColor="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/video_lectures_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/todolist_layout"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/video_lectures_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/video_lectures_48px" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/video_lectures_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/video_lectures_layout"
+            android:layout_marginStart="45dp"
+            android:layout_toEndOf="@+id/todo_list_text"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="Video Lectures"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/moreFragmentRow4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/moreFragmentRow3"
+        android:layout_marginTop="50dp">
+
+        <RelativeLayout
+            android:id="@+id/lecture_summary_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/lecture_summary_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/podcast_48px" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/lecture_summary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lecture_summary_layout"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Lecture Summary"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+        <com.royrodriguez.transitionbutton.TransitionButton
+            android:id="@+id/logout"
+            style="@style/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/moreFragmentRow4"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/logout"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:defaultColor="@color/blue"
+            app:loaderColor="@android:color/white" />
+
+    </RelativeLayout>
+</ScrollView>

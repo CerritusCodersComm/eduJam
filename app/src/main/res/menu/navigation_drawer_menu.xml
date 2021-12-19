@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+            <group android:id="@+id/general">
+
+                <item
+                    android:id="@+id/homeFragment"
+                    android:icon="@drawable/ic_baseline_home_24"
+                    android:title="@string/home"    />
+                <item
+                    android:id="@+id/forumFragment"
+                    android:icon="@drawable/ic_baseline_forum_24"
+                    android:title="@string/forum" />
+                <item
+                    android:id="@+id/profileFragment"
+                    android:icon="@drawable/ic_baseline_person_24"
+                    android:title="@string/profile" />
+                <item
+                    android:id="@+id/settingsFragment"
+                    android:icon="@drawable/ic_baseline_settings_24"
+                    android:title="@string/settings" />
+            </group>
+    <group  android:id="@+id/helpAndFeedback">
+
+        <item
+        android:id="@+id/helpFragment"
+        android:icon="@drawable/ic_baseline_help_24"
+        android:title="@string/help" />
+        <item
+        android:id="@+id/FeedbackFragment"
+        android:icon="@drawable/ic_baseline_feedback_24"
+        android:title="@string/feedback" />
+    </group>
+
+    <group android:id="@+id/about">
+
+        <item
+            android:id="@+id/aboutUsFragment"
+            android:icon="@drawable/ic_baseline_info_24"
+            android:title="@string/aboutUs" />
+    </group>
+
+</menu>

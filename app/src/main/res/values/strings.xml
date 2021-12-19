@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">GDSC_HACKATHON</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="desc">Please Sign in using the registered email and password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="or">or</string>
+    <string name="register">Register</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="get_started">Get Started</string>
+    <string name="syllabus">Syllabus</string>
+    <string name="logout">logout</string>
+    <string name="home">Home</string>
+    <string name="forum">Forum</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help</string>
+    <string name="feedback">Feedback</string>
+    <string name="aboutUs">About us</string>
+</resources>

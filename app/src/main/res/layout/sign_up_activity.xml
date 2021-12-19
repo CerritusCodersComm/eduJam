@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background"
+    tools:context=".activities.SignUpActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:background="#00000000"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:text="Create an account"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="75dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:lineSpacingExtra="8sp"
+            android:text="Please Create an account using the correct data"
+            android:textAppearance="@style/desc"
+            android:translationY="-3.8sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="50dp"
+            app:boxStrokeColor="@color/primary_color"
+            android:layout_below="@+id/desc"
+            android:hint="Email">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@+id/emailLayout"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="39dp"
+            app:boxStrokeColor="@color/primary_color"
+            app:endIconMode="password_toggle"
+            android:hint="Password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirm_password_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_below="@+id/passwordLayout"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="39dp"
+            app:boxStrokeColor="@color/primary_color"
+            app:endIconMode="password_toggle"
+            android:hint="Confirm password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirm_password_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.royrodriguez.transitionbutton.TransitionButton
+            android:id="@+id/register"
+            style="@style/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/confirm_password_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/register"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:defaultColor="@color/primary_color"
+            app:loaderColor="@android:color/white" />
+
+        <RelativeLayout
+            android:id="@+id/divider_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/register"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="30dp">
+
+            <View
+                android:id="@+id/left_line"
+                android:layout_width="68dp"
+                android:layout_height="01dp"
+                android:layout_marginTop="07dp"
+                android:layout_marginStart="-11dp"
+                android:background="@drawable/line" />
+
+            <TextView
+                android:id="@+id/or"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/left_line"
+                android:layout_alignEnd="@id/right_line"
+                android:gravity="center"
+                android:text="@string/or"
+                android:textAppearance="@style/desc"
+                android:textColor="@color/grey"
+                android:translationY="-3.8sp" />
+
+            <View
+                android:id="@+id/right_line"
+                android:layout_width="68dp"
+                android:layout_height="01dp"
+                android:layout_marginEnd="-12dp"
+                android:layout_marginStart="74dp"
+                android:layout_marginTop="07dp"
+                android:background="@drawable/line" />
+        </RelativeLayout>
+
+        <com.royrodriguez.transitionbutton.TransitionButton
+            android:id="@+id/signin"
+            style="@style/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/sign_in"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:defaultColor="@color/primary_color"
+            app:loaderColor="@android:color/white" />
+    </RelativeLayout>
+</ScrollView>
