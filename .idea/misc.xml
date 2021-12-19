@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/layout/fragment_forum.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22540250447227192" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.34980988593155893" />
+        <entry key="app/src/main/res/layout/fragment_todo_list.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.20923913043478262" />
         <entry key="app/src/main/res/layout/personal_information_activity.xml" value="0.33" />
         <entry key="app/src/main/res/layout/sign_in_activity.xml" value="0.1767983789260385" />

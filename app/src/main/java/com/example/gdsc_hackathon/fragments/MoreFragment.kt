@@ -20,6 +20,7 @@ class MoreFragment : Fragment() {
     lateinit var practicalLayout: RelativeLayout
     lateinit var previousYearPapersLayout: RelativeLayout
     lateinit var academicCalendarLayout: RelativeLayout
+    lateinit var todolist_layout: RelativeLayout
     lateinit var videoLecturesLayout: RelativeLayout
     lateinit var lectureSummaryLayout: RelativeLayout
 
@@ -63,6 +64,11 @@ class MoreFragment : Fragment() {
         academicCalendarLayout = rootView.findViewById(R.id.academicCalendarLayout)
         academicCalendarLayout.setOnClickListener {
             rootView.findNavController().navigate(R.id.academicCalendarFragment)
+        }
+
+        todolist_layout = rootView.findViewById(R.id.todolist_layout)
+        todolist_layout.setOnClickListener {
+            rootView.findNavController().navigate(R.id.todoListFragment)
         }
 
         videoLecturesLayout = rootView.findViewById(R.id.video_lectures_layout)
