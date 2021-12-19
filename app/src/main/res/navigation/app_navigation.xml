@@ -90,4 +90,9 @@
         android:name="com.example.gdsc_hackathon.fragments.AboutUsFragment"
         android:label="About Us"
         tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.gdsc_hackathon.fragments.NotificationFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notification" />
 </navigation>
