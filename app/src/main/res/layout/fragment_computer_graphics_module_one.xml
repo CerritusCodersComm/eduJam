@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mathsModuleThreeParentLayout"
+    android:id="@+id/mathsModuleOneParentLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".fragments.syllabus.fourth_sem.maths.MathsModuleSixFragment"
+    tools:context=".fragments.syllabus.fourth_sem.maths.MathsModuleOneFragment"
     android:background="@color/light_grey">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <RelativeLayout
-            android:id="@+id/moduleThreeLayout"
+            android:id="@+id/moduleOneLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
             <TextView
-                android:id="@+id/moduleThreeTitle"
+                android:id="@+id/moduleOneTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textStyle="bold"
                 style="@style/title"
-                android:text="@string/fourth_sem_maths_module_six" />
+                android:text="@string/fourth_sem_maths_module_one" />
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/topic_one_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/moduleThreeLayout"
+            android:layout_below="@+id/moduleOneLayout"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_one_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_one_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_two_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_two_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_three_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_three_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -179,7 +179,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_four_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_four_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -224,7 +224,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_five_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_five_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -256,7 +256,7 @@
             android:id="@+id/topic_six_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/topic_four_layout"
+            android:layout_below="@+id/topic_five_layout"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
@@ -269,7 +269,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_five_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_six_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -314,7 +314,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_seven_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_seven_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -359,7 +359,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_eight_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_eight_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -391,7 +391,7 @@
             android:id="@+id/topic_nine_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/topic_four_layout"
+            android:layout_below="@+id/topic_eight_layout"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
@@ -404,7 +404,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_nine_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_nine_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -449,7 +449,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_ten_title"
+                android:text="@string/fourth_sem_maths_module_one_topic_six_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -478,54 +478,9 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/topic_eleven_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/topic_ten_layout"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/round_background"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/topic_eleven_title"
-                style="@style/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_six_topic_five_title"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/topic_eleven_time_to_read"
-                style="@style/desc"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/topic_eleven_title"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:text="X hours"
-                android:textSize="20sp" />
-            <TextView
-                android:id="@+id/topic_eleven_discussion_count"
-                style="@style/desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
-                android:layout_below="@+id/topic_eleven_time_to_read"
-                android:text="0 Discussion"
-                android:textSize="16sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/topic_eleven_layout"
+            android:layout_below="@+id/topic_ten_layout"
             android:padding="100dp" />
 
     </RelativeLayout>

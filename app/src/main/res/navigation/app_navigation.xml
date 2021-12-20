@@ -100,25 +100,11 @@
         android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.maths.MathsFragment"
         android:label="Maths"
         tools:layout="@layout/fragment_maths" />
+
     <fragment
-        android:id="@+id/notificationFragment"
-        android:name="com.example.gdsc_hackathon.fragments.NotificationFragment"
-        android:label="Notifications"
-        tools:layout="@layout/fragment_notification" />    <fragment
-        android:id="@+id/notificationFragment"
-        android:name="com.example.gdsc_hackathon.fragments.NotificationFragment"
-        android:label="Notifications"
-        tools:layout="@layout/fragment_notification" />    <fragment
-        android:id="@+id/notificationFragment"
-        android:name="com.example.gdsc_hackathon.fragments.NotificationFragment"
-        android:label="Notifications"
-        tools:layout="@layout/fragment_notification" />    <fragment
-        android:id="@+id/notificationFragment"
-        android:name="com.example.gdsc_hackathon.fragments.NotificationFragment"
-        android:label="Notifications"
-        tools:layout="@layout/fragment_notification" />    <fragment
-        android:id="@+id/notificationFragment"
-        android:name="com.example.gdsc_hackathon.fragments.NotificationFragment"
-        android:label="Notifications"
-        tools:layout="@layout/fragment_notification" />
+        android:id="@+id/mathsTutorialFragment"
+        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.maths.MathsTutorialFragment"
+        android:label="Maths Tutorials"
+        tools:layout="@layout/fragment_maths_tutorial" />
+
 </navigation>

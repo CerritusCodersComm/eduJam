@@ -58,7 +58,11 @@ class SyllabusFragment : Fragment() {
         mathsCheckoutModulesButton.setOnClickListener {
             rootView.findNavController().navigate(R.id.mathsFragment)
         }
+
         mathsCheckoutTutorialsButton = rootView.findViewById(R.id.mathsCheckoutTutorialButton)
+        mathsCheckoutTutorialsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.mathsTutorialFragment)
+        }
 
         mathsTitle = rootView.findViewById(R.id.mathsTitle)
         mathsLayout.setOnClickListener {
@@ -99,7 +103,13 @@ class SyllabusFragment : Fragment() {
         designAnalysisOfAlgorithmsLayout = rootView.findViewById(R.id.designAnalysisOfAlgorithmsLayout)
         designAnalysisOfAlgorithmsCheckoutModulesButton = rootView.findViewById(R.id.designAnalysisOfAlgorithmsCheckoutModulesButton)
         designAnalysisOfAlgorithmsCheckoutPracticalsButton = rootView.findViewById(R.id.designAnalysisOfAlgorithmsCheckoutPracticalButton)
+        designAnalysisOfAlgorithmsCheckoutModulesButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.mathsFragment)
+        }
 
+        designAnalysisOfAlgorithmsCheckoutPracticalsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.mathsTutorialFragment)
+        }
         designAnalysisOfAlgorithmsTitle = rootView.findViewById(R.id.designAnalysisOfAlgorithmsTitle)
         designAnalysisOfAlgorithmsLayout.setOnClickListener {
             if (designAnalysisOfAlgorithmsCheckoutModulesButton.visibility == View.VISIBLE && designAnalysisOfAlgorithmsCheckoutPracticalsButton.visibility == View.VISIBLE) {
