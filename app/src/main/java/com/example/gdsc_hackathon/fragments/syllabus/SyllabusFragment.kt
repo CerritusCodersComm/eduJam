@@ -104,11 +104,11 @@ class SyllabusFragment : Fragment() {
         designAnalysisOfAlgorithmsCheckoutModulesButton = rootView.findViewById(R.id.designAnalysisOfAlgorithmsCheckoutModulesButton)
         designAnalysisOfAlgorithmsCheckoutPracticalsButton = rootView.findViewById(R.id.designAnalysisOfAlgorithmsCheckoutPracticalButton)
         designAnalysisOfAlgorithmsCheckoutModulesButton.setOnClickListener {
-            rootView.findNavController().navigate(R.id.mathsFragment)
+            rootView.findNavController().navigate(R.id.designAnalysisOfAlgorithmsFragment)
         }
 
         designAnalysisOfAlgorithmsCheckoutPracticalsButton.setOnClickListener {
-            rootView.findNavController().navigate(R.id.mathsTutorialFragment)
+            rootView.findNavController().navigate(R.id.designAnalysisOfAlgorithmsPracticalFragment)
         }
         designAnalysisOfAlgorithmsTitle = rootView.findViewById(R.id.designAnalysisOfAlgorithmsTitle)
         designAnalysisOfAlgorithmsLayout.setOnClickListener {
@@ -149,6 +149,14 @@ class SyllabusFragment : Fragment() {
         operatingSystemsCheckoutModulesButton = rootView.findViewById(R.id.operatingSystemsCheckoutModulesButton)
         operatingSystemsCheckoutPracticalsButton = rootView.findViewById(R.id.operatingSystemsCheckoutPracticalButton)
 
+        operatingSystemsCheckoutModulesButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.operatingSystemsFragment)
+        }
+
+        operatingSystemsCheckoutPracticalsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.operatingSystemPracticalFragment)
+        }
+
         operatingSystemsTitle = rootView.findViewById(R.id.operatingSystemsTitle)
         operatingSystemsLayout.setOnClickListener {
             if (operatingSystemsCheckoutModulesButton.visibility == View.VISIBLE && operatingSystemsCheckoutPracticalsButton.visibility == View.VISIBLE) {
@@ -187,6 +195,14 @@ class SyllabusFragment : Fragment() {
         computerNetworksLayout = rootView.findViewById(R.id.computerNetworksLayout)
         computerNetworksCheckoutModulesButton = rootView.findViewById(R.id.computerNetworksCheckoutModulesButton)
         computerNetworksCheckoutPracticalsButton = rootView.findViewById(R.id.computerNetworksCheckoutPracticalButton)
+
+        computerNetworksCheckoutModulesButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.computerNetworksFragment)
+        }
+
+        computerNetworksCheckoutPracticalsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.computerGraphicsPracticalFragment)
+        }
 
         computerNetworksTitle = rootView.findViewById(R.id.computerNetworksTitle)
         computerNetworksLayout.setOnClickListener {
@@ -227,6 +243,14 @@ class SyllabusFragment : Fragment() {
         computerGraphicsLayout = rootView.findViewById(R.id.computerGraphicsLayout)
         computerGraphicsCheckoutModulesButton = rootView.findViewById(R.id.computerGraphicsCheckoutModulesButton)
         computerGraphicsCheckoutPracticalsButton = rootView.findViewById(R.id.computerGraphicsCheckoutPracticalButton)
+
+        computerGraphicsCheckoutModulesButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.computerGraphicsFragment)
+        }
+
+        computerGraphicsCheckoutPracticalsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.computerGraphicsPracticalFragment)
+        }
 
         computerGraphicsTitle = rootView.findViewById(R.id.computerGraphicsTitle)
         computerGraphicsLayout.setOnClickListener {
