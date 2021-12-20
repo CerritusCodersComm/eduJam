@@ -1,11 +1,17 @@
 package com.example.gdsc_hackathon.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.*
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.awaitAll
 
 class HomeFragment : Fragment() {
     lateinit var syllabusLayout: LinearLayout
@@ -17,11 +23,37 @@ class HomeFragment : Fragment() {
     lateinit var academicCalendarLayout: LinearLayout
     lateinit var moreLayout: LinearLayout
 
+    private lateinit var mAuth : FirebaseAuth
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+
+        mAuth = FirebaseAuth.getInstance()
+        val currentUser = mAuth.currentUser
+
+        Log.w("LOOK",currentUser?.uid+"")
+        Log.w("LOOK",currentUser?.displayName+"")
+        Log.w("LOOK",currentUser?.email+"")
+
+        val usr = hashMapOf(
+            "uid" to currentUser?.uid,
+            "name" to currentUser?.displayName,
+            "email" to currentUser?.email,
+        );
+
+        Firebase.firestore.collection("users").document(currentUser?.uid!!).set(usr)
+//            .addOnSuccessListener { documentReference ->
+//                Log.d("LOOK", "DocumentSnapshot added") }
+//            .addOnFailureListener { e ->
+//                Log.w("LOOK", "Error adding document", e)
+//            }
+
+
         val rootView: View = inflater.inflate(R.layout.fragment_home, container, false)
 
         syllabusLayout = rootView.findViewById(R.id.syllabusLayout)

@@ -1,28 +1,35 @@
 package com.example.gdsc_hackathon.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.activities.MainActivity
+import com.example.gdsc_hackathon.activities.SignInActivity
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
 class MoreFragment : Fragment() {
 
-    lateinit var syllabusLayout: RelativeLayout
-    lateinit var weeklyTimeTableLayout: RelativeLayout
-    lateinit var holidayLayout: RelativeLayout
-    lateinit var examTimeConstraintLayout: RelativeLayout
-    lateinit var practicalLayout: RelativeLayout
-    lateinit var previousYearPapersLayout: RelativeLayout
-    lateinit var academicCalendarLayout: RelativeLayout
-    lateinit var todolist_layout: RelativeLayout
-    lateinit var videoLecturesLayout: RelativeLayout
-    lateinit var lectureSummaryLayout: RelativeLayout
+    private lateinit var syllabusLayout: RelativeLayout
+    private lateinit var weeklyTimeTableLayout: RelativeLayout
+    private lateinit var holidayLayout: RelativeLayout
+    private lateinit var examTimeConstraintLayout: RelativeLayout
+    private lateinit var practicalLayout: RelativeLayout
+    private lateinit var previousYearPapersLayout: RelativeLayout
+    private lateinit var academicCalendarLayout: RelativeLayout
+    private lateinit var todolist_layout: RelativeLayout
+    private lateinit var videoLecturesLayout: RelativeLayout
+    private lateinit var lectureSummaryLayout: RelativeLayout
+
+    private lateinit var logoutButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,6 +86,14 @@ class MoreFragment : Fragment() {
         lectureSummaryLayout = rootView.findViewById(R.id.lecture_summary_layout)
         lectureSummaryLayout.setOnClickListener {
             rootView.findNavController().navigate(R.id.lectureSummaryFragment)
+        }
+
+        logoutButton = rootView.findViewById(R.id.logout)
+        logoutButton.setOnClickListener{
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(activity, SignInActivity::class.java)
+            startActivity(intent)
+
         }
 
         return rootView

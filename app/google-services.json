@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "56176798370",
+    "project_id": "android-jam-2021",
+    "storage_bucket": "android-jam-2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56176798370:android:a66a4f2662f04d6eaac5fb",
+        "android_client_info": {
+          "package_name": "com.example.gdsc_hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56176798370-66o9r4re7nr7tnde2a101t1b324q6fa6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVB3QLJGV3VzHNdTHbbtEuu9xTIvsO7Z0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56176798370-66o9r4re7nr7tnde2a101t1b324q6fa6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
