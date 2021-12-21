@@ -13,7 +13,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.gdsc_hackathon.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView as NavigationView
-
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         //NavigationUI.setupWithNavController(navigation_view,navController)
         NavigationUI.setupWithNavController(navigationView, navController)
+
 
     }
 

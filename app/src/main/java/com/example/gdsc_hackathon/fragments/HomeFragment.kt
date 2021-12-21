@@ -5,17 +5,23 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.*
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
+import com.example.gdsc_hackathon.dataModel.RecentLectureModel
+import java.util.ArrayList
 
 class HomeFragment : Fragment() {
-    lateinit var syllabusLayout: LinearLayout
-    lateinit var weeklyTimeTableLayout: LinearLayout
-    lateinit var holidayLayout: LinearLayout
-    lateinit var examTimeConstraintLayout: LinearLayout
-    lateinit var practicalLayout: LinearLayout
-    lateinit var previousYearPapersLayout: LinearLayout
-    lateinit var academicCalendarLayout: LinearLayout
-    lateinit var moreLayout: LinearLayout
+    private lateinit var syllabusLayout: LinearLayout
+    private lateinit var weeklyTimeTableLayout: LinearLayout
+    private lateinit var holidayLayout: LinearLayout
+    private lateinit var examTimeConstraintLayout: LinearLayout
+    private lateinit var practicalLayout: LinearLayout
+    private lateinit var previousYearPapersLayout: LinearLayout
+    private lateinit var academicCalendarLayout: LinearLayout
+    private lateinit var moreLayout: LinearLayout
+    private lateinit var recyclerView: RecyclerView
 
 
     override fun onCreateView(
@@ -63,6 +69,23 @@ class HomeFragment : Fragment() {
         moreLayout.setOnClickListener {
             rootView.findNavController().navigate(R.id.moreFragment)
         }
+
+
+        recyclerView = rootView.findViewById(R.id.recent_lectures_recyclerView)
+
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        val lectures = ArrayList<RecentLectureModel>()
+
+        lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "MATHS","25th December, 2021", "20:00"))
+        lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "PHYSICS","27th December, 2021","20:00"))
+        for (i in 2..20) {
+            lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "Item $i", "1 JAN","TIME: 16:00" ))
+        }
+
+        val adapter = RecentLectureAdapter(lectures)
+        // Setting the Adapter with the recyclerview
+        recyclerView.adapter = adapter
 
         return rootView
     }

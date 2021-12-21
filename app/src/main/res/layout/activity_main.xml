@@ -7,9 +7,11 @@
     android:id="@+id/drawer_layout"
     tools:context=".activities.MainActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <RelativeLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottom_navigation_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true">
 
         <fragment
             android:id="@+id/hostFragment"
@@ -17,21 +19,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:layout_above="@+id/bottom_navigation"
+            android:layout_above="@+id/bottom_navigation_layout"
             app:defaultNavHost="true"
+            app:layout_behavior=".helper.ScrollingViewWithBottomNavigationBehavior"
             app:navGraph="@navigation/app_navigation" />
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:background="#928FE2"
             android:layout_gravity="bottom"
             app:labelVisibilityMode="selected"
             app:itemIconTint="@color/black"
             app:itemTextColor="@color/black"
+            app:hideOnScroll="true"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+            app:layout_scrollFlags="scroll|enterAlways"
             app:menu="@menu/navigation_menu"/>
-    </RelativeLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
