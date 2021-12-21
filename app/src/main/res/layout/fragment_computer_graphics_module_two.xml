@@ -24,7 +24,7 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 style="@style/title"
-                android:text="@string/fourth_sem_maths_module_two" />
+                android:text="@string/fourth_sem_computer_graphics_module_two" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_one_title"
+                android:text="@string/fourth_sem_computer_graphics_module_two_topic_one_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_two_title"
+                android:text="@string/fourth_sem_computer_graphics_module_two_topic_two_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_three_title"
+                android:text="@string/fourth_sem_computer_graphics_module_two_topic_three_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -179,7 +179,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_four_title"
+                android:text="@string/fourth_sem_computer_graphics_module_two_topic_four_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -224,7 +224,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_five_title"
+                android:text="@string/fourth_sem_computer_graphics_module_two_topic_five_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -253,9 +253,189 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/topic_six_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_five_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_six_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/fourth_sem_computer_graphics_module_two_topic_six_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_six_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_six_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_six_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_six_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topic_seven_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_six_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_seven_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/fourth_sem_computer_graphics_module_two_topic_seven_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_seven_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_seven_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_seven_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_seven_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topic_eight_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_seven_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_eight_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/fourth_sem_computer_graphics_module_two_topic_eight_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_eight_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_eight_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_eight_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_eight_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topic_nine_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_eight_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_nine_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/fourth_sem_computer_graphics_module_two_topic_nine_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_nine_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_nine_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_nine_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_nine_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/topic_five_layout"
+            android:layout_below="@+id/topic_nine_layout"
             android:padding="100dp" />
 
     </RelativeLayout>

@@ -22,7 +22,7 @@ class ComputerGraphicsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val rootView =  inflater.inflate(R.layout.fragment_maths, container, false)
+        val rootView =  inflater.inflate(R.layout.fragment_computer_graphics, container, false)
 
         viewPager = rootView.findViewById(R.id.tab_viewpager)
 

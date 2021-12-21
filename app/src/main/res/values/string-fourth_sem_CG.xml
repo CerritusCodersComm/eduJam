@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Fourth Sem Computer Graphics Modules-->
+    Module 1
+    <string name="fourth_sem_computer_graphics_module_one">Introduction to Computer Graphics</string>
+    <string name="fourth_sem_computer_graphics_module_one_topic_one_title">Definition and applications</string>
+    <string name="fourth_sem_computer_graphics_module_one_topic_two_title">Raster and Random scan display</string>
+    <string name="fourth_sem_computer_graphics_module_one_topic_three_title">Input Device, Output Device</string>
+
+    Module 2
+    <string name="fourth_sem_computer_graphics_module_two">Basic Drawing Primitives</string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_one_title">Coordinate system</string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_two_title">Pixel plotting</string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_three_title">Digital Differential Analyzer</string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_four_title">Bresenhem Line Drawing</string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_five_title">Bresenhem and midpoint Circle Drawing algorithm</string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_six_title">Midpoint Ellipse drawing algorithm  </string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_seven_title">Aliasing</string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_eight_title">Antialiasing techniques </string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_nine_title">Filled area primitives: Inside-outside test, boundary and flood-fill, scan-line fill</string>
+
+    Module 3
+    <string name="fourth_sem_computer_graphics_module_three">2D Geometric Transformation</string>
+    <string name="fourth_sem_computer_graphics_module_three_topic_one_title">Homogenous coordinates</string>
+    <string name="fourth_sem_computer_graphics_module_three_topic_two_title">Translation</string>
+    <string name="fourth_sem_computer_graphics_module_three_topic_three_title">Scaling, fixed point scaling,</string>
+    <string name="fourth_sem_computer_graphics_module_three_topic_four_title">Rotation, rotation about arbitrary point</string>
+    <string name="fourth_sem_computer_graphics_module_three_topic_five_title">Shearing, Reflection</string>
+    <string name="fourth_sem_computer_graphics_module_three_topic_six_title">Composite transformations</string>
+
+    Module 4
+    <string name="fourth_sem_computer_graphics_module_four">Viewing and Clipping</string>
+    <string name="fourth_sem_computer_graphics_module_four_topic_one_title">Viewing transformation and Window to Viewport coordinate transformation</string>
+    <string name="fourth_sem_computer_graphics_module_four_topic_two_title">Line Clipping Algorithms: Cohen Sutherland, Midpoint Subdivision, Liang Barsky</string>
+    <string name="fourth_sem_computer_graphics_module_four_topic_three_title">Polygon Clipping Algorithms: Sutherland Hodgeman, Weiler Artherton</string>
+
+    Module 5
+    <string name="fourth_sem_computer_graphics_module_five">3D Transformation</string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_one_title">3D display methods</string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_two_title">Wireframe model</string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_three_title">Sweep representation, Octrees and Binary space partitioning</string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_four_title">Curved lines and surfaces</string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_five_title">Cubic spline </string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_six_title">Interpolation methods</string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_seven_title">Bezier, B-spline curves</string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_eight_title">Fractals, parallel and perspective projection</string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_nine_title">3D translation, scaling, rotation</string>
+    <string name="fourth_sem_computer_graphics_module_five_topic_ten_title">Rotation about arbitrary axis</string>
+
+    Module 6
+    <string name="fourth_sem_computer_graphics_module_six">Hidden Surface Removal and Animation</string>-->
+    <string name="fourth_sem_computer_graphics_module_six_topic_one_title">Visible surface detection concepts</string>
+    <string name="fourth_sem_computer_graphics_module_six_topic_two_title">Back-face detection</string>
+    <string name="fourth_sem_computer_graphics_module_six_topic_three_title">Z buffer method</string>
+    <string name="fourth_sem_computer_graphics_module_six_topic_four_title">Painters algorithm</string>
+    <string name="fourth_sem_computer_graphics_module_six_topic_five_title">Warnock algorithm</string>
+    <string name="fourth_sem_computer_graphics_module_six_topic_six_title">Illumination and Shading Models</string>
+    <string name="fourth_sem_computer_graphics_module_six_topic_seven_title">Animation</string>
+
+
+    Practicals
+    <string name="computer_graphics_practical_title">Computer graphics Practicals</string>
+    <string name="computer_graphics_practical_one">Practical 1 - Develop a program for DDA and Bresenham Line Drawing algorithms</string>
+    <string name="computer_graphics_practical_two">Practical 2 - Implement midpoint Circle/Ellipse algorithm</string>
+    <string name="computer_graphics_practical_three">Practical 3 - Develop a program for Boundary fill and Flood fill algorithm</string>
+    <string name="computer_graphics_practical_four">Practical 4 - Develop a program for Basic transformation on 2D objects</string>
+    <string name="computer_graphics_practical_five">Practical 5 - Design and develop a program for line Clipping Algorithm</string>
+    <string name="computer_graphics_practical_six">Practical 6 - Design and Develop a program for Polygon clipping</string>
+    <string name="computer_graphics_practical_seven">Practical 7 - \n a) Develop a program for Bezier curve for n control points \n b) Design a program to draw Fractals</string>
+    <string name="computer_graphics_practical_eight">Practical 8 - Implement Basic primitives using OpenGL </string>
+    <string name="computer_graphics_case_study">Case Study - \n
+    1. Computer Graphics in Automotive Design
+    2. Code sign case study in Computer Graphics
+        3. Computer Graphics for Office Automation</string>
+</resources>
