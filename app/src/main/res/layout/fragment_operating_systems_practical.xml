@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/fourth_sem_operating_system_module_six"
+                android:text="@string/operating_system_practical_title"
                 android:textStyle="bold" />
         </RelativeLayout>
 
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_operating_system_module_six_topic_one_title"
+                android:text="@string/operating_system_practical_one"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_operating_system_module_six_topic_two_title"
+                android:text="@string/operating_system_practical_two"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -135,7 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_operating_system_module_six_topic_three_title"
+                android:text="@string/operating_system_practical_three"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -180,7 +180,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_operating_system_module_six_topic_four_title"
+                android:text="@string/operating_system_practical_four"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -225,7 +225,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_operating_system_module_six_topic_five_title"
+                android:text="@string/operating_system_practical_five"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -268,7 +268,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="@string/fourth_sem_operating_system_module_six_topic_six_title"
+            android:text="@string/operating_system_practical_six"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -313,7 +313,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_operating_system_module_six_topic_seven_title"
+                android:text="@string/operating_system_practical_seven"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -342,9 +342,99 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/topic_eight_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_seven_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_eight_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/operating_system_practical_eight"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_eight_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_eight_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_eight_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_eight_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topic_nine_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_eight_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_nine_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/operating_system_case_study"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_nine_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_nine_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_nine_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_nine_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/topic_seven_layout"
+            android:layout_below="@+id/topic_eleven_layout"
             android:padding="100dp" />
 
     </RelativeLayout>

@@ -3,68 +3,88 @@
 
     <!--Fourth Sem Design and Analysis of Algorithm  Modules-->
     Module 1
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one">Introduction to Algorithm Analysis</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_one_title">Performance analysis</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_two_title">Space and time complexity</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_three_title">Order of Growth of function</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_four_title">Asymptotic notations</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_five_title">Mathematical background for algorithm analysis</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_six_title">Analysis of selection sort, insertion sort</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_seven_title">The substitution method -Recursion tree method -Master method</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_eight_title">Finding Minimum and maximum, Binary search, Merge sort, Quick sort</string>
+    <string name="fourth_sem_operating_system_module_one">Overview of Operating System</string>
+    <string name="fourth_sem_operating_system_module_one_topic_one_title">Operating System Objectives and Functions</string>
+    <string name="fourth_sem_operating_system_module_one_topic_two_title">The Evolution of Operating Systems</string>
+    <string name="fourth_sem_operating_system_module_one_topic_three_title">Operating System Structures</string>
+    <string name="fourth_sem_operating_system_module_one_topic_four_title">System Calls</string>
+    <string name="fourth_sem_operating_system_module_one_topic_five_title">Developments Leading to Modern Operating Systems</string>
+    <string name="fourth_sem_operating_system_module_one_topic_six_title">Virtual Machines</string>
 
     Module 2
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two">Greedy Method</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_one_title">General method</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_two_title">Single source shortest path</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_three_title">Minimum cost spanning trees-Kruskal and prim’s algorithm</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_four_title">Knapsack problem</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_five_title">Job sequencing with deadlines </string>
+    <string name="fourth_sem_operating_system_module_two">Process Management Process: Concept of a Process</string>
+    <string name="fourth_sem_operating_system_module_two_topic_two_title">Process States</string>
+    <string name="fourth_sem_operating_system_module_two_topic_three_title">Process Description</string>
+    <string name="fourth_sem_operating_system_module_two_topic_four_title">Execution of the Operating System</string>
+    <string name="fourth_sem_operating_system_module_two_topic_five_title">Threads: Processes and Threads </string>
+    <string name="fourth_sem_operating_system_module_two_topic_six_title">Concept of Multithreading </string>
+    <string name="fourth_sem_operating_system_module_two_topic_seven_title">Types of Threads </string>
+    <string name="fourth_sem_operating_system_module_two_topic_eight_title">Thread programming Using Pthreads </string>
+    <string name="fourth_sem_operating_system_module_two_topic_nine_title">Scheduling: CPU Scheduling </string>
+    <string name="fourth_sem_operating_system_module_two_topic_ten_title">Thread Scheduling </string>
 
     Module 3
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three">Dynamic Programming</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_one_title">General method</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_two_title">Multistage graphs</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_three_title">Single source shortest path</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_four_title">All pair shortest path</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_five_title">0/1 knapsack</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_six_title">Travelling salesman problem </string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_seven_title">Longest common subsequence</string>
+    <string name="fourth_sem_operating_system_module_three">Concurrency Control and Deadlock Handling Concurrency Control:</string>
+    <string name="fourth_sem_operating_system_module_three_topic_one_title">Principles of Concurrency</string>
+    <string name="fourth_sem_operating_system_module_three_topic_two_title">Requirements for Mutual Exclusion</string>
+    <string name="fourth_sem_operating_system_module_three_topic_three_title">Mutual Exclusion</string>
+    <string name="fourth_sem_operating_system_module_three_topic_four_title">Hardware Support</string>
+    <string name="fourth_sem_operating_system_module_three_topic_five_title">Operating System Support (Semaphores and Mutex)</string>
+    <string name="fourth_sem_operating_system_module_three_topic_six_title">Programming Language Support (Monitors) </string>
+    <string name="fourth_sem_operating_system_module_three_topic_seven_title">Classical synchronization problems</string>
+    <string name="fourth_sem_operating_system_module_three_topic_eight_title">Readers/Writers Problem</string>
+    <string name="fourth_sem_operating_system_module_three_topic_nine_title">Producer and Consumer problem</string>
+    <string name="fourth_sem_operating_system_module_three_topic_ten_title">Inter-process communication</string>
+    <string name="fourth_sem_operating_system_module_three_topic_eleven_title">Deadlock: Principles of Deadlock</string>
+    <string name="fourth_sem_operating_system_module_three_topic_twelve_title">Deadlock Modeling</string>
+    <string name="fourth_sem_operating_system_module_three_topic_thirteen_title">Strategies to deal with deadlock: The Ostrich Algorithm</string>
 
     Module 4
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four">Backtracking, Branch and Bound</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_one_title">General method</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_two_title">8 queen problem (N-queen problem)</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_three_title">Sum of subsets</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_four_title">Branch and Bound</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_five_title">15 puzzle problem </string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_six_title">Travelling salesman problem</string>
+    <string name="fourth_sem_operating_system_module_four">Memory Management</string>
+    <string name="fourth_sem_operating_system_module_four_topic_one_title">Memory Management: Memory Management Requirements</string>
+    <string name="fourth_sem_operating_system_module_four_topic_two_title">Memory Partitioning: Fixed Partitioning, Dynamic Partitioning, Buddy System, Relocation, Paging, Segmentation</string>
+    <string name="fourth_sem_operating_system_module_four_topic_three_title">Virtual Memory: What is Virtual Memory</string>
+    <string name="fourth_sem_operating_system_module_four_topic_four_title">Demand Paging</string>
+    <string name="fourth_sem_operating_system_module_four_topic_five_title">Page Replacement </string>
+    <string name="fourth_sem_operating_system_module_four_topic_six_title">Allocation</string>
+    <string name="fourth_sem_operating_system_module_four_topic_seven_title">Allocating Kernel Memory</string>
 
     Module 5
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five">String Matching Algorithms</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_one_title">The naive string matching Algorithm</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_two_title">The Rabin Karp algorithm</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_three_title">String matching with finite automata</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_four_title">The knuth-Morris-Pratt algorithm</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_five_title">Boyer Moore algorithm </string>
+    <string name="fourth_sem_operating_system_module_five">Input / Output And File Management</string>
+    <string name="fourth_sem_operating_system_module_five_topic_one_title">I/O Management and Disk Scheduling: I/O Devices</string>
+    <string name="fourth_sem_operating_system_module_five_topic_two_title">Organization of the I/O Function</string>
+    <string name="fourth_sem_operating_system_module_five_topic_three_title">Operating System Design Issues I/O Buffering</string>
+    <string name="fourth_sem_operating_system_module_five_topic_four_title">Disk Scheduling(FIFO, SSTF, SCAN, C-SCAN, LOOK, C-LOOK)</string>
+    <string name="fourth_sem_operating_system_module_five_topic_five_title">Disk Cache</string>
+    <string name="fourth_sem_operating_system_module_five_topic_six_title">File Management: Overview</string>
+    <string name="fourth_sem_operating_system_module_five_topic_seven_title">File Organization and Access</string>
+    <string name="fourth_sem_operating_system_module_five_topic_eight_title">File Directories</string>
+    <string name="fourth_sem_operating_system_module_five_topic_nine_title">File Sharing</string>
+    <string name="fourth_sem_operating_system_module_five_topic_ten_title">Record Blocking</string>
+    <string name="fourth_sem_operating_system_module_five_topic_eleven_title">Secondary Storage Management</string>
 
     Module 6
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six">Introduction to Non Deterministic algorithm</string>-->
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six_topic_one_title">Polynomial time</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six_topic_two_title">Polynomial time verification</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six_topic_three_title">Classes NP</string>
-    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six_topic_four_title">NP Completeness and polynomial time reduction</string>
+    <string name="fourth_sem_operating_system_module_six">Case Study: LINUX Operating System</string>-->
+    <string name="fourth_sem_operating_system_module_six_topic_one_title">Overview of Linux</string>
+    <string name="fourth_sem_operating_system_module_six_topic_two_title">Architecture</string>
+    <string name="fourth_sem_operating_system_module_six_topic_three_title">Process management</string>
+    <string name="fourth_sem_operating_system_module_six_topic_four_title">Memory Management</string>
+    <string name="fourth_sem_operating_system_module_six_topic_five_title">I/O Management</string>
+    <string name="fourth_sem_operating_system_module_six_topic_six_title">Basic shell commands</string>
+    <string name="fourth_sem_operating_system_module_six_topic_seven_title">Shell as a scripting language</string>
 
 
     Practicals
-    <string name="design_and_analysis_of_algorithmPracticalTitle">design_and_analysis_of_algorithm Practicals</string>
-    <string name="design_and_analysis_of_algorithmPracticalOne">Practical 1 - Develop a code for Quick Sort </string>
-    <string name="design_and_analysis_of_algorithmPracticalTwo">Practical 2 - Develop a code for Dijkstra’s algorithm using Greedy method and analyze it</string>
-    <string name="design_and_analysis_of_algorithmPracticalThree">Practical 3 - Develop a code Minimum spanning tree, Kruskal’s algorithm using Greedy method and analyze it.</string>
-    <string name="design_and_analysis_of_algorithmPracticalFour">Practical 4 - Develop a code for all pair shortest path problem using dynamic programming and analyze it.</string>
-    <string name="design_and_analysis_of_algorithmPracticalFive">Practical 5 - Develop a code for Longest common subsequence using dynamic programming and analyze it.</string>
-    <string name="design_and_analysis_of_algorithmPracticalSix">Practical 6 - Develop a code for 8 queen’s problem using backtracking approach and analyze it.</string>
-    <string name="design_and_analysis_of_algorithmPracticalSeven">Practical 7 - Develop a code for 15 puzzle problem and analyze it.</string>
-    <string name="design_and_analysis_of_algorithmPracticalEight">Practical 8 - Develop a code for naïve string matching Algorithm </string>
+    <string name="operating_system_practical_title">Operating Systems Practicals</string>
+    <string name="operating_system_practical_one">Practical 1 - Explore LINUX Commands (Basic and Advanced) </string>
+    <string name="operating_system_practical_two">Practical 2 - Write a program to implement any two CPU scheduling algorithms like FCFS, SJF, Round Robin etc.</string>
+    <string name="operating_system_practical_three">Practical 3 - Write a program to implement Dinning Philosopher Problem</string>
+    <string name="operating_system_practical_four">Practical 4 - Write a program to implement Banker’s algorithm.</string>
+    <string name="operating_system_practical_five">Practical 5 - Build a program to implement FIFO and LRU page replacement policies</string>
+    <string name="operating_system_practical_six">Practical 6 - Practical 6 - Build a program to implement SRTF and Priority page replacement policies</string>
+    <string name="operating_system_practical_seven">Practical 7 - Develop a program to implement dynamic partitioning placement algorithms</string>
+    <string name="operating_system_practical_eight">Practical 8 - Build a program to implement FCFS and SSTF disk scheduling algorithm</string>
+    <string name="operating_system_case_study">Case Study - \n\t 1. Windows Operating System.\n 2. LINUX Operating System.\n 3. Multiprocessor Scheduling and Linux Scheduling\n
+</string>
 
 </resources>

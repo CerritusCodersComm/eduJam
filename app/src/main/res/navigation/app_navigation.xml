@@ -129,7 +129,7 @@
         android:id="@+id/operatingSystemPracticalFragment"
         android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.operatingSystems.OperatingSystemsPracticalFragment"
         android:label="Operating Systems Practicals"
-        tools:layout="@layout/fragment_operating_systems_tutorial" />
+        tools:layout="@layout/fragment_operating_systems_practical" />
 
     <fragment
         android:id="@+id/computerNetworksFragment"
