@@ -223,7 +223,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/design_and_analysis_of_algorithm_practical_two"
+                android:text="@string/design_and_analysis_of_algorithm_practical_five"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -255,7 +255,7 @@
             android:id="@+id/topic_six_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/topic_four_layout"
+            android:layout_below="@+id/topic_five_layout"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
@@ -300,7 +300,7 @@
             android:id="@+id/topic_seven_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/topic_four_layout"
+            android:layout_below="@+id/topic_six_layout"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
@@ -345,7 +345,7 @@
             android:id="@+id/topic_eight_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/topic_four_layout"
+            android:layout_below="@+id/topic_seven_layout"
             android:layout_marginStart="16dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="16dp"
@@ -389,7 +389,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/topic_five_layout"
+            android:layout_below="@+id/topic_eight_layout"
             android:padding="100dp" />
 
     </RelativeLayout>

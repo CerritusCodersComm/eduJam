@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
     <RelativeLayout
@@ -298,8 +298,10 @@
             android:textSize="20sp" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recent_lectures_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            tools:listitem="@layout/academic_recycler_view_event"
             android:layout_below="@id/recent_lectures_title" />
     </RelativeLayout>
 

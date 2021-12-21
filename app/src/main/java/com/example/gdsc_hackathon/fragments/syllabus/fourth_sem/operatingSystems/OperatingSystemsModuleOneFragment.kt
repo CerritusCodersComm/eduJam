@@ -14,7 +14,7 @@ class OperatingSystemsModuleOneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val rootView = inflater.inflate(R.layout.fragment_maths_module_one, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_operating_systems_module_one, container, false)
 
         return rootView
     }

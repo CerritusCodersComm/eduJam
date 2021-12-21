@@ -14,6 +14,6 @@ class DesignAnalysisOfAlgorithmsModuleFiveFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_maths_module_five, container, false)
+        return inflater.inflate(R.layout.fragment_design_analysis_of_algorithms_module_five, container, false)
     }
 }

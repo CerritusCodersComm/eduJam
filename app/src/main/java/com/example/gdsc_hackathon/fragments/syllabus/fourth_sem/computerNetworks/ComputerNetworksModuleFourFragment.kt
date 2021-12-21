@@ -14,6 +14,6 @@ class ComputerNetworksModuleFourFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_maths_module_four, container, false)
+        return inflater.inflate(R.layout.fragment_computer_networks_module_four, container, false)
     }
 }

@@ -14,7 +14,7 @@ class DesignAnalysisOfAlgorithmsModuleOneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val rootView = inflater.inflate(R.layout.fragment_maths_module_one, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_design_analysis_of_algorithms_module_one, container, false)
 
         return rootView
     }

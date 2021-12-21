@@ -14,6 +14,6 @@ class OperatingSystemsModuleFourFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_maths_module_four, container, false)
+        return inflater.inflate(R.layout.fragment_operating_systems_module_four, container, false)
     }
 }
