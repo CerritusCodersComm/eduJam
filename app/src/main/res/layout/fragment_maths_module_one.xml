@@ -24,7 +24,15 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 style="@style/title"
+                android:layout_marginEnd="50dp"
                 android:text="@string/fourth_sem_maths_module_one" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignEnd="@id/moduleOneTitle"
+                android:src="@drawable/ic_baseline_download_24" />
+
         </RelativeLayout>
 
         <RelativeLayout

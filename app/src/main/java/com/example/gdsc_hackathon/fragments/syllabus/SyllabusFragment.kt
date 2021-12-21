@@ -16,6 +16,7 @@ import com.google.android.material.button.MaterialButton
 
 class SyllabusFragment : Fragment() {
 
+
     /** Maths */
     private lateinit var mathsTitle: TextView
     private lateinit var mathsLayout: RelativeLayout

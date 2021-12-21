@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mathsmoduleTwoParentLayout"
+    android:id="@+id/design_and_analysis_of_algorithmmoduleTwoParentLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".fragments.syllabus.fourth_sem.maths.MathsModuleTwoFragment"
     android:background="@color/light_grey">
 
     <RelativeLayout
@@ -24,7 +23,7 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 style="@style/title"
-                android:text="@string/fourth_sem_maths_module_two" />
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_two" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -44,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_one_title"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_two_topic_one_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -89,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_two_title"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_two_topic_two_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -134,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_three_title"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_two_topic_three_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -179,7 +178,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_four_title"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_two_topic_four_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -224,7 +223,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_two_topic_five_title"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_two_topic_five_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

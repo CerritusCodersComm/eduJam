@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Fourth Sem Design and Analysis of Algorithm  Modules-->
+    Module 1
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one">Introduction to Algorithm Analysis</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_one_title">Performance analysis</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_two_title">Space and time complexity</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_three_title">Order of Growth of function</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_four_title">Asymptotic notations</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_five_title">Mathematical background for algorithm analysis</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_six_title">Analysis of selection sort, insertion sort</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_seven_title">The substitution method -Recursion tree method -Master method</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_one_topic_eight_title">Finding Minimum and maximum, Binary search, Merge sort, Quick sort</string>
+
+    Module 2
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two">Greedy Method</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_one_title">General method</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_two_title">Single source shortest path</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_three_title">Minimum cost spanning trees-Kruskal and prim’s algorithm</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_four_title">Knapsack problem</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_two_topic_five_title">Job sequencing with deadlines </string>
+
+    Module 3
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three">Dynamic Programming</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_one_title">General method</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_two_title">Multistage graphs</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_three_title">Single source shortest path</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_four_title">All pair shortest path</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_five_title">0/1 knapsack</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_six_title">Travelling salesman problem </string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_three_topic_seven_title">Longest common subsequence</string>
+
+    Module 4
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four">Backtracking, Branch and Bound</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_one_title">General method</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_two_title">8 queen problem (N-queen problem)</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_three_title">Sum of subsets</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_four_title">Branch and Bound</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_five_title">15 puzzle problem </string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_four_topic_six_title">Travelling salesman problem</string>
+
+    Module 5
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five">String Matching Algorithms</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_one_title">The naive string matching Algorithm</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_two_title">The Rabin Karp algorithm</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_three_title">String matching with finite automata</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_four_title">The knuth-Morris-Pratt algorithm</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_five_topic_five_title">Boyer Moore algorithm </string>
+
+    Module 6
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six">Introduction to Non Deterministic algorithm</string>-->
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six_topic_one_title">Polynomial time</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six_topic_two_title">Polynomial time verification</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six_topic_three_title">Classes NP</string>
+    <string name="fourth_sem_design_and_analysis_of_algorithm_module_six_topic_four_title">NP Completeness and polynomial time reduction</string>
+
+
+    Practicals
+    <string name="design_and_analysis_of_algorithm_practical_title">Design and Analysis of Algorithm Practicals</string>
+    <string name="design_and_analysis_of_algorithm_practical_one">Practical 1 - Develop a code for Quick Sort </string>
+    <string name="design_and_analysis_of_algorithm_practical_two">Practical 2 - Develop a code for Dijkstra’s algorithm using Greedy method and analyze it</string>
+    <string name="design_and_analysis_of_algorithm_practical_three">Practical 3 - Develop a code Minimum spanning tree, Kruskal’s algorithm using Greedy method and analyze it.</string>
+    <string name="design_and_analysis_of_algorithm_practical_four">Practical 4 - Develop a code for all pair shortest path problem using dynamic programming and analyze it.</string>
+    <string name="design_and_analysis_of_algorithm_practical_five">Practical 5 - Develop a code for Longest common subsequence using dynamic programming and analyze it.</string>
+    <string name="design_and_analysis_of_algorithm_practical_six">Practical 6 - Develop a code for 8 queen’s problem using backtracking approach and analyze it.</string>
+    <string name="design_and_analysis_of_algorithm_practical_seven">Practical 7 - Develop a code for 15 puzzle problem and analyze it.</string>
+    <string name="design_and_analysis_of_algorithm_practical_eight">Practical 8 - Develop a code for naive string matching Algorithm </string>
+
+</resources>
