@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".fragments.syllabus.fourth_sem.maths.MathsModuleThreeFragment"
     android:background="@color/light_grey">
 
     <RelativeLayout
@@ -24,7 +23,7 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 style="@style/title"
-                android:text="@string/fourth_sem_maths_module_three" />
+                android:text="@string/fourth_sem_computer_networks_module_three" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -44,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_three_topic_one_title"
+                android:text="@string/fourth_sem_computer_networks_module_three_topic_one_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -89,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_three_topic_two_title"
+                android:text="@string/fourth_sem_computer_networks_module_three_topic_two_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -134,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_three_topic_three_title"
+                android:text="@string/fourth_sem_computer_networks_module_three_topic_three_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -179,7 +178,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_three_topic_four_title"
+                android:text="@string/fourth_sem_computer_networks_module_three_topic_four_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -224,7 +223,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_maths_module_three_topic_five_title"
+                android:text="@string/fourth_sem_computer_networks_module_three_topic_five_title"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
