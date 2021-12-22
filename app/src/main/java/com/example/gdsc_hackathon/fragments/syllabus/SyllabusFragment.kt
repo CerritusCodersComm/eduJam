@@ -11,7 +11,6 @@ import androidx.navigation.findNavController
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.example.gdsc_hackathon.R
-import com.example.gdsc_hackathon.fragments.Practicals
 import com.google.android.material.button.MaterialButton
 
 class SyllabusFragment : Fragment() {

@@ -42,7 +42,7 @@
         tools:layout="@layout/fragment_holidays" />
     <fragment
         android:id="@+id/practicalFragment"
-        android:name="com.example.gdsc_hackathon.fragments.Practicals"
+        android:name="com.example.gdsc_hackathon.fragments.PracticalsFragment"
         android:label="Practicals"
         tools:layout="@layout/fragment_practicals" />
     <fragment

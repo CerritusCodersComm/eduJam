@@ -35,7 +35,7 @@
         <entry key="app/src/main/res/layout/fragment_computer_graphics_module_six.xml" value="0.28679653679653677" />
         <entry key="app/src/main/res/layout/fragment_computer_graphics_module_three.xml" value="0.353713768115942" />
         <entry key="app/src/main/res/layout/fragment_computer_graphics_module_two.xml" value="0.2760416666666667" />
-        <entry key="app/src/main/res/layout/fragment_computer_graphics_practical.xml" value="0.2760416666666667" />
+        <entry key="app/src/main/res/layout/fragment_computer_graphics_practical.xml" value="0.1862864077669903" />
         <entry key="app/src/main/res/layout/fragment_computer_networks_module_five.xml" value="0.2760416666666667" />
         <entry key="app/src/main/res/layout/fragment_computer_networks_module_four.xml" value="0.2760416666666667" />
         <entry key="app/src/main/res/layout/fragment_computer_networks_module_one.xml" value="0.2760416666666667" />
@@ -53,7 +53,7 @@
         <entry key="app/src/main/res/layout/fragment_design_analysis_of_algorithms_practicals.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_forum.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_holidays.xml" value="0.1503623188405797" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22540250447227192" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_maths.xml" value="0.1344984802431611" />
         <entry key="app/src/main/res/layout/fragment_maths_module_five.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/fragment_maths_module_four.xml" value="0.23645833333333333" />
@@ -71,6 +71,7 @@
         <entry key="app/src/main/res/layout/fragment_operating_systems_module_two.xml" value="0.2647352647352647" />
         <entry key="app/src/main/res/layout/fragment_operating_systems_practical.xml" value="0.2630272952853598" />
         <entry key="app/src/main/res/layout/fragment_operating_systems_tutorial.xml" value="0.3451086956521739" />
+        <entry key="app/src/main/res/layout/fragment_practicals.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_syllabus.xml" value="0.425531914893617" />
         <entry key="app/src/main/res/layout/fragment_todo_list.xml" value="0.19375" />
