@@ -139,7 +139,7 @@
             android:translationY="-3.8sp" />
 
         <com.royrodriguez.transitionbutton.TransitionButton
-            android:id="@+id/signin"
+            android:id="@+id/signin_with_email_button"
             style="@style/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
             android:id="@+id/divider_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/signin"
+            android:layout_below="@id/signin_with_email_button"
             android:layout_centerInParent="true"
             android:layout_marginTop="30dp">
 
