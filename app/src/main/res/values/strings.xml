@@ -22,6 +22,9 @@
     <string name="previous">PREVIOUS</string>
     <string name="checkout_modules">Checkout Modules</string>
     <string name="syllabus_title_text">SE 4th SEMESTER 2022</string>
+    <string name="pyq_title_text">SE 4th SEMESTER PREVIOUS YEAR QUESTIONS</string>
+    <string name="pyq_2019_text">2019</string>
+    <string name="pyq_2020_text">2020</string>
     <string name="checkout_tutorials">Checkout tutorials</string>
     <string name="sign_in_title">Welcome back! \nSign in to continue</string>
     <string name="maths">MATHS</string>

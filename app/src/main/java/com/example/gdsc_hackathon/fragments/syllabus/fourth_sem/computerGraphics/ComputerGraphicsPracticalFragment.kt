@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.ScrollView
 import com.example.gdsc_hackathon.R
-import com.google.android.material.snackbar.Snackbar
-import android.app.Activity
+import com.example.gdsc_hackathon.extensions.showSnackBar
 
 
 class ComputerGraphicsPracticalFragment : Fragment() {
@@ -35,56 +34,75 @@ class ComputerGraphicsPracticalFragment : Fragment() {
         parentLayout = rootView.findViewById(R.id.computerGraphicsPracticalParentLayout)
         moduleOneLayout = rootView.findViewById(R.id.topic_one_layout)
         moduleOneLayout.setOnClickListener {
-            showSnackBar(requireActivity(), "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)")
-//            Snackbar.make(rootView, "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)", Snackbar.LENGTH_SHORT).show()
+            showSnackBar(
+                requireActivity(),
+                "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)"
+            )
         }
 
         moduleTwoLayout = rootView.findViewById(R.id.topic_two_layout)
         moduleTwoLayout.setOnClickListener {
-            showSnackBar(requireActivity(), "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)")
+            showSnackBar(
+                requireActivity(),
+                "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)"
+            )
         }
 
         moduleThreeLayout = rootView.findViewById(R.id.topic_three_layout)
         moduleThreeLayout.setOnClickListener {
-            showSnackBar(requireActivity(), "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)")
+            showSnackBar(
+                requireActivity(),
+                "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)"
+            )
         }
 
         moduleFourLayout = rootView.findViewById(R.id.topic_four_layout)
         moduleFourLayout.setOnClickListener {
-            showSnackBar(requireActivity(), "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)")
+            showSnackBar(
+                requireActivity(),
+                "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)"
+            )
         }
 
         moduleFiveLayout = rootView.findViewById(R.id.topic_five_layout)
         moduleFiveLayout.setOnClickListener {
-            showSnackBar(requireActivity(), "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)")
+            showSnackBar(
+                requireActivity(),
+                "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)"
+            )
         }
 
         moduleSixLayout = rootView.findViewById(R.id.topic_six_layout)
         moduleSixLayout.setOnClickListener {
-            showSnackBar(requireActivity(), "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)")
+            showSnackBar(
+                requireActivity(),
+                "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)"
+            )
         }
 
         moduleSevenLayout = rootView.findViewById(R.id.topic_seven_layout)
         moduleSevenLayout.setOnClickListener {
-            showSnackBar(requireActivity(), "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)")
+            showSnackBar(
+                requireActivity(),
+                "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)"
+            )
         }
 
         moduleEightLayout = rootView.findViewById(R.id.topic_eight_layout)
         moduleEightLayout.setOnClickListener {
-            showSnackBar(requireActivity(), "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)")
+            showSnackBar(
+                requireActivity(),
+                "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)"
+            )
         }
 
         moduleNineLayout = rootView.findViewById(R.id.topic_nine_layout)
         moduleNineLayout.setOnClickListener {
-            showSnackBar(requireActivity(), "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)")
+            showSnackBar(
+                requireActivity(),
+                "4th Semester hasn't start, you will be notified once Resources for this semester will be live :)"
+            )
         }
         return rootView
-    }
-
-    private fun showSnackBar(activity: Activity, message: String?) {
-        val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
-        val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_SHORT)
-        snackbar.anchorView = activity.findViewById(R.id.bottom_navigation)
-        snackbar.show()
     }
 }
