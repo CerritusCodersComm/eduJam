@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/lectureIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_baseline_video_camera_front_24"/>
+
+    <TextView
+        android:id="@+id/lectureTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/title"
+        android:layout_alignStart="@+id/lectureIcon"
+        android:layout_marginStart="60dp"
+        android:textSize="24sp"
+        android:text="LECTURE TITLE"/>
+
+    <TextView
+        android:id="@+id/lectureDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/desc"
+        android:layout_below="@+id/lectureTitle"
+        android:layout_alignStart="@id/lectureTitle"
+        android:layout_alignRight="@id/lectureTime"
+        android:text="22 DEC, 2021"/>
+
+    <TextView
+        android:id="@+id/lectureTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/desc"
+        android:layout_below="@+id/lectureTitle"
+        android:layout_alignStart="@+id/lectureDate"
+        android:layout_marginStart="160dp"
+        android:text="TIME: 16:00"/>
+
+
+</RelativeLayout>

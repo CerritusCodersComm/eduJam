@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Fourth Sem Computer Networks Modules-->
+    Module 1
+    <string name="fourth_sem_computer_networks_module_one">Basics of Digital Communication</string>
+    <string name="fourth_sem_computer_networks_module_one_topic_one_title">Theoretical basis for communication</string>
+    <string name="fourth_sem_computer_networks_module_one_topic_two_title">Maximum data rate of a channel</string>
+    <string name="fourth_sem_computer_networks_module_one_topic_three_title">Transmission impairments</string>
+    <string name="fourth_sem_computer_networks_module_one_topic_four_title">Attenuation distortion</string>
+    <string name="fourth_sem_computer_networks_module_one_topic_five_title">Delay distortion, Noise</string>
+    <string name="fourth_sem_computer_networks_module_one_topic_six_title">Data transmission modes</string>
+    <string name="fourth_sem_computer_networks_module_one_topic_seven_title">Simplex, Half duplex and full duplex</string>
+    <string name="fourth_sem_computer_networks_module_one_topic_eight_title">Synchronous and Asynchronous transmission</string>
+
+    Module 2
+    <string name="fourth_sem_computer_networks_module_two">Introduction to Computer Networks</string>
+    <string name="fourth_sem_computer_networks_module_two_topic_one_title">Definition of a Computer Network</string>
+    <string name="fourth_sem_computer_networks_module_two_topic_two_title">Components of a computer network</string>
+    <string name="fourth_sem_computer_networks_module_two_topic_three_title">Classification of networks</string>
+    <string name="fourth_sem_computer_networks_module_two_topic_four_title">Network types, Network topologies, networking devices.</string>
+    <string name="fourth_sem_computer_networks_module_two_topic_five_title">Network Software and Network Standardization </string>
+    <string name="fourth_sem_computer_networks_module_two_topic_six_title">Network Software  </string>
+    <string name="fourth_sem_computer_networks_module_two_topic_seven_title">Protocol hierarchy, Design issues for the layers, Service Primitives </string>
+    <string name="fourth_sem_computer_networks_module_two_topic_eight_title">Comparison of the OSI Reference Model </string>
+    <string name="fourth_sem_computer_networks_module_two_topic_nine_title">TCP/IP Reference Mode</string>
+
+    Module 3
+    <string name="fourth_sem_computer_networks_module_three">Physical Layer</string>
+    <string name="fourth_sem_computer_networks_module_three_topic_one_title">Switching Techniques</string>
+    <string name="fourth_sem_computer_networks_module_three_topic_two_title">Comparison of switching techniques</string>
+    <string name="fourth_sem_computer_networks_module_three_topic_three_title">Multiplexing</string>
+    <string name="fourth_sem_computer_networks_module_three_topic_four_title">Transmission Medium</string>
+    <string name="fourth_sem_computer_networks_module_three_topic_five_title">DLL Design Issues</string>
+
+    Module 4
+    <string name="fourth_sem_computer_networks_module_four">Error Detection and Correction</string>
+    <string name="fourth_sem_computer_networks_module_four_topic_one_title">Elementary Data Link protocols for flow control</string>
+    <string name="fourth_sem_computer_networks_module_four_topic_two_title">Channel Allocation problem</string>
+    <string name="fourth_sem_computer_networks_module_four_topic_three_title">Types of Multiple Access Protocol</string>
+    <string name="fourth_sem_computer_networks_module_four_topic_four_title">Local Area Networks - Ethernet (802.3)</string>
+
+    Module 5
+    <string name="fourth_sem_computer_networks_module_five">Network Layer</string>
+    <string name="fourth_sem_computer_networks_module_five_topic_one_title">Design issues of Network layer</string>
+    <string name="fourth_sem_computer_networks_module_five_topic_two_title">Routing: Principles of Routing</string>
+    <string name="fourth_sem_computer_networks_module_five_topic_three_title">Types of routing algorithms</string>
+    <string name="fourth_sem_computer_networks_module_five_topic_four_title">Comparison of routing algorithms</string>
+    <string name="fourth_sem_computer_networks_module_five_topic_five_title">Protocols at network layer </string>
+    <string name="fourth_sem_computer_networks_module_five_topic_six_title">Congestion: Factors of congestion and Congestion control algorithms </string>
+
+    Module 6
+    <string name="fourth_sem_computer_networks_module_six">Transport Layer, Application LayerTransport Layer and Application Layer</string>-->
+    <string name="fourth_sem_computer_networks_module_six_topic_one_title">The Transport Service: Transport service primitives</string>
+    <string name="fourth_sem_computer_networks_module_six_topic_two_title">Connection management (Handshake), UDP, TCP, TCP Flow control (sliding Window)</string>
+    <string name="fourth_sem_computer_networks_module_six_topic_three_title">TCP Congestion Control: Slow Start</string>
+    <string name="fourth_sem_computer_networks_module_six_topic_four_title">Application layer: DNS: Name Space, Resource Record and Types of Name Server</string>
+
+
+    Practicals
+    <string name="computer_networks_practical_title">Computer Networks Practicals</string>
+    <string name="computer_networks_practical_one">Practical 1 - Classify the types of cabling used in networking </string>
+    <string name="computer_networks_practical_two">Practical 2 - Survey various networking devices using Packet Tracer</string>
+    <string name="computer_networks_practical_three">Practical 3 - Apply CRC/ Hamming code for error detection and correction</string>
+    <string name="computer_networks_practical_four">Practical 4 - Explain Basic Networking Operations and troubleshooting</string>
+    <string name="computer_networks_practical_five">Practical 5 - Prepare a network and configure it for IP addressing, subnetting, masking</string>
+    <string name="computer_networks_practical_six">Practical 6 - Demonstrate working of Static Routing Protocols</string>
+    <string name="computer_networks_practical_seven">Practical 7 - Demonstrate working of Dynamic Routing Protocols</string>
+    <string name="computer_networks_practical_eight">Practical 8 - Show implementation of Socket programming using TCP and Remote Login using Telnet/SSH </string>
+    <string name="computer_networks_case_study">Case Study - \n
+    1. Analyze Stop and wait protocol/ sliding window (selective repeat / Go back N) in NS2 \n
+    2. Simulate congestion control (leaky bucket / token bucket) in NS2</string>
+</resources>

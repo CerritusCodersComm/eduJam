@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mathsModuleOneParentLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/light_grey">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/moduleOneLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:id="@+id/moduleOneTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                style="@style/title"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_four" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topic_one_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/moduleOneLayout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_one_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_four_topic_one_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_one_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_one_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_one_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_one_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topic_two_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_one_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_two_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_four_topic_two_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_two_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_two_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_two_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_two_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topic_three_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_two_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_three_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_four_topic_three_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_three_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_three_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_three_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_three_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topic_four_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_three_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_four_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_four_topic_four_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_four_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_four_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_four_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_four_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topic_five_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_four_layout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/topic_five_title"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/fourth_sem_design_and_analysis_of_algorithm_module_four_topic_five_title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/topic_five_time_to_read"
+                style="@style/desc"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/topic_five_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="X hours"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/topic_five_discussion_count"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/topic_five_time_to_read"
+                android:text="0 Discussion"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/topic_five_layout"
+            android:padding="100dp" />
+
+    </RelativeLayout>
+
+</ScrollView>
