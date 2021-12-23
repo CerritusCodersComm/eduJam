@@ -32,28 +32,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-
-        mAuth = FirebaseAuth.getInstance()
-        val currentUser = mAuth.currentUser
-
-        Log.w("LOOK",currentUser?.uid+"")
-        Log.w("LOOK",currentUser?.displayName+"")
-        Log.w("LOOK",currentUser?.email+"")
-
-        val usr = hashMapOf(
-            "uid" to currentUser?.uid,
-            "name" to currentUser?.displayName,
-            "email" to currentUser?.email,
-        );
-
-        Firebase.firestore.collection("users").document(currentUser?.uid!!).set(usr)
-//            .addOnSuccessListener { documentReference ->
-//                Log.d("LOOK", "DocumentSnapshot added") }
-//            .addOnFailureListener { e ->
-//                Log.w("LOOK", "Error adding document", e)
-//            }
-
-
         val rootView: View = inflater.inflate(R.layout.fragment_home, container, false)
 
         syllabusLayout = rootView.findViewById(R.id.syllabusLayout)
