@@ -11,10 +11,10 @@ import androidx.navigation.findNavController
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.example.gdsc_hackathon.R
-import com.example.gdsc_hackathon.fragments.Practicals
 import com.google.android.material.button.MaterialButton
 
 class SyllabusFragment : Fragment() {
+
 
     /** Maths */
     private lateinit var mathsTitle: TextView
@@ -58,7 +58,11 @@ class SyllabusFragment : Fragment() {
         mathsCheckoutModulesButton.setOnClickListener {
             rootView.findNavController().navigate(R.id.mathsFragment)
         }
+
         mathsCheckoutTutorialsButton = rootView.findViewById(R.id.mathsCheckoutTutorialButton)
+        mathsCheckoutTutorialsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.mathsTutorialFragment)
+        }
 
         mathsTitle = rootView.findViewById(R.id.mathsTitle)
         mathsLayout.setOnClickListener {
@@ -99,7 +103,13 @@ class SyllabusFragment : Fragment() {
         designAnalysisOfAlgorithmsLayout = rootView.findViewById(R.id.designAnalysisOfAlgorithmsLayout)
         designAnalysisOfAlgorithmsCheckoutModulesButton = rootView.findViewById(R.id.designAnalysisOfAlgorithmsCheckoutModulesButton)
         designAnalysisOfAlgorithmsCheckoutPracticalsButton = rootView.findViewById(R.id.designAnalysisOfAlgorithmsCheckoutPracticalButton)
+        designAnalysisOfAlgorithmsCheckoutModulesButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.designAnalysisOfAlgorithmsFragment)
+        }
 
+        designAnalysisOfAlgorithmsCheckoutPracticalsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.designAnalysisOfAlgorithmsPracticalFragment)
+        }
         designAnalysisOfAlgorithmsTitle = rootView.findViewById(R.id.designAnalysisOfAlgorithmsTitle)
         designAnalysisOfAlgorithmsLayout.setOnClickListener {
             if (designAnalysisOfAlgorithmsCheckoutModulesButton.visibility == View.VISIBLE && designAnalysisOfAlgorithmsCheckoutPracticalsButton.visibility == View.VISIBLE) {
@@ -138,6 +148,14 @@ class SyllabusFragment : Fragment() {
         operatingSystemsLayout = rootView.findViewById(R.id.operatingSystemsLayout)
         operatingSystemsCheckoutModulesButton = rootView.findViewById(R.id.operatingSystemsCheckoutModulesButton)
         operatingSystemsCheckoutPracticalsButton = rootView.findViewById(R.id.operatingSystemsCheckoutPracticalButton)
+
+        operatingSystemsCheckoutModulesButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.operatingSystemsFragment)
+        }
+
+        operatingSystemsCheckoutPracticalsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.operatingSystemPracticalFragment)
+        }
 
         operatingSystemsTitle = rootView.findViewById(R.id.operatingSystemsTitle)
         operatingSystemsLayout.setOnClickListener {
@@ -178,6 +196,14 @@ class SyllabusFragment : Fragment() {
         computerNetworksCheckoutModulesButton = rootView.findViewById(R.id.computerNetworksCheckoutModulesButton)
         computerNetworksCheckoutPracticalsButton = rootView.findViewById(R.id.computerNetworksCheckoutPracticalButton)
 
+        computerNetworksCheckoutModulesButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.computerNetworksFragment)
+        }
+
+        computerNetworksCheckoutPracticalsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.computerGraphicsPracticalFragment)
+        }
+
         computerNetworksTitle = rootView.findViewById(R.id.computerNetworksTitle)
         computerNetworksLayout.setOnClickListener {
             if (computerNetworksCheckoutModulesButton.visibility == View.VISIBLE && computerNetworksCheckoutPracticalsButton.visibility == View.VISIBLE) {
@@ -217,6 +243,14 @@ class SyllabusFragment : Fragment() {
         computerGraphicsLayout = rootView.findViewById(R.id.computerGraphicsLayout)
         computerGraphicsCheckoutModulesButton = rootView.findViewById(R.id.computerGraphicsCheckoutModulesButton)
         computerGraphicsCheckoutPracticalsButton = rootView.findViewById(R.id.computerGraphicsCheckoutPracticalButton)
+
+        computerGraphicsCheckoutModulesButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.computerGraphicsFragment)
+        }
+
+        computerGraphicsCheckoutPracticalsButton.setOnClickListener {
+            rootView.findNavController().navigate(R.id.computerGraphicsPracticalFragment)
+        }
 
         computerGraphicsTitle = rootView.findViewById(R.id.computerGraphicsTitle)
         computerGraphicsLayout.setOnClickListener {

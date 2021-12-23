@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Fourth Sem Design and Analysis of Algorithm  Modules-->
+    Module 1
+    <string name="fourth_sem_operating_system_module_one">Overview of Operating System</string>
+    <string name="fourth_sem_operating_system_module_one_topic_one_title">Operating System Objectives and Functions</string>
+    <string name="fourth_sem_operating_system_module_one_topic_two_title">The Evolution of Operating Systems</string>
+    <string name="fourth_sem_operating_system_module_one_topic_three_title">Operating System Structures</string>
+    <string name="fourth_sem_operating_system_module_one_topic_four_title">System Calls</string>
+    <string name="fourth_sem_operating_system_module_one_topic_five_title">Developments Leading to Modern Operating Systems</string>
+    <string name="fourth_sem_operating_system_module_one_topic_six_title">Virtual Machines</string>
+
+    Module 2
+    <string name="fourth_sem_operating_system_module_two">Process Management Process: Concept of a Process</string>
+    <string name="fourth_sem_operating_system_module_two_topic_two_title">Process States</string>
+    <string name="fourth_sem_operating_system_module_two_topic_three_title">Process Description</string>
+    <string name="fourth_sem_operating_system_module_two_topic_four_title">Execution of the Operating System</string>
+    <string name="fourth_sem_operating_system_module_two_topic_five_title">Threads: Processes and Threads </string>
+    <string name="fourth_sem_operating_system_module_two_topic_six_title">Concept of Multithreading </string>
+    <string name="fourth_sem_operating_system_module_two_topic_seven_title">Types of Threads </string>
+    <string name="fourth_sem_operating_system_module_two_topic_eight_title">Thread programming Using Pthreads </string>
+    <string name="fourth_sem_operating_system_module_two_topic_nine_title">Scheduling: CPU Scheduling </string>
+    <string name="fourth_sem_operating_system_module_two_topic_ten_title">Thread Scheduling </string>
+
+    Module 3
+    <string name="fourth_sem_operating_system_module_three">Concurrency Control and Deadlock Handling Concurrency Control:</string>
+    <string name="fourth_sem_operating_system_module_three_topic_one_title">Principles of Concurrency</string>
+    <string name="fourth_sem_operating_system_module_three_topic_two_title">Requirements for Mutual Exclusion</string>
+    <string name="fourth_sem_operating_system_module_three_topic_three_title">Mutual Exclusion</string>
+    <string name="fourth_sem_operating_system_module_three_topic_four_title">Hardware Support</string>
+    <string name="fourth_sem_operating_system_module_three_topic_five_title">Operating System Support (Semaphores and Mutex)</string>
+    <string name="fourth_sem_operating_system_module_three_topic_six_title">Programming Language Support (Monitors) </string>
+    <string name="fourth_sem_operating_system_module_three_topic_seven_title">Classical synchronization problems</string>
+    <string name="fourth_sem_operating_system_module_three_topic_eight_title">Readers/Writers Problem</string>
+    <string name="fourth_sem_operating_system_module_three_topic_nine_title">Producer and Consumer problem</string>
+    <string name="fourth_sem_operating_system_module_three_topic_ten_title">Inter-process communication</string>
+    <string name="fourth_sem_operating_system_module_three_topic_eleven_title">Deadlock: Principles of Deadlock</string>
+    <string name="fourth_sem_operating_system_module_three_topic_twelve_title">Deadlock Modeling</string>
+    <string name="fourth_sem_operating_system_module_three_topic_thirteen_title">Strategies to deal with deadlock: The Ostrich Algorithm</string>
+
+    Module 4
+    <string name="fourth_sem_operating_system_module_four">Memory Management</string>
+    <string name="fourth_sem_operating_system_module_four_topic_one_title">Memory Management: Memory Management Requirements</string>
+    <string name="fourth_sem_operating_system_module_four_topic_two_title">Memory Partitioning: Fixed Partitioning, Dynamic Partitioning, Buddy System, Relocation, Paging, Segmentation</string>
+    <string name="fourth_sem_operating_system_module_four_topic_three_title">Virtual Memory: What is Virtual Memory</string>
+    <string name="fourth_sem_operating_system_module_four_topic_four_title">Demand Paging</string>
+    <string name="fourth_sem_operating_system_module_four_topic_five_title">Page Replacement </string>
+    <string name="fourth_sem_operating_system_module_four_topic_six_title">Allocation</string>
+    <string name="fourth_sem_operating_system_module_four_topic_seven_title">Allocating Kernel Memory</string>
+
+    Module 5
+    <string name="fourth_sem_operating_system_module_five">Input / Output And File Management</string>
+    <string name="fourth_sem_operating_system_module_five_topic_one_title">I/O Management and Disk Scheduling: I/O Devices</string>
+    <string name="fourth_sem_operating_system_module_five_topic_two_title">Organization of the I/O Function</string>
+    <string name="fourth_sem_operating_system_module_five_topic_three_title">Operating System Design Issues I/O Buffering</string>
+    <string name="fourth_sem_operating_system_module_five_topic_four_title">Disk Scheduling(FIFO, SSTF, SCAN, C-SCAN, LOOK, C-LOOK)</string>
+    <string name="fourth_sem_operating_system_module_five_topic_five_title">Disk Cache</string>
+    <string name="fourth_sem_operating_system_module_five_topic_six_title">File Management: Overview</string>
+    <string name="fourth_sem_operating_system_module_five_topic_seven_title">File Organization and Access</string>
+    <string name="fourth_sem_operating_system_module_five_topic_eight_title">File Directories</string>
+    <string name="fourth_sem_operating_system_module_five_topic_nine_title">File Sharing</string>
+    <string name="fourth_sem_operating_system_module_five_topic_ten_title">Record Blocking</string>
+    <string name="fourth_sem_operating_system_module_five_topic_eleven_title">Secondary Storage Management</string>
+
+    Module 6
+    <string name="fourth_sem_operating_system_module_six">Case Study: LINUX Operating System</string>-->
+    <string name="fourth_sem_operating_system_module_six_topic_one_title">Overview of Linux</string>
+    <string name="fourth_sem_operating_system_module_six_topic_two_title">Architecture</string>
+    <string name="fourth_sem_operating_system_module_six_topic_three_title">Process management</string>
+    <string name="fourth_sem_operating_system_module_six_topic_four_title">Memory Management</string>
+    <string name="fourth_sem_operating_system_module_six_topic_five_title">I/O Management</string>
+    <string name="fourth_sem_operating_system_module_six_topic_six_title">Basic shell commands</string>
+    <string name="fourth_sem_operating_system_module_six_topic_seven_title">Shell as a scripting language</string>
+
+
+    Practicals
+    <string name="operating_system_practical_title">Operating Systems Practicals</string>
+    <string name="operating_system_practical_one">Practical 1 - Explore LINUX Commands (Basic and Advanced) </string>
+    <string name="operating_system_practical_two">Practical 2 - Write a program to implement any two CPU scheduling algorithms like FCFS, SJF, Round Robin etc.</string>
+    <string name="operating_system_practical_three">Practical 3 - Write a program to implement Dinning Philosopher Problem</string>
+    <string name="operating_system_practical_four">Practical 4 - Write a program to implement Banker’s algorithm.</string>
+    <string name="operating_system_practical_five">Practical 5 - Build a program to implement FIFO and LRU page replacement policies</string>
+    <string name="operating_system_practical_six">Practical 6 - Practical 6 - Build a program to implement SRTF and Priority page replacement policies</string>
+    <string name="operating_system_practical_seven">Practical 7 - Develop a program to implement dynamic partitioning placement algorithms</string>
+    <string name="operating_system_practical_eight">Practical 8 - Build a program to implement FCFS and SSTF disk scheduling algorithm</string>
+    <string name="operating_system_case_study">Case Study - \n\t 1. Windows Operating System.\n 2. LINUX Operating System.\n 3. Multiprocessor Scheduling and Linux Scheduling\n
+</string>
+
+</resources>

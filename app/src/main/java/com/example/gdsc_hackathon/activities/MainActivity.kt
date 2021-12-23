@@ -16,7 +16,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlin.math.log
 import com.google.android.material.navigation.NavigationView as NavigationView
-
+import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         //NavigationUI.setupWithNavController(navigation_view,navController)
         NavigationUI.setupWithNavController(navigationView, navController)
+
 
     }
 
