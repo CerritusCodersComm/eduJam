@@ -9,14 +9,17 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.awaitAll
 import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
 import com.example.gdsc_hackathon.dataModel.RecentLectureModel
 import java.util.ArrayList
+
+import com.example.gdsc_hackathon.network.Api
+import com.google.gson.JsonObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class HomeFragment : Fragment() {
     private lateinit var syllabusLayout: LinearLayout
@@ -28,10 +31,14 @@ class HomeFragment : Fragment() {
     private lateinit var academicCalendarLayout: LinearLayout
     private lateinit var moreLayout: LinearLayout
     private lateinit var recyclerView: RecyclerView
+    private lateinit var quote: TextView
+    private lateinit var quoteAuthor: TextView
+    private lateinit var adapter: RecentLectureAdapter
+    private lateinit var progressBar: ProgressBar
 
     private lateinit var mAuth : FirebaseAuth
 
-
+//    https://api.quotable.io/random?tags=famous-quotes|friendship|wisdom|technology&maxLen=250
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -93,11 +100,40 @@ class HomeFragment : Fragment() {
             lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "Item $i", "1 JAN","TIME: 16:00" ))
         }
 
-        val adapter = RecentLectureAdapter(lectures)
+        adapter = RecentLectureAdapter(lectures)
+
         // Setting the Adapter with the recyclerview
         recyclerView.adapter = adapter
 
+        quote = rootView.findViewById(R.id.quote)
+        quoteAuthor = rootView.findViewById(R.id.quote_author)
+
+        progressBar = rootView.findViewById(R.id.progress_bar)
+        getQuotes()
+
         return rootView
+    }
+
+    private fun getQuotes(){
+
+        val apiInterface = Api.create().getQuotes()
+        progressBar.visibility =View.VISIBLE
+        apiInterface.enqueue( object : Callback<JsonObject>{
+            override fun onResponse(call: Call<JsonObject>?, response: Response<JsonObject>?) {
+
+                if(response?.body() != null){
+                    val myheroList: JsonObject? = response.body()
+                    progressBar.visibility =View.INVISIBLE
+                    quote.text = myheroList!!.get("content").toString()
+                    val dash = "-"
+                    quoteAuthor.text = dash.plus(myheroList.get("author").toString().subSequence(1,myheroList.get("author").toString().length-1))
+                }
+            }
+
+            override fun onFailure(call: Call<JsonObject>?, t: Throwable?) {
+                Log.w("MyTag", "requestFailed", t);
+            }
+        })
     }
 }
 
