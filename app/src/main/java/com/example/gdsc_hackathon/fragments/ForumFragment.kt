@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.adapters.QuestionAdapter
 import com.example.gdsc_hackathon.dataModel.Question
+import com.example.gdsc_hackathon.dataModel.Reply
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import java.text.SimpleDateFormat
@@ -76,7 +76,22 @@ class ForumFragment : Fragment() {
                 adapter.deleteItem(viewHolder.adapterPosition)
             }
         }).attachToRecyclerView(recyclerView)
+
+        adapter.setOnItemClickListener(object : QuestionAdapter.OnItemClickListener {
+            override fun onButtonClick(documentSnapshot: String, position: Int, reply: String?) {
+                val dateFormat = SimpleDateFormat("dd.MM.yyyy HH.mm.ss")
+                val currentDate = dateFormat.format(Date())
+                val replies = documentSnapshot?.let { Reply(it, reply!!, "anam", currentDate) }
+                if (documentSnapshot != null) {
+                    if (replies != null) {
+                        quesRef.document(documentSnapshot).collection("Replies").add(replies)
+                    }
+                }
+            }
+
+        })
     }
+
 
     //Adds new Question
     private fun addQuestion() {
