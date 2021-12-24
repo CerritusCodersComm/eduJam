@@ -1,60 +1,98 @@
 package com.example.gdsc_hackathon.fragments
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.activities.AddToDoItem
+import com.example.gdsc_hackathon.adapters.ToDoListAdapter
+import com.example.gdsc_hackathon.dataModel.ToDoModel
+import com.example.gdsc_hackathon.databinding.FragmentTodoListBinding
+import java.io.BufferedReader
+import java.io.File
+import java.io.FileInputStream
+import java.io.InputStreamReader
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TodoListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class TodoListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+class TodoListFragment : Fragment(), View.OnClickListener {
+    private lateinit var binding: FragmentTodoListBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_todo_list, container, false)
+    ): View {
+        binding = FragmentTodoListBinding.inflate(inflater, container, false)
+        binding.floatingActionButtonToAddItemList.setOnClickListener(this)
+        getTodoListData()
+
+
+
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TodoListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TodoListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun getTodoListData() {
+        binding.recycleViewForTodoList.layoutManager = LinearLayoutManager(activity)
+        val path = activity?.filesDir?.absolutePath?.toString()
+        if (path == null) {
+            Toast.makeText(activity, "Files are not getting fetch", Toast.LENGTH_LONG).show()
+        }
+        else {
+            val toDoList = mutableListOf<ToDoModel>()
+            var fileInputStream: FileInputStream?
+            val stringBuilder: StringBuilder = StringBuilder()
+            var text: String?
+            Log.d("Files", "Path: $path")
+            val directory = File(path)
+            Log.d("Files", "Path: $path")
+            val files = directory.listFiles()
+            Log.d("Files", "Size: " + files?.size)
+            if (files != null)
+                for (i in files.indices) {
+                    fileInputStream = context?.openFileInput(files[i].name)
+                    val inputStreamReader = InputStreamReader(fileInputStream)
+                    val bufferedReader = BufferedReader(inputStreamReader)
+                    while (run {
+                            text = bufferedReader.readLine()
+                            text
+                        } != null) {
+                        stringBuilder.append(text)
+                    }
+                    val todo = ToDoModel(files[i].name, stringBuilder.toString())
+                    toDoList.add(todo)
+                    Log.d("Files", "FileName:" + files[i].name)
                 }
-            }
+            val adapter = activity?.let { ToDoListAdapter(it, toDoList) }
+            binding.recycleViewForTodoList.adapter = adapter
+
+        }
+
     }
+
+    override fun onClick(p0: View?) {
+
+        when (p0?.id) {
+            R.id.floating_action_button_to_add_item_list -> {
+
+                activity?.let {
+                    val intent = Intent(it, AddToDoItem::class.java)
+                    it.startActivity(intent)
+                }
+
+            }
+        }
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getTodoListData()
+    }
+
 }

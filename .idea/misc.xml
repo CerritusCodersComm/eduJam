@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/auth_button_background.xml" value="0.146" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/background_border.xml" value="0.2445" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.146" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/academic_recycler_view_event.xml" value="0.11413043478260869" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/activity_add_to_do_item.xml" value="0.264" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/blank_fragment.xml" value="0.1160081053698075" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/content_add_to_do_item.xml" value="0.264" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_academic_calendar.xml" value="0.20885416666666667" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_todo_list.xml" value="0.176" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/single_to_do_item.xml" value="0.22826086956521738" />
         <entry key="app/src/main/res/drawable/auth_button_background.xml" value="0.1925925925925926" />
         <entry key="app/src/main/res/drawable/background_border.xml" value="0.1824074074074074" />
         <entry key="app/src/main/res/drawable/google_icon_28px.xml" value="0.1824074074074074" />

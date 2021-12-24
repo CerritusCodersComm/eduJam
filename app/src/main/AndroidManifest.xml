@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gdsc_hackathon">
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,19 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GDSC_HACKATHON">
-
-        <activity android:name=".activities.SignInActivity"
+        <activity
+            android:name=".activities.AddToDoItem"
+            android:exported="false"
+            android:label="@string/title_activity_add_to_do_item" />
+        <activity
+            android:name=".activities.SignInActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize"/>
-
-        <activity android:name=".activities.SignUpActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.SignUpActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize"/>
-
-        <activity android:name=".activities.PersonalInformationActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activities.PersonalInformationActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize"/>
-
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true"
@@ -32,6 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
