@@ -67,7 +67,8 @@
     <string name="computer_networks_practical_six">Practical 6 - Demonstrate working of Static Routing Protocols</string>
     <string name="computer_networks_practical_seven">Practical 7 - Demonstrate working of Dynamic Routing Protocols</string>
     <string name="computer_networks_practical_eight">Practical 8 - Show implementation of Socket programming using TCP and Remote Login using Telnet/SSH </string>
-    <string name="computer_networks_case_study">Case Study - \n
-    1. Analyze Stop and wait protocol/ sliding window (selective repeat / Go back N) in NS2 \n
-    2. Simulate congestion control (leaky bucket / token bucket) in NS2</string>
+    <string name="computer_networks_case_study">Case Study -
+        \n1. Analyze Stop and wait protocol/ sliding window (selective repeat / Go back N) in NS2
+        \n2. Simulate congestion control (leaky bucket / token bucket) in NS2
+    </string>
 </resources>

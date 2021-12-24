@@ -1,6 +1,7 @@
 package com.example.gdsc_hackathon.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.*
@@ -8,6 +9,11 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.awaitAll
 import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
 import com.example.gdsc_hackathon.dataModel.RecentLectureModel
 import java.util.ArrayList
@@ -23,11 +29,15 @@ class HomeFragment : Fragment() {
     private lateinit var moreLayout: LinearLayout
     private lateinit var recyclerView: RecyclerView
 
+    private lateinit var mAuth : FirebaseAuth
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         val rootView: View = inflater.inflate(R.layout.fragment_home, container, false)
 
         syllabusLayout = rootView.findViewById(R.id.syllabusLayout)

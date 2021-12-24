@@ -158,7 +158,7 @@
         </RelativeLayout>
 
         <com.royrodriguez.transitionbutton.TransitionButton
-            android:id="@+id/signin"
+            android:id="@+id/signin_with_email_button"
             style="@style/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

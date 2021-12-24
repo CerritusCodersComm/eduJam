@@ -42,12 +42,12 @@
         tools:layout="@layout/fragment_holidays" />
     <fragment
         android:id="@+id/practicalFragment"
-        android:name="com.example.gdsc_hackathon.fragments.Practicals"
+        android:name="com.example.gdsc_hackathon.fragments.PracticalsFragment"
         android:label="Practicals"
         tools:layout="@layout/fragment_practicals" />
     <fragment
         android:id="@+id/previousYearPapersFragment"
-        android:name="com.example.gdsc_hackathon.fragments.PreviewYearPapers"
+        android:name="com.example.gdsc_hackathon.fragments.PreviousYearPapersFragment"
         android:label="Previous Year Papers"
         tools:layout="@layout/fragment_preview_year_papers" />
     <fragment
