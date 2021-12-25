@@ -1,13 +1,13 @@
 package com.example.gdsc_hackathon.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,8 +16,6 @@ import com.example.gdsc_hackathon.adapters.QuestionAdapter
 import com.example.gdsc_hackathon.dataModel.Question
 import com.example.gdsc_hackathon.dataModel.Reply
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -26,8 +24,8 @@ import java.util.*
 
 
 class ForumFragment : Fragment() {
-    lateinit var editTextQuestion : EditText
-    lateinit var buttonAsk: Button
+    private lateinit var editTextQuestion : EditText
+    private lateinit var buttonAsk: Button
     lateinit var recyclerView: RecyclerView
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val quesRef: CollectionReference = db.collection("Questions")
@@ -36,7 +34,7 @@ class ForumFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         val rootView: View = inflater.inflate(R.layout.fragment_forum, container, false)
 
@@ -44,7 +42,7 @@ class ForumFragment : Fragment() {
         buttonAsk = rootView.findViewById(R.id.button_ask)
         recyclerView= rootView.findViewById(R.id.recycler_view_questions)
         setUpRecyclerView()
-        buttonAsk.setOnClickListener(View.OnClickListener { addQuestion() })
+        buttonAsk.setOnClickListener { addQuestion() }
         return rootView
     }
 
@@ -73,20 +71,19 @@ class ForumFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                adapter.deleteItem(viewHolder.adapterPosition)
+                adapter.deleteItem(viewHolder.absoluteAdapterPosition)
             }
         }).attachToRecyclerView(recyclerView)
 
         adapter.setOnItemClickListener(object : QuestionAdapter.OnItemClickListener {
             override fun onButtonClick(documentSnapshot: String, position: Int, reply: String?) {
-                val dateFormat = SimpleDateFormat("dd.MM.yyyy HH.mm.ss")
+                val dateFormat = SimpleDateFormat(
+                    "d MMM yyyy HH.mm.ss",
+                    Locale.getDefault()
+                )
                 val currentDate = dateFormat.format(Date())
-                val replies = documentSnapshot?.let { Reply(it, reply!!, "anam", currentDate) }
-                if (documentSnapshot != null) {
-                    if (replies != null) {
-                        quesRef.document(documentSnapshot).collection("Replies").add(replies)
-                    }
-                }
+                val replies = Reply(documentSnapshot, reply!!, "anam", currentDate)
+                quesRef.document(documentSnapshot).collection("Replies").add(replies)
             }
 
         })
@@ -96,14 +93,17 @@ class ForumFragment : Fragment() {
     //Adds new Question
     private fun addQuestion() {
         val question: String = editTextQuestion.text.toString()
-        val dateFormat = SimpleDateFormat("dd.MM.yyyy HH.mm.ss")
+        val dateFormat = SimpleDateFormat(
+            "d MMM yyyy HH.mm.ss",
+            Locale.getDefault()
+        )
         val currentDate = dateFormat.format(Date())
         val questionModel = Question(question, "anam", currentDate)
-        quesRef.add(questionModel).addOnSuccessListener(OnSuccessListener {
+        quesRef.add(questionModel).addOnSuccessListener {
             editTextQuestion.text = null
-        }).addOnFailureListener(OnFailureListener {
+        }.addOnFailureListener {
             Toast.makeText(activity, "Failed", Toast.LENGTH_LONG).show()
-        })
+        }
     }
 
     override fun onStart() {

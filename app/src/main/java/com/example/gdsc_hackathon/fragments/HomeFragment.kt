@@ -2,23 +2,35 @@ package com.example.gdsc_hackathon.fragments
 
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import android.widget.*
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
-import com.google.firebase.auth.FirebaseAuth
 import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
 import com.example.gdsc_hackathon.dataModel.RecentLectureModel
-import java.util.ArrayList
+
+import com.google.firebase.auth.FirebaseAuth
 
 import com.example.gdsc_hackathon.network.Api
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+
+import com.example.gdsc_hackathon.extensions.copyToClipboard
+import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
+
+
+
 
 
 class HomeFragment : Fragment() {
@@ -35,6 +47,8 @@ class HomeFragment : Fragment() {
     private lateinit var quoteAuthor: TextView
     private lateinit var adapter: RecentLectureAdapter
     private lateinit var progressBar: ProgressBar
+    private lateinit var quoteBannerLayout: RelativeLayout
+    private lateinit var  quoteList: JsonObject
 
     private lateinit var mAuth : FirebaseAuth
 
@@ -111,27 +125,45 @@ class HomeFragment : Fragment() {
         progressBar = rootView.findViewById(R.id.progress_bar)
         getQuotes()
 
+        quoteBannerLayout = rootView.findViewById(R.id.quote_banner_layout)
+        quoteBannerLayout.setOnClickListener {
+            getQuotes()
+        }
+        quoteBannerLayout.setOnLongClickListener {
+            copyQuote()
+            true // <- set to true
+        }
         return rootView
     }
 
-    private fun getQuotes(){
+    private fun copyQuote() {
+        requireContext().copyToClipboard(quote.text.toString())
+        showSnackBarWithAction(
+            requireActivity(),
+            "Quote Copied!",
+            "Share Quote?",
+            quote.text.toString()
+        )
+    }
 
+
+    private fun getQuotes(){
         val apiInterface = Api.create().getQuotes()
         progressBar.visibility =View.VISIBLE
         apiInterface.enqueue( object : Callback<JsonObject>{
             override fun onResponse(call: Call<JsonObject>?, response: Response<JsonObject>?) {
 
                 if(response?.body() != null){
-                    val myheroList: JsonObject? = response.body()
+                    quoteList = response.body()!!
                     progressBar.visibility =View.INVISIBLE
-                    quote.text = myheroList!!.get("content").toString()
+                    quote.text = quoteList.get("content").toString()
                     val dash = "-"
-                    quoteAuthor.text = dash.plus(myheroList.get("author").toString().subSequence(1,myheroList.get("author").toString().length-1))
+                    quoteAuthor.text = dash.plus(quoteList.get("author").toString().subSequence(1,quoteList.get("author").toString().length-1))
                 }
             }
 
             override fun onFailure(call: Call<JsonObject>?, t: Throwable?) {
-                Log.w("MyTag", "requestFailed", t);
+                Log.w("MyTag", "requestFailed", t)
             }
         })
     }
