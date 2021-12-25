@@ -24,14 +24,12 @@ import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 import com.example.gdsc_hackathon.extensions.copyToClipboard
 import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
-
-
-
-
+import com.example.gdsc_hackathon.utils.NetworkUtils
+import kotlin.collections.ArrayList
+import kotlin.random.Random
 
 class HomeFragment : Fragment() {
     private lateinit var syllabusLayout: LinearLayout
@@ -52,7 +50,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var mAuth : FirebaseAuth
 
-//    https://api.quotable.io/random?tags=famous-quotes|friendship|wisdom|technology&maxLen=250
+    private lateinit var errorQuoteSaverList :ArrayList<String>
+    private var  randomIndex :Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +59,14 @@ class HomeFragment : Fragment() {
     ): View {
 
         val rootView: View = inflater.inflate(R.layout.fragment_home, container, false)
+        errorQuoteSaverList  = ArrayList()
+        errorQuoteSaverList.add("\"Accept the things to which fate binds you and love the people with whom fate brings you together but do so with all your heart.\"")
+        errorQuoteSaverList.add("\"Life shrinks or expands in proportion to one's courage.\"")
+        errorQuoteSaverList.add("\"The ultimate promise of technology is to make us master of a world that we command by the push of a button.\"")
+        errorQuoteSaverList.add("\"Well begun is half done.\"")
+        errorQuoteSaverList.add("\"If I am not for myself, who will be for me? If I am not for others, what am I? And if not now, when?\"")
+
+         randomIndex = Random.nextInt(errorQuoteSaverList.size);
 
         syllabusLayout = rootView.findViewById(R.id.syllabusLayout)
         syllabusLayout.setOnClickListener {
@@ -148,6 +155,13 @@ class HomeFragment : Fragment() {
 
 
     private fun getQuotes(){
+        val dash = "-"
+        if(!NetworkUtils.isNetworkAvailable(requireContext()))
+        {
+            quote.text = getString(R.string.no_internet_connection_quote_warning)
+            quoteAuthor.text= dash.plus(getString(R.string.developers))
+            return
+        }
         val apiInterface = Api.create().getQuotes()
         progressBar.visibility =View.VISIBLE
         apiInterface.enqueue( object : Callback<JsonObject>{
@@ -156,9 +170,14 @@ class HomeFragment : Fragment() {
                 if(response?.body() != null){
                     quoteList = response.body()!!
                     progressBar.visibility =View.INVISIBLE
-                    quote.text = quoteList.get("content").toString()
-                    val dash = "-"
-                    quoteAuthor.text = dash.plus(quoteList.get("author").toString().subSequence(1,quoteList.get("author").toString().length-1))
+                    if(quoteList.get("length").asInt >150){
+                        quote.text=   errorQuoteSaverList[randomIndex]
+                        quoteAuthor.text = dash.plus("definitely not us")
+                    }
+                    else{
+                        quote.text = quoteList.get("content").toString()
+                        quoteAuthor.text = dash.plus(quoteList.get("author").toString().subSequence(1,quoteList.get("author").toString().length-1))
+                    }
                 }
             }
 
@@ -167,5 +186,6 @@ class HomeFragment : Fragment() {
             }
         })
     }
+
 }
 

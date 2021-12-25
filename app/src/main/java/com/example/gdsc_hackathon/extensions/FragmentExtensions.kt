@@ -10,12 +10,10 @@ import androidx.fragment.app.Fragment
 import com.example.gdsc_hackathon.R
 import com.google.android.material.snackbar.Snackbar
 import android.content.Intent
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
-
-
-
-
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
+import android.util.Log
 
 fun Fragment.closeKeyboard() {
     val inputMethodManager =
@@ -37,7 +35,7 @@ fun Fragment.showSnackBar(activity: Activity, message: String?) {
 
 fun Fragment.showSnackBarWithAction(activity: Activity, message: String?, actionMessage: String?, sendMessage: String?) {
     val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
-    val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_SHORT)
+    val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_LONG)
     snackbar.setAction(actionMessage){
         val share = Intent(Intent.ACTION_SEND)
         share.type = "text/plain"
@@ -53,4 +51,32 @@ fun Context.copyToClipboard(text: CharSequence){
     val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText("label",text)
     clipboard.setPrimaryClip(clip)
+}
+
+fun Context.isOnline(context: Context): Boolean {
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val capabilities =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+        } else {
+            TODO("VERSION.SDK_INT < M")
+        }
+    if (capabilities != null) {
+        when {
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                return true
+            }
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                return true
+            }
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                return true
+            }
+        }
+    }
+    return false
 }

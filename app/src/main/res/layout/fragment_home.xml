@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white">
+    android:background="@color/white_cario">
 
     <RelativeLayout
         android:id="@+id/quote_banner_layout"
@@ -229,7 +229,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Previous Year Papers" />
+                    android:text="@string/previous_year_papers_text" />
             </LinearLayout>
 
             <LinearLayout
@@ -288,8 +288,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/dashboard_layout"
-        android:layout_marginTop="20dp"
-        android:background="@color/white">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:id="@+id/recent_lectures_title"
@@ -301,8 +300,7 @@
             android:layout_marginTop="10dp"
             android:gravity="top"
             android:fontFamily="@font/poppins"
-
-            android:text="Recent Lectures"
+            android:text="@string/recent_lectures_text"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
@@ -310,8 +308,8 @@
             android:id="@+id/recent_lectures_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/academic_recycler_view_event"
-            android:layout_below="@id/recent_lectures_title" />
+            android:layout_below="@id/recent_lectures_title"
+            tools:listitem="@layout/academic_recycler_view_event" />
     </RelativeLayout>
 
 

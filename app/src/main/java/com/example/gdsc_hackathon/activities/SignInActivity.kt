@@ -122,6 +122,7 @@ class SignInActivity : AppCompatActivity() {
                     intent.putExtra("email",email)
                     intent.putExtra("password",password)
                     mAuth.signOut()
+                    googleSignInClient.signOut()
                     startActivity(intent)
                     finish()
                 }

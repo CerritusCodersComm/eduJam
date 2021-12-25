@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_calendar_month_48.xml" value="0.12962962962962962" />
         <entry key="app/src/main/res/drawable/ic_baseline_download_24.xml" value="0.36614583333333334" />
         <entry key="app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.18518518518518517" />
+        <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_video_camera_front_24.xml" value="0.2921875" />
         <entry key="app/src/main/res/drawable/line.xml" value="0.1925925925925926" />
         <entry key="app/src/main/res/drawable/primary_background.xml" value="0.22" />
@@ -54,6 +55,7 @@
         <entry key="app/src/main/res/layout/fragment_forum.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_holidays.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19207317073170732" />
+        <entry key="app/src/main/res/layout/fragment_lecture_video_player.xml" value="0.17135416666666667" />
         <entry key="app/src/main/res/layout/fragment_maths.xml" value="0.1344984802431611" />
         <entry key="app/src/main/res/layout/fragment_maths_module_five.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/fragment_maths_module_four.xml" value="0.23645833333333333" />
@@ -77,11 +79,13 @@
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_syllabus.xml" value="0.425531914893617" />
         <entry key="app/src/main/res/layout/fragment_todo_list.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_video_lectures.xml" value="0.1" />
         <entry key="app/src/main/res/layout/holidays_recycler_view_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/main_tab.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.20923913043478262" />
         <entry key="app/src/main/res/layout/personal_information_activity.xml" value="0.33" />
         <entry key="app/src/main/res/layout/recycler_view_recent_lecture.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/recycler_view_video_lecture.xml" value="0.5" />
         <entry key="app/src/main/res/layout/sign_in_activity.xml" value="0.33" />
         <entry key="app/src/main/res/layout/sign_up_activity.xml" value="0.30303030303030304" />
         <entry key="app/src/main/res/layout/simple_list_item_1.xml" value="0.16875" />
@@ -102,7 +106,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.33" />
+        <option name="scale" value="0.1" />
       </ProjectState>
     </option>
   </component>

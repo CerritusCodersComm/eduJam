@@ -5,5 +5,4 @@ data class QuoteModel(
     var _id: String,
     var content: String,
     var author: String,
-    var length: Int
 )
