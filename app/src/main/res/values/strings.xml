@@ -43,6 +43,9 @@
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="practical_title_text">SE 4th Semester Practcals 2022</string>
-
+    <string name="add_todo">Add TODO</string>
+    <string name="to_edit">TO Edit</string>
+    <string name="add_to_do_item">Add To do item</string>
+    <string name="add_new_todo">Add New Todo</string>
 
 </resources>
