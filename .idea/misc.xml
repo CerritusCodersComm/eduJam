@@ -55,7 +55,7 @@
         <entry key="app/src/main/res/layout/fragment_design_analysis_of_algorithms_module_three.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_design_analysis_of_algorithms_module_two.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_design_analysis_of_algorithms_practicals.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_forum.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_forum.xml" value="0.4947916666666667" />
         <entry key="app/src/main/res/layout/fragment_holidays.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19207317073170732" />
         <entry key="app/src/main/res/layout/fragment_lecture_video_player.xml" value="0.22" />
@@ -87,8 +87,10 @@
         <entry key="app/src/main/res/layout/main_tab.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.20923913043478262" />
         <entry key="app/src/main/res/layout/personal_information_activity.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/question_item.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/recycler_view_recent_lecture.xml" value="0.5" />
         <entry key="app/src/main/res/layout/recycler_view_video_lecture.xml" value="0.3514056224899598" />
+        <entry key="app/src/main/res/layout/reply_item.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/sign_in_activity.xml" value="0.33" />
         <entry key="app/src/main/res/layout/sign_up_activity.xml" value="0.30303030303030304" />
         <entry key="app/src/main/res/layout/simple_list_item_1.xml" value="0.16875" />

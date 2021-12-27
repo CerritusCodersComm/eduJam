@@ -1,9 +1,9 @@
 package com.example.gdsc_hackathon.activities
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -12,12 +12,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.utils.hideSoftKeyboard
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
-import kotlin.math.log
 import com.google.android.material.navigation.NavigationView as NavigationView
-import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
 
@@ -41,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
         navigationView = findViewById(R.id.navigation_view)
+
 
         //NavigationUI.setupWithNavController(navigation_view,navController)
         NavigationUI.setupWithNavController(navigationView, navController)
@@ -70,6 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         //return navController.navigateUp()
+        hideSoftKeyboard(this)
         return NavigationUI.navigateUp(navController, appBarConfiguration)
     }
 }
