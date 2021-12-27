@@ -7,7 +7,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,9 +27,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class ForumFragment : Fragment() {
-    private lateinit var editTextQuestion : EditText
-    private lateinit var buttonAsk: Button
+class ForumFragment : Fragment(R.layout.fragment_forum) {
+    lateinit var editTextQuestion : EditText
+    lateinit var buttonAsk: Button
     lateinit var recyclerView: RecyclerView
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val quesRef: CollectionReference = db.collection("Questions")
@@ -34,20 +38,18 @@ class ForumFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-
+    ): View? {
         val rootView: View = inflater.inflate(R.layout.fragment_forum, container, false)
-
         editTextQuestion = rootView.findViewById(R.id.edit_text_question)
         buttonAsk = rootView.findViewById(R.id.button_ask)
         recyclerView= rootView.findViewById(R.id.recycler_view_questions)
-        setUpRecyclerView()
-        buttonAsk.setOnClickListener { addQuestion() }
+        setUpRecyclerView(rootView)
+        buttonAsk.setOnClickListener(View.OnClickListener { addQuestion() })
         return rootView
     }
 
 
-    private fun setUpRecyclerView() {
+    private fun setUpRecyclerView(rootView : View) {
         //Query to get questions ordered by date
         val query = quesRef.orderBy("date", Query.Direction.DESCENDING)
         val options = FirestoreRecyclerOptions.Builder<Question>().setQuery(query, Question::class.java).build()
@@ -76,14 +78,9 @@ class ForumFragment : Fragment() {
         }).attachToRecyclerView(recyclerView)
 
         adapter.setOnItemClickListener(object : QuestionAdapter.OnItemClickListener {
-            override fun onButtonClick(documentSnapshot: String, position: Int, reply: String?) {
-                val dateFormat = SimpleDateFormat(
-                    "d MMM yyyy HH.mm.ss",
-                    Locale.getDefault()
-                )
-                val currentDate = dateFormat.format(Date())
-                val replies = Reply(documentSnapshot, reply!!, "anam", currentDate)
-                quesRef.document(documentSnapshot).collection("Replies").add(replies)
+            override fun onItemClick(documentSnapshot: String) {
+                val bundle = bundleOf("id" to documentSnapshot)
+                rootView.findNavController().navigate(R.id.action_forumFragment_to_replyFragment, bundle)
             }
 
         })

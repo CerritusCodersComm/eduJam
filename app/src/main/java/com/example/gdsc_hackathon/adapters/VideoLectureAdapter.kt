@@ -6,8 +6,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.VideoLecturesModel
+
+
+
 
 class VideoLectureAdapter(private val lectures: List<VideoLecturesModel>) : RecyclerView.Adapter<VideoLectureAdapter.ViewHolder>() {
 
@@ -32,13 +36,13 @@ class VideoLectureAdapter(private val lectures: List<VideoLecturesModel>) : Recy
 
         val videoLecturesModel = lectures[position]
 
-        // sets the image to the imageview from our itemHolder class
-//        holder.lectureIcon.setImageResource(recentLectureModel.lectureIcon)
-
-        // sets the text to the textview from our itemHolder class
         holder.lectureTitle.text = videoLecturesModel.lectureTitle
-
+        holder.lectureTeacher.text = videoLecturesModel.lectureTeacher
         holder.lectureDate.text = videoLecturesModel.lectureDate
+        Glide.with(holder.lectureThumbnail.context)
+            .load(videoLecturesModel.lectureThumbnailUrl)
+            .centerCrop()
+            .into(holder.lectureThumbnail)
 
         holder.itemView.setOnClickListener { onClick!!.onItemClick(position) }
 
@@ -52,12 +56,12 @@ class VideoLectureAdapter(private val lectures: List<VideoLecturesModel>) : Recy
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val lectureTitle: TextView = itemView.findViewById(R.id.lectureTitle)
+        val lectureThumbnail: ImageView = itemView.findViewById(R.id.lectureThumbnail)
+        val lectureTeacher: TextView = itemView.findViewById(R.id.lectureTeacher)
         val lectureDate: TextView = itemView.findViewById(R.id.lectureDate)
     }
-
     fun setOnClick(onClick: OnItemClicked?) {
         this.onClick = onClick
     }
-
 }
 

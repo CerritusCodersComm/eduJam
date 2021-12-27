@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/drawable/google_icon_28px.xml" value="0.1824074074074074" />
         <entry key="app/src/main/res/drawable/ic_academic_calendar_24.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/drawable/ic_academic_calendar_48.xml" value="0.3380208333333333" />
+        <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.17777777777777778" />
         <entry key="app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/drawable/ic_baseline_calendar_month_48.xml" value="0.12962962962962962" />
         <entry key="app/src/main/res/drawable/ic_baseline_download_24.xml" value="0.36614583333333334" />
@@ -39,6 +40,8 @@
         <entry key="app/src/main/res/drawable/round_background.xml" value="0.1824074074074074" />
         <entry key="app/src/main/res/drawable/round_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/academic_recycler_view_event.xml" value="0.46206896551724136" />
+        <entry key="app/src/main/res/layout/activity_add_to_do_item.xml" value="0.23596014492753623" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/bottom_toolbar.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.20923913043478262" />
@@ -74,7 +77,7 @@
         <entry key="app/src/main/res/layout/fragment_forum.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_holidays.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19207317073170732" />
-        <entry key="app/src/main/res/layout/fragment_lecture_video_player.xml" value="0.17135416666666667" />
+        <entry key="app/src/main/res/layout/fragment_lecture_video_player.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_maths.xml" value="0.1344984802431611" />
         <entry key="app/src/main/res/layout/fragment_maths_module_five.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/fragment_maths_module_four.xml" value="0.23645833333333333" />
@@ -98,16 +101,17 @@
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_syllabus.xml" value="0.425531914893617" />
         <entry key="app/src/main/res/layout/fragment_todo_list.xml" value="0.19375" />
-        <entry key="app/src/main/res/layout/fragment_video_lectures.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_video_lectures.xml" value="0.30404354587869364" />
         <entry key="app/src/main/res/layout/holidays_recycler_view_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/main_tab.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.20923913043478262" />
         <entry key="app/src/main/res/layout/personal_information_activity.xml" value="0.33" />
         <entry key="app/src/main/res/layout/recycler_view_recent_lecture.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/recycler_view_video_lecture.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/recycler_view_video_lecture.xml" value="0.3514056224899598" />
         <entry key="app/src/main/res/layout/sign_in_activity.xml" value="0.33" />
         <entry key="app/src/main/res/layout/sign_up_activity.xml" value="0.30303030303030304" />
         <entry key="app/src/main/res/layout/simple_list_item_1.xml" value="0.16875" />
+        <entry key="app/src/main/res/layout/single_to_do_item.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/tab_2.xml" value="0.1" />
         <entry key="app/src/main/res/menu/home_menu.xml" value="0.18703703703703703" />
         <entry key="app/src/main/res/menu/nav_menu.xml" value="0.20052083333333334" />

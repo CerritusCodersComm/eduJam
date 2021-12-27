@@ -1,3 +1,5 @@
 package com.example.gdsc_hackathon.dataModel
 
-data class VideoLecturesModel(val lectureLink: String, val lectureTitle: String,val lectureTeacher: String, val lectureDate: String, val lectureLength: String)
+import android.widget.ImageView
+// todo add lec length as a var
+data class VideoLecturesModel(val lectureId: String, val lectureThumbnailUrl: String, val lectureTitle: String,val lectureTeacher: String, val lectureDate: String)

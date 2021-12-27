@@ -47,38 +47,6 @@
 
     </RelativeLayout>
 
-
-    <LinearLayout
-        android:id="@+id/hidden_replies"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fixed_questions"
-        android:visibility="gone">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_replies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/edit_text_reply"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Reply"
-            android:inputType="text" />
-
-        <Button
-            android:id="@+id/button_reply"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Reply" />
-
-    </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

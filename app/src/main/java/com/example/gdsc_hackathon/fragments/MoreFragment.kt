@@ -11,7 +11,6 @@ import android.widget.RelativeLayout
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.SignInActivity
-import com.example.gdsc_hackathon.activities.VideoLectures
 import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
@@ -81,8 +80,7 @@ class MoreFragment : Fragment() {
 
         videoLecturesLayout = rootView.findViewById(R.id.video_lectures_layout)
         videoLecturesLayout.setOnClickListener {
-            val intent = Intent (activity, VideoLectures::class.java)
-            activity?.startActivity(intent)
+            rootView.findNavController().navigate(R.id.VideoLectureFragment)
         }
 
         lectureSummaryLayout = rootView.findViewById(R.id.lecture_summary_layout)
