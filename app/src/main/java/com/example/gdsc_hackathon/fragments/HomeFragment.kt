@@ -1,6 +1,5 @@
 package com.example.gdsc_hackathon.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,24 +14,12 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
-
-import com.example.gdsc_hackathon.activities.MainActivity
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.awaitAll
 import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
 import com.example.gdsc_hackathon.dataModel.RecentLectureModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import java.util.ArrayList
-
-import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
-import com.example.gdsc_hackathon.dataModel.RecentLectureModel
-
-import com.google.firebase.auth.FirebaseAuth
-
 import com.example.gdsc_hackathon.network.Api
 import com.google.gson.JsonObject
 import retrofit2.Call
@@ -42,6 +29,7 @@ import retrofit2.Response
 import com.example.gdsc_hackathon.extensions.copyToClipboard
 import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
 import com.example.gdsc_hackathon.utils.NetworkUtils
+import com.google.firebase.auth.FirebaseAuth
 import kotlin.collections.ArrayList
 import kotlin.random.Random
 

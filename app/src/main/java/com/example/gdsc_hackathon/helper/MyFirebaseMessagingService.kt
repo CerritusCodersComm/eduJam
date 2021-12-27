@@ -18,15 +18,15 @@ import com.google.firebase.messaging.RemoteMessage
 
 class MyFirebaseMessagingService:FirebaseMessagingService() {
     private val TAG = "LOOK"
-    var NOTIFICATION_CHANNEL_ID = "com.example.gdsc_hackathon"
-    val NOTIFICATION_ID = 100
+    private var NOTIFICATION_CHANNEL_ID = "com.example.gdsc_hackathon"
+    private val NOTIFICATION_ID = 100
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
 
-        Log.e("message","Message Received ...");
+        Log.e("message","Message Received ...")
 
-        if (remoteMessage.data.size > 0) {
+        if (remoteMessage.data.isNotEmpty()) {
             val title = remoteMessage.data["title"]
             val body = remoteMessage.data["body"]
             showNotification(applicationContext, title, body)
@@ -44,13 +44,12 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
     }
 
 
-    fun showNotification(
+    private fun showNotification(
         context: Context,
         title: String?,
         message: String?
     ) {
-        val ii: Intent
-        ii = Intent(context, MainActivity::class.java)
+        val ii = Intent(context, MainActivity::class.java)
         ii.data = Uri.parse("custom://" + System.currentTimeMillis())
         ii.action = "actionstring" + System.currentTimeMillis()
         ii.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP

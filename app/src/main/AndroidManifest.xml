@@ -26,7 +26,7 @@
 
         <service
             android:name=".helper.MyFirebaseMessagingService"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
@@ -36,8 +36,8 @@
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="com.example.gdsc_hackathon" />
 
-        <activity android:name=".activities.SignInActivity"
-        android:theme="@style/Theme.GDSC_HACKATHON" >
+<!--        <activity android:name=".activities.SignInActivity"-->
+<!--        android:theme="@style/Theme.GDSC_HACKATHON" >-->
         <activity
             android:name=".activities.MainActivity"
             android:exported="true"
