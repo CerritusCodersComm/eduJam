@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    tools:context=".fragments.PracticalsFragment"
     android:background="@color/light_grey">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".fragments.PracticalsFragment">
+        android:layout_height="wrap_content">
         <RelativeLayout
             android:id="@+id/practicalTitleLayout"
             android:layout_width="match_parent"

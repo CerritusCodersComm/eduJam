@@ -38,7 +38,7 @@ class PracticalsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val rootView = inflater.inflate(R.layout.fragment_syllabus, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_practicals, container, false)
 
         /** Maths Views*/
         mathsTitle = rootView.findViewById(R.id.mathsTitle)
@@ -71,7 +71,7 @@ class PracticalsFragment : Fragment() {
 
         computerNetworksLayout = rootView.findViewById(R.id.computerNetworksLayout)
         computerNetworksLayout.setOnClickListener {
-            rootView.findNavController().navigate(R.id.computerGraphicsPracticalFragment)
+            rootView.findNavController().navigate(R.id.computerNetworksPracticalFragment)
         }
 
         /** Computer Graphics Views*/

@@ -1,14 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/syllabusParentLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PreviewYearPapers">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:fillViewport="true"
+    android:background="@color/light_grey">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        tools:context=".fragments.syllabus.PreviousYearPapersFragment">
+        <RelativeLayout
+            android:id="@+id/syllabusTitleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/syllabusTitle"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/pyq_title_text" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mathsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/syllabusTitleLayout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/mathsTitle"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/maths"
+                android:textSize="20sp"
+                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/maths2020Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="-15dp"
+                android:background="@android:color/transparent"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:gravity="start"
+                android:text="@string/pyq_2020_text"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/maths2019Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="-15dp"
+                android:background="@android:color/transparent"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:gravity="start"
+                android:text="@string/pyq_2019_text"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/designAnalysisOfAlgorithmsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mathsLayout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/designAnalysisOfAlgorithmsTitle"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/design_analysis_of_alogorithms"
+                android:textSize="20sp"
+                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/designAnalysisOfAlgorithms2020Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="-15dp"
+                android:background="@android:color/transparent"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:gravity="start"
+                android:text="@string/pyq_2020_text"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/designAnalysisOfAlgorithms2019Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="-15dp"
+                android:background="@android:color/transparent"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:gravity="start"
+                android:text="@string/pyq_2019_text"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/operatingSystemsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/designAnalysisOfAlgorithmsLayout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/operatingSystemsTitle"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/operating_systems"
+                android:textSize="20sp"
+                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/operatingSystems2020Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="-15dp"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:gravity="start"
+                android:text="@string/pyq_2020_text"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/operatingSystems2019Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="-15dp"
+                android:gravity="start"
+                android:text="@string/pyq_2019_text"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/computerNetworksLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/operatingSystemsLayout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/computerNetworksTitle"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/computer_networks"
+                android:textSize="20sp"
+                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/computerNetworks2020Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="-15dp"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:gravity="start"
+                android:text="@string/pyq_2020_text"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/computerNetworks2019Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="-15dp"
+                android:gravity="start"
+                android:text="@string/pyq_2019_text"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/computerGraphicsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/computerNetworksLayout"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_background"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/computerGraphicsTitle"
+                style="@style/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/computer_graphics"
+                android:textSize="20sp"
+                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/computerGraphics2020Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="40dp"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="-15dp"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:gravity="start"
+                android:text="@string/pyq_2020_text"
+                android:visibility="gone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/computerGraphics2019Button"
+                style="@style/desc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="-15dp"
+                android:gravity="start"
+                android:text="@string/pyq_2019_text"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/computerGraphicsLayout"
+            android:padding="100dp" />
+
+    </RelativeLayout>
+
+</ScrollView>

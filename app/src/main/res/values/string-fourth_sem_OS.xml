@@ -84,7 +84,10 @@
     <string name="operating_system_practical_six">Practical 6 - Practical 6 - Build a program to implement SRTF and Priority page replacement policies</string>
     <string name="operating_system_practical_seven">Practical 7 - Develop a program to implement dynamic partitioning placement algorithms</string>
     <string name="operating_system_practical_eight">Practical 8 - Build a program to implement FCFS and SSTF disk scheduling algorithm</string>
-    <string name="operating_system_case_study">Case Study - \n\t 1. Windows Operating System.\n 2. LINUX Operating System.\n 3. Multiprocessor Scheduling and Linux Scheduling\n
-</string>
+    <string name="operating_system_case_study">Case Study -
+        \n1. Windows Operating System.
+        \n2. LINUX Operating System.
+        \n3. Multiprocessor Scheduling and Linux Scheduling\n
+    </string>
 
 </resources>
