@@ -1,62 +1,66 @@
 package com.example.gdsc_hackathon.fragments
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
-
-
-
+import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.activities.AddToDoItem
-
 import com.example.gdsc_hackathon.adapters.ToDoListAdapter
-import com.example.gdsc_hackathon.dataModel.ToDoModel
-
 import com.example.gdsc_hackathon.databinding.FragmentTodoListBinding
-import java.io.File
+
 
 
 class TodoListFragment : Fragment(), View.OnClickListener {
     private lateinit var binding: FragmentTodoListBinding
-
+    private lateinit var adapter: ToDoListAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTodoListBinding.inflate(inflater, container, false)
         binding.floatingActionButtonToAddItemList.setOnClickListener(this)
-        getTodoListData()
+        setUpRecycleView()
         return binding.root
 
     }
 
-    private fun getTodoListData() {
-        binding.recycleViewForTodoList.layoutManager = LinearLayoutManager(activity)
+    private fun setUpRecycleView() {
+        adapter = activity?.let { ToDoListAdapter(it) }!!
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+            0,
+            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
 
-        val adapter = activity?.let { ToDoListAdapter(it,getToDoList()) }
-//        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0,
-//            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-//            override fun onMove(
-//                recyclerView: RecyclerView,
-//                viewHolder: RecyclerView.ViewHolder,
-//                target: RecyclerView.ViewHolder
-//            ): Boolean {
-//                return false
-//            }
-//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//
-//                adapter?.removeItem( viewHolder.absoluteAdapterPosition,viewHolder)
-//
-//            }
-//        }).attachToRecyclerView(binding.recycleViewForTodoList)
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                view?.let {
+                    adapter.removeItem(
+                        viewHolder.absoluteAdapterPosition,
+                        it
+
+                    )
+                }
+
+            }
+        }).attachToRecyclerView(binding.recycleViewForTodoList)
+        binding.recycleViewForTodoList.setHasFixedSize(true)
+        binding.recycleViewForTodoList.layoutManager = LinearLayoutManager(activity)
         binding.recycleViewForTodoList.adapter = adapter
-//        binding.recycleViewForTodoList.invalidate()
-//        binding.recycleViewForTodoList.setHasFixedSize(true)
+
     }
+
     override fun onClick(p0: View?) {
 
         when (p0?.id) {
@@ -70,34 +74,10 @@ class TodoListFragment : Fragment(), View.OnClickListener {
             }
         }
     }
-    private fun getToDoList() : ArrayList<ToDoModel>{
-        val toDoList = ArrayList<ToDoModel>()
-        val path = activity?.filesDir?.absolutePath?.toString()
-        if (path==null) {
-            Toast.makeText(activity, "Files are not getting fetch", Toast.LENGTH_LONG).show()
 
-        }
-        else {
-
-            val directory = File("$path/${AddToDoItem.FILE_DIRECTORY}")
-            if(!directory.exists()){
-                directory.mkdir()
-            }
-            val files  = directory.listFiles()
-            if(files!=null)
-                for(file in files){
-                    val title = file.name.split(".txt")[0]
-                    val description = file.readText()
-
-                    val todo = ToDoModel(title, description)
-                    toDoList.add(todo)
-                }
-
-        }
-        return toDoList
-    }
     override fun onResume() {
         super.onResume()
-        getTodoListData()
+        setUpRecycleView()
     }
+
 }
