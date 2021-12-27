@@ -11,6 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GDSC_HACKATHON">
 
+        <service
+            android:name=".helper.MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="com.example.gdsc_hackathon" />
+
         <activity android:name=".activities.SignInActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">

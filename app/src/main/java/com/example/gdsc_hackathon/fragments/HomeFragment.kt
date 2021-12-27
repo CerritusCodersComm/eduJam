@@ -1,5 +1,6 @@
 package com.example.gdsc_hackathon.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -9,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.activities.MainActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -16,6 +18,8 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.awaitAll
 import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
 import com.example.gdsc_hackathon.dataModel.RecentLectureModel
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import java.util.ArrayList
 
 class HomeFragment : Fragment() {
@@ -29,14 +33,15 @@ class HomeFragment : Fragment() {
     private lateinit var moreLayout: LinearLayout
     private lateinit var recyclerView: RecyclerView
 
-    private lateinit var mAuth : FirebaseAuth
-
+    private lateinit var mAuth: FirebaseAuth
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        mAuth = FirebaseAuth.getInstance()
 
         val rootView: View = inflater.inflate(R.layout.fragment_home, container, false)
 
@@ -87,17 +92,68 @@ class HomeFragment : Fragment() {
 
         val lectures = ArrayList<RecentLectureModel>()
 
-        lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "MATHS","25th December, 2021", "20:00"))
-        lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "PHYSICS","27th December, 2021","20:00"))
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "MATHS",
+                "25th December, 2021",
+                "20:00"
+            )
+        )
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "PHYSICS",
+                "27th December, 2021",
+                "20:00"
+            )
+        )
         for (i in 2..20) {
-            lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "Item $i", "1 JAN","TIME: 16:00" ))
+            lectures.add(
+                RecentLectureModel(
+                    R.drawable.ic_baseline_video_camera_front_24,
+                    "Item $i",
+                    "1 JAN",
+                    "TIME: 16:00"
+                )
+            )
         }
 
         val adapter = RecentLectureAdapter(lectures)
         // Setting the Adapter with the recyclerview
         recyclerView.adapter = adapter
 
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("LOOK", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            Log.w("LOOK ", token)
+
+
+            val user = mAuth.currentUser
+
+            if (user != null) {
+
+                val usr = hashMapOf(
+                    "fcmToken" to token
+                )
+
+                Firebase.firestore.collection("fcmTokens").document(user.uid)
+                    .set(usr)
+                    .addOnCompleteListener{
+                        Log.w("LOOK","Fcm Token Written to Firestore: "+it.isSuccessful)
+                    }
+            }
+        })
+
         return rootView
     }
+
+
 }
 
