@@ -7,16 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.gdsc_hackathon.R
 
-// TODO: 1. dark theme 2. preference for downloading pdfs/vids in external/sd car 3. preference for downloading in  i.only wifi ii. only mobile data iii. mobile data/ wifi both
 
-class SettingsFragment : Fragment() {
+class LectureVideoPlayerFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        return inflater.inflate(R.layout.fragment_lecture_video_player, container, false)
     }
 
 }

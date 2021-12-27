@@ -15,12 +15,13 @@
 
     <TextView
         android:id="@+id/eventTitle"
+        style="@style/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/title"
         android:layout_alignStart="@+id/eventIcon"
         android:layout_marginStart="60dp"
-        android:text="EVENT TITLE"/>
+        android:textSize="24sp"
+        android:text="EVENT TITLE" />
     <TextView
         android:id="@+id/eventSubTitle"
         android:layout_width="match_parent"

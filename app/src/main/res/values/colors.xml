@@ -7,11 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_cario">#F2F2F2</color>
     <color name="primary_color">#928FE2</color>
     <color name="grey">#808080</color>
     <color name="light_grey">#E5E5E5</color>
     <color name="background">#E5E5E5</color>
     <color name="blue">#587CF4</color>
     <color name="light_orange">#ffdfbf</color>
+    <color name="cario_color_dark">#2C2C2C</color>
 
 </resources>
