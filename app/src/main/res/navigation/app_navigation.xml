@@ -84,6 +84,12 @@
         android:name="com.example.gdsc_hackathon.fragments.LectureSummaryFragment"
         android:label="Lecture Summary"
         tools:layout="@layout/fragment_lecture_summary" />
+
+    <fragment
+        android:id="@+id/VideoLectureSummaryFragment"
+        android:name="com.example.gdsc_hackathon.fragments.VideoLectureSummaryFragment"
+        android:label="Video Lectures Summary"
+        tools:layout="@layout/fragment_video_lecture_summary" />
     <fragment
         android:id="@+id/todoListFragment"
         android:name="com.example.gdsc_hackathon.fragments.TodoListFragment"

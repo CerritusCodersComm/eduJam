@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextureView
+        android:id="@+id/lectureVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/lectureTitle"
+        style="@style/title"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lectureVideo"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="LECTURE TITLE"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/lectureDate"
+        style="@style/desc"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lectureTitle"
+        android:layout_alignStart="@id/lectureTitle"
+        android:text="22 DEC, 2021" />
+
+    <ImageView
+        android:id="@+id/lectureShare"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        style="@style/desc"
+        android:layout_below="@+id/lectureVideo"
+        android:layout_marginEnd="60dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_baseline_share_24" />
+
+    <ImageView
+        android:id="@+id/lectureDownload"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        style="@style/desc"
+        android:layout_below="@+id/lectureVideo"
+        android:layout_marginEnd="100dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_baseline_download_24" />
+
+
+</RelativeLayout>

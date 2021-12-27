@@ -11,7 +11,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.ktx.firestore
@@ -35,9 +34,9 @@ class PersonalInformationActivity : AppCompatActivity() {
     private var TAG = "LOOK"
 
     var name = ""
-    var userName = ""
-    var confirmPassword = ""
-    var department = ""
+    private var userName = ""
+    private var confirmPassword = ""
+    private var department = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,7 +118,7 @@ class PersonalInformationActivity : AppCompatActivity() {
 
 
                 mAuth.signInWithEmailAndPassword(email!!, password)
-                    .addOnCompleteListener { task ->
+                    .addOnCompleteListener {
 
                         val user = mAuth.currentUser
 
@@ -131,7 +130,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                                 "email" to user.email,
                                 "department" to department,
                                 "username" to userName
-                            );
+                            )
 
 
                             Firebase.firestore.collection("users").document(user.uid)
@@ -175,12 +174,12 @@ class PersonalInformationActivity : AppCompatActivity() {
 
     private fun signInWithGoogle() {
         val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, PersonalInformationActivity.RC_SIGN_IN)
+        startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PersonalInformationActivity.RC_SIGN_IN) {
+        if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             val exception = task.exception
 
@@ -208,7 +207,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                     Log.d(TAG, "signInWithCredential:success")
                     val user = mAuth.currentUser
 
-                    if (user?.email!!.contains("tcet", true) || user?.email!!.contains(
+                    if (user?.email!!.contains("tcet", true) || user.email!!.contains(
                             "thakur",
                             true
                         )
@@ -220,7 +219,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                             "email" to user.email,
                             "department" to department,
                             "username" to userName
-                        );
+                        )
 
 
                         Firebase.firestore.collection("users").document(user.uid)
@@ -254,7 +253,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
 
-                        mAuth.signOut()
+                        googleSignInClient.signOut()
                     }
                 } else {
                     // If sign in fails, display a message to the user.

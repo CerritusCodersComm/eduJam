@@ -1,7 +1,6 @@
 package com.example.gdsc_hackathon.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,8 +19,6 @@ import com.example.gdsc_hackathon.adapters.QuestionAdapter
 import com.example.gdsc_hackathon.dataModel.Question
 import com.example.gdsc_hackathon.dataModel.Reply
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -47,7 +44,6 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
         recyclerView= rootView.findViewById(R.id.recycler_view_questions)
         setUpRecyclerView(rootView)
         buttonAsk.setOnClickListener(View.OnClickListener { addQuestion() })
-
         return rootView
     }
 
@@ -76,7 +72,7 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                adapter.deleteItem(viewHolder.adapterPosition)
+                adapter.deleteItem(viewHolder.absoluteAdapterPosition)
             }
         }).attachToRecyclerView(recyclerView)
 
@@ -93,14 +89,17 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
     //Adds new Question
     private fun addQuestion() {
         val question: String = editTextQuestion.text.toString()
-        val dateFormat = SimpleDateFormat("dd.MM.yyyy HH.mm.ss")
+        val dateFormat = SimpleDateFormat(
+            "d MMM yyyy HH.mm.ss",
+            Locale.getDefault()
+        )
         val currentDate = dateFormat.format(Date())
         val questionModel = Question(question, "anam", currentDate)
-        quesRef.add(questionModel).addOnSuccessListener(OnSuccessListener {
+        quesRef.add(questionModel).addOnSuccessListener {
             editTextQuestion.text = null
-        }).addOnFailureListener(OnFailureListener {
+        }.addOnFailureListener {
             Toast.makeText(activity, "Failed", Toast.LENGTH_LONG).show()
-        })
+        }
     }
 
     override fun onStart() {
