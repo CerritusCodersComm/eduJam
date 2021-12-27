@@ -7,13 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
-import com.example.gdsc_hackathon.activities.MainActivity
 import com.example.gdsc_hackathon.activities.SignInActivity
-import com.google.android.material.snackbar.Snackbar
+import com.example.gdsc_hackathon.extensions.showSnackBar
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 
 class MoreFragment : Fragment() {
@@ -25,11 +24,12 @@ class MoreFragment : Fragment() {
     private lateinit var practicalLayout: RelativeLayout
     private lateinit var previousYearPapersLayout: RelativeLayout
     private lateinit var academicCalendarLayout: RelativeLayout
-    private lateinit var todolist_layout: RelativeLayout
+    private lateinit var todolistLayout: RelativeLayout
     private lateinit var videoLecturesLayout: RelativeLayout
     private lateinit var lectureSummaryLayout: RelativeLayout
-
     private lateinit var logoutButton: Button
+    private lateinit var googleSignInClient: GoogleSignInClient
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,29 +73,29 @@ class MoreFragment : Fragment() {
             rootView.findNavController().navigate(R.id.academicCalendarFragment)
         }
 
-        todolist_layout = rootView.findViewById(R.id.todolist_layout)
-        todolist_layout.setOnClickListener {
+        todolistLayout = rootView.findViewById(R.id.todolist_layout)
+        todolistLayout.setOnClickListener {
             rootView.findNavController().navigate(R.id.todoListFragment)
         }
 
         videoLecturesLayout = rootView.findViewById(R.id.video_lectures_layout)
         videoLecturesLayout.setOnClickListener {
-            Snackbar.make(rootView, "COMING SOON!", Snackbar.LENGTH_SHORT).show()
+            rootView.findNavController().navigate(R.id.VideoLectureFragment)
         }
 
         lectureSummaryLayout = rootView.findViewById(R.id.lecture_summary_layout)
         lectureSummaryLayout.setOnClickListener {
-            rootView.findNavController().navigate(R.id.lectureSummaryFragment)
+            showSnackBar(requireActivity(), "COMING SOON!")
         }
 
         logoutButton = rootView.findViewById(R.id.logout)
         logoutButton.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
+            googleSignInClient.signOut()
             val intent = Intent(activity, SignInActivity::class.java)
             startActivity(intent)
 
         }
-
         return rootView
     }
 
