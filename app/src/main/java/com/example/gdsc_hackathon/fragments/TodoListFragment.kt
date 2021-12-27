@@ -1,60 +1,103 @@
 package com.example.gdsc_hackathon.fragments
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.gdsc_hackathon.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TodoListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class TodoListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+import com.example.gdsc_hackathon.activities.AddToDoItem
+
+import com.example.gdsc_hackathon.adapters.ToDoListAdapter
+import com.example.gdsc_hackathon.dataModel.ToDoModel
+
+import com.example.gdsc_hackathon.databinding.FragmentTodoListBinding
+import java.io.File
+
+
+class TodoListFragment : Fragment(), View.OnClickListener {
+    private lateinit var binding: FragmentTodoListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_todo_list, container, false)
+    ): View {
+        binding = FragmentTodoListBinding.inflate(inflater, container, false)
+        binding.floatingActionButtonToAddItemList.setOnClickListener(this)
+        getTodoListData()
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TodoListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TodoListFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun getTodoListData() {
+        binding.recycleViewForTodoList.layoutManager = LinearLayoutManager(activity)
+
+        val adapter = activity?.let { ToDoListAdapter(it,getToDoList()) }
+//        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0,
+//            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+//            override fun onMove(
+//                recyclerView: RecyclerView,
+//                viewHolder: RecyclerView.ViewHolder,
+//                target: RecyclerView.ViewHolder
+//            ): Boolean {
+//                return false
+//            }
+//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//
+//                adapter?.removeItem( viewHolder.absoluteAdapterPosition,viewHolder)
+//
+//            }
+//        }).attachToRecyclerView(binding.recycleViewForTodoList)
+        binding.recycleViewForTodoList.adapter = adapter
+//        binding.recycleViewForTodoList.invalidate()
+//        binding.recycleViewForTodoList.setHasFixedSize(true)
+    }
+    override fun onClick(p0: View?) {
+
+        when (p0?.id) {
+            com.example.gdsc_hackathon.R.id.floating_action_button_to_add_item_list -> {
+
+                activity?.let {
+                    val intent = Intent(it, AddToDoItem::class.java)
+                    it.startActivity(intent)
                 }
+
             }
+        }
+    }
+    private fun getToDoList() : ArrayList<ToDoModel>{
+        val toDoList = ArrayList<ToDoModel>()
+        val path = activity?.filesDir?.absolutePath?.toString()
+        if (path==null) {
+            Toast.makeText(activity, "Files are not getting fetch", Toast.LENGTH_LONG).show()
+
+        }
+        else {
+
+            val directory = File("$path/${AddToDoItem.FILE_DIRECTORY}")
+            if(!directory.exists()){
+                directory.mkdir()
+            }
+            val files  = directory.listFiles()
+            if(files!=null)
+                for(file in files){
+                    val title = file.name.split(".txt")[0]
+                    val description = file.readText()
+
+                    val todo = ToDoModel(title, description)
+                    toDoList.add(todo)
+                }
+
+        }
+        return toDoList
+    }
+    override fun onResume() {
+        super.onResume()
+        getTodoListData()
     }
 }

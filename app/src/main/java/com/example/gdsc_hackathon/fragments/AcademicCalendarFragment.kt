@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.adapters.AcademicCalendarEventAdapter
 import com.example.gdsc_hackathon.dataModel.AcademicCalendarEventModel
+import com.example.gdsc_hackathon.extensions.showSnackBar
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import com.google.android.material.button.MaterialButton
@@ -60,7 +61,6 @@ class AcademicCalendarFragment : Fragment(), AcademicCalendarEventAdapter.OnItem
     }
 
     override fun onItemClick(position: Int) {
-        Snackbar.make(requireView(),"Google Calendar integration coming soon",Snackbar.LENGTH_SHORT).show()
-
+        showSnackBar(requireActivity(),"Google Calendar integration coming soon")
     }
 }

@@ -153,7 +153,6 @@ class HomeFragment : Fragment() {
         )
     }
 
-
     private fun getQuotes(){
         val dash = "-"
         if(!NetworkUtils.isNetworkAvailable(requireContext()))
