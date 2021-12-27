@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,7 +29,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class ForumFragment : Fragment() {
+class ForumFragment : Fragment(R.layout.fragment_forum) {
     lateinit var editTextQuestion : EditText
     lateinit var buttonAsk: Button
     lateinit var recyclerView: RecyclerView
@@ -37,19 +41,18 @@ class ForumFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val rootView: View = inflater.inflate(R.layout.fragment_forum, container, false)
-
         editTextQuestion = rootView.findViewById(R.id.edit_text_question)
         buttonAsk = rootView.findViewById(R.id.button_ask)
         recyclerView= rootView.findViewById(R.id.recycler_view_questions)
-        setUpRecyclerView()
+        setUpRecyclerView(rootView)
         buttonAsk.setOnClickListener(View.OnClickListener { addQuestion() })
+
         return rootView
     }
 
 
-    private fun setUpRecyclerView() {
+    private fun setUpRecyclerView(rootView : View) {
         //Query to get questions ordered by date
         val query = quesRef.orderBy("date", Query.Direction.DESCENDING)
         val options = FirestoreRecyclerOptions.Builder<Question>().setQuery(query, Question::class.java).build()
@@ -78,15 +81,9 @@ class ForumFragment : Fragment() {
         }).attachToRecyclerView(recyclerView)
 
         adapter.setOnItemClickListener(object : QuestionAdapter.OnItemClickListener {
-            override fun onButtonClick(documentSnapshot: String, position: Int, reply: String?) {
-                val dateFormat = SimpleDateFormat("dd.MM.yyyy HH.mm.ss")
-                val currentDate = dateFormat.format(Date())
-                val replies = documentSnapshot?.let { Reply(it, reply!!, "anam", currentDate) }
-                if (documentSnapshot != null) {
-                    if (replies != null) {
-                        quesRef.document(documentSnapshot).collection("Replies").add(replies)
-                    }
-                }
+            override fun onItemClick(documentSnapshot: String) {
+                val bundle = bundleOf("id" to documentSnapshot)
+                rootView.findNavController().navigate(R.id.action_forumFragment_to_replyFragment, bundle)
             }
 
         })

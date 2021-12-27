@@ -14,7 +14,26 @@
         android:id="@+id/forumFragment"
         android:name="com.example.gdsc_hackathon.fragments.ForumFragment"
         android:label="News"
-        tools:layout="@layout/fragment_forum"/>
+        tools:layout="@layout/fragment_forum">
+        <action
+            android:id="@+id/action_forumFragment_to_replyFragment"
+            app:destination="@id/replyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left">
+            <argument
+                android:name="id"
+                app:argType="string"
+                android:defaultValue="0" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/replyFragment"
+        android:name="com.example.gdsc_hackathon.fragments.ReplyFragment"
+        tools:layout="@layout/fragment_reply" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.gdsc_hackathon.fragments.ProfileFragment"
