@@ -11,6 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.ktx.firestore
@@ -53,8 +54,11 @@ class PersonalInformationActivity : AppCompatActivity() {
 
         nameEditText = findViewById(R.id.name_edit_textw)
         userNameEditText = findViewById(R.id.username_edit_text)
-        confirmPasswordEditText = findViewById(R.id.confirm_password_edit_text)
+        confirmPasswordEditText = findViewById(R.id.confirm_password_edit_text_personalinfo_screen)
         getStartedButton = findViewById(R.id.get_started_button)
+
+        confirmPasswordEditText.visibility = View.INVISIBLE
+        findViewById<TextInputLayout>(R.id.confirm_password_layout).visibility = View.INVISIBLE
 
         val arrayname = arrayOf("Computer Science", "Information Technology", "AI/ML", "AI/DS")
 
@@ -85,13 +89,13 @@ class PersonalInformationActivity : AppCompatActivity() {
         if (signupMode == "GOOGLE") {
             confirmPasswordEditText.hint = "Have a Nice Day!"
             confirmPasswordEditText.isEnabled = false
+            confirmPasswordEditText.visibility = View.INVISIBLE
         }
 
 
         getStartedButton.setOnClickListener {
             name = nameEditText.text.trim().toString()
             userName = userNameEditText.text.trim().toString()
-            confirmPassword = confirmPasswordEditText.text.trim().toString()
             department = "Information Technology"
 
             if (signupMode == "GOOGLE") {
@@ -103,21 +107,17 @@ class PersonalInformationActivity : AppCompatActivity() {
 
                 signInWithGoogle()
 
-            } else {
-                if (name.isEmpty() || confirmPassword.isEmpty() || userName.isEmpty()) {
+            }
+            else {
+                if (name.isEmpty() || userName.isEmpty()) {
                     Toast.makeText(this, "Please enter all values", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
                 val email = intent.getStringExtra("email")
                 val password = intent.getStringExtra("password")
 
-                if (password!! != confirmPassword) {
-                    Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
 
-
-                mAuth.signInWithEmailAndPassword(email!!, password)
+                mAuth.signInWithEmailAndPassword(email!!, password!!)
                     .addOnCompleteListener {
 
                         val user = mAuth.currentUser
@@ -133,7 +133,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                             )
 
 
-                            Firebase.firestore.collection("users").document(user.uid)
+                            Firebase.firestore.collection("users").document(user.email!!)
                                 .set(usr)
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
@@ -222,7 +222,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                         )
 
 
-                        Firebase.firestore.collection("users").document(user.uid)
+                        Firebase.firestore.collection("users").document(user.email!!)
                             .set(usr)
                             .addOnCompleteListener {
                                 if (it.isSuccessful) {

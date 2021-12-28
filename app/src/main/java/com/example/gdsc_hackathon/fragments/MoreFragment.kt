@@ -12,7 +12,9 @@ import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.SignInActivity
 import com.example.gdsc_hackathon.extensions.showSnackBar
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 
 class MoreFragment : Fragment() {
@@ -28,8 +30,6 @@ class MoreFragment : Fragment() {
     private lateinit var videoLecturesLayout: RelativeLayout
     private lateinit var lectureSummaryLayout: RelativeLayout
     private lateinit var logoutButton: Button
-    private lateinit var googleSignInClient: GoogleSignInClient
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -91,10 +91,8 @@ class MoreFragment : Fragment() {
         logoutButton = rootView.findViewById(R.id.logout)
         logoutButton.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
-            googleSignInClient.signOut()
             val intent = Intent(activity, SignInActivity::class.java)
             startActivity(intent)
-
         }
         return rootView
     }
