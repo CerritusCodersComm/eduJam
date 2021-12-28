@@ -2,23 +2,157 @@ package com.example.gdsc_hackathon.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
+import android.util.Patterns
 import android.widget.Button
+import android.widget.EditText
+import android.widget.RelativeLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var button: Button
+    private lateinit var registerButton: Button
+    private lateinit var signinButton: Button
+    private lateinit var passwordEditText: EditText
+    private lateinit var confirmPasswordEditText: EditText
+    private lateinit var emailEditText: EditText
+    private lateinit var googleSignupButton: RelativeLayout
+
+    private lateinit var mAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up_activity)
 
-        button = findViewById(R.id.register)
+        registerButton = findViewById(R.id.register_signup_screen)
+        signinButton = findViewById(R.id.signin_with_email_button_signup_screen)
 
-        button.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
+        emailEditText = findViewById(R.id.email_edit_text_signup_screen)
+        passwordEditText = findViewById(R.id.password_edit_text_signup_screen)
+        confirmPasswordEditText = findViewById(R.id.confirm_password_edit_text_signup_screen)
+
+        googleSignupButton = findViewById(R.id.signup_with_google_signup_screen)
+
+        mAuth = FirebaseAuth.getInstance()
+
+        registerButton.setOnClickListener {
+
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+            val confirmpassword = confirmPasswordEditText.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty() || !isValidEmail(email)) {
+                Toast.makeText(applicationContext, "Please Enter Correct Values", Toast.LENGTH_LONG)
+                    .show()
+                return@setOnClickListener
+            }
+//
+//            if (!email.contains("tcet", true) || !email.contains("thakur", true)){
+//                Toast.makeText(
+//                    applicationContext,
+//                    "Please Use College Email",
+//                    Toast.LENGTH_LONG
+//                ).show()
+//                return@setOnClickListener
+//                }
+
+//            if(password!=confirmpassword){
+//                Toast.makeText(applicationContext, "Passwords Don't Match", Toast.LENGTH_LONG)
+//                    .show()
+//                return@setOnClickListener
+//            }
+
+            mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, OnCompleteListener {
+                        task ->
+                    Toast.makeText(this,"createUserWithEmail:onComplete"+task.isSuccessful,Toast.LENGTH_SHORT).show()
+
+                    if (!task.isSuccessful){
+//                    Toast.makeText(this,"User Not created",Toast.LENGTH_SHORT).show()
+                        return@OnCompleteListener
+                    }else{
+                        val intent = Intent(this, PersonalInformationActivity::class.java)
+
+                        intent.putExtra("email",email)
+                        intent.putExtra("password",password)
+                        mAuth.signOut()
+                        startActivity(intent)
+                        finish()
+                    }
+                })
+                .addOnFailureListener { e->
+                    Log.e("LOOK",e.message.toString())
+                    if(e.message.toString() == "The email address is already in use by another account."){
+                        val intent = Intent(this, PersonalInformationActivity::class.java)
+
+                        intent.putExtra("email",email)
+                        intent.putExtra("password",password)
+                        intent.putExtra("signupMode","EMAIL")
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+
+
+//            val intent = Intent(this, SignUpActivity::class.java)
+//            startActivity(intent)
+        }
+
+        signinButton.setOnClickListener {
+            startActivity(Intent(applicationContext,SignInActivity::class.java))
+            finish()
+        }
+
+        googleSignupButton.setOnClickListener {
+            val inten = Intent(applicationContext,PersonalInformationActivity::class.java)
+            inten.putExtra("signupMode","GOOGLE")
+            startActivity(inten)
+            finish()
+        }
+        
+    }
+
+    fun isValidEmail(target: CharSequence?): Boolean {
+        return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target!!).matches()
+    }
+
+    fun isValidPassword(password: String?): Boolean {
+        val pattern: Pattern
+        val matcher: Matcher
+        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
+        pattern = Pattern.compile(PASSWORD_PATTERN)
+        matcher = pattern.matcher(password)
+        return matcher.matches()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val user = mAuth.currentUser
+
+        if (user != null) {
+            Firebase.firestore.collection("users").document(user.email!!).get()
+                .addOnCompleteListener { task ->
+                    val doc = task.result
+                    if (doc != null && doc.exists()) {
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mAuth.signOut()
+    }
 
 }

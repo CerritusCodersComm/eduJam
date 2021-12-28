@@ -12,7 +12,9 @@ import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.SignInActivity
 import com.example.gdsc_hackathon.extensions.showSnackBar
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 
 class MoreFragment : Fragment() {
@@ -91,6 +93,7 @@ class MoreFragment : Fragment() {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(activity, SignInActivity::class.java)
             startActivity(intent)
+
             activity?.finish()
         }
         return rootView

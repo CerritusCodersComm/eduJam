@@ -81,7 +81,7 @@
             android:hint="Confirm password">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/confirm_password_edit_text"
+                android:id="@+id/confirm_password_edit_text_personalinfo_screen"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
