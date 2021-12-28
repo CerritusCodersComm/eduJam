@@ -2,7 +2,6 @@ package com.example.gdsc_hackathon.fragments
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,32 +10,19 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.browser.browseractions.BrowserActionsIntent
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.adapters.ReplyAdapter
-import com.example.gdsc_hackathon.dataModel.Question
 import com.example.gdsc_hackathon.dataModel.Reply
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import java.text.SimpleDateFormat
 import java.util.*
-import com.example.gdsc_hackathon.activities.MainActivity
-
-import androidx.browser.customtabs.CustomTabsIntent.KEY_DESCRIPTION
-
-import androidx.browser.browseractions.BrowserActionsIntent.KEY_TITLE
-import androidx.browser.customtabs.CustomTabsIntent
-
-import com.google.firebase.firestore.DocumentSnapshot
-
-
 
 
 class ReplyFragment : Fragment (R.layout.fragment_reply) {

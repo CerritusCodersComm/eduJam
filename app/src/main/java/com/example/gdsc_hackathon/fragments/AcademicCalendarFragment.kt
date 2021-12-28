@@ -14,8 +14,9 @@ import com.example.gdsc_hackathon.dataModel.AcademicCalendarEventModel
 import com.example.gdsc_hackathon.extensions.showSnackBar
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
+import com.github.sundeepk.compactcalendarview.CompactCalendarView.CompactCalendarViewListener
+import com.github.sundeepk.compactcalendarview.domain.Event
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -57,6 +58,34 @@ class AcademicCalendarFragment : Fragment(), AcademicCalendarEventAdapter.OnItem
 
         // Setting the Adapter with the recyclerview
         recyclerView.adapter = adapter
+
+        monthName = rootView.findViewById(R.id.academicCalendarMonthName)
+        val currentDate =dateFormatForMonth.format(Date()).toString()
+
+        monthName.text = currentDate
+        // to go to previous month
+        previousMonth = rootView.findViewById(R.id.previousMonth)
+        previousMonth.setOnClickListener {
+            compactCalendarView.scrollLeft()
+        }
+
+        // to go to next month
+        nextMonth = rootView.findViewById(R.id.nextMonth)
+        nextMonth.setOnClickListener {
+            compactCalendarView.scrollRight()
+        }
+
+        compactCalendarView.setListener(object : CompactCalendarViewListener {
+            override fun onDayClick(dateClicked: Date) {
+                val events: List<Event> = compactCalendarView.getEvents(dateClicked)
+                showSnackBar(requireActivity(),dateClicked.toString())
+            }
+
+            override fun onMonthScroll(firstDayOfNewMonth: Date) {
+                monthName.text = dateFormatForMonth.format(firstDayOfNewMonth).toString()
+
+            }
+        })
         return rootView
     }
 

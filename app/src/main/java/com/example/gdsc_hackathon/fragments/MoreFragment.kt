@@ -28,8 +28,6 @@ class MoreFragment : Fragment() {
     private lateinit var videoLecturesLayout: RelativeLayout
     private lateinit var lectureSummaryLayout: RelativeLayout
     private lateinit var logoutButton: Button
-    private lateinit var googleSignInClient: GoogleSignInClient
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -91,10 +89,9 @@ class MoreFragment : Fragment() {
         logoutButton = rootView.findViewById(R.id.logout)
         logoutButton.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
-            googleSignInClient.signOut()
             val intent = Intent(activity, SignInActivity::class.java)
             startActivity(intent)
-
+            activity?.finish()
         }
         return rootView
     }
