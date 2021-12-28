@@ -22,6 +22,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.GDSC_HACKATHON">
 
         <service
@@ -78,7 +79,7 @@
             android:name=".activities.AddToDoItem"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
-        
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

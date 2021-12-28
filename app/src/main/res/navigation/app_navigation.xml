@@ -46,9 +46,9 @@
         tools:layout="@layout/fragment_syllabus" />
     <fragment
         android:id="@+id/weeklyTimeTableFragment"
-        android:name="com.example.gdsc_hackathon.fragments.WeelyTimeTableFragment"
+        android:name="com.example.gdsc_hackathon.fragments.weeklyTimeTable.WeeklyTimeTableFragment"
         android:label="Weekly Time-Table"
-        tools:layout="@layout/fragment_weely_time_table" />
+        tools:layout="@layout/fragment_weekly_time_table" />
     <fragment
         android:id="@+id/examTimeConstraintFragment"
         android:name="com.example.gdsc_hackathon.fragments.ExamTimeConstraintFragment"

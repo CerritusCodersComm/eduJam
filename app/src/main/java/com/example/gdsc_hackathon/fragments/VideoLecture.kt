@@ -11,11 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.VideoLecturePlayer
-import com.example.gdsc_hackathon.adapters.AcademicCalendarEventAdapter
 import com.example.gdsc_hackathon.adapters.VideoLectureAdapter
-import com.example.gdsc_hackathon.dataModel.AcademicCalendarEventModel
 import com.example.gdsc_hackathon.dataModel.VideoLecturesModel
-import com.example.gdsc_hackathon.extensions.showSnackBar
 import java.util.ArrayList
 
 class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {

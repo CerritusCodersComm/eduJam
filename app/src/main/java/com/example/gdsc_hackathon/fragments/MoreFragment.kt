@@ -93,6 +93,8 @@ class MoreFragment : Fragment() {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(activity, SignInActivity::class.java)
             startActivity(intent)
+
+            activity?.finish()
         }
         return rootView
     }
