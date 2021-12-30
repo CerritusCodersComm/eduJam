@@ -1,24 +1,40 @@
 package com.example.gdsc_hackathon.adapters
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.activities.MainActivity
+import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.dataModel.Question
+import com.example.gdsc_hackathon.dataModel.User
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRecyclerAdapter<Question, QuestionAdapter.QuestionHolder>(options) {
     private var listener: OnItemClickListener? = null
 
+
+
     override fun onBindViewHolder(holder: QuestionHolder, position: Int, model: Question) {
-        holder.textViewQuestion.text = model.getQuestionText()
-        holder.textViewUser.text = model.getUser()
-        holder.textViewDate.text = model.getDate()
-
-
+        holder.textViewQuestion.text = model.question
+        holder.textViewDate.text = model.date
+        if(holder.username == model.username){
+            holder.textViewUser.text = "Me"
+        }
+        else{
+            holder.textViewUser.text = model.username
+        }
         holder.itemView.setOnClickListener {
             if (position != RecyclerView.NO_POSITION && listener != null) {
                 listener!!.onItemClick(snapshots.getSnapshot(position).id)
@@ -42,6 +58,9 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
         var textViewQuestion: TextView = itemView.findViewById(R.id.text_view_question)
         var textViewUser: TextView = itemView.findViewById(R.id.text_view_user)
         var textViewDate: TextView = itemView.findViewById(R.id.text_view_date)
+        private val user = FirebaseAuth.getInstance().currentUser
+        val prefs : Prefs = Prefs(itemView.context)
+        val username = prefs.username
 
         init {
 
