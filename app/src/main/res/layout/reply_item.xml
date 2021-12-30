@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/text_view_reply"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,15 +19,26 @@
         android:text="Reply"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_delete_reply"
+        android:layout_width="31dp"
+        android:layout_height="29dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="1dp"
+        android:layout_marginRight="1dp"
+        android:clickable="true"
+        android:visibility="gone"
+        app:srcCompat="@android:drawable/ic_delete" />
+
     <TextView
         android:id="@+id/text_view_current_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_reply"
+        app:layout_constraintTop_toBottomOf="@+id/fab_delete_reply"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/text_view_username"
         android:layout_alignLeft="@+id/text_view_username"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:text="Date" />
 
     <TextView
         android:id="@+id/text_view_username"

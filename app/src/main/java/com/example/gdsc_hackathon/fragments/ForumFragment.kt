@@ -74,24 +74,6 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = adapter
 
-        //This will delete the question
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
-            0,
-            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
-        ) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                adapter.deleteItem(viewHolder.absoluteAdapterPosition)
-            }
-        }).attachToRecyclerView(recyclerView)
-
         adapter.setOnItemClickListener(object : QuestionAdapter.OnItemClickListener {
             override fun onItemClick(documentSnapshot: String) {
                 val bundle = bundleOf("id" to documentSnapshot)
