@@ -107,6 +107,7 @@ class SignInActivity : AppCompatActivity() {
                                             prefs.email = doc.getString("email").toString()
                                             prefs.department = doc.getString("department").toString()
                                             prefs.name = doc.getString("name").toString()
+                                            prefs.status = 1
                                         }
                                     }
                                 startActivity(Intent(applicationContext, MainActivity::class.java))
@@ -189,6 +190,7 @@ class SignInActivity : AppCompatActivity() {
                                                     prefs.email = doc.getString("email").toString()
                                                     prefs.department = doc.getString("department").toString()
                                                     prefs.name = doc.getString("name").toString()
+                                                    prefs.status = 1
                                                 }
                                             }
                                         val intent = Intent(this, MainActivity::class.java)

@@ -104,24 +104,6 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         recyclerViewReply.setHasFixedSize(true)
         recyclerViewReply.layoutManager = LinearLayoutManager(recyclerViewReply.context)
         recyclerViewReply.adapter = replyAdapter
-
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
-            0,
-            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
-        ) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                replyAdapter.deleteItem(viewHolder.adapterPosition)
-            }
-        }).attachToRecyclerView(recyclerViewReply)
-
     }
 
     private fun replyToQuestion(id : String, reply : String, username : String){

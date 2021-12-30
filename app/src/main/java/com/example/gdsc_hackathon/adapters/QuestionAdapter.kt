@@ -16,6 +16,7 @@ import com.example.gdsc_hackathon.dataModel.Question
 import com.example.gdsc_hackathon.dataModel.User
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.ktx.firestore
@@ -31,6 +32,7 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
         holder.textViewDate.text = model.date
         if(holder.username == model.username){
             holder.textViewUser.text = "Me"
+            holder.deleteQuestion.visibility = View.VISIBLE
         }
         else{
             holder.textViewUser.text = model.username
@@ -40,6 +42,9 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
                 listener!!.onItemClick(snapshots.getSnapshot(position).id)
             }
         }
+        holder.deleteQuestion.setOnClickListener(View.OnClickListener {
+            deleteItem(position)
+        })
 
 
     }
@@ -58,6 +63,7 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
         var textViewQuestion: TextView = itemView.findViewById(R.id.text_view_question)
         var textViewUser: TextView = itemView.findViewById(R.id.text_view_user)
         var textViewDate: TextView = itemView.findViewById(R.id.text_view_date)
+        var deleteQuestion : FloatingActionButton = itemView.findViewById(R.id.fab_delete_question)
         private val user = FirebaseAuth.getInstance().currentUser
         val prefs : Prefs = Prefs(itemView.context)
         val username = prefs.username
