@@ -11,6 +11,7 @@ import android.widget.RelativeLayout
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.SignInActivity
+import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -91,6 +92,8 @@ class MoreFragment : Fragment() {
         logoutButton = rootView.findViewById(R.id.logout)
         logoutButton.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
+            val prefs = Prefs(rootView.context)
+            prefs.status = 0
             val intent = Intent(activity, SignInActivity::class.java)
             startActivity(intent)
 

@@ -7,6 +7,10 @@ class Prefs (context: Context) {
 
     private val preferences: SharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE)
 
+    var status : Int
+        get() = preferences.getInt("status", -1)
+        set(value) = preferences.edit().putInt("status", value).apply()
+
     var username: String?
         get() = preferences.getString("username", "anam1")
         set(value) = preferences.edit().putString("username", value).apply()

@@ -11,6 +11,7 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.dataModel.Prefs
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -42,6 +43,14 @@ class SignUpActivity : AppCompatActivity() {
         googleSignupButton = findViewById(R.id.signup_with_google_signup_screen)
 
         mAuth = FirebaseAuth.getInstance()
+
+        val prefs = Prefs(applicationContext)
+        val status = prefs.status
+        if(status == 1){
+            startActivity(Intent(applicationContext, MainActivity::class.java))
+            finish()
+        }
+
 
         registerButton.setOnClickListener {
 
@@ -131,28 +140,6 @@ class SignUpActivity : AppCompatActivity() {
         pattern = Pattern.compile(PASSWORD_PATTERN)
         matcher = pattern.matcher(password)
         return matcher.matches()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val user = mAuth.currentUser
-
-        if (user != null) {
-            Firebase.firestore.collection("users").document(user.email!!).get()
-                .addOnCompleteListener { task ->
-                    val doc = task.result
-                    if (doc != null && doc.exists()) {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mAuth.signOut()
     }
 
 }
