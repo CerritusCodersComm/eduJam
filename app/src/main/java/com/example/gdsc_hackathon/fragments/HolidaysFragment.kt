@@ -24,16 +24,27 @@ class HolidaysFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView =  inflater.inflate(R.layout.fragment_holidays, container, false)
 
-        recyclerView = rootView.findViewById(R.id.eventsRecyclerView)
+        recyclerView = rootView.findViewById(R.id.holidaysRecyclerView)
 
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         val data = ArrayList<HolidaysItemModel>()
 
-        data.add(HolidaysItemModel(R.drawable.holiday_48px, "CHRISTMAS","25th December, 2021"))
-        for (i in 2..20) {
-            data.add(HolidaysItemModel(R.drawable.holiday_48px, "Item $i", "TIME: 16:00"))
-        }
+        // static for now
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Makar Sankranti","14 Jan"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Republic Day","26 Jan"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Chhatrapati Shivaji Maharaj Jayanti","19 Feb"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Maha Shivaratri/Shivaratri","1 Mar"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Holi","18 Mar"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Gudi Padwa","2 Apr"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Ambedkar Jayanti","14 Apr"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Good Friday","15 Apr"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Ramzan Eid","3 May"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Buddha Purnima","16 May"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Muharram","9 Aug"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Raksha Bandhan","9 Aug"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Muharram","9 Aug"))
+        data.add(HolidaysItemModel(R.drawable.holiday_48px, "Independence Day","15 Aug"))
 
         val adapter = HolidaysItemAdapter(data)
         // Setting the Adapter with the recyclerview

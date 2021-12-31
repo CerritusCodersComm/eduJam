@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/title"
+        android:textSize="24sp"
         android:layout_alignStart="@+id/holidayIcon"
         android:layout_marginStart="60dp"
         android:text="Holiday Reason"/>

@@ -5,9 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HolidaysFragment">
 
+    <TextView
+        android:id="@+id/holidayNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/desc"
+        android:layout_alignParentBottom="true"
+        android:text="Note: Currently the college specific holidays has not been added yet!"/>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventsRecyclerView"
+        android:id="@+id/holidaysRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/academic_recycler_view_event" />
+        android:layout_above="@id/holidayNote"
+        tools:listitem="@layout/holidays_recycler_view_item" />
 </RelativeLayout>
