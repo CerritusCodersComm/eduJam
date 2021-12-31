@@ -11,6 +11,7 @@ import com.example.gdsc_hackathon.dataModel.Reply
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import java.lang.String
 
 class ReplyAdapter(options: FirestoreRecyclerOptions<Reply>) : FirestoreRecyclerAdapter<Reply, ReplyAdapter.ReplyHolder>(options) {
@@ -18,7 +19,7 @@ class ReplyAdapter(options: FirestoreRecyclerOptions<Reply>) : FirestoreRecycler
     override fun onBindViewHolder(holder: ReplyHolder, position: Int, model: Reply) {
         holder.textViewReply.text = model.reply
         holder.date.text = String.valueOf(model.date)
-        if(holder.username == model.username){
+        if(holder.user!!.uid == model.uid){
             holder.textViewUsername.text = "Me"
             holder.deleteReply.visibility = View.VISIBLE
         }
@@ -48,6 +49,7 @@ class ReplyAdapter(options: FirestoreRecyclerOptions<Reply>) : FirestoreRecycler
         var textViewUsername: TextView = itemView.findViewById(R.id.text_view_username)
         var date: TextView = itemView.findViewById(R.id.text_view_current_date)
         var deleteReply : FloatingActionButton = itemView.findViewById(R.id.fab_delete_reply)
+        val user = FirebaseAuth.getInstance().currentUser
         val prefs : Prefs = Prefs(itemView.context)
         val username = prefs.username
     }

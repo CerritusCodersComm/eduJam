@@ -82,12 +82,13 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
                         val doc = task.result
                         if (doc != null && doc.exists()) {
                             val username = doc.getString("username").toString()
-                            var reply : String = ""
+                            val uid = doc.getString("uid").toString()
+                            var reply= ""
                             if(editTextReply.text != null) {
                                 reply = editTextReply.text.toString()
                             }
                             if (id != null) {
-                                replyToQuestion(id, reply, username)
+                                replyToQuestion(id, reply, username, uid)
                             }
                         }
                     }
@@ -106,10 +107,10 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         recyclerViewReply.adapter = replyAdapter
     }
 
-    private fun replyToQuestion(id : String, reply : String, username : String){
+    private fun replyToQuestion(id : String, reply : String, username : String, uid : String){
         val dateFormat = SimpleDateFormat("dd.MM.yyyy HH.mm.ss")
         val currentDate = dateFormat.format(Date())
-        val replyModel = Reply(id, reply, username, currentDate)
+        val replyModel = Reply(id, reply, username, uid, currentDate)
         quesRef.document(id).collection("Replies").add(replyModel).addOnSuccessListener {
             editTextReply.text = null
         }.addOnFailureListener(OnFailureListener {

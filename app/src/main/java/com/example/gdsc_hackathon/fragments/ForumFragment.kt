@@ -55,7 +55,8 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
                         val doc = task.result
                         if (doc != null && doc.exists()) {
                             val username = doc.getString("username").toString()
-                            addQuestion(username)
+                            val uid = doc.getString("uid").toString()
+                            addQuestion(username, uid)
                         }
                     }
             }
@@ -85,14 +86,14 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
 
 
     //Adds new Question
-    private fun addQuestion(username : String) {
+    private fun addQuestion(username : String, uid : String) {
         val question: String = editTextQuestion.text.toString()
         val dateFormat = SimpleDateFormat(
             "d MMM yyyy HH.mm.ss",
             Locale.getDefault()
         )
         val currentDate = dateFormat.format(Date())
-        val questionModel = Question(question, username , currentDate)
+        val questionModel = Question(question, username , uid, currentDate)
         quesRef.add(questionModel).addOnSuccessListener {
             editTextQuestion.text = null
         }.addOnFailureListener {

@@ -34,10 +34,8 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var registerButton: RelativeLayout
     private lateinit var passwordEditText: EditText
     private lateinit var emailEditText: EditText
-
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-
 
     companion object {
         private const val RC_SIGN_IN = 120
@@ -107,6 +105,7 @@ class SignInActivity : AppCompatActivity() {
                                             prefs.email = doc.getString("email").toString()
                                             prefs.department = doc.getString("department").toString()
                                             prefs.name = doc.getString("name").toString()
+                                            prefs.uid = doc.getString("uid").toString()
                                             prefs.status = 1
                                         }
                                     }
@@ -190,6 +189,7 @@ class SignInActivity : AppCompatActivity() {
                                                     prefs.email = doc.getString("email").toString()
                                                     prefs.department = doc.getString("department").toString()
                                                     prefs.name = doc.getString("name").toString()
+                                                    prefs.uid = doc.getString("uid").toString()
                                                     prefs.status = 1
                                                 }
                                             }

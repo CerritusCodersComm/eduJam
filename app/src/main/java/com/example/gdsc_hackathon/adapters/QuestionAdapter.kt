@@ -30,7 +30,7 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
     override fun onBindViewHolder(holder: QuestionHolder, position: Int, model: Question) {
         holder.textViewQuestion.text = model.question
         holder.textViewDate.text = model.date
-        if(holder.username == model.username){
+        if(holder.user!!.uid == model.uid){
             holder.textViewUser.text = "Me"
             holder.deleteQuestion.visibility = View.VISIBLE
         }
@@ -42,11 +42,9 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
                 listener!!.onItemClick(snapshots.getSnapshot(position).id)
             }
         }
-        holder.deleteQuestion.setOnClickListener(View.OnClickListener {
+        holder.deleteQuestion.setOnClickListener {
             deleteItem(position)
-        })
-
-
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : QuestionHolder {
@@ -64,13 +62,9 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
         var textViewUser: TextView = itemView.findViewById(R.id.text_view_user)
         var textViewDate: TextView = itemView.findViewById(R.id.text_view_date)
         var deleteQuestion : FloatingActionButton = itemView.findViewById(R.id.fab_delete_question)
-        private val user = FirebaseAuth.getInstance().currentUser
+        val user = FirebaseAuth.getInstance().currentUser
         val prefs : Prefs = Prefs(itemView.context)
         val username = prefs.username
-
-        init {
-
-        }
     }
 
     interface OnItemClickListener {
