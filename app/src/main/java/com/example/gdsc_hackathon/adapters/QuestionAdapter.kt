@@ -54,6 +54,11 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
 
     open fun deleteItem(position: Int) {
         snapshots.getSnapshot(position).reference.delete()
+        val uid = FirebaseAuth.getInstance().currentUser!!.uid
+        Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->
+            val value : Int = user.result.getLong("questionsAsked")!!.toInt()
+            Firebase.firestore.collection("users").document(uid).update("questionsAsked", value - 1)
+        }
     }
 
 

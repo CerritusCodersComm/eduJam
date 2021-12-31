@@ -54,6 +54,7 @@ class SignInActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.password_edit_text)
 
         mAuth = FirebaseAuth.getInstance()
+        val user = mAuth.currentUser
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -83,7 +84,7 @@ class SignInActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            Firebase.firestore.collection("users").document(email).get()
+            Firebase.firestore.collection("users").document(user!!.uid).get()
                 .addOnCompleteListener { task ->
                     val doc = task.result
                     if (doc != null && !doc.exists()) {
@@ -94,25 +95,18 @@ class SignInActivity : AppCompatActivity() {
                     mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
-                                Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT)
-                                    .show()
-                                Firebase.firestore.collection("users").document(emailEditText.text.toString()).get()
-                                    .addOnCompleteListener { task ->
-                                        val doc = task.result
-                                        if (doc != null && doc.exists()) {
-                                            val prefs = Prefs(applicationContext)
-                                            prefs.username = doc.getString("username").toString()
-                                            prefs.email = doc.getString("email").toString()
-                                            prefs.department = doc.getString("department").toString()
-                                            prefs.name = doc.getString("name").toString()
-                                            prefs.uid = doc.getString("uid").toString()
-                                            prefs.status = 1
-                                        }
-                                    }
+                                Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT).show()
+                                val prefs = Prefs(applicationContext)
+                                prefs.username = doc.getString("username").toString()
+                                prefs.email = doc.getString("email").toString()
+                                prefs.department = doc.getString("department").toString()
+                                prefs.name = doc.getString("name").toString()
+                                prefs.uid = doc.getString("uid").toString()
+                                prefs.status = 1
+                            }
                                 startActivity(Intent(applicationContext, MainActivity::class.java))
                                 finish()
                             }
-                        }
                         .addOnFailureListener {
                             Toast.makeText(applicationContext, "Please try again", Toast.LENGTH_SHORT)
                                 .show()
@@ -166,7 +160,7 @@ class SignInActivity : AppCompatActivity() {
                         val usr = mAuth.currentUser
 
                         if (usr != null) {
-                            Firebase.firestore.collection("users").document(user.email!!).get()
+                            Firebase.firestore.collection("users").document(user.uid!!).get()
                                 .addOnCompleteListener { t ->
                                     val doc = t.result
                                     if (doc != null && !doc.exists()) {
@@ -180,19 +174,13 @@ class SignInActivity : AppCompatActivity() {
                                         return@addOnCompleteListener
                                     }
                                     else if(doc != null && doc.exists()){
-                                        Firebase.firestore.collection("users").document(emailEditText.text.toString()).get()
-                                            .addOnCompleteListener { task ->
-                                                val doc = task.result
-                                                if (doc != null && doc.exists()) {
-                                                    val prefs = Prefs(applicationContext)
-                                                    prefs.username = doc.getString("username").toString()
-                                                    prefs.email = doc.getString("email").toString()
-                                                    prefs.department = doc.getString("department").toString()
-                                                    prefs.name = doc.getString("name").toString()
-                                                    prefs.uid = doc.getString("uid").toString()
-                                                    prefs.status = 1
-                                                }
-                                            }
+                                        val prefs = Prefs(applicationContext)
+                                        prefs.username = doc.getString("username").toString()
+                                        prefs.email = doc.getString("email").toString()
+                                        prefs.department = doc.getString("department").toString()
+                                        prefs.name = doc.getString("name").toString()
+                                        prefs.uid = doc.getString("uid").toString()
+                                        prefs.status = 1
                                         val intent = Intent(this, MainActivity::class.java)
                                         startActivity(intent)
                                         finish()

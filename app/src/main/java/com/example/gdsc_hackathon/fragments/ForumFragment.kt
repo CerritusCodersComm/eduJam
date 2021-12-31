@@ -48,7 +48,7 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
         recyclerView= rootView.findViewById(R.id.recycler_view_questions)
         setUpRecyclerView(rootView)
         buttonAsk.setOnClickListener {
-            val user : String? = FirebaseAuth.getInstance().currentUser?.email
+            val user : String? = FirebaseAuth.getInstance().currentUser?.uid
             if (user != null) {
                 Firebase.firestore.collection("users").document(user).get()
                     .addOnCompleteListener { task ->
@@ -96,6 +96,10 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
         val questionModel = Question(question, username , uid, currentDate)
         quesRef.add(questionModel).addOnSuccessListener {
             editTextQuestion.text = null
+            Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->
+                val value : Int = user.result.getLong("questionsAsked")!!.toInt()
+                Firebase.firestore.collection("users").document(uid).update("questionsAsked", value + 1)
+            }
         }.addOnFailureListener {
             Toast.makeText(activity, "Failed", Toast.LENGTH_LONG).show()
         }
