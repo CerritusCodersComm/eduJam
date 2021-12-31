@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/forumFragment"
         android:name="com.example.gdsc_hackathon.fragments.ForumFragment"
-        android:label="News"
+        android:label="Forum"
         tools:layout="@layout/fragment_forum">
         <action
             android:id="@+id/action_forumFragment_to_replyFragment"
