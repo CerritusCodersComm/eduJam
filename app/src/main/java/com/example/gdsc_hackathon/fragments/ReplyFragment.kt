@@ -50,6 +50,7 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         textViewDate = rootView.findViewById(R.id.text_view_date_reply)
         buttonReply= rootView.findViewById(R.id.button_reply)
 
+        val user = FirebaseAuth.getInstance().currentUser
         val bundle = arguments
         val id = bundle!!.getString("id")
         if (id != null) {
@@ -61,7 +62,12 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
                         val username = documentSnapshot.getString("username")
                         textViewQuestion.text = question
                         textViewDate.text = date
-                        textViewUser.text = username
+                        if(documentSnapshot.getString("uid") == user!!.uid){
+                            textViewUser.text = "Me"
+                        }
+                        else {
+                            textViewUser.text = username
+                        }
                     } else {
                         Toast.makeText(context, "Document does not exist", Toast.LENGTH_SHORT)
                             .show()
@@ -75,24 +81,20 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         }
 
         buttonReply.setOnClickListener(View.OnClickListener {
-            val user : String? = FirebaseAuth.getInstance().currentUser?.email
-            if (user != null) {
-                Firebase.firestore.collection("users").document(user).get()
-                    .addOnCompleteListener { task ->
-                        val doc = task.result
-                        if (doc != null && doc.exists()) {
-                            val username = doc.getString("username").toString()
-                            val uid = doc.getString("uid").toString()
-                            var reply= ""
-                            if(editTextReply.text != null) {
-                                reply = editTextReply.text.toString()
-                            }
-                            if (id != null) {
-                                replyToQuestion(id, reply, username, uid)
-                            }
+            Firebase.firestore.collection("users").document(user!!.uid).get()
+                .addOnCompleteListener { task ->
+                    val doc = task.result
+                    if (doc != null && doc.exists()) {
+                        val username = doc.getString("username").toString()
+                        var reply= ""
+                        if(editTextReply.text != null) {
+                            reply = editTextReply.text.toString()
+                        }
+                        if (id != null) {
+                            replyToQuestion(id, reply, username, user!!.uid)
                         }
                     }
-            }
+                }
 
         })
         return rootView
@@ -113,6 +115,10 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         val replyModel = Reply(id, reply, username, uid, currentDate)
         quesRef.document(id).collection("Replies").add(replyModel).addOnSuccessListener {
             editTextReply.text = null
+            Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->
+                val value : Int = user.result.getLong("questionsReplied")!!.toInt()
+                Firebase.firestore.collection("users").document(uid).update("questionsReplied", value + 1)
+            }
         }.addOnFailureListener(OnFailureListener {
             Toast.makeText(activity, "Failed", Toast.LENGTH_LONG).show()
         })

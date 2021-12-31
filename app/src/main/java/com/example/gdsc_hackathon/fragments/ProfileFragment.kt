@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
@@ -21,10 +25,19 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     val name : TextView = rootView.findViewById(R.id.profile_user_full_name)
     val email : TextView = rootView.findViewById(R.id.profile_user_email)
     val department : TextView = rootView.findViewById(R.id.profile_department)
-    val prefs= Prefs(rootView.context)
-    name.text = prefs.name
-    email.text = prefs.email
-    department.text = prefs.department
+    val username : TextView = rootView.findViewById(R.id.profile_username)
+    val questionsAsked : TextView = rootView.findViewById(R.id.profile_questions_asked_number)
+    val questionsReplied : TextView = rootView.findViewById(R.id.profile_questions_replied_number)
+    val user = FirebaseAuth.getInstance().currentUser
+    Firebase.firestore.collection("users").document(user!!.uid).get().addOnCompleteListener{
+        val doc = it.result
+        name.text = doc.getString("name").toString()
+        email.text = doc.getString("email").toString()
+        department.text = doc.getString("department").toString()
+        username.text = doc.getString("username").toString()
+        questionsAsked.text = doc.getLong("questionsAsked").toString()
+        questionsReplied.text = doc.getLong("questionsReplied").toString()
+    }
     return rootView
     }
 

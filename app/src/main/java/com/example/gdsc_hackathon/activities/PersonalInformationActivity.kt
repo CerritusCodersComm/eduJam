@@ -129,11 +129,14 @@ class PersonalInformationActivity : AppCompatActivity() {
                                 "name" to name,
                                 "email" to user.email,
                                 "department" to department,
-                                "username" to userName
+                                "username" to userName,
+                                "questionsAsked" to 0,
+                                "answersSelected" to 0,
+                                "questionsReplied" to 0
                             )
 
 
-                            Firebase.firestore.collection("users").document(user.email!!)
+                            Firebase.firestore.collection("users").document(user.uid!!)
                                 .set(usr)
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
@@ -218,11 +221,14 @@ class PersonalInformationActivity : AppCompatActivity() {
                             "name" to name,
                             "email" to user.email,
                             "department" to department,
-                            "username" to userName
+                            "username" to userName,
+                            "questionsAsked" to 0,
+                            "answersSelected" to 0,
+                            "questionsReplied" to 0
                         )
 
 
-                        Firebase.firestore.collection("users").document(user.email!!)
+                        Firebase.firestore.collection("users").document(user.uid!!)
                             .set(usr)
                             .addOnCompleteListener {
                                 if (it.isSuccessful) {

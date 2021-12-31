@@ -12,6 +12,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.lang.String
 
 class ReplyAdapter(options: FirestoreRecyclerOptions<Reply>) : FirestoreRecyclerAdapter<Reply, ReplyAdapter.ReplyHolder>(options) {
@@ -42,6 +44,11 @@ class ReplyAdapter(options: FirestoreRecyclerOptions<Reply>) : FirestoreRecycler
 
     fun deleteItem(position: Int) {
         snapshots.getSnapshot(position).reference.delete()
+        val uid = FirebaseAuth.getInstance().currentUser!!.uid
+        Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->
+            val value : Int = user.result.getLong("questionsReplied")!!.toInt()
+            Firebase.firestore.collection("users").document(uid).update("questionsReplied", value - 1)
+        }
     }
 
     class ReplyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
