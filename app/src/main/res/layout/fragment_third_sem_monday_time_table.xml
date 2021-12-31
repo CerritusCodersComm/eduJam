@@ -43,30 +43,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/fourth_sem_computer_graphics_module_five_topic_one_title"
+                android:text="DS -A1 LAB-314 \nCOA-A2 LAB-315 \nCOA-C1 LAB-314"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/topic_one_time_to_read"
-                style="@style/desc"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/topic_one_title"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:text="X hours"
-                android:textSize="20sp" />
             <TextView
                 android:id="@+id/topic_one_discussion_count"
                 style="@style/desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
-                android:layout_below="@+id/topic_one_time_to_read"
-                android:text="0 Discussion"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/topic_one_title"
+                android:text="9:30 to 11:30"
                 android:textSize="16sp" />
 
         </RelativeLayout>
@@ -103,16 +92,6 @@
                 android:layout_marginTop="10dp"
                 android:text="X hours"
                 android:textSize="20sp" />
-            <TextView
-                android:id="@+id/topic_two_discussion_count"
-                style="@style/desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
-                android:layout_below="@+id/topic_two_time_to_read"
-                android:text="0 Discussion"
-                android:textSize="16sp" />
 
         </RelativeLayout>
 

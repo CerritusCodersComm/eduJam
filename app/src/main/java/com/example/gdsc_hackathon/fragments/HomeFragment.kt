@@ -122,29 +122,47 @@ class HomeFragment : Fragment() {
         lectures.add(
             RecentLectureModel(
                 R.drawable.ic_baseline_video_camera_front_24,
-                "MATHS",
-                "25th December, 2021",
-                "20:00"
+                "COA ESE",
+                "22nd December, 2021",
+                "10:30"
             )
         )
+
         lectures.add(
             RecentLectureModel(
                 R.drawable.ic_baseline_video_camera_front_24,
-                "PHYSICS",
-                "27th December, 2021",
-                "20:00"
+                "DLDA ESE",
+                "20th December, 2021",
+                "10:30"
             )
         )
-        for (i in 2..20) {
-            lectures.add(
-                RecentLectureModel(
-                    R.drawable.ic_baseline_video_camera_front_24,
-                    "Item $i",
-                    "1 JAN",
-                    "TIME: 16:00"
-                )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "DBMS ESE",
+                "17th December, 2021",
+                "10:30"
             )
-        }
+        )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "DS ESE",
+                "15th December, 2021",
+                "10:30"
+            )
+        )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "MATHS-III ESE",
+                "13th December, 2021",
+                "10:30"
+            )
+        )
 
         adapter = RecentLectureAdapter(lectures)
 
