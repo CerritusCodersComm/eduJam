@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.adapters.ReplyAdapter
 import com.example.gdsc_hackathon.dataModel.Reply
+import com.example.gdsc_hackathon.extensions.closeKeyboard
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.auth.FirebaseAuth
@@ -132,6 +133,7 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
     override fun onStop() {
         super.onStop()
         replyAdapter.stopListening()
+        closeKeyboard()
     }
 
 }

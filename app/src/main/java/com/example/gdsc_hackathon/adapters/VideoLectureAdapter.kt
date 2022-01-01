@@ -10,9 +10,6 @@ import com.bumptech.glide.Glide
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.VideoLecturesModel
 
-
-
-
 class VideoLectureAdapter(private val lectures: List<VideoLecturesModel>) : RecyclerView.Adapter<VideoLectureAdapter.ViewHolder>() {
 
     // create new views
@@ -29,7 +26,6 @@ class VideoLectureAdapter(private val lectures: List<VideoLecturesModel>) : Recy
 
     interface OnItemClicked {
         fun onItemClick(position: Int)
-        fun onItemShareClick(position: Int)
     }
 
     // binds the list items to a view
@@ -46,7 +42,6 @@ class VideoLectureAdapter(private val lectures: List<VideoLecturesModel>) : Recy
             .into(holder.lectureThumbnail)
 
         holder.lectureThumbnail.setOnClickListener { onClick!!.onItemClick(position) }
-
     }
 
     // return the number of the items in the list

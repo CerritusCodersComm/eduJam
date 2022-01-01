@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
     private lateinit var syllabusLayout: LinearLayout
     private lateinit var weeklyTimeTableLayout: LinearLayout
     private lateinit var holidayLayout: LinearLayout
-    private lateinit var examTimeConstraintLayout: LinearLayout
+    private lateinit var videoLecturesLayout: LinearLayout
     private lateinit var practicalLayout: LinearLayout
     private lateinit var previousYearPapersLayout: LinearLayout
     private lateinit var academicCalendarLayout: LinearLayout
@@ -87,9 +87,9 @@ class HomeFragment : Fragment() {
             rootView.findNavController().navigate(R.id.holidayFragment)
         }
 
-        examTimeConstraintLayout = rootView.findViewById(R.id.examTimeConstraintLayout)
-        examTimeConstraintLayout.setOnClickListener {
-            rootView.findNavController().navigate(R.id.examTimeConstraintFragment)
+        videoLecturesLayout = rootView.findViewById(R.id.videoLecturesLayout)
+        videoLecturesLayout.setOnClickListener {
+            rootView.findNavController().navigate(R.id.VideoLectureFragment)
         }
 
         practicalLayout = rootView.findViewById(R.id.practicalLayout)

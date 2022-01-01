@@ -13,9 +13,7 @@ import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.SignInActivity
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.showSnackBar
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.example.gdsc_hackathon.new_todo_list.TodoActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class MoreFragment : Fragment() {
@@ -35,7 +33,7 @@ class MoreFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val rootView: View = inflater.inflate(R.layout.fragment_more, container, false)
 
@@ -56,7 +54,9 @@ class MoreFragment : Fragment() {
 
         examTimeConstraintLayout = rootView.findViewById(R.id.examTimeConstraintLayout)
         examTimeConstraintLayout.setOnClickListener {
-            rootView.findNavController().navigate(R.id.examTimeConstraintFragment)
+            showSnackBar(requireActivity(),"Coming soon!")
+            // todo: update it when we ready with view
+//            rootView.findNavController().navigate(R.id.examTimeConstraintFragment)
         }
 
         practicalLayout = rootView.findViewById(R.id.practicalLayout)
@@ -76,6 +76,8 @@ class MoreFragment : Fragment() {
 
         todolistLayout = rootView.findViewById(R.id.todolist_layout)
         todolistLayout.setOnClickListener {
+            val intent = Intent(activity, TodoActivity::class.java)
+            startActivity(intent)
             rootView.findNavController().navigate(R.id.todoListFragment)
         }
 

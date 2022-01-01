@@ -51,6 +51,9 @@ android {
 }
 
 dependencies {
+    def room_version = "2.4.0"
+    def arch_version = "2.1.0"
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
@@ -59,7 +62,7 @@ dependencies {
     
     implementation 'com.google.firebase:firebase-messaging-ktx:23.0.0'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
-    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.annotation:annotation:1.3.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     implementation 'androidx.preference:preference-ktx:1.1.1'
@@ -118,8 +121,13 @@ dependencies {
 
     // room database
     implementation 'androidx.room:room-common:2.4.0'
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
 
     // dexter for permission
     implementation 'com.karumi:dexter:6.2.3'
+
+
 
 }
