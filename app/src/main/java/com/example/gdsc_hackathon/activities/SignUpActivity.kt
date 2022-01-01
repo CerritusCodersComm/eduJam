@@ -56,7 +56,7 @@ class SignUpActivity : AppCompatActivity() {
 
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
-            val confirmpassword = confirmPasswordEditText.toString().trim()
+            val confirmPassword = confirmPasswordEditText.toString().trim()
 
             if (email.isEmpty() || password.isEmpty() || !isValidEmail(email)) {
                 Toast.makeText(applicationContext, "Please Enter Correct Values", Toast.LENGTH_LONG)
@@ -82,7 +82,7 @@ class SignUpActivity : AppCompatActivity() {
             mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, OnCompleteListener {
                         task ->
-                    Toast.makeText(this,"createUserWithEmail:onComplete"+task.isSuccessful,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"createUserWithEmail:onComplete"+task.exception,Toast.LENGTH_SHORT).show()
 
                     if (!task.isSuccessful){
 //                    Toast.makeText(this,"User Not created",Toast.LENGTH_SHORT).show()

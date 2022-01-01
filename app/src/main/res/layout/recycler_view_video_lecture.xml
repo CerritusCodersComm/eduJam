@@ -30,6 +30,7 @@
         android:layout_alignStart="@id/lectureTitle"
         android:gravity="center"
         android:text="Lurid Nub" />
+
     <TextView
         android:id="@+id/lectureDate"
         style="@style/desc"
@@ -49,6 +50,7 @@
         android:layout_below="@+id/lectureThumbnail"
         android:layout_marginEnd="60dp"
         android:layout_alignParentEnd="true"
+        android:visibility="gone"
         android:src="@drawable/ic_baseline_share_24" />
 
     <ImageView
@@ -59,6 +61,7 @@
         android:layout_below="@+id/lectureThumbnail"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="100dp"
+        android:visibility="gone"
         android:src="@drawable/ic_baseline_download_24" />
 
 </RelativeLayout>

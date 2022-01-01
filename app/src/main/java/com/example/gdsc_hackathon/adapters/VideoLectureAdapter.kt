@@ -29,6 +29,7 @@ class VideoLectureAdapter(private val lectures: List<VideoLecturesModel>) : Recy
 
     interface OnItemClicked {
         fun onItemClick(position: Int)
+        fun onItemShareClick(position: Int)
     }
 
     // binds the list items to a view
@@ -44,7 +45,7 @@ class VideoLectureAdapter(private val lectures: List<VideoLecturesModel>) : Recy
             .centerCrop()
             .into(holder.lectureThumbnail)
 
-        holder.itemView.setOnClickListener { onClick!!.onItemClick(position) }
+        holder.lectureThumbnail.setOnClickListener { onClick!!.onItemClick(position) }
 
     }
 
