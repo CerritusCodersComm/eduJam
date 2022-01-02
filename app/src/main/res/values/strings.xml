@@ -45,6 +45,7 @@
 
     <string name="practical_title_text">SE 4th Semester Practcals 2022</string>
     <string name="add_todo">Add TODO</string>
+    <string name="edit_todo">Edit TODO</string>
     <string name="to_edit">TO Edit</string>
     <string name="add_to_do_item">Add To do item</string>
     <string name="add_new_todo">Add New Todo</string>
@@ -64,6 +65,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="delete">Delete</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="cancle">Cancle</string>
 
     <!-- Strings used for fragments for navigation -->
 
