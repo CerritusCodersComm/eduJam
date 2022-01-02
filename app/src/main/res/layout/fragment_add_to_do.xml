@@ -1,0 +1,66 @@
+
+
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+app:layout_behavior="@string/appbar_scrolling_view_behavior"
+android:fitsSystemWindows="true"
+tools:context=".fragments.AddToDoFragment">
+
+
+
+
+<TextView
+    android:id="@+id/add_new_todo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:padding="20dp"
+    android:text="@string/add_new_todo"
+    android:textColor="@color/black"
+    android:textSize="20sp" />
+
+<EditText
+    android:id="@+id/title_in_add_todo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/add_new_todo"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="10dp"
+    android:autofillHints="Title"
+    android:background="@drawable/background_border"
+    android:hint="@string/title"
+    android:inputType="text"
+    android:padding="8dp" />
+
+<EditText
+
+    android:id="@+id/description_in_add_todo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="150dp"
+    android:layout_below="@+id/title_in_add_todo"
+    android:layout_marginHorizontal="20dp"
+    android:layout_marginVertical="10dp"
+    android:autofillHints="Title"
+    android:background="@drawable/background_border"
+    android:hint="@string/description"
+    android:inputType="textMultiLine"
+    android:padding="8dp"
+    android:scrollbarAlwaysDrawVerticalTrack="true" />
+
+
+<Button
+    android:id="@+id/submit_to_do"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/description_in_add_todo"
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/auth_button_background"
+
+    android:elevation="30dp"
+    android:text="@string/add_todo" />
+</RelativeLayout>
