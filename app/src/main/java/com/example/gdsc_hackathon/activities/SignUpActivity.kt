@@ -12,12 +12,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+
+
+
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var registerButton: Button
@@ -80,14 +80,20 @@ class SignUpActivity : AppCompatActivity() {
 //            }
 
             mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, OnCompleteListener {
-                        task ->
-                    Toast.makeText(this,"createUserWithEmail:onComplete"+task.exception,Toast.LENGTH_SHORT).show()
-
-                    if (!task.isSuccessful){
-//                    Toast.makeText(this,"User Not created",Toast.LENGTH_SHORT).show()
-                        return@OnCompleteListener
-                    }else{
+                .addOnCompleteListener(this
+                ) { task ->
+                    Toast.makeText(
+                        this,
+                        "createUserWithEmail:onComplete:" + task.isSuccessful,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    if (!task.isSuccessful) {
+                        Toast.makeText(
+                            this,
+                            "Authentication failed." + task.exception,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
                         val intent = Intent(this, PersonalInformationActivity::class.java)
 
                         intent.putExtra("email",email)
@@ -96,19 +102,38 @@ class SignUpActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     }
-                })
-                .addOnFailureListener { e->
-                    Log.e("LOOK",e.message.toString())
-                    if(e.message.toString() == "The email address is already in use by another account."){
-                        val intent = Intent(this, PersonalInformationActivity::class.java)
-
-                        intent.putExtra("email",email)
-                        intent.putExtra("password",password)
-                        intent.putExtra("signupMode","EMAIL")
-                        startActivity(intent)
-                        finish()
-                    }
                 }
+    //            mAuth.createUserWithEmailAndPassword(email, password)
+    //                .addOnCompleteListener(this, OnCompleteListener {
+    //                        task ->
+    //                    Toast.makeText(this,"createUserWithEmail:onComplete"+task.exception,Toast.LENGTH_SHORT).show()
+    //                    Log.e("User Sign Up error",task.exception.toString())
+    //
+    //                    if (!task.isSuccessful){
+    ////                    Toast.makeText(this,"User Not created",Toast.LENGTH_SHORT).show()
+    //                        return@OnCompleteListener
+    //                    }else{
+    //                        val intent = Intent(this, PersonalInformationActivity::class.java)
+    //
+    //                        intent.putExtra("email",email)
+    //                        intent.putExtra("password",password)
+    //                        mAuth.signOut()
+    //                        startActivity(intent)
+    //                        finish()
+    //                    }
+    //                })
+    //                .addOnFailureListener { e->
+    //                    Log.e("LOOK",e.message.toString())
+    //                    if(e.message.toString() == "The email address is already in use by another account."){
+    //                        val intent = Intent(this, PersonalInformationActivity::class.java)
+    //
+    //                        intent.putExtra("email",email)
+    //                        intent.putExtra("password",password)
+    //                        intent.putExtra("signupMode","EMAIL")
+    //                        startActivity(intent)
+    //                        finish()
+    //                    }
+    //                }
 
 
 //            val intent = Intent(this, SignUpActivity::class.java)
@@ -129,16 +154,15 @@ class SignUpActivity : AppCompatActivity() {
         
     }
 
-    fun isValidEmail(target: CharSequence?): Boolean {
+    private fun isValidEmail(target: CharSequence?): Boolean {
         return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target!!).matches()
     }
 
     fun isValidPassword(password: String?): Boolean {
         val pattern: Pattern
-        val matcher: Matcher
         val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
         pattern = Pattern.compile(PASSWORD_PATTERN)
-        matcher = pattern.matcher(password)
+        val matcher: Matcher = pattern.matcher(password)
         return matcher.matches()
     }
 

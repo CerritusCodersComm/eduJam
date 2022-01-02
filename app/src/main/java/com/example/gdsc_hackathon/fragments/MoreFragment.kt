@@ -13,7 +13,6 @@ import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.SignInActivity
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.showSnackBar
-import com.example.gdsc_hackathon.new_todo_list.TodoActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class MoreFragment : Fragment() {
@@ -76,8 +75,8 @@ class MoreFragment : Fragment() {
 
         todolistLayout = rootView.findViewById(R.id.todolist_layout)
         todolistLayout.setOnClickListener {
-            val intent = Intent(activity, TodoActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(activity, TodoActivity::class.java)
+//            startActivity(intent)
             rootView.findNavController().navigate(R.id.todoListFragment)
         }
 
