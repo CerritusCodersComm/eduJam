@@ -12,16 +12,22 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.activities.MainActivity
 import com.example.gdsc_hackathon.adapters.ToDoListAdapter
-import com.example.gdsc_hackathon.app_database.ToDoApplication
+import com.example.gdsc_hackathon.database.ToDoApplication
 import com.example.gdsc_hackathon.dataModel.ToDo
 import com.example.gdsc_hackathon.databinding.FragmentTodoListBinding
+import com.example.gdsc_hackathon.extensions.action
+import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
+import com.example.gdsc_hackathon.extensions.showSnackBarWithIntentMessage
+import com.example.gdsc_hackathon.utils.dialog.AlertDialogShower
+import com.example.gdsc_hackathon.utils.dialog.AppDialogs
 import com.example.gdsc_hackathon.viewmodels.ToDoListViewModel
 import com.example.gdsc_hackathon.viewmodels.ToDoListViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
 
-class TodoListFragment : Fragment() {
+class TodoListFragment() : Fragment() {
     private val viewModel: ToDoListViewModel by activityViewModels {
         ToDoListViewModelFactory(
             (activity?.application as ToDoApplication).database.todoDao()
@@ -66,12 +72,15 @@ class TodoListFragment : Fragment() {
                     val todo: ToDo = adapter.getToDo(
                         viewHolder.absoluteAdapterPosition,
                     )
-                    onDeleteToDo(todo)
+                    val alertDialogShower = AlertDialogShower(requireActivity())
+                    alertDialogShower.show(
+                        AppDialogs.DeleteTodo,
+                        { onDeleteToDo(todo) },
+                        { (activity as MainActivity?)?.refreshCurrentFragment() }
+                    )
                 }
-
             }
         }).attachToRecyclerView(binding.recycleViewForTodoList)
-//        binding.recycleViewForTodoList.setHasFixedSize(true)
         binding.recycleViewForTodoList.layoutManager = LinearLayoutManager(this.context)
         binding.recycleViewForTodoList.adapter = adapter
         viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
@@ -90,20 +99,12 @@ class TodoListFragment : Fragment() {
 
     private fun onDeleteToDo(todo: ToDo) {
         viewModel.deleteToDo(todo)
-        val snackBar: Snackbar? =
-            view?.let { Snackbar.make(it, "${todo.title} removed", Snackbar.LENGTH_LONG) }
-        snackBar?.setAction("UNDO") {
+        showSnackBarWithAction(requireActivity(),"${todo.title} removed",R.string.undo,null) {
             viewModel.addNewToDo(
                 todo.title,
                 todo.description,
             )
         }
-        if (snackBar != null) {
-            snackBar.anchorView =
-                activity?.findViewById(R.id.bottom_navigation)
-            snackBar.show()
-        }
-
     }
 
 }

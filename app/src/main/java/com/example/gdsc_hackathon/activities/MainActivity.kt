@@ -73,4 +73,10 @@ class MainActivity : AppCompatActivity() {
         hideSoftKeyboard(this)
         return NavigationUI.navigateUp(navController, appBarConfiguration)
     }
+
+    fun refreshCurrentFragment(){
+        val id = navController.currentDestination?.id
+        navController.popBackStack(id!!,true)
+        navController.navigate(id)
+    }
 }

@@ -20,14 +20,14 @@ import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
 import com.example.gdsc_hackathon.dataModel.RecentLectureModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import com.example.gdsc_hackathon.network.Api
+import com.example.gdsc_hackathon.network.QuoteApi
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 import com.example.gdsc_hackathon.extensions.copyToClipboard
-import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
+import com.example.gdsc_hackathon.extensions.showSnackBarWithIntentMessage
 import com.example.gdsc_hackathon.utils.NetworkUtils
 import com.google.firebase.auth.FirebaseAuth
 import kotlin.collections.ArrayList
@@ -217,7 +217,7 @@ class HomeFragment : Fragment() {
 
     private fun copyQuote() {
         requireContext().copyToClipboard(quote.text.toString())
-        showSnackBarWithAction(
+        showSnackBarWithIntentMessage(
             requireActivity(),
             "Quote Copied!",
             "Share Quote?",
@@ -233,7 +233,7 @@ class HomeFragment : Fragment() {
             quoteAuthor.text= dash.plus(getString(R.string.developers))
             return
         }
-        val apiInterface = Api.create().getQuotes()
+        val apiInterface = QuoteApi.create().getQuotes()
         progressBar.visibility =View.VISIBLE
         apiInterface.enqueue( object : Callback<JsonObject>{
             override fun onResponse(call: Call<JsonObject>?, response: Response<JsonObject>?) {

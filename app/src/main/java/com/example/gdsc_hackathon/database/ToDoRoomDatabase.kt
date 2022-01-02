@@ -1,4 +1,4 @@
-package com.example.gdsc_hackathon.app_database
+package com.example.gdsc_hackathon.database
 
 import android.content.Context
 import androidx.room.Database

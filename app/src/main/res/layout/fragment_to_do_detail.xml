@@ -18,45 +18,37 @@
         android:textColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_centerHorizontal="true"
         tools:text="@string/title" />
 
 
+    <TextView
+        android:id="@+id/todo_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/todo_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:padding="5dp"
+        android:text="@string/description"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent" />
 
-<TextView
-    android:id="@+id/todo_description"
-    android:layout_marginTop="@dimen/margin"
-    android:layout_width="match_parent"
-    android:text="@string/description"
-
-    android:layout_margin="2dp"
-    android:padding="5dp"
-    android:textSize="20sp"
-
-    android:textColor="@color/black"
-    android:layout_centerHorizontal="true"
-    android:layout_below="@id/todo_title"
-    app:layout_constraintStart_toStartOf="parent"
-    android:layout_height="wrap_content"/>
-
-
-
-
-<Button
+    <Button
     android:id="@+id/delete_todo"
     style="?attr/materialButtonOutlinedStyle"
     android:layout_width="match_parent"
     android:layout_below="@id/todo_description"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin"
-    android:text="@string/delete"
-
- />
+    android:text="@string/delete" />
 
 <com.google.android.material.floatingactionbutton.FloatingActionButton
     android:id="@+id/edit_todo"
-
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginBottom="16dp"

@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.gdsc_hackathon.app_database.ToDoApplication
+import com.example.gdsc_hackathon.database.ToDoApplication
 import com.example.gdsc_hackathon.dataModel.ToDo
 import com.example.gdsc_hackathon.databinding.FragmentAddToDoBinding
 import com.example.gdsc_hackathon.viewmodels.ToDoListViewModel

@@ -10,10 +10,9 @@ import androidx.fragment.app.Fragment
 import com.example.gdsc_hackathon.R
 import com.google.android.material.snackbar.Snackbar
 import android.content.Intent
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Build
-import android.util.Log
+import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
+import androidx.core.view.accessibility.AccessibilityEventCompat.setAction
 
 fun Fragment.closeKeyboard() {
     val inputMethodManager =
@@ -33,7 +32,7 @@ fun Fragment.showSnackBar(activity: Activity, message: String?) {
     snackbar.show()
 }
 
-fun Fragment.showSnackBarWithAction(activity: Activity, message: String?, actionMessage: String?, sendMessage: String?) {
+fun Fragment.showSnackBarWithIntentMessage(activity: Activity, message: String?, actionMessage: String?, sendMessage: String?) {
     val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
     val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_LONG)
     snackbar.setAction(actionMessage){
@@ -51,5 +50,21 @@ fun Context.copyToClipboard(text: CharSequence){
     val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText("label",text)
     clipboard.setPrimaryClip(clip)
+}
+
+fun Fragment.showSnackBarWithAction(activity: Activity, message: String?,@StringRes actionRes: Int, color: Int? = null, listener: (View) -> Unit) {
+    val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
+    val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_SHORT)
+    snackbar.setAction(actionRes, listener)
+    snackbar.anchorView = activity.findViewById(R.id.bottom_navigation)
+    snackbar.show()
+}
+fun Snackbar.action(@StringRes actionRes: Int, color: Int? = null, listener: (View) -> Unit) {
+    action(view.resources.getString(actionRes), color, listener)
+}
+
+fun Snackbar.action(action: String, color: Int? = null, listener: (View) -> Unit) {
+    setAction(action, listener)
+    color?.let { setActionTextColor(ContextCompat.getColor(context, color)) }
 }
 

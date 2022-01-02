@@ -9,9 +9,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.gdsc_hackathon.R
-import com.example.gdsc_hackathon.app_database.ToDoApplication
+import com.example.gdsc_hackathon.activities.MainActivity
+import com.example.gdsc_hackathon.database.ToDoApplication
 import com.example.gdsc_hackathon.dataModel.ToDo
 import com.example.gdsc_hackathon.databinding.FragmentToDoDetailBinding
+import com.example.gdsc_hackathon.utils.dialog.AlertDialogShower
+import com.example.gdsc_hackathon.utils.dialog.AppDialogs
 import com.example.gdsc_hackathon.viewmodels.ToDoListViewModel
 import com.example.gdsc_hackathon.viewmodels.ToDoListViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -60,15 +63,12 @@ class ToDoDetailFragment : Fragment() {
 
 
     private fun showConfirmationDialog() {
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle(getString(android.R.string.dialog_alert_title))
-            .setMessage(getString(R.string.delete))
-            .setCancelable(false)
-            .setNegativeButton(getString(R.string.no)) { _, _ -> }
-            .setPositiveButton(getString(R.string.yes)) { _, _ ->
-                deleteTodo()
-            }
-            .show()
+        val alertDialogShower = AlertDialogShower(requireActivity())
+        alertDialogShower.show(
+            AppDialogs.DeleteTodo,
+            { deleteTodo() },
+            { (activity as MainActivity?)?.refreshCurrentFragment() }
+        )
     }
 
 
