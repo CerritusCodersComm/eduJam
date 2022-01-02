@@ -3,7 +3,6 @@ package com.example.gdsc_hackathon.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -16,9 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-
-
-
+// todo create user only in personal activity, let it be sign up with google or simple signing up
 class SignUpActivity : AppCompatActivity() {
     private lateinit var registerButton: Button
     private lateinit var signinButton: Button

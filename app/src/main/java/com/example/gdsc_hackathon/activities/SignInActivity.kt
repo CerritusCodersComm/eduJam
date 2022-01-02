@@ -26,7 +26,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-
 class SignInActivity : AppCompatActivity() {
     private lateinit var button: Button
     private lateinit var googleLoginButton: RelativeLayout
