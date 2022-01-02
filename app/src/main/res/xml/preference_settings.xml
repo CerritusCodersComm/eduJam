@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+ xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Display">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/pref_dark_theme_key"
+            android:title="@string/pref_dark_theme_title"
+            android:summary="@string/pref_dark_theme_summary" />
+<!--        <ListPreference-->
+<!--            android:defaultValue="2"-->
+<!--            android:dialogTitle="@string/pref_dark_theme_title"-->
+<!--            android:entries="@array/pref_dark_theme"-->
+<!--            android:entryValues="@array/pref_dark_theme_values"-->
+<!--            android:key="@string/pref_dark_theme_key"-->
+<!--            android:summary="@string/pref_dark_theme_summary"-->
+<!--            android:title="@string/pref_dark_theme_title" />-->
+
+    </PreferenceCategory>
+
+<!--    <PreferenceCategory android:title="Extras">-->
+
+<!--        <SwitchPreference-->
+<!--            android:defaultValue="true"-->
+<!--            android:key="@string/pref_download_network_key"-->
+<!--            android:title="@string/pref_download_network_title" />-->
+
+<!--    </PreferenceCategory>-->
+
+<!--    <PreferenceCategory android:title="Storage">-->
+
+<!--        <ListPreference-->
+<!--            android:defaultValue="1"-->
+<!--            android:dialogTitle="@string/pref_storage_title"-->
+<!--            android:entries="@array/pref_storage"-->
+<!--            android:entryValues="@array/pref_storage_values"-->
+<!--            android:key="@string/pref_storage_key"-->
+<!--            android:summary="@string/pref_storage_summary"-->
+<!--            android:title="@string/pref_storage_title" />-->
+
+<!--    </PreferenceCategory>-->
+
+<!--    <PreferenceCategory android:title="Information">-->
+
+<!--        <Preference-->
+<!--            android:selectable="false"-->
+<!--            android:enabled="true"-->
+<!--            android:key="@string/pref_version_key"-->
+<!--            android:title="@string/pref_version_title"-->
+<!--            android:summary="@string/pref_version_summary" />-->
+
+<!--    </PreferenceCategory>-->
+</androidx.preference.PreferenceScreen>

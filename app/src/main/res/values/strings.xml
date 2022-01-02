@@ -70,7 +70,12 @@
     <string name="yes">Yes</string>
     <string name="cancle">Cancle</string>
 
-    <!-- Strings used for fragments for navigation -->
-
+    <!-- String for  To do list -->
+    <string name="you_have_no_todos">You have no Todos</string>
+    <string name="update">Update todo</string>
+    <string-array name="dialog_list">
+        <item>Edit</item>
+        <item>Delete</item>
+    </string-array>
 
 </resources>

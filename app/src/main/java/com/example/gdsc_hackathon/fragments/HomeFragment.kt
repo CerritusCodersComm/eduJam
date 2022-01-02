@@ -14,11 +14,12 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
 import com.example.gdsc_hackathon.dataModel.RecentLectureModel
-
-import com.google.firebase.auth.FirebaseAuth
-
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.example.gdsc_hackathon.network.Api
 import com.google.gson.JsonObject
 import retrofit2.Call
@@ -28,6 +29,7 @@ import retrofit2.Response
 import com.example.gdsc_hackathon.extensions.copyToClipboard
 import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
 import com.example.gdsc_hackathon.utils.NetworkUtils
+import com.google.firebase.auth.FirebaseAuth
 import kotlin.collections.ArrayList
 import kotlin.random.Random
 
@@ -35,7 +37,7 @@ class HomeFragment : Fragment() {
     private lateinit var syllabusLayout: LinearLayout
     private lateinit var weeklyTimeTableLayout: LinearLayout
     private lateinit var holidayLayout: LinearLayout
-    private lateinit var examTimeConstraintLayout: LinearLayout
+    private lateinit var videoLecturesLayout: LinearLayout
     private lateinit var practicalLayout: LinearLayout
     private lateinit var previousYearPapersLayout: LinearLayout
     private lateinit var academicCalendarLayout: LinearLayout
@@ -57,6 +59,8 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        mAuth = FirebaseAuth.getInstance()
 
         val rootView: View = inflater.inflate(R.layout.fragment_home, container, false)
         errorQuoteSaverList  = ArrayList()
@@ -83,9 +87,9 @@ class HomeFragment : Fragment() {
             rootView.findNavController().navigate(R.id.holidayFragment)
         }
 
-        examTimeConstraintLayout = rootView.findViewById(R.id.examTimeConstraintLayout)
-        examTimeConstraintLayout.setOnClickListener {
-            rootView.findNavController().navigate(R.id.examTimeConstraintFragment)
+        videoLecturesLayout = rootView.findViewById(R.id.videoLecturesLayout)
+        videoLecturesLayout.setOnClickListener {
+            rootView.findNavController().navigate(R.id.VideoLectureFragment)
         }
 
         practicalLayout = rootView.findViewById(R.id.practicalLayout)
@@ -115,16 +119,83 @@ class HomeFragment : Fragment() {
 
         val lectures = ArrayList<RecentLectureModel>()
 
-        lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "MATHS","25th December, 2021", "20:00"))
-        lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "PHYSICS","27th December, 2021","20:00"))
-        for (i in 2..20) {
-            lectures.add(RecentLectureModel(R.drawable.ic_baseline_video_camera_front_24, "Item $i", "1 JAN","TIME: 16:00" ))
-        }
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "COA ESE",
+                "22nd December, 2021",
+                "10:30"
+            )
+        )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "DLDA ESE",
+                "20th December, 2021",
+                "10:30"
+            )
+        )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "DBMS ESE",
+                "17th December, 2021",
+                "10:30"
+            )
+        )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "DS ESE",
+                "15th December, 2021",
+                "10:30"
+            )
+        )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "MATHS-III ESE",
+                "13th December, 2021",
+                "10:30"
+            )
+        )
 
         adapter = RecentLectureAdapter(lectures)
 
         // Setting the Adapter with the recyclerview
         recyclerView.adapter = adapter
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("LOOK", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            Log.w("LOOK ", token)
+
+
+            val user = mAuth.currentUser
+
+            if (user != null) {
+
+                val usr = hashMapOf(
+                    "fcmToken" to token
+                )
+
+                Firebase.firestore.collection("fcmTokens").document(user.uid)
+                    .set(usr)
+                    .addOnCompleteListener{
+                        Log.w("LOOK","Fcm Token Written to Firestore: "+it.isSuccessful)
+                    }
+            }
+        })
 
         quote = rootView.findViewById(R.id.quote)
         quoteAuthor = rootView.findViewById(R.id.quote_author)
@@ -140,6 +211,7 @@ class HomeFragment : Fragment() {
             copyQuote()
             true // <- set to true
         }
+        
         return rootView
     }
 
@@ -185,6 +257,5 @@ class HomeFragment : Fragment() {
             }
         })
     }
-
 }
 

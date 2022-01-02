@@ -4,12 +4,6 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
-<!--    <com.google.android.youtube.player.YouTubePlayerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="180dp"-->
-<!--        android:id="@+id/ytPlayer"-->
-<!--        android:layout_margin="16dp"/>-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/videoLecturesRecyclerView"
         android:layout_width="match_parent"

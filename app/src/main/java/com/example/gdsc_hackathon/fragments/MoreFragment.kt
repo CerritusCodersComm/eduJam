@@ -11,8 +11,8 @@ import android.widget.RelativeLayout
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.SignInActivity
+import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.showSnackBar
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.auth.FirebaseAuth
 
 class MoreFragment : Fragment() {
@@ -28,13 +28,11 @@ class MoreFragment : Fragment() {
     private lateinit var videoLecturesLayout: RelativeLayout
     private lateinit var lectureSummaryLayout: RelativeLayout
     private lateinit var logoutButton: Button
-    private lateinit var googleSignInClient: GoogleSignInClient
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val rootView: View = inflater.inflate(R.layout.fragment_more, container, false)
 
@@ -55,7 +53,9 @@ class MoreFragment : Fragment() {
 
         examTimeConstraintLayout = rootView.findViewById(R.id.examTimeConstraintLayout)
         examTimeConstraintLayout.setOnClickListener {
-            rootView.findNavController().navigate(R.id.examTimeConstraintFragment)
+            showSnackBar(requireActivity(),"Coming soon!")
+            // todo: update it when we ready with view
+//            rootView.findNavController().navigate(R.id.examTimeConstraintFragment)
         }
 
         practicalLayout = rootView.findViewById(R.id.practicalLayout)
@@ -75,6 +75,8 @@ class MoreFragment : Fragment() {
 
         todolistLayout = rootView.findViewById(R.id.todolist_layout)
         todolistLayout.setOnClickListener {
+//            val intent = Intent(activity, TodoActivity::class.java)
+//            startActivity(intent)
             rootView.findNavController().navigate(R.id.todoListFragment)
         }
 
@@ -91,10 +93,12 @@ class MoreFragment : Fragment() {
         logoutButton = rootView.findViewById(R.id.logout)
         logoutButton.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
-            googleSignInClient.signOut()
+            val prefs = Prefs(rootView.context)
+            prefs.status = 0
             val intent = Intent(activity, SignInActivity::class.java)
             startActivity(intent)
 
+            activity?.finish()
         }
         return rootView
     }

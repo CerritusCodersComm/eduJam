@@ -11,11 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.VideoLecturePlayer
-import com.example.gdsc_hackathon.adapters.AcademicCalendarEventAdapter
 import com.example.gdsc_hackathon.adapters.VideoLectureAdapter
-import com.example.gdsc_hackathon.dataModel.AcademicCalendarEventModel
 import com.example.gdsc_hackathon.dataModel.VideoLecturesModel
-import com.example.gdsc_hackathon.extensions.showSnackBar
 import java.util.ArrayList
 
 class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
@@ -38,8 +35,48 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
                 "07xStMak6vI",
                 "http://img.youtube.com/vi/07xStMak6vI/mqdefault.jpg",
                 "DLDA",
-                "Sirr",
-                "26 Dec"
+                "MR VIKAS SINGH",
+                "02 Dec"
+            )
+        )
+
+        data.add(
+            VideoLecturesModel(
+                "n0qpnrtHS1U",
+                "http://img.youtube.com/vi/n0qpnrtHS1U/mqdefault.jpg",
+                "DLDA",
+                "Dr Zahir Aalam",
+                "28 Nov"
+            )
+        )
+
+        data.add(
+            VideoLecturesModel(
+                "C1MJEVVPLJs",
+                "http://img.youtube.com/vi/C1MJEVVPLJs/mqdefault.jpg",
+                "DLDA",
+                "Dr Zahir Aalam",
+                "22 Nov"
+            )
+        )
+
+        data.add(
+            VideoLecturesModel(
+                "n3n9kzqntTg",
+                "http://img.youtube.com/vi/n3n9kzqntTg/mqdefault.jpg",
+                "DLDA",
+                "MR VIKAS SINGH",
+                "21 Nov"
+            )
+        )
+
+        data.add(
+            VideoLecturesModel(
+                "GVn5bBqVLAk",
+                "http://img.youtube.com/vi/GVn5bBqVLAk/mqdefault.jpg",
+                "DLDA",
+                "Dr Zahir Aalam",
+                "16 Nov"
             )
         )
 
@@ -54,6 +91,9 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
         val videoLecturesModel = data[position]
         startActivity(
             Intent(context, VideoLecturePlayer::class.java)
-            .putExtra("lectureID", videoLecturesModel.lectureId))
+            .putExtra("lectureID", videoLecturesModel.lectureId)
+            .putExtra("lectureTitle", videoLecturesModel.lectureTitle)
+            .putExtra("lectureTeacher", videoLecturesModel.lectureTeacher)
+            .putExtra("lectureDate", videoLecturesModel.lectureDate))
     }
 }
