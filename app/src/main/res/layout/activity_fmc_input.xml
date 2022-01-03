@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        android:id="@+id/top1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Select Subject:-" />
+
+    <Spinner
+        android:id="@+id/spinny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:layout_toEndOf="@+id/top1" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/top1"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_1_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="01"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_1"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_2_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="02"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_3"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_2"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_3_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="03"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_4"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_3"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_4_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="04"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_5"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_4"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_5_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="05"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_6"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_5"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_6_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="06"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_7"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/top1"
+        android:layout_toRightOf="@+id/exp_1"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_7_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="07"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_8"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_7"
+        android:layout_toRightOf="@+id/exp_1"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_8_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="08"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_9"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_8"
+        android:layout_toRightOf="@+id/exp_1"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_9_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="09"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_10"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_9"
+        android:layout_toRightOf="@+id/exp_2"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_10_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="10"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_11"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_10"
+        android:layout_toRightOf="@+id/exp_3"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_11_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="11"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exp_12"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/exp_11"
+        android:layout_toRightOf="@+id/exp_4"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exp_12_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="12"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Number of Experiments" />
+
+    <EditText
+        android:id="@+id/noval"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/no"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxLength="3" />
+    <TextView
+        android:id="@+id/fa1"
+        android:layout_below="@+id/top1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FA 1:-"/>
+
+    <EditText
+        android:id="@+id/fm1"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxLength="3" />
+    <TextView
+        android:id="@+id/fa2"
+        android:layout_below="@+id/fa1"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="FA 2:-"/>
+
+    <EditText
+        android:id="@+id/fm2"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fm1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="20dp"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxLength="3" />
+
+    <TextView
+        android:id="@+id/fa3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fa2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="100dp"
+        android:text="FA 3:-" />
+
+    <EditText
+        android:id="@+id/fm3"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fm2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginHorizontal="20dp"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxLength="3" />
+
+    <Button
+        android:id="@+id/dopdoc"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:text="Next" />
+</RelativeLayout>

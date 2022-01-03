@@ -212,8 +212,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/academicCalendarLayout"
-            android:layout_toStartOf="@+id/todo_list_text"
             android:layout_marginEnd="30dp"
+            android:layout_toStartOf="@+id/todo_list_text"
             android:gravity="center"
             android:text="Academic calendar"
             android:textColor="@color/white" />
@@ -286,7 +286,8 @@
             android:id="@+id/lecture_summary_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="16dp"
+            android:layout_toStartOf="@+id/fmc_layout"
             android:background="@drawable/round_layout">
 
             <ImageView
@@ -303,9 +304,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/lecture_summary_layout"
+            android:gravity="center"
+            android:layout_marginEnd="45dp"
+            android:layout_toStartOf="@+id/fmc_text"
+            android:text="Lecture Summary"
+            android:textColor="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/fmc_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_layout">
+
+            <ImageView
+                android:id="@+id/fmc_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/todo_list_48px" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/fmc_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fmc_layout"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="Lecture Summary"
+            android:text="FMC"
             android:textColor="@color/white" />
     </RelativeLayout>
 

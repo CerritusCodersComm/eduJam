@@ -67,4 +67,8 @@ fun Snackbar.action(action: String, color: Int? = null, listener: (View) -> Unit
     setAction(action, listener)
     color?.let { setActionTextColor(ContextCompat.getColor(context, color)) }
 }
+fun <T> Context.openActivity(it: Class<T>) {
+    val intent = Intent(this, it)
+    startActivity(intent)
+}
 

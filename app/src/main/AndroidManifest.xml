@@ -74,23 +74,14 @@
             android:name=".activities.PersonalInformationActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
             android:name=".activities.VideoLecturePlayer"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".activities.AddToDoItem"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name=".new_todo_list.TodoActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize" />
-
-        <activity
-            android:name=".new_todo_list.AddTodoActivity"
+            android:name=".activities.FillMyCycle"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
 

@@ -10,8 +10,10 @@ import android.widget.Button
 import android.widget.RelativeLayout
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.activities.FillMyCycle
 import com.example.gdsc_hackathon.activities.SignInActivity
 import com.example.gdsc_hackathon.dataModel.Prefs
+import com.example.gdsc_hackathon.extensions.openActivity
 import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.google.firebase.auth.FirebaseAuth
 
@@ -27,6 +29,7 @@ class MoreFragment : Fragment() {
     private lateinit var todolistLayout: RelativeLayout
     private lateinit var videoLecturesLayout: RelativeLayout
     private lateinit var lectureSummaryLayout: RelativeLayout
+    private lateinit var fmcLayout: RelativeLayout
     private lateinit var logoutButton: Button
 
     override fun onCreateView(
@@ -87,6 +90,12 @@ class MoreFragment : Fragment() {
 
         lectureSummaryLayout = rootView.findViewById(R.id.lecture_summary_layout)
         lectureSummaryLayout.setOnClickListener {
+            showSnackBar(requireActivity(), "COMING SOON!")
+        }
+
+        fmcLayout = rootView.findViewById(R.id.fmc_layout)
+        fmcLayout.setOnClickListener {
+            requireContext().openActivity(FillMyCycle::class.java)
             showSnackBar(requireActivity(), "COMING SOON!")
         }
 
