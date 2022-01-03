@@ -76,18 +76,18 @@
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="100dp"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_baseline_download_24" />
+                    android:src="@drawable/ic_baseline_download_24"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/lectureWarning"
                     style="@style/desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginTop="20dp"
                     android:layout_below="@id/lectureDate"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
                     android:gravity="center"
                     android:text="Note: The Start of Video contains a high sound intro, do decrease the volume before watching it."
                     android:textSize="16sp" />
@@ -100,8 +100,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/round_background"
-                    android:padding="10dp"
                     android:backgroundTint="@color/primary_color"
+                    android:padding="10dp"
                     android:text="Download Lecture Notes" />
 
         </RelativeLayout>

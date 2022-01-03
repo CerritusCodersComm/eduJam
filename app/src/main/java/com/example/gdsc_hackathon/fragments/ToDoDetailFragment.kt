@@ -67,7 +67,7 @@ class ToDoDetailFragment : Fragment() {
         alertDialogShower.show(
             AppDialogs.DeleteTodo,
             { deleteTodo() },
-            { (activity as MainActivity?)?.refreshCurrentFragment() }
+            { }
         )
     }
 

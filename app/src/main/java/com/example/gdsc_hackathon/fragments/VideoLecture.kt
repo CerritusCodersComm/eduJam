@@ -36,7 +36,8 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
                 "http://img.youtube.com/vi/07xStMak6vI/mqdefault.jpg",
                 "DLDA",
                 "MR VIKAS SINGH",
-                "02 Dec"
+                "02 Dec",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
             )
         )
 
@@ -46,7 +47,8 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
                 "http://img.youtube.com/vi/n0qpnrtHS1U/mqdefault.jpg",
                 "DLDA",
                 "Dr Zahir Aalam",
-                "28 Nov"
+                "28 Nov",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
             )
         )
 
@@ -56,7 +58,8 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
                 "http://img.youtube.com/vi/C1MJEVVPLJs/mqdefault.jpg",
                 "DLDA",
                 "Dr Zahir Aalam",
-                "22 Nov"
+                "22 Nov",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
             )
         )
 
@@ -66,7 +69,8 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
                 "http://img.youtube.com/vi/n3n9kzqntTg/mqdefault.jpg",
                 "DLDA",
                 "MR VIKAS SINGH",
-                "21 Nov"
+                "21 Nov",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
             )
         )
 
@@ -76,7 +80,8 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
                 "http://img.youtube.com/vi/GVn5bBqVLAk/mqdefault.jpg",
                 "DLDA",
                 "Dr Zahir Aalam",
-                "16 Nov"
+                "16 Nov",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
             )
         )
 
@@ -94,6 +99,7 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
             .putExtra("lectureID", videoLecturesModel.lectureId)
             .putExtra("lectureTitle", videoLecturesModel.lectureTitle)
             .putExtra("lectureTeacher", videoLecturesModel.lectureTeacher)
-            .putExtra("lectureDate", videoLecturesModel.lectureDate))
+            .putExtra("lectureDate", videoLecturesModel.lectureDate)
+            .putExtra("lectureNotesUrl", videoLecturesModel.lectureNotesUrl))
     }
 }

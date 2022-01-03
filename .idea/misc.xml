@@ -32,6 +32,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.3380208333333333" />
         <entry key="app/src/main/res/drawable/ic_baseline_calendar_month_48.xml" value="0.12962962962962962" />
         <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.3748717948717949" />
+        <entry key="app/src/main/res/drawable/ic_baseline_download_20.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/drawable/ic_baseline_download_24.xml" value="0.36614583333333334" />
         <entry key="app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.18518518518518517" />
         <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2604166666666667" />
@@ -113,7 +114,7 @@
         <entry key="app/src/main/res/layout/fragment_operating_systems_practical.xml" value="0.2630272952853598" />
         <entry key="app/src/main/res/layout/fragment_operating_systems_tutorial.xml" value="0.3451086956521739" />
         <entry key="app/src/main/res/layout/fragment_practicals.xml" value="0.27239583333333334" />
-        <entry key="app/src/main/res/layout/fragment_preview_year_papers.xml" value="0.1328125" />
+        <entry key="app/src/main/res/layout/fragment_preview_year_papers.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_syllabus.xml" value="0.425531914893617" />

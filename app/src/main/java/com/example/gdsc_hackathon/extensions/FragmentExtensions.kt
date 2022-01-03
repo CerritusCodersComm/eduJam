@@ -1,18 +1,25 @@
 package com.example.gdsc_hackathon.extensions
 
 import android.app.Activity
+import android.app.DownloadManager
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Context.DOWNLOAD_SERVICE
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import com.example.gdsc_hackathon.R
 import com.google.android.material.snackbar.Snackbar
 import android.content.Intent
+import android.net.Uri
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
-import androidx.core.view.accessibility.AccessibilityEventCompat.setAction
+import androidx.core.content.ContextCompat.getSystemService
+import com.google.android.youtube.player.YouTubeBaseActivity
+import android.os.Environment
+
+
 
 fun Fragment.closeKeyboard() {
     val inputMethodManager =
@@ -70,5 +77,29 @@ fun Snackbar.action(action: String, color: Int? = null, listener: (View) -> Unit
 fun <T> Context.openActivity(it: Class<T>) {
     val intent = Intent(this, it)
     startActivity(intent)
+}
+
+fun Fragment.downloadFileWifi(fileUrl:String, fileName:String) {
+    val request = DownloadManager.Request(Uri.parse(fileUrl))
+        .setTitle(context!!.getString(R.string.app_name))
+        .setDescription("Downloading $fileName")
+        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE or DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI)
+        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
+
+    val downloadManager = context!!.getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+    downloadManager.enqueue(request)
+}
+
+fun Fragment.downloadFile(fileUrl:String, fileName:String) {
+    val request = DownloadManager.Request(Uri.parse(fileUrl))
+        .setTitle(context!!.getString(R.string.app_name))
+        .setDescription("Downloading $fileName")
+        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE or DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
+        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
+
+    val downloadManager = context!!.getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+    downloadManager.enqueue(request)
 }
 

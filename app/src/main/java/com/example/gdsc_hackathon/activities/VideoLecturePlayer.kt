@@ -1,9 +1,11 @@
 package com.example.gdsc_hackathon.activities
 
 import android.app.DownloadManager
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -26,6 +28,7 @@ class VideoLecturePlayer :YouTubeBaseActivity() {
     private lateinit var lectureTitle: TextView
     private lateinit var lectureTeacher: TextView
     private lateinit var lectureDate: TextView
+    private lateinit var lectureNotesUrl: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +52,7 @@ class VideoLecturePlayer :YouTubeBaseActivity() {
             val lectureTitleText = bundle.get("lectureTitle")
             val lectureTeacherText = bundle.get("lectureTeacher")
             val lectureDateText = bundle.get("lectureDate")
-
+            lectureNotesUrl = bundle.get("lectureNotesUrl") as String
             lectureTitle.text = lectureTitleText.toString()
             lectureTeacher.text = lectureTeacherText.toString()
             lectureDate.text = lectureDateText.toString()
@@ -89,12 +92,13 @@ class VideoLecturePlayer :YouTubeBaseActivity() {
 
 
         downloadPdfButton.setOnClickListener {
-            val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
-            val uri =
-                Uri.parse("https://drive.google.com/u/0/uc?id=1lQiSIweLdRywz204nAE5p3ztzJq_11pS&export=download")
-            val request = DownloadManager.Request(uri)
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
-            val reference: Long = downloadManager.enqueue(request)
+            downloadFile("${lectureTitle.text} ${lectureTeacher.text}", "Downloading...",lectureNotesUrl)
+//            val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+//            val uri =
+//                Uri.parse(lectureNotesUrl)
+//            val request = DownloadManager.Request(uri)
+//            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+//            val reference: Long = downloadManager.enqueue(request)
         }
 
         lectureShare.setOnClickListener {
@@ -109,11 +113,23 @@ class VideoLecturePlayer :YouTubeBaseActivity() {
         lectureDownload.setOnClickListener {
             val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
             val uri =
-                Uri.parse(lectureLink)
+                Uri.parse("https://drive.google.com/file/d/1o5ZZGRy-zvtKdB6v0YAXnnsRW-H5gVI9/view?usp=sharing")
             val request = DownloadManager.Request(uri)
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
             val reference: Long = downloadManager.enqueue(request)
         }
     }
-
+    private fun downloadFile(fileName : String, desc :String, url : String){
+        // fileName -> fileName with extension
+        val request = DownloadManager.Request(Uri.parse(url))
+            .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
+            .setTitle(fileName)
+            .setDescription(desc)
+            .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+            .setAllowedOverMetered(true)
+            .setAllowedOverRoaming(false)
+            .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,fileName)
+        val downloadManager= getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+        val downloadID = downloadManager.enqueue(request)
     }
+}

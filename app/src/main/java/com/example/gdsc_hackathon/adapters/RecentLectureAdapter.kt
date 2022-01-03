@@ -21,12 +21,6 @@ class RecentLectureAdapter(private val events: List<RecentLectureModel>) : Recyc
         return ViewHolder(view)
     }
 
-    private var onClick: OnItemClicked? = null
-
-    interface OnItemClicked {
-        fun onItemClick(position: Int)
-    }
-
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
@@ -42,9 +36,6 @@ class RecentLectureAdapter(private val events: List<RecentLectureModel>) : Recyc
 
 
         holder.lectureTime.text = recentLectureModel.lectureTime
-
-        holder.itemView.setOnClickListener { onClick!!.onItemClick(position) }
-
     }
 
     // return the number of the items in the list
@@ -59,10 +50,5 @@ class RecentLectureAdapter(private val events: List<RecentLectureModel>) : Recyc
         val lectureDate: TextView = itemView.findViewById(R.id.lectureDate)
         val lectureTime: TextView = itemView.findViewById(R.id.lectureTime)
     }
-
-    fun setOnClick(onClick: OnItemClicked?) {
-        this.onClick = onClick
-    }
-
 }
 
