@@ -80,4 +80,25 @@
         <item>Delete</item>
     </string-array>
 
+    <!-- String for onBoarding scr  een -->
+    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>
+
+
+    <string name="title_onboarding_1">Welcome to XYZ App !</string>
+    <string name="description_onboarding_1">Your one stop to any university work</string>
+
+    <string name="title_onboarding_2">Build a healthy community with our forum</string>
+    <string name="description_onboarding_2">Can\'t get teachers to answer quick? get your questions solved here under a day!</string>
+
+<!--    <string name="title_onboarding_3">Try recent lecture feature, ignore this i was bored</string>-->
+    <string name="title_onboarding_3">Bleh! I was bored</string>
+    <string name="description_onboarding_3">Watch any missed lecture at any place any time</string>
+
+   <!--    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>-->
+
+    <string name="start">start</string>
+    <string name="skip">Skip</string>
+    <string name="finish">finish</string>
+    <string name="back">back</string>
+
 </resources>

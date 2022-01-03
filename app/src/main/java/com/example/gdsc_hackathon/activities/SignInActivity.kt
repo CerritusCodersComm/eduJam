@@ -113,6 +113,14 @@ class SignInActivity : AppCompatActivity() {
                 }
 
         }
+
+        val settings = getSharedPreferences("prefs", 0)
+        val editor = settings.edit()
+        editor.putBoolean("firstRun", false)
+        editor.apply()
+
+        val firstRun = settings.getBoolean("firstRun", true)
+        Log.d("TAG1", "firstRun: " + java.lang.Boolean.valueOf(firstRun).toString())
     }
 
     private fun signInWithGoogle() {

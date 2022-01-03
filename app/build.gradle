@@ -141,6 +141,7 @@ dependencies {
     // dexter for permission
     implementation 'com.karumi:dexter:6.2.3'
 
-
+    // lottie for onboarding
+    implementation 'com.airbnb.android:lottie:4.2.1'
 
 }

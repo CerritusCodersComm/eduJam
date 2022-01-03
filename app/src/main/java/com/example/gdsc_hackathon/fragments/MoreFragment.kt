@@ -2,12 +2,12 @@ package com.example.gdsc_hackathon.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.RelativeLayout
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.FillMyCycle
@@ -90,13 +90,13 @@ class MoreFragment : Fragment() {
 
         lectureSummaryLayout = rootView.findViewById(R.id.lecture_summary_layout)
         lectureSummaryLayout.setOnClickListener {
+//            requireContext().openActivity(OnBoardActivity::class.java)
             showSnackBar(requireActivity(), "COMING SOON!")
         }
 
         fmcLayout = rootView.findViewById(R.id.fmc_layout)
         fmcLayout.setOnClickListener {
             requireContext().openActivity(FillMyCycle::class.java)
-            showSnackBar(requireActivity(), "COMING SOON!")
         }
 
         logoutButton = rootView.findViewById(R.id.logout)
