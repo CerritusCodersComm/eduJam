@@ -48,19 +48,26 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
         recyclerView= rootView.findViewById(R.id.recycler_view_questions)
         setUpRecyclerView(rootView)
         buttonAsk.setOnClickListener {
-            val user : String? = FirebaseAuth.getInstance().currentUser?.uid
-            if (user != null) {
-                Firebase.firestore.collection("users").document(user).get()
-                    .addOnCompleteListener { task ->
-                        val doc = task.result
-                        if (doc != null && doc.exists()) {
-                            val username = doc.getString("username").toString()
-                            val uid = doc.getString("uid").toString()
-                            addQuestion(username, uid)
+            if(editTextQuestion.text.isEmpty()){
+                Toast.makeText(rootView.context, "Type a question first", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            else {
+                val user: String? = FirebaseAuth.getInstance().currentUser?.uid
+                if (user != null) {
+                    Firebase.firestore.collection("users").document(user).get()
+                        .addOnCompleteListener { task ->
+                            val doc = task.result
+                            if (doc != null && doc.exists()) {
+                                val username = doc.getString("username").toString()
+                                val uid = doc.getString("uid").toString()
+                                addQuestion(username, uid)
+                            }
                         }
-                    }
+                }
+
             }
-            }
+        }
 
         return rootView
     }
@@ -88,12 +95,17 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
     //Adds new Question
     private fun addQuestion(username : String, uid : String) {
         val question: String = editTextQuestion.text.toString()
-        val dateFormat = SimpleDateFormat(
-            "d MMM yyyy HH.mm.ss",
+        val dateFormat1 = SimpleDateFormat(
+            "d MMM yyyy",
             Locale.getDefault()
         )
-        val currentDate = dateFormat.format(Date())
-        val questionModel = Question(question, username , uid, currentDate)
+        val dateFormat2 = SimpleDateFormat(
+            "HH.mm",
+            Locale.getDefault()
+        )
+        val currentDate = dateFormat1.format(Date())
+        val currentTime = dateFormat2.format(Date())
+        val questionModel = Question(question, username , uid, currentDate, currentTime)
         quesRef.add(questionModel).addOnSuccessListener {
             editTextQuestion.text = null
             Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->

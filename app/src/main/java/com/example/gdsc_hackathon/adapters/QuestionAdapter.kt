@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
@@ -21,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRecyclerAdapter<Question, QuestionAdapter.QuestionHolder>(options) {
     private var listener: OnItemClickListener? = null
@@ -29,7 +32,10 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
 
     override fun onBindViewHolder(holder: QuestionHolder, position: Int, model: Question) {
         holder.textViewQuestion.text = model.question
-        holder.textViewDate.text = model.date
+        if(holder.date == model.date)
+            holder.textViewDate.text = model.time
+        else
+            holder.textViewDate.text = model.date
         if(holder.user!!.uid == model.uid){
             holder.textViewUser.text = "Me"
             holder.deleteQuestion.visibility = View.VISIBLE
@@ -66,10 +72,12 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
         var textViewQuestion: TextView = itemView.findViewById(R.id.text_view_question)
         var textViewUser: TextView = itemView.findViewById(R.id.text_view_user)
         var textViewDate: TextView = itemView.findViewById(R.id.text_view_date)
-        var deleteQuestion : FloatingActionButton = itemView.findViewById(R.id.fab_delete_question)
+        var deleteQuestion : ImageButton = itemView.findViewById(R.id.fab_delete_question)
         val user = FirebaseAuth.getInstance().currentUser
-        val prefs : Prefs = Prefs(itemView.context)
+        private val prefs : Prefs = Prefs(itemView.context)
         val username = prefs.username
+        private val dateFormat1 = SimpleDateFormat("d MMM yyyy", Locale.getDefault())
+        val date = dateFormat1.format(Date())
     }
 
     interface OnItemClickListener {
