@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-interface Api {
+interface QuoteApi {
     @GET("random?&maxLen=$length")
     fun getQuotes(): Call<JsonObject>
 
@@ -15,12 +15,12 @@ interface Api {
 const val length: String ="150"
 
 
-        fun create() : Api{
+        fun create() : QuoteApi{
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
                 .build()
-            return retrofit.create(Api::class.java)
+            return retrofit.create(QuoteApi::class.java)
         }
     }
 }

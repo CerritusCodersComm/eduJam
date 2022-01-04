@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/VideoLecturePlayerLayout" xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:id="@+id/VideoLecturePlayerLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.VideoLecturePlayer"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"/>
 
         <com.google.android.youtube.player.YouTubePlayerView
             android:id="@+id/ytPlayer"
@@ -68,17 +76,34 @@
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="100dp"
-                    android:src="@drawable/ic_baseline_download_24" />
+                    android:src="@drawable/ic_baseline_download_24"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/lectureWarning"
+                    style="@style/desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/lectureDate"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:text="Note: The Start of Video contains a high sound intro, do decrease the volume before watching it."
+                    android:textSize="16sp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/downloadLectureNotesButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
+                    android:layout_below="@id/lectureWarning"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/round_background"
-                    android:padding="10dp"
                     android:backgroundTint="@color/primary_color"
+                    android:padding="10dp"
                     android:text="Download Lecture Notes" />
+
         </RelativeLayout>
 
 </RelativeLayout>

@@ -35,8 +35,53 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
                 "07xStMak6vI",
                 "http://img.youtube.com/vi/07xStMak6vI/mqdefault.jpg",
                 "DLDA",
-                "Sirr",
-                "26 Dec"
+                "MR VIKAS SINGH",
+                "02 Dec",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
+            )
+        )
+
+        data.add(
+            VideoLecturesModel(
+                "n0qpnrtHS1U",
+                "http://img.youtube.com/vi/n0qpnrtHS1U/mqdefault.jpg",
+                "DLDA",
+                "Dr Zahir Aalam",
+                "28 Nov",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
+            )
+        )
+
+        data.add(
+            VideoLecturesModel(
+                "C1MJEVVPLJs",
+                "http://img.youtube.com/vi/C1MJEVVPLJs/mqdefault.jpg",
+                "DLDA",
+                "Dr Zahir Aalam",
+                "22 Nov",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
+            )
+        )
+
+        data.add(
+            VideoLecturesModel(
+                "n3n9kzqntTg",
+                "http://img.youtube.com/vi/n3n9kzqntTg/mqdefault.jpg",
+                "DLDA",
+                "MR VIKAS SINGH",
+                "21 Nov",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
+            )
+        )
+
+        data.add(
+            VideoLecturesModel(
+                "GVn5bBqVLAk",
+                "http://img.youtube.com/vi/GVn5bBqVLAk/mqdefault.jpg",
+                "DLDA",
+                "Dr Zahir Aalam",
+                "16 Nov",
+                "https://drive.google.com/uc?id=1AHdO5aH0A6jVmOWgPXB67BMVTjqrJHWn&export=download"
             )
         )
 
@@ -51,6 +96,10 @@ class VideoLecture : Fragment(), VideoLectureAdapter.OnItemClicked {
         val videoLecturesModel = data[position]
         startActivity(
             Intent(context, VideoLecturePlayer::class.java)
-            .putExtra("lectureID", videoLecturesModel.lectureId))
+            .putExtra("lectureID", videoLecturesModel.lectureId)
+            .putExtra("lectureTitle", videoLecturesModel.lectureTitle)
+            .putExtra("lectureTeacher", videoLecturesModel.lectureTeacher)
+            .putExtra("lectureDate", videoLecturesModel.lectureDate)
+            .putExtra("lectureNotesUrl", videoLecturesModel.lectureNotesUrl))
     }
 }

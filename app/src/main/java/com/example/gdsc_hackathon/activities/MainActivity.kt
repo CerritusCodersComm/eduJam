@@ -16,6 +16,7 @@ import com.example.gdsc_hackathon.utils.hideSoftKeyboard
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView as NavigationView
 
+// TODO: hide keyboard when clicked on bottom navigation items
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomNav: BottomNavigationView
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigation() {
+        hideSoftKeyboard(this)
         bottomNav.setupWithNavController(navController)
     }
 
@@ -70,5 +72,11 @@ class MainActivity : AppCompatActivity() {
         //return navController.navigateUp()
         hideSoftKeyboard(this)
         return NavigationUI.navigateUp(navController, appBarConfiguration)
+    }
+
+    fun refreshCurrentFragment(){
+        val id = navController.currentDestination?.id
+        navController.popBackStack(id!!,true)
+        navController.navigate(id)
     }
 }

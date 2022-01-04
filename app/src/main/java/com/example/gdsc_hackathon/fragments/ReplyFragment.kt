@@ -17,10 +17,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.adapters.ReplyAdapter
 import com.example.gdsc_hackathon.dataModel.Reply
+import com.example.gdsc_hackathon.extensions.closeKeyboard
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.OnFailureListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -47,6 +51,7 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         textViewDate = rootView.findViewById(R.id.text_view_date_reply)
         buttonReply= rootView.findViewById(R.id.button_reply)
 
+        val user = FirebaseAuth.getInstance().currentUser
         val bundle = arguments
         val id = bundle!!.getString("id")
         if (id != null) {
@@ -54,11 +59,16 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
                 .addOnSuccessListener { documentSnapshot ->
                     if (documentSnapshot.exists()) {
                         val question = documentSnapshot.getString("question")
-                        val date = documentSnapshot.getString("currentDate")
+                        val date = documentSnapshot.getString("date")
                         val username = documentSnapshot.getString("username")
-                        textViewQuestion.setText(question)
-                        textViewDate.setText(date)
-                        textViewUser.setText(username)
+                        textViewQuestion.text = question
+                        textViewDate.text = date
+                        if(documentSnapshot.getString("uid") == user!!.uid){
+                            textViewUser.text = "Me"
+                        }
+                        else {
+                            textViewUser.text = username
+                        }
                     } else {
                         Toast.makeText(context, "Document does not exist", Toast.LENGTH_SHORT)
                             .show()
@@ -68,27 +78,28 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
                     Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show()
                     Log.d(TAG, e.toString())
                 })
-            setUpQuestion(id)
             setUpRecyclerView(id)
         }
 
         buttonReply.setOnClickListener(View.OnClickListener {
-            var reply : String = ""
-            if(editTextReply.text != null) {
-                 reply = editTextReply.text.toString()
-            }
-            if (id != null) {
-                replyToQuestion(id, reply)
-            }
+            Firebase.firestore.collection("users").document(user!!.uid).get()
+                .addOnCompleteListener { task ->
+                    val doc = task.result
+                    if (doc != null && doc.exists()) {
+                        val username = doc.getString("username").toString()
+                        var reply= ""
+                        if(editTextReply.text != null) {
+                            reply = editTextReply.text.toString()
+                        }
+                        if (id != null) {
+                            replyToQuestion(id, reply, username, user!!.uid)
+                        }
+                    }
+                }
+
         })
         return rootView
         }
-
-
-
-    private fun setUpQuestion(id: String) {
-
-    }
 
     private fun setUpRecyclerView(id : String) {
         val queryReplies = quesRef.document(id).collection("Replies").orderBy("date", Query.Direction.ASCENDING)
@@ -97,32 +108,18 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         recyclerViewReply.setHasFixedSize(true)
         recyclerViewReply.layoutManager = LinearLayoutManager(recyclerViewReply.context)
         recyclerViewReply.adapter = replyAdapter
-
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
-            0,
-            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
-        ) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
-
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                replyAdapter.deleteItem(viewHolder.adapterPosition)
-            }
-        }).attachToRecyclerView(recyclerViewReply)
-
     }
 
-    fun replyToQuestion(id : String, reply : String){
+    private fun replyToQuestion(id : String, reply : String, username : String, uid : String){
         val dateFormat = SimpleDateFormat("dd.MM.yyyy HH.mm.ss")
         val currentDate = dateFormat.format(Date())
-        val replyModel = Reply(id, reply, "anam", currentDate)
+        val replyModel = Reply(id, reply, username, uid, currentDate)
         quesRef.document(id).collection("Replies").add(replyModel).addOnSuccessListener {
             editTextReply.text = null
+            Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->
+                val value : Int = user.result.getLong("questionsReplied")!!.toInt()
+                Firebase.firestore.collection("users").document(uid).update("questionsReplied", value + 1)
+            }
         }.addOnFailureListener(OnFailureListener {
             Toast.makeText(activity, "Failed", Toast.LENGTH_LONG).show()
         })
@@ -136,6 +133,7 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
     override fun onStop() {
         super.onStop()
         replyAdapter.stopListening()
+        closeKeyboard()
     }
 
 }

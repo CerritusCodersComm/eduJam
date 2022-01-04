@@ -20,14 +20,14 @@ import com.example.gdsc_hackathon.adapters.RecentLectureAdapter
 import com.example.gdsc_hackathon.dataModel.RecentLectureModel
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
-import com.example.gdsc_hackathon.network.Api
+import com.example.gdsc_hackathon.network.QuoteApi
 import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 import com.example.gdsc_hackathon.extensions.copyToClipboard
-import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
+import com.example.gdsc_hackathon.extensions.showSnackBarWithIntentMessage
 import com.example.gdsc_hackathon.utils.NetworkUtils
 import com.google.firebase.auth.FirebaseAuth
 import kotlin.collections.ArrayList
@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
     private lateinit var syllabusLayout: LinearLayout
     private lateinit var weeklyTimeTableLayout: LinearLayout
     private lateinit var holidayLayout: LinearLayout
-    private lateinit var examTimeConstraintLayout: LinearLayout
+    private lateinit var videoLecturesLayout: LinearLayout
     private lateinit var practicalLayout: LinearLayout
     private lateinit var previousYearPapersLayout: LinearLayout
     private lateinit var academicCalendarLayout: LinearLayout
@@ -87,9 +87,9 @@ class HomeFragment : Fragment() {
             rootView.findNavController().navigate(R.id.holidayFragment)
         }
 
-        examTimeConstraintLayout = rootView.findViewById(R.id.examTimeConstraintLayout)
-        examTimeConstraintLayout.setOnClickListener {
-            rootView.findNavController().navigate(R.id.examTimeConstraintFragment)
+        videoLecturesLayout = rootView.findViewById(R.id.videoLecturesLayout)
+        videoLecturesLayout.setOnClickListener {
+            rootView.findNavController().navigate(R.id.VideoLectureFragment)
         }
 
         practicalLayout = rootView.findViewById(R.id.practicalLayout)
@@ -122,29 +122,47 @@ class HomeFragment : Fragment() {
         lectures.add(
             RecentLectureModel(
                 R.drawable.ic_baseline_video_camera_front_24,
-                "MATHS",
-                "25th December, 2021",
-                "20:00"
+                "COA ESE",
+                "22nd December, 2021",
+                "10:30"
             )
         )
+
         lectures.add(
             RecentLectureModel(
                 R.drawable.ic_baseline_video_camera_front_24,
-                "PHYSICS",
-                "27th December, 2021",
-                "20:00"
+                "DLDA ESE",
+                "20th December, 2021",
+                "10:30"
             )
         )
-        for (i in 2..20) {
-            lectures.add(
-                RecentLectureModel(
-                    R.drawable.ic_baseline_video_camera_front_24,
-                    "Item $i",
-                    "1 JAN",
-                    "TIME: 16:00"
-                )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "DBMS ESE",
+                "17th December, 2021",
+                "10:30"
             )
-        }
+        )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "DS ESE",
+                "15th December, 2021",
+                "10:30"
+            )
+        )
+
+        lectures.add(
+            RecentLectureModel(
+                R.drawable.ic_baseline_video_camera_front_24,
+                "MATHS-III ESE",
+                "13th December, 2021",
+                "10:30"
+            )
+        )
 
         adapter = RecentLectureAdapter(lectures)
 
@@ -199,7 +217,7 @@ class HomeFragment : Fragment() {
 
     private fun copyQuote() {
         requireContext().copyToClipboard(quote.text.toString())
-        showSnackBarWithAction(
+        showSnackBarWithIntentMessage(
             requireActivity(),
             "Quote Copied!",
             "Share Quote?",
@@ -215,7 +233,7 @@ class HomeFragment : Fragment() {
             quoteAuthor.text= dash.plus(getString(R.string.developers))
             return
         }
-        val apiInterface = Api.create().getQuotes()
+        val apiInterface = QuoteApi.create().getQuotes()
         progressBar.visibility =View.VISIBLE
         apiInterface.enqueue( object : Callback<JsonObject>{
             override fun onResponse(call: Call<JsonObject>?, response: Response<JsonObject>?) {

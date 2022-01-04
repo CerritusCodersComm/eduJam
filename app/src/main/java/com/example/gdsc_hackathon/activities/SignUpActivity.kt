@@ -3,7 +3,6 @@ package com.example.gdsc_hackathon.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -11,13 +10,12 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
-import com.google.android.gms.tasks.OnCompleteListener
+import com.example.gdsc_hackathon.dataModel.Prefs
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
+// todo create user only in personal activity, let it be sign up with google or simple signing up
 class SignUpActivity : AppCompatActivity() {
     private lateinit var registerButton: Button
     private lateinit var signinButton: Button
@@ -42,6 +40,14 @@ class SignUpActivity : AppCompatActivity() {
         googleSignupButton = findViewById(R.id.signup_with_google_signup_screen)
 
         mAuth = FirebaseAuth.getInstance()
+
+        val prefs = Prefs(applicationContext)
+        val status = prefs.status
+        if(status == 1){
+            startActivity(Intent(applicationContext, MainActivity::class.java))
+            finish()
+        }
+
 
         registerButton.setOnClickListener {
 
@@ -80,31 +86,25 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, OnCompleteListener {
-                        task ->
-                    Toast.makeText(this,"createUserWithEmail:onComplete"+task.isSuccessful,Toast.LENGTH_SHORT).show()
-
-                    if (!task.isSuccessful){
-//                    Toast.makeText(this,"User Not created",Toast.LENGTH_SHORT).show()
-                        return@OnCompleteListener
-                    }else{
+                .addOnCompleteListener(this
+                ) { task ->
+                    Toast.makeText(
+                        this,
+                        "createUserWithEmail:onComplete:" + task.isSuccessful,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    if (!task.isSuccessful) {
+                        Toast.makeText(
+                            this,
+                            "Authentication failed." + task.exception,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
                         val intent = Intent(this, PersonalInformationActivity::class.java)
 
                         intent.putExtra("email",email)
                         intent.putExtra("password",password)
                         mAuth.signOut()
-                        startActivity(intent)
-                        finish()
-                    }
-                })
-                .addOnFailureListener { e->
-                    Log.e("LOOK",e.message.toString())
-                    if(e.message.toString() == "The email address is already in use by another account."){
-                        val intent = Intent(this, PersonalInformationActivity::class.java)
-
-                        intent.putExtra("email",email)
-                        intent.putExtra("password",password)
-                        intent.putExtra("signupMode","EMAIL")
                         startActivity(intent)
                         finish()
                     }
@@ -125,7 +125,7 @@ class SignUpActivity : AppCompatActivity() {
         
     }
 
-    fun isValidEmail(target: CharSequence?): Boolean {
+    private fun isValidEmail(target: CharSequence?): Boolean {
         return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target!!).matches()
     }
 
@@ -135,28 +135,6 @@ class SignUpActivity : AppCompatActivity() {
         pattern = Pattern.compile(PASSWORD_PATTERN)
         val matcher: Matcher = pattern.matcher(password)
         return matcher.matches()
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val user = mAuth.currentUser
-
-        if (user != null) {
-            Firebase.firestore.collection("users").document(user.email!!).get()
-                .addOnCompleteListener { task ->
-                    val doc = task.result
-                    if (doc != null && doc.exists()) {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
-        }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        mAuth.signOut()
     }
 
 }

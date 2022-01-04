@@ -1,37 +1,60 @@
 package com.example.gdsc_hackathon.fragments
 
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gdsc_hackathon.activities.AddToDoItem
+import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.activities.MainActivity
 import com.example.gdsc_hackathon.adapters.ToDoListAdapter
+import com.example.gdsc_hackathon.database.ToDoApplication
+import com.example.gdsc_hackathon.dataModel.ToDo
 import com.example.gdsc_hackathon.databinding.FragmentTodoListBinding
+import com.example.gdsc_hackathon.extensions.action
+import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
+import com.example.gdsc_hackathon.extensions.showSnackBarWithIntentMessage
+import com.example.gdsc_hackathon.utils.dialog.AlertDialogShower
+import com.example.gdsc_hackathon.utils.dialog.AppDialogs
+import com.example.gdsc_hackathon.viewmodels.ToDoListViewModel
+import com.example.gdsc_hackathon.viewmodels.ToDoListViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 
 
-
-class TodoListFragment : Fragment(), View.OnClickListener {
-    private lateinit var binding: FragmentTodoListBinding
-    private lateinit var adapter: ToDoListAdapter
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentTodoListBinding.inflate(inflater, container, false)
-        binding.floatingActionButtonToAddItemList.setOnClickListener(this)
-        setUpRecycleView()
-        return binding.root
-
+class TodoListFragment() : Fragment() {
+    private val viewModel: ToDoListViewModel by activityViewModels {
+        ToDoListViewModelFactory(
+            (activity?.application as ToDoApplication).database.todoDao()
+        )
     }
 
-    private fun setUpRecycleView() {
-        adapter = activity?.let { ToDoListAdapter(it) }!!
+    private var _binding: FragmentTodoListBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentTodoListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val adapter = ToDoListAdapter {
+            val action =
+                TodoListFragmentDirections.actionTodoListFragmentToToDoDetailFragment(it.id)
+            this.findNavController().navigate(action)
+        }
+
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
             0,
             ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
@@ -45,39 +68,43 @@ class TodoListFragment : Fragment(), View.OnClickListener {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                view?.let {
-                    adapter.removeItem(
+                view.let {
+                    val todo: ToDo = adapter.getToDo(
                         viewHolder.absoluteAdapterPosition,
-                        it
-
+                    )
+                    val alertDialogShower = AlertDialogShower(requireActivity())
+                    alertDialogShower.show(
+                        AppDialogs.DeleteTodo,
+                        { onDeleteToDo(todo) },
+                        { (activity as MainActivity?)?.refreshCurrentFragment() }
                     )
                 }
-
             }
         }).attachToRecyclerView(binding.recycleViewForTodoList)
-        binding.recycleViewForTodoList.setHasFixedSize(true)
-        binding.recycleViewForTodoList.layoutManager = LinearLayoutManager(activity)
+        binding.recycleViewForTodoList.layoutManager = LinearLayoutManager(this.context)
         binding.recycleViewForTodoList.adapter = adapter
-
-    }
-
-    override fun onClick(p0: View?) {
-
-        when (p0?.id) {
-            com.example.gdsc_hackathon.R.id.floating_action_button_to_add_item_list -> {
-
-                activity?.let {
-                    val intent = Intent(it, AddToDoItem::class.java)
-                    it.startActivity(intent)
-                }
-
+        viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
+            items.let {
+                adapter.submitList(it)
             }
+        }
+
+        binding.floatingActionButtonToAddItemList.setOnClickListener {
+            val action = TodoListFragmentDirections.actionToDoListFragmentToAddToDoFragment(
+                getString(R.string.add_todo)
+            )
+            this.findNavController().navigate(action)
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        setUpRecycleView()
+    private fun onDeleteToDo(todo: ToDo) {
+        viewModel.deleteToDo(todo)
+        showSnackBarWithAction(requireActivity(),"${todo.title} removed",R.string.undo,null) {
+            viewModel.addNewToDo(
+                todo.title,
+                todo.description,
+            )
+        }
     }
 
 }

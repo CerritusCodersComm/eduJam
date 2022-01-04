@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        android:id="@+id/top2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Enter DOP Dates" />
+
+    <TextView
+        android:id="@+id/top3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Enter DOC Dates"
+        android:visibility="invisible" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/top2"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_1_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 1"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_1"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_2_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 2"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_3"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_2"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_3_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 3"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_4"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_3"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_4_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 4"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_5"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_4"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_5_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 5"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_6"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_5"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_6_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 6"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_7"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/expdop_1"
+        android:layout_below="@+id/top2"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_7_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 7"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_8"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_1"
+        android:layout_toEndOf="@id/expdop_2"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_8_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 8"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_9"
+        android:layout_toEndOf="@+id/expdop_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_2"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_9_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 9"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_10"
+        android:layout_toEndOf="@+id/expdop_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_3"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_10_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 10"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_11"
+        android:layout_toEndOf="@+id/expdop_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_4"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_11_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 11"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdop_12"
+        android:layout_toEndOf="@+id/expdop_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdop_5"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdop_12_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 12"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buton1"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:text="Next" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:visibility="invisible"
+        android:id="@+id/expdoc_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/top2"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_1_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 1"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdoc_1"
+        android:visibility="invisible"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_2_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 2"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_3"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/expdoc_2"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_3_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 3"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_4"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdoc_3"
+        android:visibility="invisible"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_4_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 4"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_5"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdoc_4"
+        android:visibility="invisible"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_5_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 5"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_6"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdoc_5"
+        android:visibility="invisible"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_6_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 6"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_7"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/expdoc_1"
+        android:layout_below="@+id/top2"
+        android:visibility="invisible"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_7_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 7"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_8"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdoc_1"
+        android:layout_toEndOf="@id/expdoc_2"
+        android:visibility="invisible"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_8_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 8"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_9"
+        android:layout_toEndOf="@+id/expdoc_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdoc_2"
+        android:visibility="invisible"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_9_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 9"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_10"
+        android:layout_toEndOf="@+id/expdoc_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdoc_3"
+        android:visibility="invisible"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_10_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 10"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_11"
+        android:layout_toEndOf="@+id/expdoc_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdoc_4"
+        android:visibility="invisible"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_11_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 11"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/expdoc_12"
+        android:layout_toEndOf="@+id/expdoc_1"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/expdoc_5"
+        android:visibility="invisible">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/expdoc_12_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="EXP 12"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="8" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buton"
+        android:visibility="invisible"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:text="Export" />
+</RelativeLayout>
