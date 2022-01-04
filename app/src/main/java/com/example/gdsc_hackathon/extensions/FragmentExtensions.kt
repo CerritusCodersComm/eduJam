@@ -1,19 +1,25 @@
 package com.example.gdsc_hackathon.extensions
 
 import android.app.Activity
+import android.app.DownloadManager
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Context.DOWNLOAD_SERVICE
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import com.example.gdsc_hackathon.R
 import com.google.android.material.snackbar.Snackbar
 import android.content.Intent
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Build
-import android.util.Log
+import android.net.Uri
+import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
+import com.google.android.youtube.player.YouTubeBaseActivity
+import android.os.Environment
+
+
 
 fun Fragment.closeKeyboard() {
     val inputMethodManager =
@@ -33,7 +39,7 @@ fun Fragment.showSnackBar(activity: Activity, message: String?) {
     snackbar.show()
 }
 
-fun Fragment.showSnackBarWithAction(activity: Activity, message: String?, actionMessage: String?, sendMessage: String?) {
+fun Fragment.showSnackBarWithIntentMessage(activity: Activity, message: String?, actionMessage: String?, sendMessage: String?) {
     val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
     val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_LONG)
     snackbar.setAction(actionMessage){
@@ -51,5 +57,49 @@ fun Context.copyToClipboard(text: CharSequence){
     val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
     val clip = ClipData.newPlainText("label",text)
     clipboard.setPrimaryClip(clip)
+}
+
+fun Fragment.showSnackBarWithAction(activity: Activity, message: String?,@StringRes actionRes: Int, color: Int? = null, listener: (View) -> Unit) {
+    val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
+    val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_SHORT)
+    snackbar.setAction(actionRes, listener)
+    snackbar.anchorView = activity.findViewById(R.id.bottom_navigation)
+    snackbar.show()
+}
+fun Snackbar.action(@StringRes actionRes: Int, color: Int? = null, listener: (View) -> Unit) {
+    action(view.resources.getString(actionRes), color, listener)
+}
+
+fun Snackbar.action(action: String, color: Int? = null, listener: (View) -> Unit) {
+    setAction(action, listener)
+    color?.let { setActionTextColor(ContextCompat.getColor(context, color)) }
+}
+fun <T> Context.openActivity(it: Class<T>) {
+    val intent = Intent(this, it)
+    startActivity(intent)
+}
+
+fun Fragment.downloadFileWifi(fileUrl:String, fileName:String) {
+    val request = DownloadManager.Request(Uri.parse(fileUrl))
+        .setTitle(context!!.getString(R.string.app_name))
+        .setDescription("Downloading $fileName")
+        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE or DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI)
+        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
+
+    val downloadManager = context!!.getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+    downloadManager.enqueue(request)
+}
+
+fun Fragment.downloadFile(fileUrl:String, fileName:String) {
+    val request = DownloadManager.Request(Uri.parse(fileUrl))
+        .setTitle(context!!.getString(R.string.app_name))
+        .setDescription("Downloading $fileName")
+        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE or DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        .setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
+        .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName)
+
+    val downloadManager = context!!.getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+    downloadManager.enqueue(request)
 }
 

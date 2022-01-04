@@ -5,10 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".fragments.NotificationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notification_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_below="@id/recent_lectures_title"
+        tools:listitem="@layout/academic_recycler_view_event" />
 
 </FrameLayout>

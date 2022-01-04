@@ -135,10 +135,13 @@ class PersonalInformationActivity : AppCompatActivity() {
                                 "department" to department,
                                 "username" to userName,
                                 "semester" to semester
+                                "questionsAsked" to 0,
+                                "answersSelected" to 0,
+                                "questionsReplied" to 0
                             )
 
 
-                            Firebase.firestore.collection("users").document(user.email!!)
+                            Firebase.firestore.collection("users").document(user.uid!!)
                                 .set(usr)
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
@@ -225,10 +228,13 @@ class PersonalInformationActivity : AppCompatActivity() {
                             "department" to department,
                             "username" to userName,
                             "semester" to semester
+                            "questionsAsked" to 0,
+                            "answersSelected" to 0,
+                            "questionsReplied" to 0
                         )
 
 
-                        Firebase.firestore.collection("users").document(user.email!!)
+                        Firebase.firestore.collection("users").document(user.uid!!)
                             .set(usr)
                             .addOnCompleteListener {
                                 if (it.isSuccessful) {

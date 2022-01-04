@@ -45,6 +45,7 @@
 
     <string name="practical_title_text">SE 4th Semester Practcals 2022</string>
     <string name="add_todo">Add TODO</string>
+    <string name="edit_todo">Edit TODO</string>
     <string name="to_edit">TO Edit</string>
     <string name="add_to_do_item">Add To do item</string>
     <string name="add_new_todo">Add New Todo</string>
@@ -64,8 +65,36 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="delete">Delete</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="cancle">Cancle</string>
 
-    <!-- Strings used for fragments for navigation -->
+    <!-- String for  To do list -->
+    <string name="delete_todo_title">Delete this Todo?</string>
+    <string name="delete_todo_message">Do you want to delete this Todo?</string>
+    <string name="undo">Undo?</string>
+    <string name="update">Update todo</string>
+    <string-array name="dialog_list">
+        <item>Edit</item>
+        <item>Delete</item>
+    </string-array>
+
+    <!-- String for onBoarding scr  een -->
+    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>
+
+
+    <string name="title_onboarding_1">Welcome to XYZ App !</string>
+    <string name="description_onboarding_1">Your one stop to any university work</string>
+
+    <string name="title_onboarding_2">Build a healthy community with our forum</string>
+    <string name="description_onboarding_2">Can\'t get teachers to answer quick? get your questions solved here under a day!</string>
+
+<!--    <string name="title_onboarding_3">Try recent lecture feature, ignore this i was bored</string>-->
+    <string name="title_onboarding_3">Bleh! I was bored</string>
+    <string name="description_onboarding_3">Watch any missed lecture at any place any time</string>
+
+   <!--    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>-->
 
     <string-array name="semesters_list">
         <item>1</item>
@@ -79,5 +108,9 @@
 
     </string-array>
 
+    <string name="start">start</string>
+    <string name="skip">Skip</string>
+    <string name="finish">finish</string>
+    <string name="back">back</string>
 
 </resources>

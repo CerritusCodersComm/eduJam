@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/forumFragment"
         android:name="com.example.gdsc_hackathon.fragments.ForumFragment"
-        android:label="News"
+        android:label="Forum"
         tools:layout="@layout/fragment_forum">
         <action
             android:id="@+id/action_forumFragment_to_replyFragment"
@@ -98,7 +98,48 @@
         android:id="@+id/todoListFragment"
         android:name="com.example.gdsc_hackathon.fragments.TodoListFragment"
         android:label="To-Do List"
-        tools:layout="@layout/fragment_todo_list" />
+        tools:layout="@layout/fragment_todo_list" >
+        <action
+            android:id="@+id/action_todoListFragment_to_toDoDetailFragment"
+            app:destination="@id/fragmentToDoDetails" >
+
+        </action>
+        <action
+            android:id="@+id/action_ToDoListFragment_to_AddToDoFragment"
+            app:destination="@id/addToDoFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentToDoDetails"
+        android:name="com.example.gdsc_hackathon.fragments.ToDoDetailFragment"
+        android:label="To-Do List"
+        tools:layout="@layout/fragment_to_do_detail" >
+        <argument
+            android:name="to_do_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_to_do_DetailFragment_to_addToDOFragment"
+            app:destination="@id/addToDoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addToDoFragment"
+        android:name="com.example.gdsc_hackathon.fragments.AddToDoFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_to_do" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="to_do_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_add_to_do_Fragment_to_to_do_ListFragment"
+            app:destination="@id/todoListFragment"
+            app:popUpTo="@id/todoListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.gdsc_hackathon.fragments.SettingsFragment"

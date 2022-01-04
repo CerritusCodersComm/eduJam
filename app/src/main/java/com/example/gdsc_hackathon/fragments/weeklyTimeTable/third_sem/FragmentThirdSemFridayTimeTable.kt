@@ -14,6 +14,6 @@ class FragmentThirdSemFridayTimeTable : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_computer_graphics_module_five, container, false)
+        return inflater.inflate(R.layout.fragment_third_sem_friday_time_table, container, false)
     }
 }

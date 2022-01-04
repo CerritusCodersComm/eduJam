@@ -45,7 +45,7 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/maths"
                 android:textSize="20sp"
-                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+                app:drawableEndCompat="@drawable/ic_baseline_download_24" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/maths2020Button"
@@ -95,7 +95,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/design_analysis_of_alogorithms"
                 android:textSize="20sp"
-                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+                app:drawableEndCompat="@drawable/ic_baseline_download_24" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/designAnalysisOfAlgorithms2020Button"
@@ -145,7 +145,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/operating_systems"
                 android:textSize="20sp"
-                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+                app:drawableEndCompat="@drawable/ic_baseline_download_24" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/operatingSystems2020Button"
@@ -195,7 +195,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/computer_networks"
                 android:textSize="20sp"
-                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+                app:drawableEndCompat="@drawable/ic_baseline_download_24" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/computerNetworks2020Button"
@@ -245,7 +245,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/computer_graphics"
                 android:textSize="20sp"
-                app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_24" />
+                app:drawableEndCompat="@drawable/ic_baseline_download_24" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/computerGraphics2020Button"

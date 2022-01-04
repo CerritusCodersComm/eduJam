@@ -28,7 +28,6 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto"
         android:gravity="center"
-        android:text="Username"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/cario_color_dark"
         android:textStyle="bold"
@@ -86,8 +85,8 @@
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="00"
                     android:maxLines="1"
+                    android:text="00"
                     android:textColor="@color/cario_color_dark" />
 
                 <TextView

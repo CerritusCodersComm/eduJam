@@ -14,7 +14,7 @@ class FragmentThirdSemMondayTimeTable : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val rootView = inflater.inflate(R.layout.fragment_computer_graphics_module_one, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_third_sem_monday_time_table, container, false)
 
         return rootView
     }

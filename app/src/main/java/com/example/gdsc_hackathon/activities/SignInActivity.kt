@@ -1,6 +1,7 @@
 package com.example.gdsc_hackathon.activities
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -16,6 +17,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import android.text.TextUtils
 import android.util.Patterns
+import com.example.gdsc_hackathon.dataModel.Prefs
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -24,7 +26,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-
 class SignInActivity : AppCompatActivity() {
     private lateinit var button: Button
     private lateinit var googleLoginButton: RelativeLayout
@@ -32,7 +33,6 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var registerButton: RelativeLayout
     private lateinit var passwordEditText: EditText
     private lateinit var emailEditText: EditText
-
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -53,6 +53,7 @@ class SignInActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.password_edit_text)
 
         mAuth = FirebaseAuth.getInstance()
+        val user = mAuth.currentUser
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -100,8 +101,7 @@ class SignInActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-
-            Firebase.firestore.collection("users").document(email).get()
+            Firebase.firestore.collection("users").document(user!!.uid).get()
                 .addOnCompleteListener { task ->
                     val doc = task.result
                     if (doc != null && !doc.exists()) {
@@ -112,12 +112,18 @@ class SignInActivity : AppCompatActivity() {
                     mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
-                                Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT)
-                                    .show()
+                                Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT).show()
+                                val prefs = Prefs(applicationContext)
+                                prefs.username = doc.getString("username").toString()
+                                prefs.email = doc.getString("email").toString()
+                                prefs.department = doc.getString("department").toString()
+                                prefs.name = doc.getString("name").toString()
+                                prefs.uid = doc.getString("uid").toString()
+                                prefs.status = 1
+                            }
                                 startActivity(Intent(applicationContext, MainActivity::class.java))
                                 finish()
                             }
-                        }
                         .addOnFailureListener {
                             Toast.makeText(applicationContext, "Please try again", Toast.LENGTH_SHORT)
                                 .show()
@@ -125,6 +131,14 @@ class SignInActivity : AppCompatActivity() {
                 }
 
         }
+
+        val settings = getSharedPreferences("prefs", 0)
+        val editor = settings.edit()
+        editor.putBoolean("firstRun", false)
+        editor.apply()
+
+        val firstRun = settings.getBoolean("firstRun", true)
+        Log.d("TAG1", "firstRun: " + java.lang.Boolean.valueOf(firstRun).toString())
     }
 
     private fun signInWithGoogle() {
@@ -171,7 +185,7 @@ class SignInActivity : AppCompatActivity() {
                         val usr = mAuth.currentUser
 
                         if (usr != null) {
-                            Firebase.firestore.collection("users").document(user.email!!).get()
+                            Firebase.firestore.collection("users").document(user.uid!!).get()
                                 .addOnCompleteListener { t ->
                                     val doc = t.result
                                     if (doc != null && !doc.exists()) {
@@ -185,6 +199,13 @@ class SignInActivity : AppCompatActivity() {
                                         return@addOnCompleteListener
                                     }
                                     else if(doc != null && doc.exists()){
+                                        val prefs = Prefs(applicationContext)
+                                        prefs.username = doc.getString("username").toString()
+                                        prefs.email = doc.getString("email").toString()
+                                        prefs.department = doc.getString("department").toString()
+                                        prefs.name = doc.getString("name").toString()
+                                        prefs.uid = doc.getString("uid").toString()
+                                        prefs.status = 1
                                         val intent = Intent(this, MainActivity::class.java)
                                         startActivity(intent)
                                         finish()
