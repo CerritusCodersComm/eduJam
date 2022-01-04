@@ -6,10 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,7 +35,8 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
     lateinit var textViewQuestion : TextView
     lateinit var textViewDate : TextView
     lateinit var textViewUser : TextView
-    lateinit var buttonReply : Button
+    lateinit var buttonReply : ImageButton
+    lateinit var progressBar: ProgressBar
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -50,7 +48,9 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         textViewUser = rootView.findViewById(R.id.text_view_user_reply)
         textViewDate = rootView.findViewById(R.id.text_view_date_reply)
         buttonReply= rootView.findViewById(R.id.button_reply)
+        progressBar = rootView.findViewById(R.id.progressBar)
 
+        progressBar.visibility = View.VISIBLE
         val user = FirebaseAuth.getInstance().currentUser
         val bundle = arguments
         val id = bundle!!.getString("id")
@@ -60,9 +60,16 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
                     if (documentSnapshot.exists()) {
                         val question = documentSnapshot.getString("question")
                         val date = documentSnapshot.getString("date")
+                        val time = documentSnapshot.getString("time")
                         val username = documentSnapshot.getString("username")
+                        val dateFormat1 = SimpleDateFormat("d MMM yyyy", Locale.getDefault())
+                        val currentDate = dateFormat1.format(Date())
+                        if(currentDate == date)
+                            textViewDate.text = time
+                        else
+                            textViewDate.text = date
                         textViewQuestion.text = question
-                        textViewDate.text = date
+
                         if(documentSnapshot.getString("uid") == user!!.uid){
                             textViewUser.text = "Me"
                         }
@@ -73,6 +80,7 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
                         Toast.makeText(context, "Document does not exist", Toast.LENGTH_SHORT)
                             .show()
                     }
+                    progressBar.visibility = View.GONE
                 }
                 .addOnFailureListener(OnFailureListener { e ->
                     Toast.makeText(context, "Error!", Toast.LENGTH_SHORT).show()
@@ -82,21 +90,23 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         }
 
         buttonReply.setOnClickListener(View.OnClickListener {
-            Firebase.firestore.collection("users").document(user!!.uid).get()
-                .addOnCompleteListener { task ->
-                    val doc = task.result
-                    if (doc != null && doc.exists()) {
-                        val username = doc.getString("username").toString()
-                        var reply= ""
-                        if(editTextReply.text != null) {
-                            reply = editTextReply.text.toString()
-                        }
-                        if (id != null) {
-                            replyToQuestion(id, reply, username, user!!.uid)
+            if(editTextReply.text.isEmpty()){
+                Toast.makeText(rootView.context, "Type something first", Toast.LENGTH_SHORT).show()
+                return@OnClickListener
+            }
+            else {
+                Firebase.firestore.collection("users").document(user!!.uid).get()
+                    .addOnCompleteListener { task ->
+                        val doc = task.result
+                        if (doc != null && doc.exists()) {
+                            val username = doc.getString("username").toString()
+                            val reply = editTextReply.text.toString()
+                            if (id != null) {
+                                replyToQuestion(id, reply, username, user!!.uid)
+                            }
                         }
                     }
-                }
-
+            }
         })
         return rootView
         }
@@ -111,9 +121,11 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
     }
 
     private fun replyToQuestion(id : String, reply : String, username : String, uid : String){
-        val dateFormat = SimpleDateFormat("dd.MM.yyyy HH.mm.ss")
-        val currentDate = dateFormat.format(Date())
-        val replyModel = Reply(id, reply, username, uid, currentDate)
+        val dateFormat1 = SimpleDateFormat("d MMM yyyy")
+        val dateFormat2 = SimpleDateFormat("HH.mm")
+        val currentDate = dateFormat1.format(Date())
+        val currentTime = dateFormat2.format(Date())
+        val replyModel = Reply(id, reply, username, uid, currentDate, currentTime)
         quesRef.document(id).collection("Replies").add(replyModel).addOnSuccessListener {
             editTextReply.text = null
             Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->

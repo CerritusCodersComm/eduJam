@@ -3,6 +3,7 @@ package com.example.gdsc_hackathon.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
@@ -15,12 +16,17 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.lang.String
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ReplyAdapter(options: FirestoreRecyclerOptions<Reply>) : FirestoreRecyclerAdapter<Reply, ReplyAdapter.ReplyHolder>(options) {
 
     override fun onBindViewHolder(holder: ReplyHolder, position: Int, model: Reply) {
         holder.textViewReply.text = model.reply
-        holder.date.text = String.valueOf(model.date)
+        if(holder.date == model.date)
+            holder.textViewDate.text = model.time
+        else
+            holder.textViewDate.text = model.date
         if(holder.user!!.uid == model.uid){
             holder.textViewUsername.text = "Me"
             holder.deleteReply.visibility = View.VISIBLE
@@ -54,11 +60,13 @@ class ReplyAdapter(options: FirestoreRecyclerOptions<Reply>) : FirestoreRecycler
     class ReplyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var textViewReply: TextView = itemView.findViewById(R.id.text_view_reply)
         var textViewUsername: TextView = itemView.findViewById(R.id.text_view_username)
-        var date: TextView = itemView.findViewById(R.id.text_view_current_date)
-        var deleteReply : FloatingActionButton = itemView.findViewById(R.id.fab_delete_reply)
+        var textViewDate: TextView = itemView.findViewById(R.id.text_view_current_date)
+        var deleteReply : ImageButton = itemView.findViewById(R.id.fab_delete_reply)
         val user = FirebaseAuth.getInstance().currentUser
-        val prefs : Prefs = Prefs(itemView.context)
+        private val prefs : Prefs = Prefs(itemView.context)
         val username = prefs.username
+        private val dateFormat1 = SimpleDateFormat("d MMM yyyy", Locale.getDefault())
+        val date = dateFormat1.format(Date())
     }
 
 }
