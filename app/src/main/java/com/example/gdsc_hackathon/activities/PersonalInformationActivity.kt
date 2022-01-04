@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.dataModel.Prefs
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -18,7 +19,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class PersonalInformationActivity : AppCompatActivity() {
-
     private lateinit var nameEditText: EditText
     private lateinit var userNameEditText: EditText
     private lateinit var confirmPasswordEditText: EditText
@@ -134,14 +134,21 @@ class PersonalInformationActivity : AppCompatActivity() {
                                 "email" to user.email,
                                 "department" to department,
                                 "username" to userName,
-                                "semester" to semester
+                                "semester" to semester,
                                 "questionsAsked" to 0,
                                 "answersSelected" to 0,
                                 "questionsReplied" to 0
                             )
 
+                            val prefs = Prefs(applicationContext)
+                            prefs.username = userName
+                            prefs.email = user.email
+                            prefs.department = department
+                            prefs.name = name
+                            prefs.uid = user.uid
+                            prefs.status = 1
 
-                            Firebase.firestore.collection("users").document(user.uid!!)
+                            Firebase.firestore.collection("users").document(user.uid)
                                 .set(usr)
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
@@ -227,14 +234,21 @@ class PersonalInformationActivity : AppCompatActivity() {
                             "email" to user.email,
                             "department" to department,
                             "username" to userName,
-                            "semester" to semester
+                            "semester" to semester,
                             "questionsAsked" to 0,
                             "answersSelected" to 0,
                             "questionsReplied" to 0
                         )
 
+                        val prefs = Prefs(applicationContext)
+                        prefs.username = userName
+                        prefs.email = user.email
+                        prefs.department = department
+                        prefs.name = name
+                        prefs.uid = user.uid
+                        prefs.status = 1
 
-                        Firebase.firestore.collection("users").document(user.uid!!)
+                        Firebase.firestore.collection("users").document(user.uid)
                             .set(usr)
                             .addOnCompleteListener {
                                 if (it.isSuccessful) {

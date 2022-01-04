@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
@@ -28,15 +27,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ForumFragment : Fragment(R.layout.fragment_forum) {
-
     private lateinit var editTextQuestion : EditText
     private lateinit var buttonAsk: ImageButton
     lateinit var recyclerView: RecyclerView
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val quesRef: CollectionReference = db.collection("Questions")
     lateinit var adapter : QuestionAdapter
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,9 +49,9 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
                 return@setOnClickListener
             }
             else {
-                val user: String? = FirebaseAuth.getInstance().currentUser?.uid
+                val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
-                    Firebase.firestore.collection("users").document(user).get()
+                    Firebase.firestore.collection("users").document(user!!.uid).get()
                         .addOnCompleteListener { task ->
                             val doc = task.result
                             if (doc != null && doc.exists()) {
@@ -68,7 +64,6 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
 
             }
         }
-
         return rootView
     }
 
