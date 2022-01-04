@@ -77,8 +77,26 @@ class SignInActivity : AppCompatActivity() {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
 
+            if (!email.contains("tcet") && !email.contains("thakur")) {
+                Toast.makeText(applicationContext, "Please Use College Email", Toast.LENGTH_LONG)
+                    .show()
+                return@setOnClickListener
+            }
+
             if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(applicationContext, "Please enter all values!", Toast.LENGTH_SHORT)
+                Toast.makeText(applicationContext, "Please Enter All Values", Toast.LENGTH_LONG)
+                    .show()
+                return@setOnClickListener
+            }
+
+            if (!isValidEmail(email)) {
+                Toast.makeText(applicationContext, "Please Enter Correct Email", Toast.LENGTH_LONG)
+                    .show()
+                return@setOnClickListener
+            }
+
+            if (!isValidPassword(password) || password.length < 8) {
+                Toast.makeText(applicationContext, "Wrong Password.\nSample Password: Hello@1234", Toast.LENGTH_LONG)
                     .show()
                 return@setOnClickListener
             }
@@ -217,12 +235,11 @@ class SignInActivity : AppCompatActivity() {
 
     fun isValidPassword(password: String?): Boolean {
         val pattern: Pattern
-        val matcher: Matcher
-        val PASSWORD_PATTERN =
-            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
+        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
         pattern = Pattern.compile(PASSWORD_PATTERN)
-        matcher = pattern.matcher(password)
+        val matcher: Matcher = pattern.matcher(password)
         return matcher.matches()
     }
+
 
 }

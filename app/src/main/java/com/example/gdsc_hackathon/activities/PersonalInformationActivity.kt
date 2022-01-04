@@ -23,6 +23,7 @@ class PersonalInformationActivity : AppCompatActivity() {
     private lateinit var userNameEditText: EditText
     private lateinit var confirmPasswordEditText: EditText
     private lateinit var getStartedButton: Button
+    private lateinit var semesterSpinner: Spinner
     private var selectedPosition = -1
 
     private lateinit var mAuth: FirebaseAuth
@@ -38,6 +39,7 @@ class PersonalInformationActivity : AppCompatActivity() {
     private var userName = ""
     private var confirmPassword = ""
     private var department = ""
+    private var semester = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +58,7 @@ class PersonalInformationActivity : AppCompatActivity() {
         userNameEditText = findViewById(R.id.username_edit_text)
         confirmPasswordEditText = findViewById(R.id.confirm_password_edit_text_personalinfo_screen)
         getStartedButton = findViewById(R.id.get_started_button)
+        semesterSpinner = findViewById(R.id.semester_spinner)
 
         confirmPasswordEditText.visibility = View.INVISIBLE
         findViewById<TextInputLayout>(R.id.confirm_password_layout).visibility = View.INVISIBLE
@@ -96,7 +99,8 @@ class PersonalInformationActivity : AppCompatActivity() {
         getStartedButton.setOnClickListener {
             name = nameEditText.text.trim().toString()
             userName = userNameEditText.text.trim().toString()
-            department = "Information Technology"
+            department = spinner.text.toString().trim()
+            semester = semesterSpinner.selectedItem.toString()
 
             if (signupMode == "GOOGLE") {
 
@@ -130,6 +134,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                                 "email" to user.email,
                                 "department" to department,
                                 "username" to userName,
+                                "semester" to semester
                                 "questionsAsked" to 0,
                                 "answersSelected" to 0,
                                 "questionsReplied" to 0
@@ -222,6 +227,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                             "email" to user.email,
                             "department" to department,
                             "username" to userName,
+                            "semester" to semester
                             "questionsAsked" to 0,
                             "answersSelected" to 0,
                             "questionsReplied" to 0

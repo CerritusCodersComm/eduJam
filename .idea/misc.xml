@@ -20,7 +20,7 @@
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/menu/home_menu.xml" value="0.1" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/menu/navigation_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/almei/StudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_more.xml" value="0.12395833333333334" />
-        <entry key="..\:/Users/almei/StudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/personal_information_activity.xml" value="0.10462962962962963" />
+        <entry key="..\:/Users/almei/StudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/personal_information_activity.xml" value="0.2857142857142857" />
         <entry key="..\:/Users/almei/StudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/sign_in_activity.xml" value="0.18857142857142858" />
         <entry key="..\:/Users/almei/StudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/sign_up_activity.xml" value="0.14285714285714285" />
         <entry key="app/src/main/res/drawable/auth_button_background.xml" value="0.1925925925925926" />
@@ -85,7 +85,6 @@
         <entry key="app/src/main/res/layout/fragment_academic_calendar.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_add_to_do.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.20364583333333333" />
-        <entry key="app/src/main/res/layout/fragment_computer_graphics.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_computer_graphics_module_five.xml" value="0.301994301994302" />
         <entry key="app/src/main/res/layout/fragment_computer_graphics_module_four.xml" value="0.353713768115942" />
         <entry key="app/src/main/res/layout/fragment_computer_graphics_module_one.xml" value="0.26108374384236455" />
@@ -152,7 +151,6 @@
         <entry key="app/src/main/res/layout/fragment_to_do_detail.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/layout/fragment_todo_list.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_video_lectures.xml" value="0.30404354587869364" />
-        <entry key="app/src/main/res/layout/fragment_weekly_time_table.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/holidays_recycler_view_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/main_tab.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.20923913043478262" />
