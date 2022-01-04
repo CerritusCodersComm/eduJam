@@ -21,10 +21,12 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
     private var NOTIFICATION_CHANNEL_ID = "com.example.gdsc_hackathon"
     private val NOTIFICATION_ID = 100
 
+
+
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
 
-        Log.e("message","Message Received ...")
+        Log.w("LOOK","Message Received ...")
 
         if (remoteMessage.data.isNotEmpty()) {
             val title = remoteMessage.data["title"]
@@ -55,6 +57,15 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
         ii.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
         val pi =
             PendingIntent.getActivity(context, 0, ii, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val deleteIntent = Intent(this, MainActivity::class.java)
+        deleteIntent.putExtra("someKey", NOTIFICATION_ID)
+        val deletePendingIntent = PendingIntent.getService(
+            this,
+            NOTIFICATION_ID,
+            deleteIntent,
+            PendingIntent.FLAG_CANCEL_CURRENT
+        )
         val notification: Notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             //Log.e("Notification", "Created in up to orio OS device");
@@ -68,6 +79,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
                 .setCategory(Notification.CATEGORY_SERVICE)
                 .setWhen(System.currentTimeMillis())
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setDeleteIntent(deletePendingIntent)
                 .setContentTitle(title).build()
             val notificationManager = context.getSystemService(
                 Context.NOTIFICATION_SERVICE
@@ -79,6 +91,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
             )
             notificationManager.createNotificationChannel(notificationChannel)
             notificationManager.notify(NOTIFICATION_ID, notification)
+            stopForeground(true)
 //            Log.w("LOOK","1")
         } else {
             notification = NotificationCompat.Builder(context)
@@ -92,6 +105,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService() {
                 Context.NOTIFICATION_SERVICE
             ) as NotificationManager
             notificationManager.notify(NOTIFICATION_ID, notification)
+            stopForeground(true)
 //            Log.w("LOOK","2")
         }
     }
