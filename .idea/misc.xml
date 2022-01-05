@@ -7,15 +7,49 @@
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/auth_button_background.xml" value="0.146" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/background_border.xml" value="0.2445" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.146" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/onboarding_selected_dot_blue.xml" value="0.1" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/academic_recycler_view_event.xml" value="0.11413043478260869" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/activity_add_to_do_item.xml" value="0.264" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/activity_fmc_exp_marks_input.xml" value="0.2006340579710145" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/activity_main.xml" value="0.17255434782608695" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/activity_on_board.xml" value="0.1" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/blank_fragment.xml" value="0.1160081053698075" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/content_add_to_do_item.xml" value="0.264" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_academic_calendar.xml" value="0.20885416666666667" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_forum.xml" value="0.128" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_more.xml" value="0.1" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_notification.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_onboarding.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_operating_systems.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_operating_systems_practical.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_practicals.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_preview_year_papers.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_profile.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_reply.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_settings.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_syllabus.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_third_sem_friday_time_table.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_third_sem_monday_time_table.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_third_sem_thursday_time_table.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_third_sem_tuesday_time_table.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_third_sem_wednesday_time_table.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_to_do_detail.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_todo_list.xml" value="0.176" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_video_lecture_summary.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_video_lectures.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/fragment_weekly_time_table.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/holidays_recycler_view_item.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/nav_header.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/note_item.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/notification_item.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/personal_information_activity.xml" value="0.11510416666666666" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/question_item.xml" value="0.2" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/recycler_view_recent_lecture.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/recycler_view_video_lecture.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/reply_item.xml" value="0.11510416666666666" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/sign_in_activity.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/sign_up_activity.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/single_to_do_item.xml" value="0.1" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/menu/home_menu.xml" value="0.1" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/menu/navigation_menu.xml" value="0.25416666666666665" />

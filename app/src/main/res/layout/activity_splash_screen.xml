@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activities.SplashScreenActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/green"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/green" />
+
+        <View
+            android:id="@+id/blue"
+            android:layout_width="20dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/green"
+            android:background="@drawable/blue" />
+
+        <View
+            android:id="@+id/greay"
+            android:layout_width="20dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/blue"
+            android:background="@drawable/greyblur" />
+
+        <View
+            android:id="@+id/blue1"
+            android:layout_width="20dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/greay"
+            android:background="@drawable/blue" />
+
+        <View
+            android:id="@+id/red"
+            android:layout_width="20dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/blue1"
+            android:background="@drawable/red" />
+
+        <View
+            android:id="@+id/greay1"
+            android:layout_width="20dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/red"
+            android:background="@drawable/greyblur" />
+
+        <View
+            android:id="@+id/green1"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/greay1"
+            android:background="@drawable/green" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="sans-serif-condensed"
+            android:src="@drawable/eudjamicon"
+            android:textSize="150sp"
+            android:contentDescription="@string/logo" />
+    </RelativeLayout>
+
+
+</LinearLayout>

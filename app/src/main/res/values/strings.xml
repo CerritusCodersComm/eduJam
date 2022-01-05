@@ -90,15 +90,16 @@
     <string name="title_onboarding_2">Build a healthy community with our forum</string>
     <string name="description_onboarding_2">Can\'t get teachers to answer quick? get your questions solved here under a day!</string>
 
-<!--    <string name="title_onboarding_3">Try recent lecture feature, ignore this i was bored</string>-->
+    <!--    <string name="title_onboarding_3">Try recent lecture feature, ignore this i was bored</string>-->
     <string name="title_onboarding_3">Bleh! I was bored</string>
     <string name="description_onboarding_3">Watch any missed lecture at any place any time</string>
 
-   <!--    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>-->
+    <!--    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>-->
 
     <string name="start">start</string>
     <string name="skip">Skip</string>
     <string name="finish">finish</string>
     <string name="back">back</string>
+    <string name="logo">Logo</string>
 
 </resources>
