@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:fitsSystemWindows="true"
     tools:context=".fragments.FeedbackFragment">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/feedback_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:text="@string/give_us_a_feedback_for_improvement"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/email_of_feedback_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/feedback_form"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:autofillHints="Title"
+        android:background="@drawable/background_border"
+        android:hint="@string/prompt_email"
+        android:inputType="textEmailAddress"
+        android:padding="8dp" />
+    <EditText
+        android:id="@+id/title_of_feedback_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email_of_feedback_form"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:autofillHints="Title"
+        android:background="@drawable/background_border"
+        android:hint="@string/title"
+        android:inputType="text"
+        android:padding="8dp" />
+
+    <EditText
+        android:id="@+id/description_in_feedback_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_of_feedback_form"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        android:autofillHints="Title"
+        android:maxLength ="2000"
+        android:background="@drawable/background_border"
+        android:hint="@string/description"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:padding="8dp"
+        android:height="200dp"
+        android:scrollbarAlwaysDrawVerticalTrack="true" />
+
+
+    <Button
+        android:id="@+id/submit_feed_back"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description_in_feedback_form"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/auth_button_background"
+        android:elevation="30dp"
+        android:text="@string/give_us_a_feedback" />
+
+
+
+</RelativeLayout>

@@ -29,19 +29,15 @@
         android:theme="@style/Theme.GDSC_HACKATHON"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+
         <activity
-            android:name=".activities.SplashScreenActivity"
-            android:exported="true" >
+            android:name=".onboard.OnBoardActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".onboard.OnBoardActivity"
-            android:exported="true">
-
         </activity>
 
         <service
@@ -77,7 +73,9 @@
         <activity
             android:name=".activities.SignUpActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity
             android:name=".activities.PersonalInformationActivity"
             android:exported="true"

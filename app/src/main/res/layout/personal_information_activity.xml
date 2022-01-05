@@ -87,6 +87,22 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Spinner
+            android:id="@+id/semester_spinner"
+            android:layout_above="@+id/dept_spinner_layout"
+            android:layout_margin="10dp"
+            android:entries="@array/semesters_list"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Semester"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="39dp"
+            android:tooltipText=""
+            />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/dept_spinner_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"

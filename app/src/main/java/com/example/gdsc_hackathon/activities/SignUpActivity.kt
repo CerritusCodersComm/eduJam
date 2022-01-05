@@ -53,28 +53,37 @@ class SignUpActivity : AppCompatActivity() {
 
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
-            val confirmPassword = confirmPasswordEditText.toString().trim()
+            val confirmpassword = confirmPasswordEditText.text.toString().trim()
 
-            if (email.isEmpty() || password.isEmpty() || !isValidEmail(email)) {
-                Toast.makeText(applicationContext, "Please Enter Correct Values", Toast.LENGTH_LONG)
+            if (!email.contains("tcet") && !email.contains("thakur")) {
+                Toast.makeText(applicationContext, "Please Use College Email", Toast.LENGTH_LONG)
                     .show()
                 return@setOnClickListener
             }
-//
-//            if (!email.contains("tcet", true) || !email.contains("thakur", true)){
-//                Toast.makeText(
-//                    applicationContext,
-//                    "Please Use College Email",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//                return@setOnClickListener
-//                }
 
-//            if(password!=confirmpassword){
-//                Toast.makeText(applicationContext, "Passwords Don't Match", Toast.LENGTH_LONG)
-//                    .show()
-//                return@setOnClickListener
-//            }
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(applicationContext, "Please Enter All Values", Toast.LENGTH_LONG)
+                    .show()
+                return@setOnClickListener
+            }
+
+            if (!isValidEmail(email)) {
+                Toast.makeText(applicationContext, "Please Enter Correct Email", Toast.LENGTH_LONG)
+                    .show()
+                return@setOnClickListener
+            }
+
+            if (!isValidPassword(password) || password.length < 8) {
+                Toast.makeText(applicationContext, "Wrong Password.\nSample Password: Hello@1234", Toast.LENGTH_LONG)
+                    .show()
+                return@setOnClickListener
+            }
+
+            if(password != confirmpassword){
+                Toast.makeText(applicationContext, "Passwords Don't Match", Toast.LENGTH_LONG)
+                    .show()
+                return@setOnClickListener
+            }
 
             mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this
@@ -100,41 +109,6 @@ class SignUpActivity : AppCompatActivity() {
                         finish()
                     }
                 }
-    //            mAuth.createUserWithEmailAndPassword(email, password)
-    //                .addOnCompleteListener(this, OnCompleteListener {
-    //                        task ->
-    //                    Toast.makeText(this,"createUserWithEmail:onComplete"+task.exception,Toast.LENGTH_SHORT).show()
-    //                    Log.e("User Sign Up error",task.exception.toString())
-    //
-    //                    if (!task.isSuccessful){
-    ////                    Toast.makeText(this,"User Not created",Toast.LENGTH_SHORT).show()
-    //                        return@OnCompleteListener
-    //                    }else{
-    //                        val intent = Intent(this, PersonalInformationActivity::class.java)
-    //
-    //                        intent.putExtra("email",email)
-    //                        intent.putExtra("password",password)
-    //                        mAuth.signOut()
-    //                        startActivity(intent)
-    //                        finish()
-    //                    }
-    //                })
-    //                .addOnFailureListener { e->
-    //                    Log.e("LOOK",e.message.toString())
-    //                    if(e.message.toString() == "The email address is already in use by another account."){
-    //                        val intent = Intent(this, PersonalInformationActivity::class.java)
-    //
-    //                        intent.putExtra("email",email)
-    //                        intent.putExtra("password",password)
-    //                        intent.putExtra("signupMode","EMAIL")
-    //                        startActivity(intent)
-    //                        finish()
-    //                    }
-    //                }
-
-
-//            val intent = Intent(this, SignUpActivity::class.java)
-//            startActivity(intent)
         }
 
         signinButton.setOnClickListener {

@@ -96,10 +96,24 @@
 
     <!--    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>-->
 
+    <string-array name="semesters_list">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+
+    </string-array>
+
     <string name="start">start</string>
     <string name="skip">Skip</string>
     <string name="finish">finish</string>
     <string name="back">back</string>
     <string name="logo">Logo</string>
+    <string name="give_us_a_feedback_for_improvement">Give us a feedback for improvement</string>
+    <string name="give_us_a_feedback">Give us a feedback</string>
 
 </resources>
