@@ -69,7 +69,7 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
 
     private fun setUpRecyclerView(rootView : View) {
         //Query to get questions ordered by date
-        val query = quesRef.orderBy("date", Query.Direction.DESCENDING)
+        val query = quesRef.orderBy("currentDate", Query.Direction.DESCENDING)
         val options = FirestoreRecyclerOptions.Builder<Question>().setQuery(query, Question::class.java).build()
 
         adapter = QuestionAdapter(options)
@@ -90,6 +90,10 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
     //Adds new Question
     private fun addQuestion(username : String, uid : String) {
         val question: String = editTextQuestion.text.toString()
+        val dateFormat = SimpleDateFormat(
+            "d MMM yyyy HH.mm.ss",
+            Locale.getDefault()
+        )
         val dateFormat1 = SimpleDateFormat(
             "d MMM yyyy",
             Locale.getDefault()
@@ -100,7 +104,8 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
         )
         val currentDate = dateFormat1.format(Date())
         val currentTime = dateFormat2.format(Date())
-        val questionModel = Question(question, username , uid, currentDate, currentTime)
+        val currentDatetime = dateFormat.format(Date())
+        val questionModel = Question(question, username , uid, currentDate, currentTime, currentDatetime)
         quesRef.add(questionModel).addOnSuccessListener {
             editTextQuestion.text = null
             Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->

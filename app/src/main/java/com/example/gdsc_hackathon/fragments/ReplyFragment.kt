@@ -112,7 +112,7 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         }
 
     private fun setUpRecyclerView(id : String) {
-        val queryReplies = quesRef.document(id).collection("Replies").orderBy("date", Query.Direction.ASCENDING)
+        val queryReplies = quesRef.document(id).collection("Replies").orderBy("currentDate", Query.Direction.ASCENDING)
         val optionsReplies: FirestoreRecyclerOptions<Reply> = FirestoreRecyclerOptions.Builder<Reply>().setQuery(queryReplies, Reply::class.java).build()
         replyAdapter = ReplyAdapter(optionsReplies)
         recyclerViewReply.setHasFixedSize(true)
@@ -121,11 +121,16 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
     }
 
     private fun replyToQuestion(id : String, reply : String, username : String, uid : String){
+        val dateFormat = SimpleDateFormat(
+            "d MMM yyyy HH.mm.ss",
+            Locale.getDefault()
+        )
         val dateFormat1 = SimpleDateFormat("d MMM yyyy")
         val dateFormat2 = SimpleDateFormat("HH.mm")
         val currentDate = dateFormat1.format(Date())
         val currentTime = dateFormat2.format(Date())
-        val replyModel = Reply(id, reply, username, uid, currentDate, currentTime)
+        val currentDatetime = dateFormat.format(Date())
+        val replyModel = Reply(id, reply, username, uid, currentDate, currentTime, currentDatetime)
         quesRef.document(id).collection("Replies").add(replyModel).addOnSuccessListener {
             editTextReply.text = null
             Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->
