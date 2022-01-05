@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.gdsc_hackathon">
+    package="com.example.gdsc_hackathon" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-
     <queries>
         <intent>
             <action android:name="com.google.android.youtube.api.service.START" />
@@ -20,40 +17,25 @@
     </queries>
 
     <application
-        android:name=".database.ToDoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GDSC_HACKATHON"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m">
-
-        <activity
-            android:name=".onboard.OnBoardActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        android:theme="@style/Theme.GDSC_HACKATHON">
 
         <service
-            android:name=".helper.NotificationService"
+            android:name=".helper.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="com.example.gdsc_hackathon" />
-        <meta-data
-            android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_launcher_foreground" />
 
         <activity
             android:name=".activities.MainActivity"
@@ -61,20 +43,28 @@
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
+
                 <action android:name="com.scytec.datamobile.vd.gui.android.AppPreferenceActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.SignInActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize" >
+
+        </activity>
         <activity
             android:name=".activities.SignUpActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activities.PersonalInformationActivity"
@@ -84,8 +74,9 @@
             android:name=".activities.VideoLecturePlayer"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
-            android:name=".activities.FillMyCycle"
+            android:name=".activities.AddToDoItem"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
 
