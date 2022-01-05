@@ -10,4 +10,10 @@
         android:title="notifications"
         android:visible="false"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/user_logout"
+        android:title="Logout"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
 </menu>

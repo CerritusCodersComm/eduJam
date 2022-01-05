@@ -36,34 +36,34 @@
         app:autoSizeStepGranularity="1sp"
         app:autoSizeTextType="uniform" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/profile_user_bio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/profile_username"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center|bottom"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/roboto"
-        android:gravity="center"
-        android:inputType="textMultiLine"
-        android:maxLength="150"
-        android:text="I am a second-year CS student who likes to listen to lo-fi while coding for hours, yet I'm still learning but I do have the consistency to follow this routine and will to learn new things. I am passionate about programming and wanna explore more fields in this domain."
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/cario_color_dark"
-        android:textStyle="bold"
-        app:autoSizeMaxTextSize="18sp"
-        app:autoSizeMinTextSize="12sp"
-        app:autoSizeStepGranularity="1sp"
-        app:autoSizeTextType="uniform" />
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/profile_user_bio"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/profile_username"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_gravity="center|bottom"-->
+<!--        android:layout_marginStart="50dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:fontFamily="@font/roboto"-->
+<!--        android:gravity="center"-->
+<!--        android:inputType="textMultiLine"-->
+<!--        android:maxLength="150"-->
+<!--        android:text="I am a second-year CS student who likes to listen to lo-fi while coding for hours, yet I'm still learning but I do have the consistency to follow this routine and will to learn new things. I am passionate about programming and wanna explore more fields in this domain."-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Small"-->
+<!--        android:textColor="@color/cario_color_dark"-->
+<!--        android:textStyle="bold"-->
+<!--        app:autoSizeMaxTextSize="18sp"-->
+<!--        app:autoSizeMinTextSize="12sp"-->
+<!--        app:autoSizeStepGranularity="1sp"-->
+<!--        app:autoSizeTextType="uniform" />-->
 
     <TableRow
         android:id="@+id/profile_dashboard_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/profile_user_bio"
+        android:layout_below="@id/profile_username"
         android:orientation="horizontal" >
 
         <LinearLayout
@@ -102,42 +102,42 @@
             </RelativeLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/weeklyTimeTableLayout"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/weeklyTimeTableLayout"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
 
-                <TextView
-                    android:id="@+id/profile_answers_selected_number"
-                    style="@style/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="center"
-                    android:text="00"
-                    android:maxLines="1"
-                    android:textColor="@color/cario_color_dark" />
+<!--                <TextView-->
+<!--                    android:id="@+id/profile_answers_selected_number"-->
+<!--                    style="@style/title"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:gravity="center"-->
+<!--                    android:maxLines="1"-->
+<!--                    android:text="00"-->
+<!--                    android:textColor="@color/cario_color_dark" />-->
 
-                <TextView
-                    android:id="@+id/profile_answers_selected_number_text"
-                    android:fontFamily="@font/poppins"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center"
-                    android:text="Answers selected"
-                    android:textColor="@color/cario_color_dark" />
-            </RelativeLayout>
-        </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/profile_answers_selected_number_text"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentBottom="true"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Answers selected"-->
+<!--                    android:textColor="@color/cario_color_dark" />-->
+<!--            </RelativeLayout>-->
+<!--        </LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/holidayLayout"
@@ -283,7 +283,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Study Year"
+            android:text="Semester"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/light_grey"
             app:autoSizeMaxTextSize="18sp"

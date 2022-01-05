@@ -1,10 +1,12 @@
 package com.example.gdsc_hackathon.adapters
 
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
@@ -35,7 +37,17 @@ class ReplyAdapter(options: FirestoreRecyclerOptions<Reply>) : FirestoreRecycler
             holder.textViewUsername.text = model.username
         }
         holder.deleteReply.setOnClickListener {
-            deleteItem(position)
+            val builder = AlertDialog.Builder(holder.itemView.context)
+            builder.setMessage("Are you sure you want to delete this reply?").setPositiveButton(
+                "Yes"
+            ) { dialogInterface: DialogInterface?, i: Int ->
+                deleteItem(position)
+            }
+                .setNegativeButton(
+                    "No"
+                ) { dialogInterface: DialogInterface, i: Int -> dialogInterface.cancel() }
+            val alertDialog = builder.create()
+            alertDialog.show()
         }
 
     }
