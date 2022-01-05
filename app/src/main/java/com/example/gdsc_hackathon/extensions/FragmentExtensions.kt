@@ -15,8 +15,6 @@ import android.content.Intent
 import android.net.Uri
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
-import com.google.android.youtube.player.YouTubeBaseActivity
 import android.os.Environment
 
 
@@ -32,14 +30,19 @@ fun View.closeKeyboard() {
     imm.hideSoftInputFromWindow(windowToken, 0)
 }
 
-fun Fragment.showSnackBar(activity: Activity, message: String?) {
+fun showSnackBar(activity: Activity, message: String?) {
     val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
     val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_SHORT)
     snackbar.anchorView = activity.findViewById(R.id.bottom_navigation)
     snackbar.show()
 }
 
-fun Fragment.showSnackBarWithIntentMessage(activity: Activity, message: String?, actionMessage: String?, sendMessage: String?) {
+fun showSnackBarWithIntentMessage(
+    activity: Activity,
+    message: String?,
+    actionMessage: String?,
+    sendMessage: String?
+) {
     val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
     val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_LONG)
     snackbar.setAction(actionMessage){
@@ -59,7 +62,13 @@ fun Context.copyToClipboard(text: CharSequence){
     clipboard.setPrimaryClip(clip)
 }
 
-fun Fragment.showSnackBarWithAction(activity: Activity, message: String?,@StringRes actionRes: Int, color: Int? = null, listener: (View) -> Unit) {
+fun showSnackBarWithAction(
+    activity: Activity,
+    message: String?,
+    @StringRes actionRes: Int,
+    color: Int? = null,
+    listener: (View) -> Unit
+) {
     val rootView = activity.window.decorView.findViewById<View>(android.R.id.content)
     val snackbar = Snackbar.make(rootView, message!!, Snackbar.LENGTH_SHORT)
     snackbar.setAction(actionRes, listener)

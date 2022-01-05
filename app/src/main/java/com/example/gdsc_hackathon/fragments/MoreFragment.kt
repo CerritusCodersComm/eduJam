@@ -56,7 +56,7 @@ class MoreFragment : Fragment() {
 
         examTimeConstraintLayout = rootView.findViewById(R.id.examTimeConstraintLayout)
         examTimeConstraintLayout.setOnClickListener {
-            showSnackBar(requireActivity(),"Coming soon!")
+            showSnackBar(requireActivity(), "Coming soon!")
             // todo: update it when we ready with view
 //            rootView.findNavController().navigate(R.id.examTimeConstraintFragment)
         }

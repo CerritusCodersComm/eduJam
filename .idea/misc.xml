@@ -53,7 +53,7 @@
         <entry key="app/src/main/res/drawable/onboarding_unselected_dot_orange.xml" value="0.12222222222222222" />
         <entry key="app/src/main/res/drawable/onboarding_unselected_dot_white.xml" value="0.12222222222222222" />
         <entry key="app/src/main/res/drawable/onboarding_viewpager_selector_orange.xml" value="0.19270833333333334" />
-        <entry key="app/src/main/res/drawable/onboarding_viewpager_selector_white.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/drawable/onboarding_viewpager_selector_white.xml" value="0.5" />
         <entry key="app/src/main/res/drawable/primary_background.xml" value="0.22" />
         <entry key="app/src/main/res/drawable/rectangle_button_background.xml" value="0.2526041666666667" />
         <entry key="app/src/main/res/drawable/round_background.xml" value="0.1824074074074074" />
@@ -66,7 +66,7 @@
         <entry key="app/src/main/res/layout/activity_fmc_exp_marks_input.xml" value="0.1362397820163488" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.290625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_on_board.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/activity_on_board.xml" value="0.21348314606741572" />
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_onboarding_finish.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_to_do_list.xml" value="0.213768115942029" />
@@ -121,6 +121,7 @@
         <entry key="app/src/main/res/layout/fragment_maths_tutorial.xml" value="0.23645833333333333" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.9" />
         <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.2259963768115942" />
+        <entry key="app/src/main/res/layout/fragment_onboarding.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_onboarding1.xml" value="0.20018115942028986" />
         <entry key="app/src/main/res/layout/fragment_onboarding2.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_onboarding3.xml" value="0.225" />

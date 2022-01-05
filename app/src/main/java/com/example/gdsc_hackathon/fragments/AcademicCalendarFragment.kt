@@ -92,7 +92,7 @@ class AcademicCalendarFragment : Fragment(), AcademicCalendarEventAdapter.OnItem
         compactCalendarView.setListener(object : CompactCalendarViewListener {
             override fun onDayClick(dateClicked: Date) {
                 val events: List<Event> = compactCalendarView.getEvents(dateClicked)
-                showSnackBar(requireActivity(),dateClicked.toString())
+                showSnackBar(requireActivity(), dateClicked.toString())
             }
 
             override fun onMonthScroll(firstDayOfNewMonth: Date) {
@@ -104,6 +104,6 @@ class AcademicCalendarFragment : Fragment(), AcademicCalendarEventAdapter.OnItem
     }
 
     override fun onItemClick(position: Int) {
-        showSnackBar(requireActivity(),"Google Calendar integration coming soon")
+        showSnackBar(requireActivity(), "Google Calendar integration coming soon")
     }
 }

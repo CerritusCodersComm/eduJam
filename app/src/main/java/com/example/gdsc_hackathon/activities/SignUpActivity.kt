@@ -2,26 +2,34 @@ package com.example.gdsc_hackathon.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.text.TextUtils
 import android.util.Patterns
-import android.widget.Button
 import android.widget.EditText
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
+import com.example.gdsc_hackathon.extensions.showSnackBar
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Matcher
 import java.util.regex.Pattern
+import com.royrodriguez.transitionbutton.TransitionButton
+
+import com.google.android.material.snackbar.Snackbar
 
 // todo create user only in personal activity, let it be sign up with google or simple signing up
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var registerButton: Button
-    private lateinit var signinButton: Button
+    private lateinit var registerButton: TransitionButton
+    private lateinit var signinButton: TransitionButton
     private lateinit var passwordEditText: EditText
     private lateinit var confirmPasswordEditText: EditText
     private lateinit var emailEditText: EditText
+    private lateinit var passwordEditTextLayout: TextInputLayout
+    private lateinit var confirmPasswordEditTextLayout: TextInputLayout
+    private lateinit var emailEditTextLayout: TextInputLayout
     private lateinit var googleSignupButton: RelativeLayout
 
     private lateinit var mAuth: FirebaseAuth
@@ -37,6 +45,10 @@ class SignUpActivity : AppCompatActivity() {
         passwordEditText = findViewById(R.id.password_edit_text_signup_screen)
         confirmPasswordEditText = findViewById(R.id.confirm_password_edit_text_signup_screen)
 
+        emailEditTextLayout = findViewById(R.id.emailLayoutSignUpScreen)
+        passwordEditTextLayout = findViewById(R.id.passwordLayoutSignUpScreen)
+        confirmPasswordEditTextLayout = findViewById(R.id.confirm_password_layout_sign_up_screen)
+
         googleSignupButton = findViewById(R.id.signup_with_google_signup_screen)
 
         mAuth = FirebaseAuth.getInstance()
@@ -48,73 +60,113 @@ class SignUpActivity : AppCompatActivity() {
             finish()
         }
 
-
         registerButton.setOnClickListener {
-
+            // Start the loading animation when the user tap the button
+            registerButton.startAnimation()
+            var isSuccessful = false
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
-            val confirmpassword = confirmPasswordEditText.text.toString().trim()
+            val confirmPassword = confirmPasswordEditText.text.toString().trim()
 
-            if (!email.contains("tcet") && !email.contains("thakur")) {
-                Toast.makeText(applicationContext, "Please Use College Email", Toast.LENGTH_LONG)
-                    .show()
+            if (email.isEmpty()) {
+                emailEditTextLayout.error = "This field is mandatory"
+                registerButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
                 return@setOnClickListener
             }
-
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(applicationContext, "Please Enter All Values", Toast.LENGTH_LONG)
-                    .show()
-                return@setOnClickListener
-            }
-
             if (!isValidEmail(email)) {
-                Toast.makeText(applicationContext, "Please Enter Correct Email", Toast.LENGTH_LONG)
-                    .show()
+                emailEditTextLayout.error = "Please enter correct email"
+                registerButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
+            }
+
+            if (!email.contains("@tcetmumbai.in")) {
+                emailEditTextLayout.error = "Please Use College Email"
+                registerButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
                 return@setOnClickListener
             }
 
-            if (!isValidPassword(password) || password.length < 8) {
-                Toast.makeText(applicationContext, "Wrong Password.\nSample Password: Hello@1234", Toast.LENGTH_LONG)
-                    .show()
+
+            if (password.isEmpty() || password.length < 8) {
+                passwordEditTextLayout.error = "Password needs to be longer than 8 characters"
+                registerButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
                 return@setOnClickListener
             }
 
-            if(password != confirmpassword){
-                Toast.makeText(applicationContext, "Passwords Don't Match", Toast.LENGTH_LONG)
-                    .show()
+            if (!isValidPassword(password))  {
+                passwordEditTextLayout.error = "Password needs to have upper alphabets,smaller alphabets, numbers and characters: Sample Password: Hello@1234"
+                registerButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
+                return@setOnClickListener
+            }
+
+            if(password != confirmPassword){
+                confirmPasswordEditTextLayout.error = "Passwords don't match!"
+                registerButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
                 return@setOnClickListener
             }
 
             mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this
                 ) { task ->
-                    Toast.makeText(
-                        this,
-                        "createUserWithEmail:onComplete:" + task.isSuccessful,
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showSnackBar(this,"User Creation Successful!")
                     if (!task.isSuccessful) {
-                        Toast.makeText(
-                            this,
-                            "Authentication failed." + task.exception,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        val intent = Intent(this, PersonalInformationActivity::class.java)
+                        isSuccessful=false
+                        showSnackBar(this,"Authentication failed.")
 
+                    } else {
+                        isSuccessful=true
+                    }
+                }
+
+            val handler = Handler()
+            handler.postDelayed({
+                if (isSuccessful) {
+                    registerButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND
+                    ) {
+                        val intent = Intent(this, PersonalInformationActivity::class.java)
                         intent.putExtra("email",email)
                         intent.putExtra("password",password)
                         mAuth.signOut()
                         startActivity(intent)
                         finish()
                     }
+                } else {
+                    registerButton.stopAnimation(
+                        TransitionButton.StopAnimationStyle.SHAKE,
+                        null
+                    )
                 }
+            }, 1000)
+        }
+        signinButton.setOnClickListener {
+            signinButton.startAnimation()
+            val handler = Handler()
+            handler.postDelayed({
+                signinButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND
+                    ) {
+                    startActivity(Intent(applicationContext,SignInActivity::class.java))
+                    finish()
+                    }
+            }, 500)
         }
 
-        signinButton.setOnClickListener {
-            startActivity(Intent(applicationContext,SignInActivity::class.java))
-            finish()
-        }
+
 
         googleSignupButton.setOnClickListener {
             val inten = Intent(applicationContext,PersonalInformationActivity::class.java)

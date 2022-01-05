@@ -48,7 +48,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/background_border">
+            android:background="@drawable/rounded_background_border">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -71,14 +71,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/google_sign_in_layout"
-            android:layout_marginTop="25dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:text="@string/or"
-            android:textSize="18sp"
             android:textAppearance="@style/desc"
             android:textColor="@color/grey"
+            android:textSize="18sp"
+            android:textStyle="bold"
             android:translationY="-3.8sp" />
 
         <com.google.android.material.textfield.TextInputLayout

@@ -17,14 +17,11 @@ import com.example.gdsc_hackathon.adapters.ToDoListAdapter
 import com.example.gdsc_hackathon.database.ToDoApplication
 import com.example.gdsc_hackathon.dataModel.ToDo
 import com.example.gdsc_hackathon.databinding.FragmentTodoListBinding
-import com.example.gdsc_hackathon.extensions.action
 import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
-import com.example.gdsc_hackathon.extensions.showSnackBarWithIntentMessage
 import com.example.gdsc_hackathon.utils.dialog.AlertDialogShower
 import com.example.gdsc_hackathon.utils.dialog.AppDialogs
 import com.example.gdsc_hackathon.viewmodels.ToDoListViewModel
 import com.example.gdsc_hackathon.viewmodels.ToDoListViewModelFactory
-import com.google.android.material.snackbar.Snackbar
 
 
 class TodoListFragment() : Fragment() {
@@ -99,7 +96,7 @@ class TodoListFragment() : Fragment() {
 
     private fun onDeleteToDo(todo: ToDo) {
         viewModel.deleteToDo(todo)
-        showSnackBarWithAction(requireActivity(),"${todo.title} removed",R.string.undo,null) {
+        showSnackBarWithAction(requireActivity(), "${todo.title} removed", R.string.undo, null) {
             viewModel.addNewToDo(
                 todo.title,
                 todo.description,
