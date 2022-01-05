@@ -8,7 +8,7 @@
     tools:context=".activities.SignInActivity">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/background">
 
         <TextView
@@ -61,7 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Log in with Google"
+                android:textColor="@color/black"
+                android:text="@string/log_in_with_google"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -82,7 +83,7 @@
             android:translationY="-3.8sp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailLayout"
+            android:id="@+id/emailLayoutSignInScreen"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,29 +92,32 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
-            android:hint="Email"
+            android:hint="@string/prompt_email"
             app:boxStrokeColor="@color/primary_color">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_edit_text"
                 android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordLayout"
+            android:id="@+id/passwordLayoutSignInScreen"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/emailLayout"
+            android:layout_below="@+id/emailLayoutSignInScreen"
             android:layout_alignParentStart="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="39dp"
             android:layout_marginEnd="16dp"
-            android:hint="Password"
+            android:hint="@string/prompt_password"
             app:boxStrokeColor="@color/primary_color"
-            app:endIconMode="password_toggle">
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_edit_text"
@@ -127,7 +131,7 @@
             android:id="@+id/forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/passwordLayout"
+            android:layout_below="@id/passwordLayoutSignInScreen"
             android:layout_alignParentStart="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
@@ -143,10 +147,11 @@
             style="@style/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/passwordLayout"
+            android:layout_below="@id/passwordLayoutSignInScreen"
             android:layout_marginStart="16dp"
             android:layout_marginTop="70dp"
             android:layout_marginEnd="16dp"
+            android:layout_centerHorizontal="true"
             android:text="@string/sign_in"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -180,6 +185,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="16dp"
+            android:layout_centerHorizontal="true"
             android:text="@string/register"
             android:textColor="@color/white"
             android:textSize="16sp"

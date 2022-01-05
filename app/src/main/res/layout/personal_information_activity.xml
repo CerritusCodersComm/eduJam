@@ -23,7 +23,7 @@
             android:background="#00000000"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
-            android:text="Let us know more about you :)"
+            android:text="@string/let_us_know_more_about_you"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -39,7 +39,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="80dp"
             app:boxStrokeColor="@color/primary_color"
-            android:hint="Name">
+            android:hint="@string/name">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/name_edit_textw"
                 android:layout_width="match_parent"
@@ -57,7 +57,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="39dp"
             app:boxStrokeColor="@color/primary_color"
-            android:hint="Username">
+            android:hint="@string/username">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/username_edit_text"
@@ -67,31 +67,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/confirm_password_layout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_below="@+id/usernameLayout"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="39dp"
-            app:boxStrokeColor="@color/primary_color"
-            app:endIconMode="password_toggle"
-            android:hint="Confirm password">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/confirm_password_edit_text_personalinfo_screen"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Spinner
-            android:id="@+id/semester_spinner"
-            android:layout_above="@+id/dept_spinner_layout"
-            android:layout_margin="10dp"
-            android:entries="@array/semesters_list"
+            android:id="@+id/semester_spinner_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,20 +76,37 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="39dp"
-            android:tooltipText=""
-            />
+            android:layout_below="@id/usernameLayout">
+
+<!--            <Spinner-->
+<!--                android:id="@+id/semester_spinner"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:entries="@array/semesters_list"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+<!--                android:hint="@string/semester"-->
+<!--                android:orientation="horizontal"-->
+<!--                />-->
+            <AutoCompleteTextView
+                android:id="@+id/semester_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="none"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/dept_spinner_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Department"
+            android:hint="@string/department"
             android:orientation="horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginTop="39dp"
-            android:layout_below="@id/confirm_password_layout">
+            android:layout_below="@id/semester_spinner_layout">
 
         <AutoCompleteTextView
                 android:id="@+id/dept_spinner"

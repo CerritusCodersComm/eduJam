@@ -97,14 +97,14 @@
    <!--    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>-->
 
     <string-array name="semesters_list">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
+        <item>1st</item>
+        <item>2nd</item>
+        <item>3rd</item>
+        <item>4th</item>
+        <item>5th</item>
+        <item>6th</item>
+        <item>7th</item>
+        <item>8th</item>
 
     </string-array>
 
@@ -112,5 +112,11 @@
     <string name="skip">Skip</string>
     <string name="finish">finish</string>
     <string name="back">back</string>
+    <string name="log_in_with_google">Log in with Google</string>
+    <string name="semester">Semester</string>
+    <string name="let_us_know_more_about_you">Let us know more about you :)</string>
+    <string name="username">Username</string>
+    <string name="name">Name</string>
+    <string name="department">Department</string>
 
 </resources>

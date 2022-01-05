@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../.gradle/caches/transforms-3/53bcd4a2e653c8b15090d21d8449e609/transformed/jetified-play-services-base-18.0.0/res/drawable/common_google_signin_btn_icon_dark.xml" value="0.19270833333333334" />
+        <entry key="../Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.2390625" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/auth_button_background.xml" value="0.146" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/background_border.xml" value="0.2445" />
         <entry key="..\:/Users/91981/AndroidStudioProjects/ANDROID_JAM_2021/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.146" />
@@ -158,7 +159,7 @@
         <entry key="app/src/main/res/layout/note_item.xml" value="0.213768115942029" />
         <entry key="app/src/main/res/layout/notification_item.xml" value="0.40664961636828645" />
         <entry key="app/src/main/res/layout/notification_recycler_view_item.xml" value="0.213768115942029" />
-        <entry key="app/src/main/res/layout/personal_information_activity.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/personal_information_activity.xml" value="0.18" />
         <entry key="app/src/main/res/layout/question_item.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/recycler_view_recent_lecture.xml" value="0.5" />
         <entry key="app/src/main/res/layout/recycler_view_video_lecture.xml" value="0.3514056224899598" />
@@ -194,7 +195,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.1" />
+        <option name="scale" value="0.18" />
       </ProjectState>
     </option>
   </component>

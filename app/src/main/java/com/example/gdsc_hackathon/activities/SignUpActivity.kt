@@ -147,6 +147,7 @@ class SignUpActivity : AppCompatActivity() {
                         finish()
                     }
                 } else {
+
                     registerButton.stopAnimation(
                         TransitionButton.StopAnimationStyle.SHAKE,
                         null
@@ -154,6 +155,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
             }, 1000)
         }
+
         signinButton.setOnClickListener {
             signinButton.startAnimation()
             val handler = Handler()
@@ -181,7 +183,7 @@ class SignUpActivity : AppCompatActivity() {
         return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target!!).matches()
     }
 
-    fun isValidPassword(password: String?): Boolean {
+    private fun isValidPassword(password: String?): Boolean {
         val pattern: Pattern
         val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
         pattern = Pattern.compile(PASSWORD_PATTERN)

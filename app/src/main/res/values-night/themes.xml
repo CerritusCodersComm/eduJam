@@ -2,15 +2,34 @@
     <!-- Base application theme. -->
     <style name="Theme.GDSC_HACKATHON" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="android:textColorHint">@color/black</item>
+
     </style>
+
+    <style name="desc">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#898989</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+    <style name="title">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#898989</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="EditTextHint" parent="TextAppearance.AppCompat">
+        <item name="android:textColorHint">@color/black</item>
+    </style>
+
 </resources>
