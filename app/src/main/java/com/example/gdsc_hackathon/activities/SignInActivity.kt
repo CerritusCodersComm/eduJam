@@ -4,10 +4,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
 
@@ -17,6 +13,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import android.text.TextUtils
 import android.util.Patterns
+import android.widget.*
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -35,6 +32,7 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var forgotPassword: TextView
 
     companion object {
         private const val RC_SIGN_IN = 120
@@ -51,6 +49,7 @@ class SignInActivity : AppCompatActivity() {
         emailLoginButton = findViewById(R.id.signin_with_email_button)
         emailEditText = findViewById(R.id.email_edit_text)
         passwordEditText = findViewById(R.id.password_edit_text)
+        forgotPassword = findViewById(R.id.forgot_password)
 
         mAuth = FirebaseAuth.getInstance()
         val user = mAuth.currentUser
@@ -96,23 +95,37 @@ class SignInActivity : AppCompatActivity() {
             }
 
             if (!isValidPassword(password) || password.length < 8) {
-                Toast.makeText(applicationContext, "Wrong Password.\nSample Password: Hello@1234", Toast.LENGTH_LONG)
+                Toast.makeText(
+                    applicationContext,
+                    "Wrong Password.\nSample Password: Hello@1234",
+                    Toast.LENGTH_LONG
+                )
                     .show()
                 return@setOnClickListener
             }
+
+
 
             Firebase.firestore.collection("users").document(user!!.uid).get()
                 .addOnCompleteListener { task ->
                     val doc = task.result
                     if (doc != null && !doc.exists()) {
-                        Toast.makeText(applicationContext, "User Does Not Exist. Please Signup", Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            applicationContext,
+                            "User Does Not Exist. Please Signup",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
                         return@addOnCompleteListener
                     }
                     mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
-                                Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Login Successful",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                                 val prefs = Prefs(applicationContext)
                                 prefs.username = doc.getString("username").toString()
                                 prefs.email = doc.getString("email").toString()
@@ -121,15 +134,46 @@ class SignInActivity : AppCompatActivity() {
                                 prefs.uid = doc.getString("uid").toString()
                                 prefs.status = 1
                             }
-                                startActivity(Intent(applicationContext, MainActivity::class.java))
-                                finish()
-                            }
+                            startActivity(Intent(applicationContext, MainActivity::class.java))
+                            finish()
+                        }
                         .addOnFailureListener {
-                            Toast.makeText(applicationContext, "Please try again", Toast.LENGTH_SHORT)
+                            Toast.makeText(
+                                applicationContext,
+                                "Please try again",
+                                Toast.LENGTH_SHORT
+                            )
                                 .show()
                         }
                 }
 
+        }
+
+        forgotPassword.setOnClickListener {
+
+            val email = emailEditText.text.toString().trim()
+
+            if (email.isEmpty() || !isValidEmail(email)) {
+                Toast.makeText(applicationContext, "Enter Proper Email", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    Toast.makeText(
+                        applicationContext,
+                        "Email Sent if Account Exists",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    Toast.makeText(applicationContext, "Please Try Again", Toast.LENGTH_LONG).show()
+                }
+            }
+                .addOnFailureListener {
+                    Log.e("LOOK",it.message!!)
+                    Toast.makeText(applicationContext, "Please Try Again", Toast.LENGTH_LONG).show()
+                }
         }
 
         val settings = getSharedPreferences("prefs", 0)
@@ -197,8 +241,7 @@ class SignInActivity : AppCompatActivity() {
                                         mAuth.signOut()
 //                                        googleSignInClient.signOut()
                                         return@addOnCompleteListener
-                                    }
-                                    else if(doc != null && doc.exists()){
+                                    } else if (doc != null && doc.exists()) {
                                         val prefs = Prefs(applicationContext)
                                         prefs.username = doc.getString("username").toString()
                                         prefs.email = doc.getString("email").toString()

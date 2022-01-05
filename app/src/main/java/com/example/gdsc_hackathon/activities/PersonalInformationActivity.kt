@@ -134,7 +134,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                                 "email" to user.email,
                                 "department" to department,
                                 "username" to userName,
-                                "semester" to semester
+                                "semester" to semester,
                                 "questionsAsked" to 0,
                                 "answersSelected" to 0,
                                 "questionsReplied" to 0
@@ -227,7 +227,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                             "email" to user.email,
                             "department" to department,
                             "username" to userName,
-                            "semester" to semester
+                            "semester" to semester,
                             "questionsAsked" to 0,
                             "answersSelected" to 0,
                             "questionsReplied" to 0
