@@ -1,6 +1,7 @@
 package com.example.gdsc_hackathon.adapters
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.util.Log
@@ -9,9 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.MainActivity
+import com.example.gdsc_hackathon.activities.SignInActivity
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.dataModel.Question
 import com.example.gdsc_hackathon.dataModel.User
@@ -49,7 +52,18 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
             }
         }
         holder.deleteQuestion.setOnClickListener {
-            deleteItem(position)
+            val builder = AlertDialog.Builder(holder.itemView.context)
+            builder.setMessage("Are you sure you want to delete this question?").setPositiveButton(
+                "Yes"
+            ) { dialogInterface: DialogInterface?, i: Int ->
+                deleteItem(position)
+            }
+                .setNegativeButton(
+                    "No"
+                ) { dialogInterface: DialogInterface, i: Int -> dialogInterface.cancel() }
+            val alertDialog = builder.create()
+            alertDialog.show()
+
         }
     }
 
@@ -61,8 +75,8 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
     open fun deleteItem(position: Int) {
         snapshots.getSnapshot(position).reference.delete()
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
-        Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->
-            val value : Int = user.result.getLong("questionsAsked")!!.toInt()
+        Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener { user ->
+            val value: Int = user.result.getLong("questionsAsked")!!.toInt()
             Firebase.firestore.collection("users").document(uid).update("questionsAsked", value - 1)
         }
     }

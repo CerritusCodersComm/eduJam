@@ -98,6 +98,7 @@ class SignInActivity : AppCompatActivity() {
                     .show()
                 return@setOnClickListener
             }
+            mAuth = FirebaseAuth.getInstance()
             mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
