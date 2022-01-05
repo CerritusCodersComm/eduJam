@@ -187,8 +187,20 @@ class PersonalInformationActivity : AppCompatActivity() {
                                     if (it.isSuccessful) {
                                         Log.w("LOOK", "USER CREATED ON FIREBASE")
                                         mAuth.signInWithEmailAndPassword(email, password)
-                                        isSuccessful = true
-                                    } else {
+                                        getStartedButton.stopAnimation(
+                                            TransitionButton.StopAnimationStyle.EXPAND)
+                                        {
+                                            showSnackBar(this, "Registration Successful!")
+                                            startActivity(
+                                                Intent(
+                                                    applicationContext,
+                                                    MainActivity::class.java
+                                                )
+                                            )
+                                            finish()
+                                        }
+                                    }
+                                    else {
                                         showSnackBar(
                                             this,
                                             "Something went wrong, Please try again"
@@ -205,30 +217,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                     .addOnFailureListener {
                         mAuth.signOut()
                     }
-
             }
-            val handler = Handler()
-            handler.postDelayed({
-                if (isSuccessful) {
-                    getStartedButton.stopAnimation(
-                        TransitionButton.StopAnimationStyle.EXPAND) {
-                        showSnackBar(this, "Registration Successful!")
-                        startActivity(
-                            Intent(
-                                applicationContext,
-                                MainActivity::class.java
-                            )
-                        )
-                        finish()
-                    }
-                } else {
-                    showSnackBar(this, "Something went wrong, please try again")
-                    getStartedButton.stopAnimation(
-                        TransitionButton.StopAnimationStyle.SHAKE,
-                        null
-                    )
-                }
-            }, 1000)
         }
     }
 

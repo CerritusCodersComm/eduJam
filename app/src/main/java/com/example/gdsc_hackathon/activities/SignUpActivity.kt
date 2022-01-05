@@ -130,30 +130,17 @@ class SignUpActivity : AppCompatActivity() {
                         showSnackBar(this,"Authentication failed.")
 
                     } else {
-                        isSuccessful=true
+                        registerButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND
+                        ) {
+                            val intent = Intent(this, PersonalInformationActivity::class.java)
+                            intent.putExtra("email",email)
+                            intent.putExtra("password",password)
+                            mAuth.signOut()
+                            startActivity(intent)
+                            finish()
+                        }
                     }
                 }
-
-            val handler = Handler()
-            handler.postDelayed({
-                if (isSuccessful) {
-                    registerButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND
-                    ) {
-                        val intent = Intent(this, PersonalInformationActivity::class.java)
-                        intent.putExtra("email",email)
-                        intent.putExtra("password",password)
-                        mAuth.signOut()
-                        startActivity(intent)
-                        finish()
-                    }
-                } else {
-
-                    registerButton.stopAnimation(
-                        TransitionButton.StopAnimationStyle.SHAKE,
-                        null
-                    )
-                }
-            }, 1000)
         }
 
         signinButton.setOnClickListener {
@@ -167,9 +154,7 @@ class SignUpActivity : AppCompatActivity() {
                     }
             }, 500)
         }
-
-
-
+        
         googleSignupButton.setOnClickListener {
             val inten = Intent(applicationContext,PersonalInformationActivity::class.java)
             inten.putExtra("signupMode","GOOGLE")

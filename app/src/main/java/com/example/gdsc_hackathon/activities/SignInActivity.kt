@@ -82,6 +82,8 @@ class SignInActivity : AppCompatActivity() {
         }
 
         emailLoginButton.setOnClickListener {
+            emailEditTextLayout.error = ""
+            passwordEditTextLayout.error = ""
             emailLoginButton.startAnimation()
 
             var isSuccessful = false
@@ -135,7 +137,7 @@ class SignInActivity : AppCompatActivity() {
             }
             mAuth = FirebaseAuth.getInstance()
             mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener {
+                .addOnCompleteListener { it ->
                     if (it.isSuccessful) {
                         val user = FirebaseAuth.getInstance().currentUser
                         Firebase.firestore.collection("users").document(user!!.uid).get()
@@ -159,31 +161,29 @@ class SignInActivity : AppCompatActivity() {
                                 prefs.name = doc.getString("name").toString()
                                 prefs.uid = doc.getString("uid").toString()
                                 prefs.status = 1
+                                emailLoginButton.stopAnimation(
+                                    TransitionButton.StopAnimationStyle.EXPAND)
+                                {
+                                    showSnackBar(this, "Login Successful!")
+                                    startActivity(
+                                        Intent(
+                                            applicationContext,
+                                            MainActivity::class.java
+                                        )
+                                    )
+                                    finish()
+                                }
                             }
                             .addOnFailureListener {
                                 showSnackBar(this, "Something went wrong, please try again")
+                                emailLoginButton.stopAnimation(
+                                    TransitionButton.StopAnimationStyle.SHAKE,
+                                    null
+                                )
                             }
                     }
                 }
-            val handler = Handler()
-            handler.postDelayed({
-                if (isSuccessful) {
-                    emailLoginButton.stopAnimation(
-                        TransitionButton.StopAnimationStyle.EXPAND) {
-                        showSnackBar(this, "Login Successful!")
-                        startActivity(Intent(applicationContext, MainActivity::class.java))
-                        finish()
-                    }
-                } else {
-                    showSnackBar(this, "Something went wrong, please try again")
-                    emailLoginButton.stopAnimation(
-                        TransitionButton.StopAnimationStyle.SHAKE,
-                        null
-                    )
-                }
-            }, 1000)
         }
-
 
         val settings = getSharedPreferences("prefs", 0)
         val editor = settings.edit()
