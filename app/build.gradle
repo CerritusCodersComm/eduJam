@@ -144,4 +144,13 @@ dependencies {
     // lottie for onboarding
     implementation 'com.airbnb.android:lottie:4.2.1'
 
+    // Coroutines to make the HTTP requests asynchronous(In the background thread)
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+
+    // Okhttp3 for the POST requests
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+
+    // Gson (To convert raw JSON to pretty JSON)
+    implementation 'com.google.code.gson:gson:2.8.6'
+
 }
