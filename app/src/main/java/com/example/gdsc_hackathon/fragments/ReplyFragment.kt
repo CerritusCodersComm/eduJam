@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.adapters.ReplyAdapter
+import com.example.gdsc_hackathon.dao.NotificationInterface
 import com.example.gdsc_hackathon.dataModel.Reply
 import com.example.gdsc_hackathon.extensions.closeKeyboard
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -22,6 +22,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
+import retrofit2.Retrofit
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,6 +45,7 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
     lateinit var textViewUser : TextView
     lateinit var buttonReply : ImageButton
     lateinit var progressBar: ProgressBar
+    lateinit var questionUid : String
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -49,6 +58,7 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
         textViewDate = rootView.findViewById(R.id.text_view_date_reply)
         buttonReply= rootView.findViewById(R.id.button_reply)
         progressBar = rootView.findViewById(R.id.progressBar)
+
 
         progressBar.visibility = View.VISIBLE
         val user = FirebaseAuth.getInstance().currentUser
@@ -70,7 +80,9 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
                             textViewDate.text = date
                         textViewQuestion.text = question
 
-                        if(documentSnapshot.getString("uid") == user!!.uid){
+                        questionUid = documentSnapshot.getString("uid").toString()
+
+                        if(questionUid == user!!.uid){
                             textViewUser.text = "Me"
                         }
                         else {
@@ -136,10 +148,50 @@ class ReplyFragment : Fragment (R.layout.fragment_reply) {
             Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->
                 val value : Int = user.result.getLong("questionsReplied")!!.toInt()
                 Firebase.firestore.collection("users").document(uid).update("questionsReplied", value + 1)
+                if(questionUid != uid){
+                    sendNotification()
+                }
+
             }
         }.addOnFailureListener(OnFailureListener {
             Toast.makeText(activity, "Failed", Toast.LENGTH_LONG).show()
         })
+    }
+
+    private fun sendNotification() {
+        // Create Retrofit
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://gdsc-notifications.herokuapp.com/api/")
+            .build()
+
+        // Create Service
+        val service = retrofit.create(NotificationInterface::class.java)
+
+        // Create JSON using JSONObject
+        val jsonObject = JSONObject()
+        jsonObject.put("uid", questionUid)
+        jsonObject.put("title", "Someone replied to your question")
+        jsonObject.put("body", "Click here to check it out")
+
+        // Convert JSONObject to String
+        val jsonObjectString = jsonObject.toString()
+
+        // Create RequestBody ( We're not using any converter, like GsonConverter, MoshiConverter e.t.c, that's why we use RequestBody )
+        val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
+
+        CoroutineScope(Dispatchers.IO).launch {
+            // Do the POST request and get response
+            val response = service.createPost(requestBody)
+
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    Log.d("My", "done")
+
+                } else {
+                    Log.e("My", response.toString())
+                }
+            }
+        }
     }
 
     override fun onStart() {
