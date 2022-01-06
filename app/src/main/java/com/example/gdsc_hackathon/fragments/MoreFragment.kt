@@ -99,16 +99,16 @@ class MoreFragment : Fragment() {
             requireContext().openActivity(FillMyCycle::class.java)
         }
 
-        logoutButton = rootView.findViewById(R.id.logout)
-        logoutButton.setOnClickListener{
-            FirebaseAuth.getInstance().signOut()
-            val prefs = Prefs(rootView.context)
-            prefs.status = 0
-            val intent = Intent(activity, SignInActivity::class.java)
-            startActivity(intent)
-
-            activity?.finish()
-        }
+//        logoutButton = rootView.findViewById(R.id.logout)
+//        logoutButton.setOnClickListener{
+//            FirebaseAuth.getInstance().signOut()
+//            val prefs = Prefs(rootView.context)
+//            prefs.status = 0
+//            val intent = Intent(activity, SignInActivity::class.java)
+//            startActivity(intent)
+//
+//            activity?.finish()
+//        }
         return rootView
     }
 
