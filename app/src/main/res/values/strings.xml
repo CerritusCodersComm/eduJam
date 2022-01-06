@@ -4,6 +4,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="desc">Please Sign in using the registered email and password</string>
+    <string name="empty" />
+
     <string name="forgot_password">Forgot password?</string>
     <string name="or">or</string>
     <string name="register">Register</string>
@@ -124,5 +126,9 @@
     <string name="zero">0</string>
     <string name="questions_replied">Questions Replied</string>
     <string name="questions_asked">Questions Asked</string>
+
+    // fmc file path dialog
+    <string name="fmc_file_path_dialog_title">Document name</string>
+    <string name="save">save</string>
 
 </resources>

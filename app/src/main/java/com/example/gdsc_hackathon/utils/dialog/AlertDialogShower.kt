@@ -33,7 +33,7 @@ class AlertDialogShower @Inject constructor(private val activity: Activity) :
               ?.invoke()
           }
         }
-        dialog.getView?.let { setView(it()) }
+        dialog.getView?.let { setView(it) }
         setCancelable(dialog.cancelable)
       }
       .create()

@@ -1,6 +1,7 @@
 package com.example.gdsc_hackathon.fragments
 
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +31,7 @@ import com.example.gdsc_hackathon.extensions.copyToClipboard
 import com.example.gdsc_hackathon.extensions.showSnackBarWithIntentMessage
 import com.example.gdsc_hackathon.utils.NetworkUtils
 import com.google.firebase.auth.FirebaseAuth
+import java.io.File
 import kotlin.collections.ArrayList
 import kotlin.random.Random
 
@@ -59,7 +61,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         mAuth = FirebaseAuth.getInstance()
 
         val rootView: View = inflater.inflate(R.layout.fragment_home, container, false)

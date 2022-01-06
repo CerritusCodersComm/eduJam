@@ -40,6 +40,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_download_20.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/drawable/ic_baseline_download_24.xml" value="0.36614583333333334" />
         <entry key="app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.18518518518518517" />
+        <entry key="app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/ic_baseline_video_camera_front_24.xml" value="0.2921875" />
         <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.3748717948717949" />
@@ -76,6 +77,7 @@
         <entry key="app/src/main/res/layout/blank_fragment.xml" value="0.1125" />
         <entry key="app/src/main/res/layout/bottom_toolbar.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.20923913043478262" />
+        <entry key="app/src/main/res/layout/custom_edit_text_dialog.xml" value="0.2265625" />
         <entry key="app/src/main/res/layout/dashboard_grid_view_item.xml" value="0.2037037037037037" />
         <entry key="app/src/main/res/layout/drawer_header.xml" value="0.20052083333333334" />
         <entry key="app/src/main/res/layout/empty_view.xml" value="0.213768115942029" />

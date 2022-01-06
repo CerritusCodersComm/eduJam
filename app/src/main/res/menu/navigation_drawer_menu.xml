@@ -17,6 +17,7 @@
                 <item
                     android:id="@+id/settingsFragment"
                     android:icon="@drawable/ic_baseline_settings_24"
+                    android:visible="false"
                     android:title="@string/settings" />
             </group>
     <group  android:id="@+id/helpAndFeedback">
