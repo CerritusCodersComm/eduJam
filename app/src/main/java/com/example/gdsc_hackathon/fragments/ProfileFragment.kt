@@ -28,6 +28,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     val username : TextView = rootView.findViewById(R.id.profile_username)
     val questionsAsked : TextView = rootView.findViewById(R.id.profile_questions_asked_number)
     val questionsReplied : TextView = rootView.findViewById(R.id.profile_questions_replied_number)
+    val profileSemester : TextView = rootView.findViewById(R.id.profile_semester)
     val user = FirebaseAuth.getInstance().currentUser
     Firebase.firestore.collection("users").document(user!!.uid).get().addOnCompleteListener{
         val doc = it.result
@@ -37,6 +38,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         username.text = doc.getString("username").toString()
         questionsAsked.text = doc.getLong("questionsAsked").toString()
         questionsReplied.text = doc.getLong("questionsReplied").toString()
+        profileSemester.text = doc.getString("semester").toString()
     }
     return rootView
     }

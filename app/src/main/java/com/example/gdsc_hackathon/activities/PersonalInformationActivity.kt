@@ -165,9 +165,10 @@ class PersonalInformationActivity : AppCompatActivity() {
                                 "uid" to user.uid,
                                 "name" to name,
                                 "email" to user.email,
+                                "semester" to semester,
                                 "department" to department,
                                 "username" to userName,
-                                "semester" to semester,
+                                "semester" to semesterSpinner.text.toString(),
                                 "questionsAsked" to 0,
                                 "answersSelected" to 0,
                                 "questionsReplied" to 0
