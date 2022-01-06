@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.TodoListFragment">
 
 
@@ -15,13 +17,14 @@
         android:id="@+id/floating_action_button_to_add_item_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_baseline_add_24"
-        android:baselineAlignBottom="true"
-        android:contentDescription="@string/add_to_do_item"
-        android:layout_marginEnd="16dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
 
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:baselineAlignBottom="true"
+        app:tint="@android:color/white"
+        android:src="@drawable/ic_baseline_add_24"
+        android:contentDescription="@string/add_to_do_item"
         />
 </RelativeLayout>

@@ -1,19 +1,26 @@
 package com.example.gdsc_hackathon.activities
 
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toolbar
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.utils.hideSoftKeyboard
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.android.material.navigation.NavigationView as NavigationView
 
 // TODO: hide keyboard when clicked on bottom navigation items
@@ -56,9 +63,30 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.notification -> {
                 navController.navigate(R.id.notificationFragment)
-
                 return true
             }
+
+            R.id.user_logout -> {
+                val builder = AlertDialog.Builder(this)
+                builder.setMessage("Are you sure you want to logout?").setPositiveButton(
+                    "Yes"
+                ) { dialogInterface: DialogInterface?, i: Int ->
+                    FirebaseAuth.getInstance().signOut()
+                    val prefs = Prefs(this)
+                    prefs.status = 0
+                    val intent = Intent(this, SignInActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                    .setNegativeButton(
+                        "No"
+                    ) { dialogInterface: DialogInterface, i: Int -> dialogInterface.cancel() }
+                val alertDialog = builder.create()
+                alertDialog.show()
+                return true
+            }
+
+
         }
         return super.onOptionsItemSelected(item)
     }

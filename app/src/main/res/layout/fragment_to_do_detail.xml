@@ -11,14 +11,17 @@
 
     <TextView
         android:id="@+id/todo_title"
-        android:layout_margin="2dp"
-        android:padding="5dp"
-        android:textSize="25sp"
-        android:text="@string/title"
-        android:textColor="@color/black"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:padding="5dp"
+        android:text="@string/title"
+        android:textColor="@color/black"
+        android:textSize="25sp"
         tools:text="@string/title" />
 
 
@@ -39,26 +42,26 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-    android:id="@+id/delete_todo"
-    style="?attr/materialButtonOutlinedStyle"
-    android:layout_width="match_parent"
-    android:layout_below="@id/todo_description"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/margin"
-    android:text="@string/delete" />
+        android:id="@+id/delete_todo"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/todo_description"
+        android:layout_marginTop="@dimen/margin"
+        android:text="@string/delete" />
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/edit_todo"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
-    android:src="@drawable/ic_baseline_edit_24"
-    android:baselineAlignBottom="true"
-    android:contentDescription="@string/to_edit"
-    android:layout_marginEnd="16dp"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentBottom="true"
-    app:tint="@android:color/white" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:baselineAlignBottom="true"
+        android:contentDescription="@string/to_edit"
+        android:src="@drawable/ic_baseline_edit_24"
+        app:tint="@android:color/white" />
 
 </RelativeLayout>
 

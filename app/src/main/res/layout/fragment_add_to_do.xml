@@ -26,7 +26,6 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
         android:autofillHints="Title"
-        android:background="@drawable/background_border"
         android:hint="@string/title"
         android:inputType="text"
         android:padding="8dp" />
@@ -39,13 +38,11 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
         android:autofillHints="Title"
-        android:maxLength ="2000"
-        android:background="@drawable/background_border"
-        android:hint="@string/description"
         android:gravity="top"
+        android:hint="@string/description"
         android:inputType="textMultiLine"
+        android:maxLength="2000"
         android:padding="8dp"
-        android:height="200dp"
         android:scrollbarAlwaysDrawVerticalTrack="true" />
 
 
@@ -55,7 +52,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/description_in_add_todo"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/auth_button_background"
-        android:elevation="30dp"
-        android:text="@string/add_todo" />
+        android:background="@drawable/transition_button_shape_idle"
+        android:elevation="32dp"
+        style="@style/desc"
+
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:defaultColor="@color/primary_color"
+        app:loaderColor="@android:color/white"
+        android:text="@string/add_todo"
+        android:translationZ="50dp" />
     </RelativeLayout>

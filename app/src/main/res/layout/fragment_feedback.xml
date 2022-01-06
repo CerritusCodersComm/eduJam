@@ -7,6 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:fitsSystemWindows="true"
     tools:context=".fragments.FeedbackFragment">
+
     <TextView
         android:id="@+id/feedback_form"
         android:layout_width="wrap_content"
@@ -18,27 +19,15 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/email_of_feedback_form"
+        android:id="@+id/title_of_feedback_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/feedback_form"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
-        android:autofillHints="Title"
+        android:autofillHints="Subject"
         android:background="@drawable/background_border"
-        android:hint="@string/prompt_email"
-        android:inputType="textEmailAddress"
-        android:padding="8dp" />
-    <EditText
-        android:id="@+id/title_of_feedback_form"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/email_of_feedback_form"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
-        android:autofillHints="Title"
-        android:background="@drawable/background_border"
-        android:hint="@string/title"
+        android:hint="Subject"
         android:inputType="text"
         android:padding="8dp" />
 
@@ -59,16 +48,25 @@
         android:height="200dp"
         android:scrollbarAlwaysDrawVerticalTrack="true" />
 
-
     <Button
         android:id="@+id/submit_feed_back"
-        android:layout_width="200dp"
+        style="@style/desc"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/description_in_feedback_form"
+        android:layout_below="@id/description_in_feedback_form"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/auth_button_background"
-        android:elevation="30dp"
-        android:text="@string/give_us_a_feedback" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:paddingVertical="15dp"
+        android:text="@string/give_us_a_feedback"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+
+        app:defaultColor="@color/primary_color"
+
+        app:loaderColor="@android:color/white" />
 
 
 
