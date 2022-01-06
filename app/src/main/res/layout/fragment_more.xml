@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/primary_background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -337,22 +337,30 @@
             android:textColor="@color/white" />
     </RelativeLayout>
 
-        <com.royrodriguez.transitionbutton.TransitionButton
-            android:id="@+id/logout"
-            style="@style/desc"
+<!--        <com.royrodriguez.transitionbutton.TransitionButton-->
+<!--            android:id="@+id/logout"-->
+<!--            style="@style/desc"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/moreFragmentRow4"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="70dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:layout_marginBottom="30dp"-->
+<!--            android:text="@string/logout"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:defaultColor="@color/blue"-->
+<!--            app:loaderColor="@android:color/white" />-->
+        <RelativeLayout
+            android:id="@+id/space"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/moreFragmentRow4"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="30dp"
-            android:text="@string/logout"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:defaultColor="@color/blue"
-            app:loaderColor="@android:color/white" />
+            android:layout_height="50dp"
+            android:layout_below="@id/moreFragmentRow4"
+            android:layout_alignParentBottom="true">
+        </RelativeLayout>
 
     </RelativeLayout>
+
 </ScrollView>

@@ -84,7 +84,7 @@
     <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>
 
 
-    <string name="title_onboarding_1">Welcome to XYZ App !</string>
+    <string name="title_onboarding_1">Welcome to eduJam!</string>
     <string name="description_onboarding_1">Your one stop to any university work</string>
 
     <string name="title_onboarding_2">Build a healthy community with our forum</string>
@@ -97,14 +97,14 @@
     <!--    <string name="start_text_advice">By continuing on this application you agree to our Terms of Use and Privacy Policy</string>-->
 
     <string-array name="semesters_list">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
+        <item>1st</item>
+        <item>2nd</item>
+        <item>3rd</item>
+        <item>4th</item>
+        <item>5th</item>
+        <item>6th</item>
+        <item>7th</item>
+        <item>8th</item>
 
     </string-array>
 
@@ -112,6 +112,18 @@
     <string name="skip">Skip</string>
     <string name="finish">finish</string>
     <string name="back">back</string>
+    <string name="log_in_with_google">Log in with Google</string>
+    <string name="semester">Semester</string>
+    <string name="let_us_know_more_about_you">Let us know more about you :)</string>
+    <string name="username">Username</string>
+    <string name="name">Name</string>
+    <string name="department">Department</string>
+    <string name="about">About</string>
+    <string name="full_name">Full Name</string>
+    <string name="sample_email">sample@tcetmumbai.in</string>
+    <string name="zero">0</string>
+    <string name="questions_replied">Questions Replied</string>
+    <string name="questions_asked">Questions Asked</string>
     <string name="logo">Logo</string>
     <string name="give_us_a_feedback_for_improvement">Give us a feedback for improvement</string>
     <string name="give_us_a_feedback">Give us a feedback</string>

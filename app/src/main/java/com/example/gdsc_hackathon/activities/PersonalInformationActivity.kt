@@ -2,12 +2,14 @@ package com.example.gdsc_hackathon.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
+import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -17,14 +19,20 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.royrodriguez.transitionbutton.TransitionButton
 
 class PersonalInformationActivity : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var userNameEditText: EditText
-    private lateinit var confirmPasswordEditText: EditText
-    private lateinit var getStartedButton: Button
-    private lateinit var semesterSpinner: Spinner
-    private var selectedPosition = -1
+    private lateinit var nameLayout: TextInputLayout
+    private lateinit var userNameLayout: TextInputLayout
+    private lateinit var semesterSpinnerLayout: TextInputLayout
+    private lateinit var departmentSpinnerLayout: TextInputLayout
+    private lateinit var getStartedButton: TransitionButton
+    private lateinit var semesterSpinner: AutoCompleteTextView
+    private lateinit var deptSpinner: AutoCompleteTextView
+    private var selectedDeptPosition = -1
+    private var selectedSemesterPosition = -1
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
@@ -33,11 +41,10 @@ class PersonalInformationActivity : AppCompatActivity() {
         private const val RC_SIGN_IN = 120
     }
 
-    private var TAG = "LOOK"
+    private var TAG = "PersonalInformationActivity"
 
     var name = ""
     private var userName = ""
-    private var confirmPassword = ""
     private var department = ""
     private var semester = ""
 
@@ -55,32 +62,53 @@ class PersonalInformationActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         nameEditText = findViewById(R.id.name_edit_textw)
+        nameLayout = findViewById(R.id.nameLayout)
         userNameEditText = findViewById(R.id.username_edit_text)
-        confirmPasswordEditText = findViewById(R.id.confirm_password_edit_text_personalinfo_screen)
+        userNameLayout = findViewById(R.id.usernameLayout)
         getStartedButton = findViewById(R.id.get_started_button)
         semesterSpinner = findViewById(R.id.semester_spinner)
+        semesterSpinnerLayout = findViewById(R.id.semester_spinner_layout)
+        deptSpinner = findViewById(R.id.dept_spinner)
+        departmentSpinnerLayout = findViewById(R.id.dept_spinner_layout)
 
-        confirmPasswordEditText.visibility = View.INVISIBLE
-        findViewById<TextInputLayout>(R.id.confirm_password_layout).visibility = View.INVISIBLE
+        val departmentArray = arrayOf("Computer Science", "Information Technology", "AI/ML", "AI/DS")
 
-        val arrayname = arrayOf("Computer Science", "Information Technology", "AI/ML", "AI/DS")
-
-        val spinner = findViewById<AutoCompleteTextView>(R.id.dept_spinner)
-        if (spinner != null) {
-            val adapter = ArrayAdapter(
+        if (deptSpinner != null) {
+            val deptSpinnerAdapter = ArrayAdapter(
                 this,
-                android.R.layout.simple_spinner_item, arrayname
+                android.R.layout.simple_spinner_item, departmentArray
             )
-            spinner.setAdapter(adapter)
+            deptSpinner.setAdapter(deptSpinnerAdapter)
         }
-        spinner.onItemSelectedListener = object :
+        deptSpinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
                 view: View, position: Int, id: Long
             ) {
-                selectedPosition = position
-                Toast.makeText(applicationContext, arrayname[position], Toast.LENGTH_SHORT).show()
+                selectedDeptPosition = position
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // write code to perform some action
+            }
+        }
+
+        val semesterArray = resources.getStringArray(R.array.semesters_list)
+        if (semesterSpinner != null) {
+            val semesterSpinnerAdapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item, semesterArray
+            )
+            semesterSpinner.setAdapter(semesterSpinnerAdapter)
+        }
+        semesterSpinner.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View, position: Int, id: Long
+            ) {
+                selectedSemesterPosition = position
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -89,37 +117,43 @@ class PersonalInformationActivity : AppCompatActivity() {
         }
 
         val signupMode = intent.getStringExtra("signupMode")
-        if (signupMode == "GOOGLE") {
-            confirmPasswordEditText.hint = "Have a Nice Day!"
-            confirmPasswordEditText.isEnabled = false
-            confirmPasswordEditText.visibility = View.INVISIBLE
-        }
+//        if (signupMode == "GOOGLE") {
+//            confirmPasswordEditText.hint = "Have a Nice Day!"
+//            confirmPasswordEditText.isEnabled = false
+//            confirmPasswordEditText.visibility = View.INVISIBLE
+//        }
 
 
         getStartedButton.setOnClickListener {
+            var isSuccessful = false
+            getStartedButton.startAnimation()
             name = nameEditText.text.trim().toString()
             userName = userNameEditText.text.trim().toString()
-            department = spinner.text.toString().trim()
-            semester = semesterSpinner.selectedItem.toString()
+            department = deptSpinner.text.toString().trim()
+            semester = semesterSpinner.text.toString()
 
+            if (name.isEmpty())  {
+                nameLayout.error = "This field is mandatory!"
+                getStartedButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
+                return@setOnClickListener
+            }
+            if(userName.isEmpty()){
+                userNameLayout.error = "This field is mandatory!"
+                getStartedButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
+                return@setOnClickListener
+        }
             if (signupMode == "GOOGLE") {
-
-                if (name.isEmpty() || userName.isEmpty()) {
-                    Toast.makeText(this, "Please enter all values", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
-
                 signInWithGoogle()
-
             }
             else {
-                if (name.isEmpty() || userName.isEmpty()) {
-                    Toast.makeText(this, "Please enter all values", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
                 val email = intent.getStringExtra("email")
                 val password = intent.getStringExtra("password")
-
 
                 mAuth.signInWithEmailAndPassword(email!!, password!!)
                     .addOnCompleteListener {
@@ -127,14 +161,14 @@ class PersonalInformationActivity : AppCompatActivity() {
                         val user = mAuth.currentUser
 
                         if (user != null) {
-
                             val usr = hashMapOf(
                                 "uid" to user.uid,
                                 "name" to name,
                                 "email" to user.email,
+                                "semester" to semester,
                                 "department" to department,
                                 "username" to userName,
-                                "semester" to semester,
+                                "semester" to semesterSpinner.text.toString(),
                                 "questionsAsked" to 0,
                                 "answersSelected" to 0,
                                 "questionsReplied" to 0
@@ -154,37 +188,38 @@ class PersonalInformationActivity : AppCompatActivity() {
                                     if (it.isSuccessful) {
                                         Log.w("LOOK", "USER CREATED ON FIREBASE")
                                         mAuth.signInWithEmailAndPassword(email, password)
-                                        startActivity(
-                                            Intent(
-                                                applicationContext,
-                                                MainActivity::class.java
+                                        getStartedButton.stopAnimation(
+                                            TransitionButton.StopAnimationStyle.EXPAND)
+                                        {
+                                            showSnackBar(this, "Registration Successful!")
+                                            startActivity(
+                                                Intent(
+                                                    applicationContext,
+                                                    MainActivity::class.java
+                                                )
                                             )
+                                            finish()
+                                        }
+                                    }
+                                    else {
+                                        showSnackBar(
+                                            this,
+                                            "Something went wrong, Please try again"
                                         )
-                                        finish()
-                                    } else {
-                                        Toast.makeText(
-                                            applicationContext,
-                                            "Please try again",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
                                     }
                                 }
                         } else {
-                            Toast.makeText(
-                                applicationContext,
-                                "Please try again",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            showSnackBar(
+                                this,
+                                "Something went wrong, Please try again"
+                            )
                         }
-
                     }
                     .addOnFailureListener {
                         mAuth.signOut()
                     }
-
             }
         }
-
     }
 
     private fun signInWithGoogle() {
@@ -261,11 +296,10 @@ class PersonalInformationActivity : AppCompatActivity() {
                                     )
                                     finish()
                                 } else {
-                                    Toast.makeText(
-                                        applicationContext,
-                                        "Please try again",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    showSnackBar(
+                                        this,
+                                        "Something went wrong, Please try again"
+                                        )
                                 }
                             }
 
@@ -273,11 +307,10 @@ class PersonalInformationActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
-                        Toast.makeText(
-                            applicationContext,
-                            "Please Use College Email",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        showSnackBar(
+                            this,
+                            "Please use college email"
+                        )
 
                         googleSignInClient.signOut()
                     }

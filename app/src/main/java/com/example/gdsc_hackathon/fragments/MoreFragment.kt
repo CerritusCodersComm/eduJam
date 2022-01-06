@@ -11,11 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.FillMyCycle
-import com.example.gdsc_hackathon.activities.SignInActivity
-import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.openActivity
 import com.example.gdsc_hackathon.extensions.showSnackBar
-import com.google.firebase.auth.FirebaseAuth
 
 class MoreFragment : Fragment() {
 
@@ -56,7 +53,7 @@ class MoreFragment : Fragment() {
 
         examTimeConstraintLayout = rootView.findViewById(R.id.examTimeConstraintLayout)
         examTimeConstraintLayout.setOnClickListener {
-            showSnackBar(requireActivity(),"Coming soon!")
+            showSnackBar(requireActivity(), "Coming soon!")
             // todo: update it when we ready with view
 //            rootView.findNavController().navigate(R.id.examTimeConstraintFragment)
         }
@@ -99,16 +96,16 @@ class MoreFragment : Fragment() {
             requireContext().openActivity(FillMyCycle::class.java)
         }
 
-        logoutButton = rootView.findViewById(R.id.logout)
-        logoutButton.setOnClickListener{
-            FirebaseAuth.getInstance().signOut()
-            val prefs = Prefs(rootView.context)
-            prefs.status = 0
-            val intent = Intent(activity, SignInActivity::class.java)
-            startActivity(intent)
-
-            activity?.finish()
-        }
+//        logoutButton = rootView.findViewById(R.id.logout)
+//        logoutButton.setOnClickListener{
+//            FirebaseAuth.getInstance().signOut()
+//            val prefs = Prefs(rootView.context)
+//            prefs.status = 0
+//            val intent = Intent(activity, SignInActivity::class.java)
+//            startActivity(intent)
+//
+//            activity?.finish()
+//        }
         return rootView
     }
 

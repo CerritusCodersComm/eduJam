@@ -48,9 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/exp_1"
-        >
-
+        android:layout_below="@+id/exp_1">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/exp_2_input"
@@ -90,9 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/exp_3"
-        >
-
+        android:layout_below="@+id/exp_3">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/exp_4_input"
@@ -111,8 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/exp_4"
-        >
+        android:layout_below="@+id/exp_4">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/exp_5_input"
@@ -131,8 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/exp_5"
-        >
+        android:layout_below="@+id/exp_5">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/exp_6_input"
@@ -152,8 +146,7 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/top1"
-        android:layout_toRightOf="@+id/exp_1"
-        >
+        android:layout_toEndOf="@+id/exp_1">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/exp_7_input"

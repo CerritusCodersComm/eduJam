@@ -10,6 +10,7 @@ import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.databinding.ActivitySplashScreenBinding
+import com.example.gdsc_hackathon.onboard.OnBoardActivity
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
@@ -39,7 +40,7 @@ class SplashScreenActivity : AppCompatActivity() {
         seventh.animation = topAnimation
         title.animation=middleAnimation
         Handler(Looper.getMainLooper()).postDelayed({
-            val startAct= Intent(this, MainActivity::class.java)
+            val startAct= Intent(this, OnBoardActivity::class.java)
             startActivity(startAct)
             finish()
         }, 2000)

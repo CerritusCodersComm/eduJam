@@ -12,14 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/layout_info"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:overScrollMode="never" />
 
@@ -27,11 +27,12 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/pageIndicator"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="15dp"
             android:layout_margin="30dp"
+            app:tabBackground="@drawable/onboarding_viewpager_selector_white"
             app:tabGravity="center"
-            app:tabIndicatorHeight="0dp"
-            app:tabBackground="@drawable/onboarding_viewpager_selector_white"/>
+            android:background="@android:color/transparent"
+            app:tabIndicatorHeight="0dp" />
 
 
     </LinearLayout>
@@ -63,10 +64,10 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="20dp"
-            android:background="@drawable/btn_blue_selector"
+            android:background="@drawable/background_border"
             android:text="Register"
             android:textAllCaps="true"
-            android:textColor="@color/white" />
+            android:textColor="@color/blue_Dark" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_policy_terms"
@@ -75,7 +76,7 @@
             android:layout_margin="20dp"
             android:gravity="center"
             android:text="@string/start_text_advice"
-            android:textColor="@color/md_grey_600"
+            android:textColor="@color/black"
             android:textColorLink="@color/light_blue"
             android:textSize="12sp" />
 

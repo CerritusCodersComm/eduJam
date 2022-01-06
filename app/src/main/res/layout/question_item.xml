@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@id/text_view_date"
+            android:layout_marginStart="16dp"
             android:ellipsize="end"
             android:text="Question"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
@@ -42,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/text_view_question"
         android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
         android:text="Date"
         android:background="@android:color/transparent"/>
 
@@ -51,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/text_view_question"
         android:layout_alignParentStart="true"
+        android:layout_marginStart="16dp"
         android:text="Username"
         android:background="@android:color/transparent"/>
 

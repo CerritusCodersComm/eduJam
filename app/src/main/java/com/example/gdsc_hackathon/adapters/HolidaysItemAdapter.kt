@@ -21,12 +21,6 @@ class HolidaysItemAdapter(private val holidays: List<HolidaysItemModel>) : Recyc
         return ViewHolder(view)
     }
 
-    private var onClick: OnItemClicked? = null
-
-    interface OnItemClicked {
-        fun onItemClick(position: Int)
-    }
-
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
@@ -39,8 +33,6 @@ class HolidaysItemAdapter(private val holidays: List<HolidaysItemModel>) : Recyc
         holder.eventTitle.text = holidaysItemModel.holidayReason
 
         holder.eventSubTitle.text = holidaysItemModel.holidayDate
-
-        holder.itemView.setOnClickListener { onClick!!.onItemClick(position) }
 
     }
 
@@ -55,10 +47,5 @@ class HolidaysItemAdapter(private val holidays: List<HolidaysItemModel>) : Recyc
         val eventTitle: TextView = itemView.findViewById(R.id.holidayReason)
         val eventSubTitle: TextView = itemView.findViewById(R.id.holidayDate)
     }
-
-    fun setOnClick(onClick: OnItemClicked?) {
-        this.onClick = onClick
-    }
-
 }
 

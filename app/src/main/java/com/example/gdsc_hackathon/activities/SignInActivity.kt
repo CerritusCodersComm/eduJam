@@ -1,11 +1,10 @@
 package com.example.gdsc_hackathon.activities
 
-import android.app.Activity
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
-import android.widget.Button
+
 import android.widget.EditText
 import android.widget.RelativeLayout
 import android.widget.Toast
@@ -17,22 +16,27 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import android.text.TextUtils
 import android.util.Patterns
+
 import com.example.gdsc_hackathon.dataModel.Prefs
+import com.example.gdsc_hackathon.extensions.showSnackBar
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.GoogleAuthProvider
-import java.util.regex.Matcher
-import java.util.regex.Pattern
+import com.royrodriguez.transitionbutton.TransitionButton
+
 
 class SignInActivity : AppCompatActivity() {
-    private lateinit var button: Button
     private lateinit var googleLoginButton: RelativeLayout
-    private lateinit var emailLoginButton: Button
-    private lateinit var registerButton: RelativeLayout
+    private lateinit var emailLoginButton: TransitionButton
+    private lateinit var registerButton: TransitionButton
     private lateinit var passwordEditText: EditText
     private lateinit var emailEditText: EditText
+    private lateinit var emailEditTextLayout: TextInputLayout
+    private lateinit var passwordEditTextLayout: TextInputLayout
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -40,17 +44,20 @@ class SignInActivity : AppCompatActivity() {
         private const val RC_SIGN_IN = 120
     }
 
-    private var TAG = "LOOK"
+    private var TAG = "SignIn Activity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_in_activity)
 
-        button = findViewById(R.id.register)
+        registerButton = findViewById(R.id.register)
         googleLoginButton = findViewById(R.id.google_sign_in_layout)
         emailLoginButton = findViewById(R.id.signin_with_email_button)
         emailEditText = findViewById(R.id.email_edit_text)
         passwordEditText = findViewById(R.id.password_edit_text)
+
+        emailEditTextLayout = findViewById(R.id.emailLayoutSignInScreen)
+        passwordEditTextLayout = findViewById(R.id.passwordLayoutSignInScreen)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -59,8 +66,15 @@ class SignInActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        button.setOnClickListener {
-            startActivity(Intent(applicationContext, SignUpActivity::class.java))
+        registerButton.setOnClickListener {
+            registerButton.startAnimation()
+            val handler = Handler()
+            handler.postDelayed({
+                registerButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND
+                ) {
+                    startActivity(Intent(applicationContext, SignUpActivity::class.java))
+                }
+            }, 500)
         }
 
         googleLoginButton.setOnClickListener {
@@ -68,58 +82,78 @@ class SignInActivity : AppCompatActivity() {
         }
 
         emailLoginButton.setOnClickListener {
+            emailEditTextLayout.error = ""
+            passwordEditTextLayout.error = ""
+            emailLoginButton.startAnimation()
+
+            var isSuccessful = false
+
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
 
-            if (!email.contains("tcet") && !email.contains("thakur")) {
-                Toast.makeText(applicationContext, "Please Use College Email", Toast.LENGTH_LONG)
-                    .show()
+            if (email.isEmpty()) {
+                emailEditTextLayout.error = "This field is mandatory"
+                emailLoginButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
                 return@setOnClickListener
             }
 
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(applicationContext, "Please Enter All Values", Toast.LENGTH_LONG)
-                    .show()
+            if (!email.contains("tcetmumbai")) {
+                emailEditTextLayout.error = "Please use college email"
+                emailLoginButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
                 return@setOnClickListener
             }
 
             if (!isValidEmail(email)) {
-                Toast.makeText(applicationContext, "Please Enter Correct Email", Toast.LENGTH_LONG)
-                    .show()
+                emailEditTextLayout.error = "Please enter a valid email"
+                emailLoginButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
                 return@setOnClickListener
             }
 
-            if (!isValidPassword(password) || password.length < 8) {
-                Toast.makeText(
-                    applicationContext,
-                    "Wrong Password.\nSample Password: Hello@1234",
-                    Toast.LENGTH_LONG
+            if (password.isEmpty()) {
+                passwordEditTextLayout.error = "This field is mandatory"
+                emailLoginButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
                 )
-                    .show()
+                return@setOnClickListener
+            }
+
+            if (password.length < 8) {
+                passwordEditTextLayout.error = "Wrong password"
+                emailLoginButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
                 return@setOnClickListener
             }
             mAuth = FirebaseAuth.getInstance()
             mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener {
+                .addOnCompleteListener { it ->
                     if (it.isSuccessful) {
                         val user = FirebaseAuth.getInstance().currentUser
                         Firebase.firestore.collection("users").document(user!!.uid).get()
                             .addOnCompleteListener { task ->
                                 val doc = task.result
                                 if (doc != null && !doc.exists()) {
-                                    Toast.makeText(
-                                        applicationContext,
-                                        "User Does Not Exist. Please Signup",
-                                        Toast.LENGTH_SHORT
+                                    emailEditTextLayout.error =
+                                        "User does not exist, please sign up"
+                                    emailLoginButton.stopAnimation(
+                                        TransitionButton.StopAnimationStyle.SHAKE,
+                                        null
                                     )
-                                        .show()
+                                    isSuccessful = false
                                     return@addOnCompleteListener
                                 }
-                                Toast.makeText(
-                                    applicationContext,
-                                    "Login Successful",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                                isSuccessful = true
                                 val prefs = Prefs(applicationContext)
                                 prefs.username = doc.getString("username").toString()
                                 prefs.email = doc.getString("email").toString()
@@ -127,14 +161,27 @@ class SignInActivity : AppCompatActivity() {
                                 prefs.name = doc.getString("name").toString()
                                 prefs.uid = doc.getString("uid").toString()
                                 prefs.status = 1
+                                emailLoginButton.stopAnimation(
+                                    TransitionButton.StopAnimationStyle.EXPAND)
+                                {
+                                    showSnackBar(this, "Login Successful!")
+                                    startActivity(
+                                        Intent(
+                                            applicationContext,
+                                            MainActivity::class.java
+                                        )
+                                    )
+                                    finish()
+                                }
                             }
-                        startActivity(Intent(applicationContext, MainActivity::class.java))
-                        finish()
+                            .addOnFailureListener {
+                                showSnackBar(this, "Something went wrong, please try again")
+                                emailLoginButton.stopAnimation(
+                                    TransitionButton.StopAnimationStyle.SHAKE,
+                                    null
+                                )
+                            }
                     }
-                }
-                .addOnFailureListener {
-                    Toast.makeText(applicationContext, "Please try again", Toast.LENGTH_SHORT)
-                        .show()
                 }
         }
 
@@ -149,12 +196,12 @@ class SignInActivity : AppCompatActivity() {
 
     private fun signInWithGoogle() {
         val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, SignInActivity.RC_SIGN_IN)
+        startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == SignInActivity.RC_SIGN_IN) {
+        if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             val exception = task.exception
 
@@ -234,10 +281,11 @@ fun isValidEmail(target: CharSequence?): Boolean {
     return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target!!).matches()
 }
 
-fun isValidPassword(password: String?): Boolean {
-    val pattern: Pattern
-    val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
-    pattern = Pattern.compile(PASSWORD_PATTERN)
-    val matcher: Matcher = pattern.matcher(password)
-    return matcher.matches()
-}
+ // todo: why are we checking if password is valid on sign in? just say "please enter correct password"
+//fun isValidPassword(password: String?): Boolean {
+//    val pattern: Pattern
+//    val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
+//    pattern = Pattern.compile(PASSWORD_PATTERN)
+//    val matcher: Matcher = pattern.matcher(password)
+//    return matcher.matches()
+//}

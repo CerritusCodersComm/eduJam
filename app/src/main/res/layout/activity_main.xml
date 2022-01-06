@@ -7,7 +7,7 @@
     android:id="@+id/drawer_layout"
     tools:context=".activities.MainActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <RelativeLayout
         android:id="@+id/bottom_navigation_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:layout_above="@+id/bottom_navigation_layout"
+            android:layout_above="@+id/bottom_navigation"
             app:defaultNavHost="true"
             app:layout_behavior=".helper.ScrollingViewWithBottomNavigationBehavior"
             app:navGraph="@navigation/app_navigation" />
@@ -34,10 +34,11 @@
             app:itemIconTint="@color/black"
             app:itemTextColor="@color/black"
             app:hideOnScroll="true"
+            android:layout_alignParentBottom="true"
             app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
             app:layout_scrollFlags="scroll|enterAlways"
             app:menu="@menu/navigation_menu"/>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </RelativeLayout>
 
 
     <com.google.android.material.navigation.NavigationView

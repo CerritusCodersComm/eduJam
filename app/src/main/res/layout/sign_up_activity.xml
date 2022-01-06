@@ -39,18 +39,58 @@
             android:text="Please Create an account using the correct data"
             android:textAppearance="@style/desc"
             android:translationY="-3.8sp" />
+        <RelativeLayout
+            android:id="@+id/signup_with_google_signup_screen"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/desc"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rounded_background_border">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="26dp"
+                android:src="@drawable/google_icon_48px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Signup with Google"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/orText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_with_google_signup_screen"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/or"
+            android:textAppearance="@style/desc"
+            android:textColor="@color/grey"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:translationY="-3.8sp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailLayout"
+            android:id="@+id/emailLayoutSignUpScreen"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             app:boxStrokeColor="@color/primary_color"
-            android:layout_below="@+id/desc"
+            android:layout_below="@+id/orText"
             android:hint="Email">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_edit_text_signup_screen"
@@ -59,17 +99,18 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordLayout"
+            android:id="@+id/passwordLayoutSignUpScreen"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_below="@+id/emailLayout"
+            android:layout_below="@+id/emailLayoutSignUpScreen"
             android:layout_alignParentStart="true"
             android:layout_marginTop="39dp"
             app:boxStrokeColor="@color/primary_color"
             app:endIconMode="password_toggle"
+            app:errorIconDrawable="@null"
             android:hint="Password">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -82,17 +123,18 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/confirm_password_layout"
+            android:id="@+id/confirm_password_layout_sign_up_screen"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_below="@+id/passwordLayout"
+            android:layout_below="@+id/passwordLayoutSignUpScreen"
             android:layout_alignParentStart="true"
             android:layout_marginTop="39dp"
             app:boxStrokeColor="@color/primary_color"
             app:endIconMode="password_toggle"
+            app:errorIconDrawable="@null"
             android:hint="Confirm password">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -108,7 +150,8 @@
             style="@style/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/confirm_password_layout"
+            android:layout_below="@id/confirm_password_layout_sign_up_screen"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="70dp"
             android:layout_marginEnd="16dp"
@@ -162,6 +205,7 @@
             style="@style/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:layout_below="@id/divider_layout"
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
@@ -173,31 +217,7 @@
             app:defaultColor="@color/primary_color"
             app:loaderColor="@android:color/white" />
 
-        <RelativeLayout
-            android:id="@+id/signup_with_google_signup_screen"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@id/title"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/background_border">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="26dp"
-                android:src="@drawable/google_icon_48px" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Signup with Google"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
 
     </RelativeLayout>
 </ScrollView>
