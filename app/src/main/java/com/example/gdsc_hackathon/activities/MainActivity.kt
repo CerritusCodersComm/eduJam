@@ -2,15 +2,13 @@ package com.example.gdsc_hackathon.activities
 
 import android.content.DialogInterface
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toolbar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -18,10 +16,13 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
+import com.example.gdsc_hackathon.fragments.ForumFragment
 import com.example.gdsc_hackathon.utils.hideSoftKeyboard
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.android.material.navigation.NavigationView as NavigationView
+import com.example.gdsc_hackathon.fragments.HomeFragment
+import com.example.gdsc_hackathon.fragments.ProfileFragment
 
 // TODO: hide keyboard when clicked on bottom navigation items
 class MainActivity : AppCompatActivity() {
@@ -51,7 +52,52 @@ class MainActivity : AppCompatActivity() {
         //NavigationUI.setupWithNavController(navigation_view,navController)
         NavigationUI.setupWithNavController(navigationView, navController)
 
-
+        // bottom nav fragments
+        var fragment: Fragment? = null
+        val mHomeFragment: Fragment = HomeFragment()
+        val mForumFragment: Fragment = ForumFragment()
+        val mProfileFragment: Fragment = ProfileFragment()
+//        navigationView.setNavigationItemSelectedListener { menuItem ->
+//            when (menuItem.itemId) {
+//                R.id.homeFragment -> {
+//                    fragment = mHomeFragment
+//                    true
+//                }
+//                R.id.forumFragment -> {
+//                    fragment = mForumFragment
+//                    true
+//                }
+//                R.id.profileFragment -> {
+//                    fragment = mProfileFragment;
+//                    true
+//                }
+//                else -> {
+//
+//                    false
+//                }
+//            }
+//        }
+        navigationView.menu.findItem(R.id.homeFragment)?.setOnMenuItemClickListener {
+            if(fragment != mHomeFragment){
+                navController.navigate(R.id.homeFragment)
+                fragment = mHomeFragment
+            }
+            return@setOnMenuItemClickListener false
+        }
+        navigationView.menu.findItem(R.id.forumFragment)?.setOnMenuItemClickListener {
+            if(fragment != mForumFragment){
+                navController.navigate(R.id.forumFragment)
+                fragment = mForumFragment
+            }
+            return@setOnMenuItemClickListener false
+        }
+        navigationView.menu.findItem(R.id.profileFragment)?.setOnMenuItemClickListener {
+            if(fragment != mProfileFragment){
+                navController.navigate(R.id.profileFragment)
+                fragment = mProfileFragment
+            }
+            return@setOnMenuItemClickListener false
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -85,8 +131,6 @@ class MainActivity : AppCompatActivity() {
                 alertDialog.show()
                 return true
             }
-
-
         }
         return super.onOptionsItemSelected(item)
     }

@@ -118,5 +118,11 @@
     <string name="username">Username</string>
     <string name="name">Name</string>
     <string name="department">Department</string>
+    <string name="about">About</string>
+    <string name="full_name">Full Name</string>
+    <string name="sample_email">sample@tcetmumbai.in</string>
+    <string name="zero">0</string>
+    <string name="questions_replied">Questions Replied</string>
+    <string name="questions_asked">Questions Asked</string>
 
 </resources>

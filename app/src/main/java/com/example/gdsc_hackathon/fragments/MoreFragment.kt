@@ -11,11 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.activities.FillMyCycle
-import com.example.gdsc_hackathon.activities.SignInActivity
-import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.openActivity
 import com.example.gdsc_hackathon.extensions.showSnackBar
-import com.google.firebase.auth.FirebaseAuth
 
 class MoreFragment : Fragment() {
 

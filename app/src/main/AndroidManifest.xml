@@ -75,6 +75,11 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
+            android:name=".activities.FmcExpMarksInput"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
             android:name=".onboard.OnBoardActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">

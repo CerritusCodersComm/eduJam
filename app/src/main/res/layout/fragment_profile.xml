@@ -9,6 +9,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/black"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/user_image"
         android:layout_width="150dp"
@@ -86,7 +94,7 @@
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:text="00"
+                    android:text="@string/zero"
                     android:textColor="@color/cario_color_dark" />
 
                 <TextView
@@ -97,7 +105,7 @@
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="Questions Asked"
+                    android:text="@string/questions_asked"
                     android:textColor="@color/cario_color_dark" />
             </RelativeLayout>
         </LinearLayout>
@@ -159,8 +167,8 @@
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="00"
                     android:maxLines="1"
+                    android:text="@string/zero"
                     android:textColor="@color/cario_color_dark" />
 
                 <TextView
@@ -171,7 +179,7 @@
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="Questions Replied"
+                    android:text="@string/questions_replied"
                     android:textColor="@color/cario_color_dark" />
             </RelativeLayout>
 
@@ -194,7 +202,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="About"
+            android:text="@string/about"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/cario_color_dark"
             android:textStyle="bold"
@@ -213,7 +221,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Full Name"
+            android:text="@string/full_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/light_grey"
             app:autoSizeMaxTextSize="18sp"
@@ -230,7 +238,7 @@
             android:layout_marginStart="16dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Dhiraj Kumar Chauhan"
+            android:text="@string/full_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/black"
             app:autoSizeMaxTextSize="18sp"
@@ -248,7 +256,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Email"
+            android:text="@string/prompt_email"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/light_grey"
             app:autoSizeMaxTextSize="18sp"
@@ -265,7 +273,7 @@
             android:layout_marginStart="16dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="1032200169@tcetmumbai.in"
+            android:text="@string/sample_email"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/black"
             app:autoSizeMaxTextSize="18sp"
@@ -283,7 +291,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Semester"
+            android:text="@string/semester"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/light_grey"
             app:autoSizeMaxTextSize="18sp"
@@ -300,7 +308,7 @@
             android:layout_marginStart="16dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Freshman/Sophomore/Junior/Senior"
+            android:text="@string/semester"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/black"
             app:autoSizeMaxTextSize="18sp"
@@ -318,7 +326,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Department"
+            android:text="@string/department"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/light_grey"
             app:autoSizeMaxTextSize="18sp"
@@ -335,7 +343,7 @@
             android:layout_marginStart="16dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Comps/IT/AIML/AIDS/ELEX/MECH/ELEC"
+            android:text="@string/department"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/black"
             app:autoSizeMaxTextSize="18sp"

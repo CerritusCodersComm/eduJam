@@ -7,7 +7,6 @@ import android.text.TextUtils
 import android.util.Patterns
 import android.widget.EditText
 import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
@@ -17,8 +16,6 @@ import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 import com.royrodriguez.transitionbutton.TransitionButton
-
-import com.google.android.material.snackbar.Snackbar
 
 // todo create user only in personal activity, let it be sign up with google or simple signing up
 class SignUpActivity : AppCompatActivity() {

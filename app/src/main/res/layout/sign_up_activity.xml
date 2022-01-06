@@ -110,6 +110,7 @@
             android:layout_marginTop="39dp"
             app:boxStrokeColor="@color/primary_color"
             app:endIconMode="password_toggle"
+            app:errorIconDrawable="@null"
             android:hint="Password">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -133,6 +134,7 @@
             android:layout_marginTop="39dp"
             app:boxStrokeColor="@color/primary_color"
             app:endIconMode="password_toggle"
+            app:errorIconDrawable="@null"
             android:hint="Confirm password">
 
             <com.google.android.material.textfield.TextInputEditText

@@ -77,7 +77,7 @@
     <fragment
         android:id="@+id/moreFragment"
         android:name="com.example.gdsc_hackathon.fragments.MoreFragment"
-        android:label="Dashboard Features"
+        android:label="Dashboard"
         tools:layout="@layout/fragment_more" />
     <fragment
         android:id="@+id/lectureSummaryFragment"

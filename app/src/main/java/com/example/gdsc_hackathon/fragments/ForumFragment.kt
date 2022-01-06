@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -16,7 +17,9 @@ import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.adapters.QuestionAdapter
 import com.example.gdsc_hackathon.dataModel.Question
 import com.example.gdsc_hackathon.extensions.closeKeyboard
+import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -33,6 +36,8 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val quesRef: CollectionReference = db.collection("Questions")
     lateinit var adapter : QuestionAdapter
+    private lateinit var questionAskLayout : RelativeLayout
+    private lateinit var forumLayout : RelativeLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,16 +47,24 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
         editTextQuestion = rootView.findViewById(R.id.edit_text_question)
         buttonAsk = rootView.findViewById(R.id.button_ask)
         recyclerView= rootView.findViewById(R.id.recycler_view_questions)
+        questionAskLayout= rootView.findViewById(R.id.questionAskLayout)
+        forumLayout= rootView.findViewById(R.id.forumLayout)
+
+        forumLayout.closeKeyboard()
+
         setUpRecyclerView(rootView)
         buttonAsk.setOnClickListener {
             if(editTextQuestion.text.isEmpty()){
-                Toast.makeText(rootView.context, "Type a question first", Toast.LENGTH_SHORT).show()
+                val snackbar = Snackbar.make(rootView, "Type a question first", Snackbar.LENGTH_SHORT)
+                snackbar.anchorView = questionAskLayout
+                snackbar.show()
                 return@setOnClickListener
             }
             else {
+                closeKeyboard()
                 val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
-                    Firebase.firestore.collection("users").document(user!!.uid).get()
+                    Firebase.firestore.collection("users").document(user.uid).get()
                         .addOnCompleteListener { task ->
                             val doc = task.result
                             if (doc != null && doc.exists()) {
