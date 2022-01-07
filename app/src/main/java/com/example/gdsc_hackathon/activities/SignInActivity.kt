@@ -16,6 +16,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import android.text.TextUtils
 import android.util.Patterns
+import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 
 import com.example.gdsc_hackathon.dataModel.Prefs
@@ -40,6 +41,7 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var passwordEditTextLayout: TextInputLayout
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var forgotPassword: TextView
 
     companion object {
         private const val RC_SIGN_IN = 120
@@ -59,6 +61,7 @@ class SignInActivity : AppCompatActivity() {
         emailLoginButton = findViewById(R.id.signin_with_email_button)
         emailEditText = findViewById(R.id.email_edit_text)
         passwordEditText = findViewById(R.id.password_edit_text)
+        forgotPassword = findViewById(R.id.forgot_password)
 
         emailEditTextLayout = findViewById(R.id.emailLayoutSignInScreen)
         passwordEditTextLayout = findViewById(R.id.passwordLayoutSignInScreen)
@@ -74,7 +77,8 @@ class SignInActivity : AppCompatActivity() {
             registerButton.startAnimation()
             val handler = Handler()
             handler.postDelayed({
-                registerButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND
+                registerButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.EXPAND
                 ) {
                     startActivity(Intent(applicationContext, SignUpActivity::class.java))
                 }
@@ -166,7 +170,8 @@ class SignInActivity : AppCompatActivity() {
                                 prefs.uid = doc.getString("uid").toString()
                                 prefs.status = 1
                                 emailLoginButton.stopAnimation(
-                                    TransitionButton.StopAnimationStyle.EXPAND)
+                                    TransitionButton.StopAnimationStyle.EXPAND
+                                )
                                 {
                                     showSnackBar(this, "Login Successful!")
                                     startActivity(
@@ -188,6 +193,34 @@ class SignInActivity : AppCompatActivity() {
                     }
                 }
         }
+
+        forgotPassword.setOnClickListener {
+
+            val email = emailEditText.text.toString().trim()
+
+            if (email.isEmpty() || !isValidEmail(email)) {
+                Toast.makeText(applicationContext, "Enter Proper Email", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+
+            FirebaseAuth.getInstance().sendPasswordResetEmail(email)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        Toast.makeText(
+                            applicationContext,
+                            "Email Sent if Account Exists",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
+                        Toast.makeText(applicationContext, "Please Try Again", Toast.LENGTH_LONG).show()
+                    }
+                }
+                .addOnFailureListener {
+                    Log.e("LOOK",it.message!!)
+                    Toast.makeText(applicationContext, "Please Try Again", Toast.LENGTH_LONG).show()
+                }
+        }
+
 
         val settings = getSharedPreferences("prefs", 0)
         val editor = settings.edit()
@@ -272,17 +305,13 @@ class SignInActivity : AppCompatActivity() {
 
                     googleSignInClient.signOut()
                 }
-//                 else {
-//                    // If sign in fails, display a message to the user.
-//                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-////                    updateUI(null)
-//
             }
     }
-}
 
-fun isValidEmail(target: CharSequence?): Boolean {
-    return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target!!).matches()
+
+    private fun isValidEmail(target: CharSequence?): Boolean {
+        return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target!!).matches()
+    }
 }
 
  // todo: why are we checking if password is valid on sign in? just say "please enter correct password"
