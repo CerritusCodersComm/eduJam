@@ -2,10 +2,9 @@ package com.example.gdsc_hackathon.activities
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.nfc.Tag
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
+
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -16,12 +15,12 @@ import com.gkemon.XMLtoPDF.PdfGenerator.PageSize
 import com.gkemon.XMLtoPDF.PdfGeneratorListener
 import com.gkemon.XMLtoPDF.model.FailureResponse
 import com.gkemon.XMLtoPDF.model.SuccessResponse
-import android.widget.Toast
 
 import android.view.View
 import com.google.android.material.textfield.TextInputLayout
 
-
+// todo ask for name,roll no and stuff
+// todo also no validation is getting checked
 class FmcExport : AppCompatActivity() {
 
     var fileName:String = ""
