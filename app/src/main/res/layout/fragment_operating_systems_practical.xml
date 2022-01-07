@@ -434,7 +434,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/topic_eleven_layout"
+            android:layout_below="@+id/topic_nine_layout"
             android:padding="100dp" />
 
     </RelativeLayout>
