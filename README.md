@@ -24,7 +24,8 @@ This project "eduJam" proposes “one-stop for all university needs” to keep t
 ### Screenshots
 
 ### Demo Video
-[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
+Click to go to youtube
+[![Demo Video](https://img.youtube.com/vi/xL9uUAlAOyo/maxresdefault.jpg)](https://www.youtube.com/watch?v=xL9uUAlAOyo)
 
 ## Functionality & Concepts used
 
