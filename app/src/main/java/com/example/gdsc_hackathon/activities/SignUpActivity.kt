@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.util.Patterns
 import android.widget.EditText
 import android.widget.RelativeLayout
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
@@ -34,6 +35,9 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_up_activity)
+
+        val actionBar: ActionBar? = supportActionBar
+        supportActionBar?.hide()
 
         registerButton = findViewById(R.id.register_signup_screen)
         signinButton = findViewById(R.id.signin_with_email_button_signup_screen)

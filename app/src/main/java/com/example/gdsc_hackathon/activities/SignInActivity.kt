@@ -16,6 +16,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import android.text.TextUtils
 import android.util.Patterns
+import androidx.appcompat.app.ActionBar
 
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.showSnackBar
@@ -49,6 +50,9 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.sign_in_activity)
+
+        val actionBar: ActionBar? = supportActionBar
+        supportActionBar?.hide()
 
         registerButton = findViewById(R.id.register)
         googleLoginButton = findViewById(R.id.google_sign_in_layout)

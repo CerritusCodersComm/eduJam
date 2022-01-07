@@ -94,7 +94,7 @@
 
     <string name="title_onboarding_3">Don\'t miss any lectures</string>
     <string name="description_onboarding_3">Watch any missed lecture at any place any time</string>
-    
+
     <string-array name="semesters_list">
         <item>1st</item>
         <item>2nd</item>
