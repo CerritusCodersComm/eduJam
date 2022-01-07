@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.showSnackBar
+import com.example.gdsc_hackathon.utils.NetworkUtils
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Matcher
@@ -68,6 +69,15 @@ class SignUpActivity : AppCompatActivity() {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
             val confirmPassword = confirmPasswordEditText.text.toString().trim()
+
+            if(!NetworkUtils.isNetworkAvailable(this)){
+                showSnackBar(this, "No Internet")
+                registerButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
+                return@setOnClickListener
+            }
 
             if (email.isEmpty()) {
                 emailEditTextLayout.error = "This field is mandatory"

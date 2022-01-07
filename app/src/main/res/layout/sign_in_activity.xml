@@ -94,14 +94,15 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="60dp"
             android:layout_marginEnd="16dp"
-            android:hint="@string/prompt_email"
             app:boxStrokeColor="@color/primary_color">
+<!--            android:hint="@string/prompt_email"-->
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_edit_text"
                 android:layout_width="match_parent"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
+                android:hint="@string/prompt_email"
                 android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -126,6 +127,7 @@
                 android:id="@+id/password_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textColor="@color/black"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>

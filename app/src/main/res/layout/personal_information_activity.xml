@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".activities.PersonalInformationActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,35 +35,39 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="80dp"
-            app:boxStrokeColor="@color/primary_color"
-            android:hint="@string/name">
+            android:layout_marginEnd="16dp"
+            android:hint="@string/name"
+            app:boxStrokeColor="@color/primary_color">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/name_edit_textw"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/usernameLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_below="@+id/nameLayout"
             android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="39dp"
-            app:boxStrokeColor="@color/primary_color"
-            android:hint="@string/username">
+            android:layout_marginEnd="16dp"
+            android:hint="@string/username"
+            app:boxStrokeColor="@color/primary_color">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/username_edit_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,28 +76,31 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Semester"
-            android:orientation="horizontal"
+            android:layout_below="@id/usernameLayout"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="39dp"
-            android:layout_below="@id/usernameLayout">
+            android:layout_marginEnd="16dp"
+            android:hint="@string/semester"
+            android:orientation="horizontal"
+            app:boxStrokeColor="@color/primary_color">
 
-<!--            <Spinner-->
-<!--                android:id="@+id/semester_spinner"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_margin="10dp"-->
-<!--                android:entries="@array/semesters_list"-->
-<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
-<!--                android:hint="@string/semester"-->
-<!--                android:orientation="horizontal"-->
-<!--                />-->
+            <!--            <Spinner-->
+            <!--                android:id="@+id/semester_spinner"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_margin="10dp"-->
+            <!--                android:entries="@array/semesters_list"-->
+            <!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+            <!--                android:hint="@string/semester"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                />-->
             <AutoCompleteTextView
                 android:id="@+id/semester_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="none"/>
+                android:inputType="none"
+                android:background="@android:color/transparent"
+                android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,18 +109,21 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/department"
-            android:orientation="horizontal"
+            android:layout_below="@id/semester_spinner_layout"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="39dp"
-            android:layout_below="@id/semester_spinner_layout">
+            android:layout_marginEnd="16dp"
+            android:hint="@string/department"
+            app:boxStrokeColor="@color/primary_color"
+            android:orientation="horizontal">
 
-        <AutoCompleteTextView
+            <AutoCompleteTextView
                 android:id="@+id/dept_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="none"/>
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:inputType="none" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -121,8 +132,8 @@
             style="@style/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/dept_spinner_layout"
+            android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
             android:layout_marginTop="70dp"
             android:layout_marginEnd="16dp"

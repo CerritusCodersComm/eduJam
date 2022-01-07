@@ -21,6 +21,7 @@ import androidx.appcompat.app.ActionBar
 
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.showSnackBar
+import com.example.gdsc_hackathon.utils.NetworkUtils.isNetworkAvailable
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -99,6 +100,14 @@ class SignInActivity : AppCompatActivity() {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
 
+            if(!isNetworkAvailable(this )){
+                showSnackBar(this, "No Internet")
+                emailLoginButton.stopAnimation(
+                    TransitionButton.StopAnimationStyle.SHAKE,
+                    null
+                )
+                return@setOnClickListener
+            }
             if (email.isEmpty()) {
                 emailEditTextLayout.error = "This field is mandatory"
                 emailLoginButton.stopAnimation(

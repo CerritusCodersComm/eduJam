@@ -71,6 +71,7 @@
         android:id="@+id/replyLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/light_grey"
         android:layout_alignParentBottom="true"
         app:layout_constraintTop_toBottomOf="@id/recycler_view_replies"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,6 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:tint="@color/black"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_baseline_send_24" />
     </RelativeLayout>

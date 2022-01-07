@@ -94,10 +94,11 @@
             android:layout_marginTop="10dp"
             app:boxStrokeColor="@color/primary_color"
             android:layout_below="@+id/orText"
-            android:hint="Email">
+            android:hint="@string/prompt_email">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_edit_text_signup_screen"
                 android:layout_width="match_parent"
+                android:textColor="@color/black"
                 android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -114,12 +115,13 @@
             app:boxStrokeColor="@color/primary_color"
             app:endIconMode="password_toggle"
             app:errorIconDrawable="@null"
-            android:hint="Password">
+            android:hint="@string/prompt_password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_edit_text_signup_screen"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textColor="@color/black"
                 android:inputType="textPassword"/>
 
 
@@ -138,12 +140,13 @@
             app:boxStrokeColor="@color/primary_color"
             app:endIconMode="password_toggle"
             app:errorIconDrawable="@null"
-            android:hint="Confirm password">
+            android:hint="@string/confirm_password">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/confirm_password_edit_text_signup_screen"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textColor="@color/black"
                 android:inputType="textPassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
