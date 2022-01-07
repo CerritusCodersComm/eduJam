@@ -45,7 +45,7 @@ Click to go to youtube
 - SharedPreferences: It is used to persist user login on device.
 - Lottie Animations: A Lottie is a JSON-based animation file format that enables designers to ship animations on any platform as easily as shipping static assets. They are small files that work on any device and can scale up or down without pixelation.
 
-Application Link & Future Scope :
+## Application Link & Future Scope :
 Talking about the usability of the app, you can try out beta version for now from [here](https://github.com/cdhiraj40/eduJam/blob/main/app/release/app-release.apk) or [here](https://drive.google.com/file/d/1reBSs83vkvdV73bD6lNm_oGxRxU8HQ4v/view?usp=sharing).
 
 About the future usage of our app, we plan to make it accessibale to every student in our university. We are also thinking of collaborating with teachers and with neighboring colleges to propose this app idea and collaborate with them. We aim that once students will start using the app, we will be able to make it way better than what it is now. Also we have planned many features for are app so that it can be made more robust and user friendly.
