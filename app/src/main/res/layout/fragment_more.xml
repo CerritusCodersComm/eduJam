@@ -203,6 +203,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:tint="@color/black"
                 android:src="@drawable/ic_academic_calendar_48" />
 
         </RelativeLayout>
@@ -323,7 +324,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="18dp"
-                android:src="@drawable/todo_list_48px" />
+                android:src="@drawable/fmc_icon" />
         </RelativeLayout>
 
         <TextView

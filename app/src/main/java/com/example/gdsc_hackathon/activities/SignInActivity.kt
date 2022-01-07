@@ -20,8 +20,10 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 
 import com.example.gdsc_hackathon.dataModel.Prefs
+import com.example.gdsc_hackathon.extensions.hideKeyboard
 import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.example.gdsc_hackathon.utils.NetworkUtils.isNetworkAvailable
+import com.example.gdsc_hackathon.utils.hideSoftKeyboard
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -91,6 +93,7 @@ class SignInActivity : AppCompatActivity() {
 //        }
 
         emailLoginButton.setOnClickListener {
+            hideSoftKeyboard(this)
             emailEditTextLayout.error = ""
             passwordEditTextLayout.error = ""
             emailLoginButton.startAnimation()
@@ -200,6 +203,20 @@ class SignInActivity : AppCompatActivity() {
                                 )
                             }
                     }
+                    else{
+                        showSnackBar(this, "Something went wrong, please try again")
+                        emailLoginButton.stopAnimation(
+                            TransitionButton.StopAnimationStyle.SHAKE,
+                            null
+                        )
+                    }
+                }
+                .addOnFailureListener {
+                    showSnackBar(this, it.message.toString())
+                    emailLoginButton.stopAnimation(
+                        TransitionButton.StopAnimationStyle.SHAKE,
+                        null
+                    )
                 }
         }
 

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_grey"
     tools:context=".fragments.syllabus.fourth_sem.maths.MathsFragment">
 
 
@@ -18,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:tabTextColor="@color/black"
+            app:tabBackground="@color/light_grey"
             app:tabIndicatorAnimationMode="elastic"
             app:tabGravity="center"
             app:tabMode="scrollable" />

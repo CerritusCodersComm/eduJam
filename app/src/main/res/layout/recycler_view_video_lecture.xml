@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/light_grey">
 
     <ImageView
         android:id="@+id/lectureThumbnail"
@@ -18,6 +19,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="center"
+        android:textColor="@color/black"
         android:text="LECTURE TITLE"
         android:textSize="24sp" />
 
@@ -29,17 +31,19 @@
         android:layout_below="@+id/lectureTitle"
         android:layout_alignStart="@id/lectureTitle"
         android:gravity="center"
+        android:textColor="@color/black"
         android:text="Lurid Nub" />
 
     <TextView
         android:id="@+id/lectureDate"
         style="@style/desc"
-        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lectureTitle"
-        android:layout_toEndOf="@id/lectureTeacher"
         android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/lectureTeacher"
+        android:gravity="center"
+        android:textColor="@color/black"
         android:text="22 DEC, 2021" />
 
     <ImageView

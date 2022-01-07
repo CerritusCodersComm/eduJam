@@ -11,17 +11,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/ic_baseline_video_camera_front_24"/>
+        android:src="@drawable/ic_baseline_video_camera_front_24"
+        app:tint="@color/black" />
 
     <TextView
         android:id="@+id/lectureTitle"
+        style="@style/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/title"
         android:layout_alignStart="@+id/lectureIcon"
         android:layout_marginStart="60dp"
-        android:textSize="24sp"
-        android:text="LECTURE TITLE"/>
+        android:text="LECTURE TITLE"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/lectureDate"
@@ -31,6 +33,7 @@
         android:layout_below="@+id/lectureTitle"
         android:layout_alignStart="@id/lectureTitle"
         android:layout_alignRight="@id/lectureTime"
+        android:textColor="@color/black"
         android:text="22 DEC, 2021"/>
 
     <TextView
@@ -41,6 +44,7 @@
         android:layout_below="@+id/lectureTitle"
         android:layout_alignStart="@+id/lectureDate"
         android:layout_marginStart="160dp"
+        android:textColor="@color/black"
         android:text="TIME: 16:00"/>
 
 

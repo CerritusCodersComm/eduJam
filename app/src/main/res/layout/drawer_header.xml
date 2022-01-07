@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="192dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/design_default_color_primary"
+    android:background="@color/white"
     android:padding="16dp">
     <ImageView
         android:layout_width="0dp"
@@ -12,7 +12,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/edujamicon"
         android:layout_margin="16dp"
         />
 

@@ -13,6 +13,7 @@ import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.example.gdsc_hackathon.utils.NetworkUtils
+import com.example.gdsc_hackathon.utils.hideSoftKeyboard
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Matcher
@@ -65,6 +66,7 @@ class SignUpActivity : AppCompatActivity() {
         registerButton.setOnClickListener {
             // Start the loading animation when the user tap the button
             registerButton.startAnimation()
+            hideSoftKeyboard(this)
             var isSuccessful = false
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
@@ -142,7 +144,7 @@ class SignUpActivity : AppCompatActivity() {
                             TransitionButton.StopAnimationStyle.SHAKE,
                             null
                         )
-                        showSnackBar(this,"Authentication failed. ${task.exception}")
+                        showSnackBar(this,"Authentication failed. ${task.exception?.message}")
 
                     } else {
                         registerButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND

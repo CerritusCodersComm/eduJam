@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.VideoLecturePlayer"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/light_grey"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <androidx.appcompat.widget.Toolbar
