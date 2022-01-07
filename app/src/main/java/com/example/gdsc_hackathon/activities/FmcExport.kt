@@ -500,7 +500,7 @@ class FmcExport : AppCompatActivity() {
     }
 
     private fun createPdf(activity:Activity, fileName:String){
-        val downloadFolder = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString()
+//        val downloadFolder = "getExternalFilesDir(DIRECTORY_DOWNLOADS).toString()"
         PdfGenerator.getBuilder()
             .setContext(activity)
 
@@ -512,7 +512,7 @@ class FmcExport : AppCompatActivity() {
 
             .setFileName(fileName) /* It is file name **/
 
-            .setFolderName(downloadFolder)
+//            .setFolderName(downloadFolder)
 
             .openPDFafterGeneration(true)
             /* It true then the generated pdf will be shown after generated. */
@@ -530,7 +530,7 @@ class FmcExport : AppCompatActivity() {
 
                 override fun onFinishPDFGeneration() {
                     Log.d("FMC EXPORTING", "Pdf creation finished")
-                    showSnackBar(activity, "your PDF has been created in ${Environment.DIRECTORY_DOWNLOADS} Folder")
+                    showSnackBar(activity, "your PDF has been created")
                 }
 
                 override fun showLog(log: String) {
