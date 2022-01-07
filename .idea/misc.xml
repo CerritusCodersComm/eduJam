@@ -72,6 +72,7 @@
         <entry key="app/src/main/res/layout/activity_on_board.xml" value="0.21348314606741572" />
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_onboarding_finish.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.2755208333333333" />
         <entry key="app/src/main/res/layout/activity_to_do_list.xml" value="0.213768115942029" />
         <entry key="app/src/main/res/layout/activity_todo_list.xml" value="0.213768115942029" />
         <entry key="app/src/main/res/layout/blank_fragment.xml" value="0.1125" />
@@ -86,6 +87,7 @@
         <entry key="app/src/main/res/layout/fragment.xml" value="0.11639492753623189" />
         <entry key="app/src/main/res/layout/fragment_2.xml" value="0.4251101321585903" />
         <entry key="app/src/main/res/layout/fragment_3.xml" value="0.20052083333333334" />
+        <entry key="app/src/main/res/layout/fragment_about_us.xml" value="0.2755208333333333" />
         <entry key="app/src/main/res/layout/fragment_academic_calendar.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_add_to_do.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.20364583333333333" />
@@ -111,6 +113,7 @@
         <entry key="app/src/main/res/layout/fragment_design_analysis_of_algorithms_module_three.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_design_analysis_of_algorithms_module_two.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_design_analysis_of_algorithms_practicals.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_feedback.xml" value="0.2755208333333333" />
         <entry key="app/src/main/res/layout/fragment_forum.xml" value="0.4947916666666667" />
         <entry key="app/src/main/res/layout/fragment_holidays.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12962962962962962" />
@@ -170,6 +173,7 @@
         <entry key="app/src/main/res/layout/sign_in_activity.xml" value="0.33" />
         <entry key="app/src/main/res/layout/sign_up_activity.xml" value="0.30303030303030304" />
         <entry key="app/src/main/res/layout/simple_list_item_1.xml" value="0.16875" />
+        <entry key="app/src/main/res/layout/single_profile.xml" value="0.2755208333333333" />
         <entry key="app/src/main/res/layout/single_to_do_item.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/slides_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/tab_2.xml" value="0.1" />
