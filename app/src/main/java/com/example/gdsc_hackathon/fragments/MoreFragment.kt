@@ -75,8 +75,6 @@ class MoreFragment : Fragment() {
 
         todolistLayout = rootView.findViewById(R.id.todolist_layout)
         todolistLayout.setOnClickListener {
-//            val intent = Intent(activity, TodoActivity::class.java)
-//            startActivity(intent)
             rootView.findNavController().navigate(R.id.todoListFragment)
         }
 
