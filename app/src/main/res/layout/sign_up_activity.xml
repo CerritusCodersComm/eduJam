@@ -39,6 +39,7 @@
             android:text="Please Create an account using the correct data"
             android:textAppearance="@style/desc"
             android:translationY="-3.8sp" />
+
         <RelativeLayout
             android:id="@+id/signup_with_google_signup_screen"
             android:layout_width="match_parent"
@@ -47,6 +48,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
+            android:visibility="gone"
             android:background="@drawable/rounded_background_border">
 
             <ImageView
@@ -78,6 +80,7 @@
             android:textColor="@color/grey"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:visibility="gone"
             android:translationY="-3.8sp" />
 
         <com.google.android.material.textfield.TextInputLayout

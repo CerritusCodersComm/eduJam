@@ -32,7 +32,7 @@ import com.royrodriguez.transitionbutton.TransitionButton
 
 
 class SignInActivity : AppCompatActivity() {
-    private lateinit var googleLoginButton: RelativeLayout
+//    private lateinit var googleLoginButton: RelativeLayout
     private lateinit var emailLoginButton: TransitionButton
     private lateinit var registerButton: TransitionButton
     private lateinit var passwordEditText: EditText
@@ -57,7 +57,7 @@ class SignInActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         registerButton = findViewById(R.id.register)
-        googleLoginButton = findViewById(R.id.google_sign_in_layout)
+//        googleLoginButton = findViewById(R.id.google_sign_in_layout)
         emailLoginButton = findViewById(R.id.signin_with_email_button)
         emailEditText = findViewById(R.id.email_edit_text)
         passwordEditText = findViewById(R.id.password_edit_text)
@@ -85,9 +85,9 @@ class SignInActivity : AppCompatActivity() {
             }, 500)
         }
 
-        googleLoginButton.setOnClickListener {
-            signInWithGoogle()
-        }
+//        googleLoginButton.setOnClickListener {
+//            signInWithGoogle()
+//        }
 
         emailLoginButton.setOnClickListener {
             emailEditTextLayout.error = ""

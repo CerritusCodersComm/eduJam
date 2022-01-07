@@ -48,6 +48,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
+            android:visibility="gone"
             android:background="@drawable/rounded_background_border">
 
             <ImageView
@@ -61,8 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textColor="@color/black"
                 android:text="@string/log_in_with_google"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </RelativeLayout>
@@ -80,6 +81,7 @@
             android:textColor="@color/grey"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:visibility="gone"
             android:translationY="-3.8sp" />
 
         <com.google.android.material.textfield.TextInputLayout

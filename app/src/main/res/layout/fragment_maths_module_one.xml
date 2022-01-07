@@ -17,20 +17,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
+
             <TextView
                 android:id="@+id/moduleOneTitle"
+                style="@style/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textStyle="bold"
-                style="@style/title"
                 android:layout_marginEnd="50dp"
-                android:text="@string/fourth_sem_maths_module_one" />
+                android:gravity="center"
+                android:text="@string/fourth_sem_maths_module_one"
+                android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignEnd="@id/moduleOneTitle"
+                android:visibility="gone"
                 android:src="@drawable/ic_baseline_download_24" />
 
         </RelativeLayout>

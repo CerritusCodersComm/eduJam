@@ -128,7 +128,11 @@ class SignUpActivity : AppCompatActivity() {
                     showSnackBar(this,"User Creation Successful!")
                     if (!task.isSuccessful) {
                         isSuccessful=false
-                        showSnackBar(this,"Authentication failed.")
+                        registerButton.stopAnimation(
+                            TransitionButton.StopAnimationStyle.SHAKE,
+                            null
+                        )
+                        showSnackBar(this,"Authentication failed. ${task.exception}")
 
                     } else {
                         registerButton.stopAnimation(TransitionButton.StopAnimationStyle.EXPAND
