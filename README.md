@@ -21,6 +21,11 @@ One of the challenges we face every day is to find lecture notes to study from, 
 
 This project "eduJam" proposes “one-stop for all university needs” to keep track of the college activities and student's learning and provides all the information about all of the syllabus, and timing of lectures, the one app where you have everything college related. It's features include having content like recorded lectures, notes, and modules, amd a very simple and automated FillMyCycle feature. It accepts student data allowing them to register to the application. This application has forums which allows the students to communicate with each other and collaborate or solve each others doubts extremely fast. Currently the app works for 2024 batch TCET students only. The project's scope is to extend it for other year batch students to allow for wider use and more universal appeal
 
+### Screenshots
+
+### Demo Video
+[![Everything Is AWESOME](http://i.imgur.com/Ot5DWAW.png)](https://youtu.be/StTqXEQ2l-Y?t=35s "Everything Is AWESOME")
+
 ## Functionality & Concepts used
 
 - The App has a very simple and interactive interface which helps the students in checking syllabus, notes, recent lectures etc. Following are few android concepts used to achieve the functionalities in app :
@@ -39,5 +44,9 @@ This project "eduJam" proposes “one-stop for all university needs” to keep t
 - Lottie Animations: A Lottie is a JSON-based animation file format that enables designers to ship animations on any platform as easily as shipping static assets. They are small files that work on any device and can scale up or down without pixelation.
 
 Application Link & Future Scope :
+Talking about the usability of the app, you can try out beta version for now from [here](https://github.com/cdhiraj40/eduJam/blob/main/app/release/app-release.apk) or here(https://drive.google.com/file/d/1reBSs83vkvdV73bD6lNm_oGxRxU8HQ4v/view?usp=sharing).
+
+About the future usage of our app, we plan to make it accessibale to every student in our university. We are also thinking of collaborating with teachers and with neighboring colleges to propose this app idea and collaborate with them. We aim that once students will start using the app, we will be able to make it way better than what it is now. Also we have planned many features for are app so that it can be made more robust and user friendly.
+
 
 
