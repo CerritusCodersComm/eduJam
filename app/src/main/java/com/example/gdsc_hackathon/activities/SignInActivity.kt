@@ -212,6 +212,7 @@ class SignInActivity : AppCompatActivity() {
                                 prefs.name = doc.getString("name").toString()
                                 prefs.uid = doc.getString("uid").toString()
                                 prefs.status = 1
+                                prefs.forumAlert = -1
                                 emailLoginButton.stopAnimation(
                                     TransitionButton.StopAnimationStyle.EXPAND
                                 )

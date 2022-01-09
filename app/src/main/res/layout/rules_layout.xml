@@ -20,17 +20,21 @@
                 android:fontFamily="@font/poppins"
                 android:textSize="16sp"
                 android:text="@string/rules_and_regulation"/>
-            <TextView
-                android:id="@+id/rulesContent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                style="@style/desc"
-                android:layout_margin="10dp"
-                android:layout_below="@id/rulesTitle"
-                android:textStyle="bold"
-                android:fontFamily="@font/poppins"
-                android:textSize="16sp"
-                android:text="@string/rules"/>
+
+        <TextView
+            android:id="@+id/rulesContent"
+            style="@style/desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rulesTitle"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/rules"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
 <!--        </com.google.android.material.card.MaterialCardView>-->
 

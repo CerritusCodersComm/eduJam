@@ -1,5 +1,7 @@
 package com.example.gdsc_hackathon.fragments
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +16,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
+import com.example.gdsc_hackathon.activities.MainActivity
 import com.example.gdsc_hackathon.adapters.QuestionAdapter
+import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.dataModel.Question
 import com.example.gdsc_hackathon.extensions.closeKeyboard
 import com.example.gdsc_hackathon.extensions.showSnackBar
@@ -39,6 +43,7 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
     private lateinit var questionAskLayout : RelativeLayout
     private lateinit var forumLayout : RelativeLayout
 
+    @SuppressLint("ResourceType")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,8 +54,26 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
         recyclerView= rootView.findViewById(R.id.recycler_view_questions)
         questionAskLayout= rootView.findViewById(R.id.questionAskLayout)
         forumLayout= rootView.findViewById(R.id.forumLayout)
+        val alertLayout: View = inflater.inflate(R.layout.rules_layout, container, false)
 
         forumLayout.closeKeyboard()
+
+        val prefs = Prefs(rootView.context)
+        if(prefs.forumAlert == -1){
+            val alert: AlertDialog.Builder = AlertDialog.Builder(rootView.context)
+            alert.setTitle("Rules")
+            alert.setView(alertLayout)
+            alert.setNegativeButton("Cancel") { dialog, which ->
+                rootView.findNavController().navigate(R.id.action_forumFragment_to_homeFragment)
+            }
+            alert.setPositiveButton("I Accept") { dialog, which ->
+                showSnackBar(this.requireActivity(), "Welcome to Forum")
+                prefs.forumAlert = 1
+            }
+            alert.setCancelable(false)
+            val dialog: AlertDialog = alert.create()
+            dialog.show()
+        }
 
         setUpRecyclerView(rootView)
         buttonAsk.setOnClickListener {
