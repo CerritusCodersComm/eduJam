@@ -1,5 +1,6 @@
 package com.example.gdsc_hackathon.activities
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -10,12 +11,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.showSnackBar
+import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -187,18 +191,30 @@ class PersonalInformationActivity : AppCompatActivity() {
                                 .addOnCompleteListener {
                                     if (it.isSuccessful) {
                                         Log.w("LOOK", "USER CREATED ON FIREBASE")
-                                        mAuth.signInWithEmailAndPassword(email, password)
-                                        getStartedButton.stopAnimation(
-                                            TransitionButton.StopAnimationStyle.EXPAND)
-                                        {
-                                            showSnackBar(this, "Registration Successful!")
-                                            startActivity(
-                                                Intent(
-                                                    applicationContext,
-                                                    MainActivity::class.java
+                                        user.sendEmailVerification().addOnCompleteListener {
+
+//                                            showSnackBarWithAction(
+//                                                this,
+//                                                "Email verification send, Open Email", R.string.openEmail){
+//                                                    val intent = Intent(Intent.ACTION_MAIN)
+//                                                    intent.addCategory(Intent.CATEGORY_APP_EMAIL)
+//                                                    startActivity(intent)
+//                                            }
+                                            showSnackBar(this, "Email verification link send")
+                                            getStartedButton.stopAnimation(
+                                                TransitionButton.StopAnimationStyle.EXPAND)
+                                            {
+                                                showSnackBar(this, "Registration Successful!")
+                                                startActivity(
+                                                    Intent(
+                                                        applicationContext,
+                                                        SignInActivity::class.java
+                                                    )
                                                 )
-                                            )
-                                            finish()
+                                                finish()
+                                            }
+                                        }.addOnFailureListener {
+                                            Log.e("error", it.toString())
                                         }
                                     }
                                     else {
