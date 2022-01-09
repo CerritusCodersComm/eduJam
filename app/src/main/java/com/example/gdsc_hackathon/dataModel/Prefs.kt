@@ -31,6 +31,10 @@ class Prefs (context: Context) {
         get()= preferences.getString("email", "anamansari062@gmail.com")
         set(value) = preferences.edit().putString("email", value).apply()
 
+    var forumAlert: Int
+        get()= preferences.getInt("forumAlert", -1)
+        set(value)= preferences.edit().putInt("forumAlert", value).apply()
+
     var onBoardingShownStatus: Int
         get() = preferences.getInt("onBoardingShownStatus", -1)
         set(value) = preferences.edit().putInt("onBoardingShownStatus", value).apply()
