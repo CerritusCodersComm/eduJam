@@ -64,6 +64,7 @@ class ForumFragment : Fragment(R.layout.fragment_forum) {
             alert.setTitle("Rules")
             alert.setView(alertLayout)
             alert.setNegativeButton("Cancel") { dialog, which ->
+                showSnackBar(this.requireActivity(), "You cannot use Forum without accepting these terms")
                 rootView.findNavController().navigate(R.id.action_forumFragment_to_homeFragment)
             }
             alert.setPositiveButton("I Accept") { dialog, which ->

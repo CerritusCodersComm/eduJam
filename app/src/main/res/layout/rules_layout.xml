@@ -36,6 +36,12 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/rulesContent"
+        android:elevation="3dp" />
+
 <!--        </com.google.android.material.card.MaterialCardView>-->
 
     </RelativeLayout>
