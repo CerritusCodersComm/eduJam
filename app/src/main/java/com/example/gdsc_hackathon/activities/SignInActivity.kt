@@ -21,6 +21,7 @@ import androidx.appcompat.app.ActionBar
 
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.hideKeyboard
+import com.example.gdsc_hackathon.extensions.openEmailApp
 import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
 import com.example.gdsc_hackathon.utils.NetworkUtils.isNetworkAvailable
@@ -33,7 +34,6 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.GoogleAuthProvider
 import com.royrodriguez.transitionbutton.TransitionButton
-
 
 class SignInActivity : AppCompatActivity() {
 //    private lateinit var googleLoginButton: RelativeLayout
@@ -70,6 +70,22 @@ class SignInActivity : AppCompatActivity() {
         emailEditTextLayout = findViewById(R.id.emailLayoutSignInScreen)
         passwordEditTextLayout = findViewById(R.id.passwordLayoutSignInScreen)
 
+
+        // get data if redirected from personal information activity
+        var verifyTag:String = ""
+        val bundle = intent.extras
+        if (bundle != null){
+            verifyTag = bundle.getString("activity").toString()
+        }
+        // show snackbar to open email client apps for verifying mail
+        if (verifyTag == "fromPersonalInformationActivity")
+        {
+            showSnackBarWithAction(
+                this,
+                "Email verification has been sent", R.string.open_email){
+                openEmailApp(this, this@SignInActivity)
+            }
+        }
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -167,14 +183,12 @@ class SignInActivity : AppCompatActivity() {
                                 TransitionButton.StopAnimationStyle.SHAKE,
                                 null
                             )
+                            showSnackBarWithAction(
+                                this,
+                                "Email verification has been sent", R.string.open_email){
+                                openEmailApp(this, this@SignInActivity)
+                            }
                             mAuth.signOut()
-//                            showSnackBarWithAction(
-//                                this,
-//                                "Open Email", R.string.openEmail){
-//                                val intent = Intent(Intent.ACTION_ALL_APPS)
-//                                intent.addCategory(Intent.CATEGORY_APP_EMAIL)
-//                                startActivity(intent)
-//                            }
                             return@addOnCompleteListener
                         }
                         Firebase.firestore.collection("users").document(user!!.uid).get()

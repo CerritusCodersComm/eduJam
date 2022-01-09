@@ -6,53 +6,96 @@
     android:layout_height="wrap_content"
     app:layout_constraintEnd_toEndOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
 
         <TextView
-        android:id="@+id/text_view_reply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:ellipsize="end"
-        android:text="Reply"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:id="@+id/text_view_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:layout_toStartOf="@id/text_view_current_date"
+            android:ellipsize="end"
+            android:text="Reply"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <ImageButton
-        android:id="@+id/fab_delete_reply"
-        android:layout_width="31dp"
-        android:layout_height="29dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:visibility="gone"
-        android:clickable="true"
-        android:background="@android:color/transparent"
-        app:srcCompat="@drawable/ic_delete" />
+            android:id="@+id/fab_delete_reply"
+            android:layout_width="31dp"
+            android:layout_height="29dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:clickable="true"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/ic_delete" />
 
         <TextView
-        android:id="@+id/text_view_current_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/fab_delete_reply"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_alignLeft="@+id/text_view_username"
-        android:text="Date" />
+            android:id="@+id/text_view_current_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_reply"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:text="Date"
+            android:background="@android:color/transparent"/>
 
         <TextView
-        android:id="@+id/text_view_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_reply"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_alignParentStart="true"
-        android:text="Username" />
+            android:id="@+id/text_view_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_reply"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="16dp"
+            android:text="Username"
+            android:background="@android:color/transparent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+<!--        <TextView-->
+<!--        android:id="@+id/text_view_reply"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:ellipsize="end"-->
+<!--        android:layout_toStartOf="@id/text_view_current_date"-->
+<!--        android:text="Reply"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+<!--        <ImageButton-->
+<!--        android:id="@+id/fab_delete_reply"-->
+<!--        android:layout_width="31dp"-->
+<!--        android:layout_height="29dp"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_marginTop="1dp"-->
+<!--        android:layout_marginEnd="1dp"-->
+<!--        android:visibility="gone"-->
+<!--        android:clickable="true"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        app:srcCompat="@drawable/ic_delete" />-->
+
+<!--        <TextView-->
+<!--        android:id="@+id/text_view_current_date"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/fab_delete_reply"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        android:layout_alignLeft="@+id/text_view_username"-->
+<!--        android:text="Date" />-->
+
+<!--        <TextView-->
+<!--        android:id="@+id/text_view_username"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/text_view_reply"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:text="Username" />-->
+
 </androidx.cardview.widget.CardView>

@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.Prefs
+import com.example.gdsc_hackathon.extensions.openEmailApp
 import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -188,19 +189,20 @@ class PersonalInformationActivity : AppCompatActivity() {
 
                             Firebase.firestore.collection("users").document(user.uid)
                                 .set(usr)
-                                .addOnCompleteListener {
+                                .addOnCompleteListener { it ->
                                     if (it.isSuccessful) {
                                         Log.w("LOOK", "USER CREATED ON FIREBASE")
                                         user.sendEmailVerification().addOnCompleteListener {
 
-//                                            showSnackBarWithAction(
-//                                                this,
-//                                                "Email verification send, Open Email", R.string.openEmail){
+                                            showSnackBarWithAction(
+                                                this,
+                                                "Email verification has been sent", R.string.open_email){
+                                                openEmailApp(this, this@PersonalInformationActivity)
 //                                                    val intent = Intent(Intent.ACTION_MAIN)
 //                                                    intent.addCategory(Intent.CATEGORY_APP_EMAIL)
 //                                                    startActivity(intent)
-//                                            }
-                                            showSnackBar(this, "Email verification link send")
+                                            }
+//                                            showSnackBar(this, "Email verification link send")
                                             getStartedButton.stopAnimation(
                                                 TransitionButton.StopAnimationStyle.EXPAND)
                                             {
@@ -209,7 +211,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                                                     Intent(
                                                         applicationContext,
                                                         SignInActivity::class.java
-                                                    )
+                                                    ).putExtra("activity","fromPersonalInformationActivity")
                                                 )
                                                 finish()
                                             }
@@ -337,5 +339,4 @@ class PersonalInformationActivity : AppCompatActivity() {
                 }
             }
     }
-
 }
