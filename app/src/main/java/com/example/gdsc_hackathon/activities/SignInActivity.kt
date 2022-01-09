@@ -22,6 +22,7 @@ import androidx.appcompat.app.ActionBar
 import com.example.gdsc_hackathon.dataModel.Prefs
 import com.example.gdsc_hackathon.extensions.hideKeyboard
 import com.example.gdsc_hackathon.extensions.showSnackBar
+import com.example.gdsc_hackathon.extensions.showSnackBarWithAction
 import com.example.gdsc_hackathon.utils.NetworkUtils.isNetworkAvailable
 import com.example.gdsc_hackathon.utils.hideSoftKeyboard
 
@@ -160,6 +161,22 @@ class SignInActivity : AppCompatActivity() {
                 .addOnCompleteListener { it ->
                     if (it.isSuccessful) {
                         val user = FirebaseAuth.getInstance().currentUser
+                        if(!user!!.isEmailVerified){
+                            emailEditTextLayout.error = "Please verify the email"
+                            emailLoginButton.stopAnimation(
+                                TransitionButton.StopAnimationStyle.SHAKE,
+                                null
+                            )
+                            mAuth.signOut()
+//                            showSnackBarWithAction(
+//                                this,
+//                                "Open Email", R.string.openEmail){
+//                                val intent = Intent(Intent.ACTION_ALL_APPS)
+//                                intent.addCategory(Intent.CATEGORY_APP_EMAIL)
+//                                startActivity(intent)
+//                            }
+                            return@addOnCompleteListener
+                        }
                         Firebase.firestore.collection("users").document(user!!.uid).get()
                             .addOnCompleteListener { task ->
                                 val doc = task.result

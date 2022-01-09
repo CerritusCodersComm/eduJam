@@ -134,4 +134,7 @@
     <string name="give_us_a_feedback">Give us a feedback</string>
     <string name="confirm_password">Confirm password</string>
 
+    //Register
+    <string name="openEmail">Open Email</string>
+
 </resources>
