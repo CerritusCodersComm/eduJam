@@ -179,13 +179,13 @@ class PersonalInformationActivity : AppCompatActivity() {
                                 "questionsReplied" to 0
                             )
 
-                            val prefs = Prefs(applicationContext)
-                            prefs.username = userName
-                            prefs.email = user.email
-                            prefs.department = department
-                            prefs.name = name
-                            prefs.uid = user.uid
-                            prefs.status = 1
+//                            val prefs = Prefs(applicationContext)
+//                            prefs.username = userName
+//                            prefs.email = user.email
+//                            prefs.department = department
+//                            prefs.name = name
+//                            prefs.uid = user.uid
+//                            prefs.status = 1
 
                             Firebase.firestore.collection("users").document(user.uid)
                                 .set(usr)
@@ -207,6 +207,7 @@ class PersonalInformationActivity : AppCompatActivity() {
                                                 TransitionButton.StopAnimationStyle.EXPAND)
                                             {
                                                 showSnackBar(this, "Registration Successful!")
+                                                mAuth.signOut()
                                                 startActivity(
                                                     Intent(
                                                         applicationContext,
