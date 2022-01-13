@@ -1,8 +1,5 @@
 <h1 align="center">eduJam - Your one-stop to any university work</h1>
 
- 
-### This app was made under AndroidBuzz-TCET-Hackathon
-
 <img src ="app/src/main/res/drawable/edujamicon.png" align="left"
 width="200" hspace="10" vspace="10">
 
