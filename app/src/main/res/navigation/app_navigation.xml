@@ -11,6 +11,11 @@
         android:label="Home"
         tools:layout="@layout/fragment_home"/>
     <fragment
+        android:id="@+id/moduleFragment"
+        android:name="com.example.gdsc_hackathon.fragments.ModuleFragment"
+        android:label="Modules"
+        tools:layout="@layout/fragment_module"/>
+    <fragment
         android:id="@+id/forumFragment"
         android:name="com.example.gdsc_hackathon.fragments.ForumFragment"
         android:label="Forum"
