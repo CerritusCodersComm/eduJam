@@ -11,6 +11,11 @@
         android:label="Home"
         tools:layout="@layout/fragment_home"/>
     <fragment
+        android:id="@+id/moduleFragment"
+        android:name="com.example.gdsc_hackathon.fragments.ModuleFragment"
+        android:label="Modules"
+        tools:layout="@layout/fragment_module"/>
+    <fragment
         android:id="@+id/forumFragment"
         android:name="com.example.gdsc_hackathon.fragments.ForumFragment"
         android:label="Forum"
@@ -46,7 +51,17 @@
         android:id="@+id/syllabusFragment"
         android:name="com.example.gdsc_hackathon.fragments.syllabus.SyllabusFragment"
         android:label="Syllabus"
-        tools:layout="@layout/fragment_syllabus" />
+        tools:layout="@layout/fragment_syllabus">
+    <action
+        android:id="@+id/action_syllabus_fragment_to_module_fragment"
+        app:destination="@id/moduleFragment" />
+
+        <argument
+            android:name="subjectName"
+            app:argType="string"
+            android:defaultValue="null" />
+
+    </fragment>
     <fragment
         android:id="@+id/weeklyTimeTableFragment"
         android:name="com.example.gdsc_hackathon.fragments.weeklyTimeTable.WeeklyTimeTableFragment"

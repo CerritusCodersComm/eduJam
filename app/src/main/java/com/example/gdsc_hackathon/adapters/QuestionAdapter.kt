@@ -31,8 +31,6 @@ import java.util.*
 class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRecyclerAdapter<Question, QuestionAdapter.QuestionHolder>(options) {
     private var listener: OnItemClickListener? = null
 
-
-
     override fun onBindViewHolder(holder: QuestionHolder, position: Int, model: Question) {
         holder.textViewQuestion.text = model.question
         if(holder.date == model.date)
