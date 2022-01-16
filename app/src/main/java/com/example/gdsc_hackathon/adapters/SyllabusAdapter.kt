@@ -17,11 +17,11 @@ import com.google.android.material.button.MaterialButton
 
 class SyllabusAdapter(options: FirestoreRecyclerOptions<Syllabus>) :
     FirestoreRecyclerAdapter<Syllabus, SyllabusAdapter.SyllabusHolder>(options) {
-    private var listener: SyllabusAdapter.OnItemClickListener? = null
+    private var listener: OnItemClickListener? = null
 
     override fun onBindViewHolder(holder: SyllabusHolder, position: Int, model: Syllabus) {
         holder.textViewSubject.text = model.subjectName
-        if(model.subjectName.equals("Applied Mathematics 4"))
+        if(model.subjectName == "Applied Mathematics 4")
             holder.buttonTutorials.text = "Checkout Tutorials"
         holder.layout.setOnClickListener {
             if (holder.buttonModules.visibility == View.VISIBLE && holder.buttonTutorials.visibility == View.VISIBLE) {

@@ -15,7 +15,7 @@ import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
-class ModuleAdapter(options: FirestoreRecyclerOptions<Module>) :
+class ModuleAdapter(options: FirestoreRecyclerOptions<Module>, private val subjectName:String) :
     FirestoreRecyclerAdapter<Module, ModuleAdapter.ModuleHolder>(options) {
     val ref = FirebaseFirestore.getInstance().collection("Syllabus")
 
@@ -30,9 +30,12 @@ class ModuleAdapter(options: FirestoreRecyclerOptions<Module>) :
     override fun onBindViewHolder(holder: ModuleHolder, position: Int, model: Module) {
         holder.textViewTopic.text = model.moduleName
         holder.module = "module$position"
-        val query = ref.document("SEM4").collection("COMP").document("M4").collection("Modules").document(snapshots.getSnapshot(position).id).collection("topics").orderBy(
-            FieldPath.documentId(), Query.Direction.ASCENDING)
-        val options = FirestoreRecyclerOptions.Builder<Topic>().setQuery(query, Topic::class.java).build()
+        val query = ref.document("SEM4").collection("COMP").document(subjectName).collection("Modules")
+            .document(snapshots.getSnapshot(position).id).collection("Topics").orderBy(
+                FieldPath.documentId(), Query.Direction.ASCENDING
+            )
+        val options =
+            FirestoreRecyclerOptions.Builder<Topic>().setQuery(query, Topic::class.java).build()
         holder.adapter = TopicAdapter(options)
         holder.recyclerViewTopic.layoutManager = LinearLayoutManager(holder.itemView.context)
         holder.recyclerViewTopic.adapter = holder.adapter
@@ -40,10 +43,10 @@ class ModuleAdapter(options: FirestoreRecyclerOptions<Module>) :
     }
 
     class ModuleHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var textViewTopic : TextView = itemView.findViewById(R.id.text_view_module)
-        var recyclerViewTopic : RecyclerView = itemView.findViewById(R.id.recycler_view_topic)
-        lateinit var adapter : TopicAdapter
-        lateinit var module : String
+        var textViewTopic: TextView = itemView.findViewById(R.id.text_view_module)
+        var recyclerViewTopic: RecyclerView = itemView.findViewById(R.id.recycler_view_topic)
+        lateinit var adapter: TopicAdapter
+        lateinit var module: String
     }
 
 }

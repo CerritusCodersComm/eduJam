@@ -19,7 +19,7 @@ class ModuleFragment : Fragment() {
     private lateinit var viewPager : ViewPager2
     private lateinit var adapter : ModuleAdapter
     private lateinit var tabLayout : TabLayout
-    var reference = FirebaseFirestore.getInstance().collection("Syllabus").document("SEM4").collection("COMP")
+    private var reference = FirebaseFirestore.getInstance().collection("Syllabus").document("SEM4").collection("COMP")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,9 +28,13 @@ class ModuleFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView =  inflater.inflate(R.layout.fragment_module, container, false)
         viewPager = rootView.findViewById(R.id.tabViewpager)
-        val query = reference.document("M4").collection("Modules").orderBy(FieldPath.documentId(), Query.Direction.ASCENDING)
+
+        val bundle = arguments
+        val subjectName = bundle?.getString("subjectName").toString()
+
+        val query = reference.document(subjectName).collection("Modules").orderBy(FieldPath.documentId(), Query.Direction.ASCENDING)
         val options = FirestoreRecyclerOptions.Builder<Module>().setQuery(query, Module::class.java).build()
-        adapter = ModuleAdapter(options)
+        adapter = ModuleAdapter(options,subjectName)
         viewPager.adapter = adapter
         return rootView
     }

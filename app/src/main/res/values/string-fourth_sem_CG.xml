@@ -15,7 +15,7 @@
     <string name="fourth_sem_computer_graphics_module_two_topic_three_title">Digital Differential Analyzer</string>
     <string name="fourth_sem_computer_graphics_module_two_topic_four_title">Bresenhem Line Drawing</string>
     <string name="fourth_sem_computer_graphics_module_two_topic_five_title">Bresenhem and midpoint Circle Drawing algorithm</string>
-    <string name="fourth_sem_computer_graphics_module_two_topic_six_title">Midpoint Ellipse drawing algorithm  </string>
+    <string name="fourth_sem_computer_graphics_module_two_topic_six_title">Midpoint Ellipse drawing algorithm</string>
     <string name="fourth_sem_computer_graphics_module_two_topic_seven_title">Aliasing</string>
     <string name="fourth_sem_computer_graphics_module_two_topic_eight_title">Antialiasing techniques </string>
     <string name="fourth_sem_computer_graphics_module_two_topic_nine_title">Filled area primitives: Inside-outside test, boundary and flood-fill, scan-line fill</string>
@@ -24,10 +24,9 @@
     <string name="fourth_sem_computer_graphics_module_three">2D Geometric Transformation</string>
     <string name="fourth_sem_computer_graphics_module_three_topic_one_title">Homogenous coordinates</string>
     <string name="fourth_sem_computer_graphics_module_three_topic_two_title">Translation</string>
-    <string name="fourth_sem_computer_graphics_module_three_topic_three_title">Scaling, fixed point scaling,</string>
-    <string name="fourth_sem_computer_graphics_module_three_topic_four_title">Rotation, rotation about arbitrary point</string>
-    <string name="fourth_sem_computer_graphics_module_three_topic_five_title">Shearing, Reflection</string>
-    <string name="fourth_sem_computer_graphics_module_three_topic_six_title">Composite transformations</string>
+    <string name="fourth_sem_computer_graphics_module_three_topic_three_title">Scaling, fixed point scaling,Rotation, rotation about arbitrary point</string>
+    <string name="fourth_sem_computer_graphics_module_three_topic_four_title">Shearing, Reflection</string>
+    <string name="fourth_sem_computer_graphics_module_three_topic_five_title">Composite transformations</string>
 
     Module 4
     <string name="fourth_sem_computer_graphics_module_four">Viewing and Clipping</string>
