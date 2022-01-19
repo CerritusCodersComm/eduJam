@@ -9,12 +9,12 @@
         android:id="@+id/homeFragment"
         android:name="com.example.gdsc_hackathon.fragments.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/moduleFragment"
         android:name="com.example.gdsc_hackathon.fragments.ModuleFragment"
         android:label="Modules"
-        tools:layout="@layout/fragment_module"/>
+        tools:layout="@layout/fragment_module" />
     <fragment
         android:id="@+id/forumFragment"
         android:name="com.example.gdsc_hackathon.fragments.ForumFragment"
@@ -29,8 +29,8 @@
             app:popExitAnim="@anim/slide_out_left">
             <argument
                 android:name="id"
-                app:argType="string"
-                android:defaultValue="0" />
+                android:defaultValue="0"
+                app:argType="string" />
         </action>
         <action
             android:id="@+id/action_forumFragment_to_homeFragment"
@@ -46,22 +46,31 @@
         android:id="@+id/profileFragment"
         android:name="com.example.gdsc_hackathon.fragments.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile"/>
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/syllabusFragment"
         android:name="com.example.gdsc_hackathon.fragments.syllabus.SyllabusFragment"
         android:label="Syllabus"
         tools:layout="@layout/fragment_syllabus">
-    <action
-        android:id="@+id/action_syllabus_fragment_to_module_fragment"
-        app:destination="@id/moduleFragment" />
+        <action
+            android:id="@+id/action_syllabus_fragment_to_module_fragment"
+            app:destination="@id/moduleFragment" />
+        <action
+            android:id="@+id/action_syllabus_fragment_to_module_fragment_layout"
+            app:destination="@id/moduleFragmentLayout" />
 
         <argument
             android:name="subjectName"
-            app:argType="string"
-            android:defaultValue="null" />
+            android:defaultValue="null"
+            app:argType="string" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/moduleFragmentLayout"
+        android:name="com.example.gdsc_hackathon.fragments.ModuleFragmentLayout"
+        android:label="Practicals"
+        tools:layout="@layout/fragment_module_layout" />
     <fragment
         android:id="@+id/weeklyTimeTableFragment"
         android:name="com.example.gdsc_hackathon.fragments.weeklyTimeTable.WeeklyTimeTableFragment"
@@ -116,10 +125,10 @@
         android:id="@+id/todoListFragment"
         android:name="com.example.gdsc_hackathon.fragments.TodoListFragment"
         android:label="To-Do List"
-        tools:layout="@layout/fragment_todo_list" >
+        tools:layout="@layout/fragment_todo_list">
         <action
             android:id="@+id/action_todoListFragment_to_toDoDetailFragment"
-            app:destination="@id/fragmentToDoDetails" >
+            app:destination="@id/fragmentToDoDetails">
 
         </action>
         <action
@@ -131,7 +140,7 @@
         android:id="@+id/fragmentToDoDetails"
         android:name="com.example.gdsc_hackathon.fragments.ToDoDetailFragment"
         android:label="To-Do List"
-        tools:layout="@layout/fragment_to_do_detail" >
+        tools:layout="@layout/fragment_to_do_detail">
         <argument
             android:name="to_do_id"
             app:argType="integer" />
@@ -143,7 +152,7 @@
         android:id="@+id/addToDoFragment"
         android:name="com.example.gdsc_hackathon.fragments.AddToDoFragment"
         android:label="{title}"
-        tools:layout="@layout/fragment_add_to_do" >
+        tools:layout="@layout/fragment_add_to_do">
         <argument
             android:name="title"
             app:argType="string" />
