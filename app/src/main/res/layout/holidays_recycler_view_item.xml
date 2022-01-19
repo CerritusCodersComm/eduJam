@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:tint="@color/black"
+        app:tint="@color/black"
         android:src="@drawable/holiday_48px" />
 
     <TextView
