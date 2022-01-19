@@ -24,7 +24,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:src="@drawable/user"
-        android:tint="@color/black" />
+        app:tint="@color/black" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/profile_username"
