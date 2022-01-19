@@ -32,7 +32,7 @@ class ComputerGraphicsFragment : Fragment() {
         computerGraphicsViewPagerAdapter.add(ComputerGraphicsModuleTwoFragment(), "MODUlE 2")
         computerGraphicsViewPagerAdapter.add(ComputerGraphicsModuleThreeFragment(), "MODUlE 3")
         computerGraphicsViewPagerAdapter.add(ComputerGraphicsModuleFourFragment(), "MODUlE 4")
-        computerGraphicsViewPagerAdapter.add(ComputerGraphicsModuleFiveFragment(), "MODUlE 5")
+        //computerGraphicsViewPagerAdapter.add(ComputerGraphicsModuleFiveFragment(), "MODUlE 5")
         computerGraphicsViewPagerAdapter.add(ComputerGraphicsModuleSixFragment(), "MODUlE 6")
 
         viewPager.adapter = computerGraphicsViewPagerAdapter
