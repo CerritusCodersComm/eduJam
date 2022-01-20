@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
-import com.example.gdsc_hackathon.adapters.AcademicCalendarEventAdapter
+
 import com.example.gdsc_hackathon.adapters.HolidaysItemAdapter
-import com.example.gdsc_hackathon.dataModel.AcademicCalendarEventModel
+
 import com.example.gdsc_hackathon.dataModel.HolidaysItemModel
 import java.util.ArrayList
 

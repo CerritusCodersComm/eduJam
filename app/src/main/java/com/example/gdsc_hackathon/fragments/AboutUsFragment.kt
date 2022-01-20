@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.gdsc_hackathon.R
-import com.example.gdsc_hackathon.adapters.AcademicCalendarEventAdapter
+
 import com.example.gdsc_hackathon.adapters.ProfileAdapter
 import com.example.gdsc_hackathon.databinding.FragmentAboutUsBinding
 import com.example.gdsc_hackathon.extensions.showSnackBar

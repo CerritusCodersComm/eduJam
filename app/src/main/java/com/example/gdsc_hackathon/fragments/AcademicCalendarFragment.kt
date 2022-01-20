@@ -9,26 +9,32 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
-import com.example.gdsc_hackathon.adapters.AcademicCalendarEventAdapter
-import com.example.gdsc_hackathon.dataModel.AcademicCalendarEventModel
+import com.example.gdsc_hackathon.adapters.AcademicCalendarAdapter
+import com.example.gdsc_hackathon.dataModel.AcademicCalendar
+
 import com.example.gdsc_hackathon.extensions.showSnackBar
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView
 import com.github.sundeepk.compactcalendarview.CompactCalendarView.CompactCalendarViewListener
 import com.github.sundeepk.compactcalendarview.domain.Event
 import com.google.android.material.button.MaterialButton
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class AcademicCalendarFragment : Fragment(), AcademicCalendarEventAdapter.OnItemClicked {
+class AcademicCalendarFragment : Fragment() {
 
     private lateinit var  compactCalendarView : CompactCalendarView
     private lateinit var  previousMonth : MaterialButton
     private lateinit var  nextMonth : MaterialButton
     private lateinit var  monthName : TextView
     private lateinit var  recyclerView: RecyclerView
+    private lateinit var  adapter: AcademicCalendarAdapter
     private val currentCalender = Calendar.getInstance(Locale.getDefault())
+    private val reference = FirebaseFirestore.getInstance().collection("AcademicCalendar")
 
     private val dateFormatForMonth: SimpleDateFormat =
         SimpleDateFormat("MMM - yy", Locale.getDefault())
@@ -46,29 +52,12 @@ class AcademicCalendarFragment : Fragment(), AcademicCalendarEventAdapter.OnItem
 
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        val data = ArrayList<AcademicCalendarEventModel>()
+        val query = reference.orderBy("startingDate", Query.Direction.ASCENDING)
+        val options = FirestoreRecyclerOptions.Builder<AcademicCalendar>()
+            .setQuery(query, AcademicCalendar::class.java).build()
 
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "T-Spark 2022 Selection","2 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "Starting of NGO Internships","3 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "Orientation about NGO and social Activities","3 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "Briefing of Activities / Tasks","4 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "Status of  activities assigned and  students interaction",
-            "7 Jan to 13 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "ESD-Sem IV: COMP,IT, E&TC ","7 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "ESD-Sem IV: All Branches (Diploma) ","7 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "ESD-Sem IV: ELEX, MECH, CIVL,IOT, AI&DS, AI&ML "
-            ,"7 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "T-Spark 2022 Day-1","10 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "T-Spark 2022 Day-2","11 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "T-Spark 2022 Day-3","12 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "T-Spark 2022 Day-4","13 Jan"))
+         adapter = AcademicCalendarAdapter(options)
 
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "Presentation and Discussion","14 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "Ending of  NGO Internships","15 Jan"))
-        data.add(AcademicCalendarEventModel(R.drawable.ic_academic_calendar_48, "Final  Evaluation and Report Submission ","15 Jan"))
-
-        val adapter = AcademicCalendarEventAdapter(data)
-        adapter.setOnClick(this)
 
         // Setting the Adapter with the recyclerview
         recyclerView.adapter = adapter
@@ -103,7 +92,16 @@ class AcademicCalendarFragment : Fragment(), AcademicCalendarEventAdapter.OnItem
         return rootView
     }
 
-    override fun onItemClick(position: Int) {
-        showSnackBar(requireActivity(), "Google Calendar integration coming soon")
+//    override fun onItemClick(position: Int) {
+//        showSnackBar(requireActivity(), "Google Calendar integration coming soon")
+//    }
+    override fun onStart() {
+        super.onStart()
+        adapter.startListening()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        adapter.stopListening()
     }
 }

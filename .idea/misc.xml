@@ -24,6 +24,22 @@
         <entry key="..\:/Users/almei/StudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/personal_information_activity.xml" value="0.2857142857142857" />
         <entry key="..\:/Users/almei/StudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/sign_in_activity.xml" value="0.18857142857142858" />
         <entry key="..\:/Users/almei/StudioProjects/ANDROID_JAM_2021/app/src/main/res/layout/sign_up_activity.xml" value="0.14285714285714285" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/academic_recycler_view_event.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/content_main.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/custom_edit_text_dialog.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/dashboard_grid_view_item.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/fmc_pdf_page_1.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/fragment_academic_calendar.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/fragment_computer_graphics_module_three.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/fragment_home.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/fragment_module.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/fragment_module_layout.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/fragment_profile.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/fragment_settings.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/fragment_syllabus.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/syllabus_item.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/ishir/StudioProjects/eduJam/app/src/main/res/layout/topic_item.xml" value="0.23229166666666667" />
         <entry key="app/src/main/res/drawable/auth_button_background.xml" value="0.1925925925925926" />
         <entry key="app/src/main/res/drawable/background_border.xml" value="0.1824074074074074" />
         <entry key="app/src/main/res/drawable/btn_blue_normal.xml" value="0.25729166666666664" />
@@ -39,7 +55,6 @@
         <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.3748717948717949" />
         <entry key="app/src/main/res/drawable/ic_baseline_download_20.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/drawable/ic_baseline_download_24.xml" value="0.36614583333333334" />
-        <entry key="app/src/main/res/drawable/ic_baseline_forum_24.xml" value="0.12962962962962962" />
         <entry key="app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.18518518518518517" />
         <entry key="app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.24270833333333333" />
         <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2604166666666667" />
@@ -121,7 +136,7 @@
         <entry key="app/src/main/res/layout/fragment_forum.xml" value="0.4947916666666667" />
         <entry key="app/src/main/res/layout/fragment_help.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_holidays.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12962962962962962" />
         <entry key="app/src/main/res/layout/fragment_lecture_summary.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_lecture_video_player.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_maths.xml" value="0.1344984802431611" />
