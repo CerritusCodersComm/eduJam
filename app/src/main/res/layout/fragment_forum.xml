@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:tint="@color/black"
+            app:tint="@color/black"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_baseline_send_24" />
     </RelativeLayout>
