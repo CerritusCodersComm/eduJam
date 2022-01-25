@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/announcementTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Announcement"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/announcementDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/desc"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@+id/announcementTitle"
+        android:textColor="@color/black"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:text="Description"/>
+
+    <TextView
+        android:id="@+id/announcementDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        style="@style/desc"
+        android:layout_below="@+id/announcementDescription"
+        android:textColor="@color/black"
+        android:text="22 DEC, 2021"/>
+
+    <TextView
+        android:id="@+id/announcementExtra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        style="@style/desc"
+        android:layout_below="@+id/announcementDescription"
+        android:textColor="@color/black"
+        android:text="Click here to copy attached link"/>
+
+
+
+
+</RelativeLayout>

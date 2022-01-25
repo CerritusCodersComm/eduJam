@@ -136,7 +136,9 @@
         <entry key="app/src/main/res/layout/fragment_forum.xml" value="0.4947916666666667" />
         <entry key="app/src/main/res/layout/fragment_help.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_holidays.xml" value="0.25" />
+
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.12962962962962962" />
+
         <entry key="app/src/main/res/layout/fragment_lecture_summary.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_lecture_video_player.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_maths.xml" value="0.1344984802431611" />
@@ -184,6 +186,7 @@
         <entry key="app/src/main/res/layout/fragment_video_lecture_summary.xml" value="0.3645833333333333" />
         <entry key="app/src/main/res/layout/fragment_video_lectures.xml" value="0.30404354587869364" />
         <entry key="app/src/main/res/layout/fragment_weekly_time_table.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/layout/global_announcement_item.xml" value="0.3015625" />
         <entry key="app/src/main/res/layout/holidays_recycler_view_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/main_tab.xml" value="0.25" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.20923913043478262" />
