@@ -12,8 +12,8 @@ import com.example.gdsc_hackathon.dataModel.AcademicCalendar
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
-class AcademicCalendarAdapter(options: FirestoreRecyclerOptions<AcademicCalendar>) :
-    FirestoreRecyclerAdapter<AcademicCalendar, AcademicCalendarAdapter.AnnouncementHolder>(
+class AcademicCalendarEventAdapter(options: FirestoreRecyclerOptions<AcademicCalendar>) :
+    FirestoreRecyclerAdapter<AcademicCalendar, AcademicCalendarEventAdapter.AnnouncementHolder>(
         options
     ) {
 

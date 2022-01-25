@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gdsc_hackathon.R
-import com.example.gdsc_hackathon.adapters.AcademicCalendarAdapter
+import com.example.gdsc_hackathon.adapters.AcademicCalendarEventAdapter
 import com.example.gdsc_hackathon.dataModel.AcademicCalendar
 
 import com.example.gdsc_hackathon.extensions.showSnackBar
@@ -32,7 +32,7 @@ class AcademicCalendarFragment : Fragment() {
     private lateinit var  nextMonth : MaterialButton
     private lateinit var  monthName : TextView
     private lateinit var  recyclerView: RecyclerView
-    private lateinit var  adapter: AcademicCalendarAdapter
+    private lateinit var  adapter: AcademicCalendarEventAdapter
     private val currentCalender = Calendar.getInstance(Locale.getDefault())
     private val reference = FirebaseFirestore.getInstance().collection("AcademicCalendar")
 
@@ -56,7 +56,7 @@ class AcademicCalendarFragment : Fragment() {
         val options = FirestoreRecyclerOptions.Builder<AcademicCalendar>()
             .setQuery(query, AcademicCalendar::class.java).build()
 
-         adapter = AcademicCalendarAdapter(options)
+         adapter = AcademicCalendarEventAdapter(options)
 
 
         // Setting the Adapter with the recyclerview
