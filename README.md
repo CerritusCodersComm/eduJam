@@ -41,7 +41,7 @@ Before installation, please make sure you have already installed the following t
 ## 👨‍💻 Contributing
 
 - Any contributions you make are **greatly appreciated**.
-- Before contributing, Please Check out our [contribution guidelines]() for more information.
+- Before contributing, Please Check out our [contribution guidelines](https://github.com/CerritusCodersComm/eduJam/blob/main/CONTRIBUTING.md) for more information.
 
 ### Bug / Feature Request
 
