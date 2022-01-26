@@ -72,3 +72,6 @@ About the future usage of our app, we plan to make it accessibale to every stude
 
 ## 🙏 Support
 Do ⭐️ the project if you like it :)
+
+## Join us
+If you would like to join us in discussions for the project, you can join our [discord server](https://discord.com/invite/fKakn9kk39)
