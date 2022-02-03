@@ -65,7 +65,12 @@ class ReplyAdapter(options: FirestoreRecyclerOptions<Reply>) : FirestoreRecycler
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
         Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener{ user ->
             val value : Int = user.result.getLong("questionsReplied")!!.toInt()
-            Firebase.firestore.collection("users").document(uid).update("questionsReplied", value - 1)
+            if(value <= 0) {
+                Firebase.firestore.collection("users").document(uid).update("questionsReplied", 0)
+            }
+            else {
+                Firebase.firestore.collection("users").document(uid).update("questionsReplied", value - 1)
+            }
         }
     }
 

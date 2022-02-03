@@ -75,7 +75,12 @@ class QuestionAdapter(options: FirestoreRecyclerOptions<Question>) : FirestoreRe
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
         Firebase.firestore.collection("users").document(uid).get().addOnCompleteListener { user ->
             val value: Int = user.result.getLong("questionsAsked")!!.toInt()
-            Firebase.firestore.collection("users").document(uid).update("questionsAsked", value - 1)
+            if(value <= 0) {
+                Firebase.firestore.collection("users").document(uid).update("questionsAsked", 0)
+            }
+            else {
+                Firebase.firestore.collection("users").document(uid).update("questionsAsked", value - 1)
+            }
         }
     }
 
