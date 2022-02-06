@@ -3,7 +3,7 @@
 <img src ="app/src/main/res/drawable/edujamicon.png" align="left"
 width="200" hspace="10" vspace="10">
 
-eduJam is an university app, which will help you with all of your university work. It has features which allow you to see the syllabus for the ongoing semester, weekly, academic and holiday time-table, to-do list, recent video lectures with respectives notes in a pdf form. We also have Fill my Cycle feature which helps in making the index for students under 2 minutes.
+eduJam is a university app, which will help you with all of your university work. It has features which allow you to see the syllabus for the ongoing semester, weekly, academic and holiday time-table, to-do list, recent video lectures with respectives notes in a pdf form. We also have Fill my Cycle feature which helps in making the index for students under 2 minutes.
 The app also includes a forum where all students can have a talk about any doubts.
 To use eduJam, You will need a eduJam account* first, which you are going to use in this app.
 
