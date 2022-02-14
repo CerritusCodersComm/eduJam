@@ -41,7 +41,7 @@ Before installation, please make sure you have already installed the following t
 ## 📱 Test Credentails
 1. If you already have tcet id, we recommend using it
 2. Test credentials:
-   - email - test@email.com
+   - email - test@tcetmumbai.in
    - password - eduJam
  
 ## 👨‍💻 Contributing
