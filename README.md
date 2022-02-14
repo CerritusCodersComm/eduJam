@@ -37,6 +37,12 @@ Before installation, please make sure you have already installed the following t
 5. Add changes to reflect the changes made (`git commit -m 'commit message'`)
 6. Push to the branch (` git push `)
 7. Create a Pull Request
+
+## 📱 Test Credentails
+1. If you already have tcet id, we recommend using it
+2. Test credentials:
+   - email - test@email.com
+   - password - eduJam
  
 ## 👨‍💻 Contributing
 
