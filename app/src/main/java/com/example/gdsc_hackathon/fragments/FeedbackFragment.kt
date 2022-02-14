@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import com.example.gdsc_hackathon.R
 import com.example.gdsc_hackathon.dataModel.FeedbackModel
 import com.example.gdsc_hackathon.databinding.FragmentFeedbackBinding
+import com.example.gdsc_hackathon.extensions.closeKeyboard
 import com.example.gdsc_hackathon.extensions.showSnackBar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
@@ -29,7 +30,7 @@ class FeedbackFragment : Fragment() {
         _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
         binding.submitFeedBack.setOnClickListener {
             submitFeedbackForm(binding.root)
-
+            closeKeyboard()
         }
         return binding.root
     }
