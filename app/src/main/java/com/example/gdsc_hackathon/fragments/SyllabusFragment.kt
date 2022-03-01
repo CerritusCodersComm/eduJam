@@ -1,4 +1,4 @@
-package com.example.gdsc_hackathon.fragments.syllabus
+package com.example.gdsc_hackathon.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -51,7 +51,8 @@ class SyllabusFragment : Fragment(R.layout.fragment_forum) {
             }
 
             override fun onTutorialClick(documentSnapshot: String) {
-                rootView.findNavController().navigate(R.id.mathsTutorialFragment)
+                val bundle = bundleOf("subjectName" to documentSnapshot)
+                rootView.findNavController().navigate(R.id.action_syllabus_fragment_to_module_fragment_layout, bundle)
             }
         })
     }
