@@ -28,16 +28,16 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#928FE2"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            app:labelVisibilityMode="selected"
+            android:background="#928FE2"
+            app:hideOnScroll="true"
             app:itemIconTint="@color/black"
             app:itemTextColor="@color/black"
-            app:hideOnScroll="true"
-            android:layout_alignParentBottom="true"
+            app:labelVisibilityMode="selected"
             app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:menu="@menu/navigation_menu"/>
+            app:menu="@menu/navigation_menu" />
     </RelativeLayout>
 
 

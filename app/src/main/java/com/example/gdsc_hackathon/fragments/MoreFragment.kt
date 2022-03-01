@@ -27,6 +27,7 @@ class MoreFragment : Fragment() {
     private lateinit var videoLecturesLayout: RelativeLayout
     private lateinit var lectureSummaryLayout: RelativeLayout
     private lateinit var fmcLayout: RelativeLayout
+    private lateinit var learningLayout: RelativeLayout
     private lateinit var logoutButton: Button
 
     override fun onCreateView(
@@ -92,6 +93,11 @@ class MoreFragment : Fragment() {
         fmcLayout = rootView.findViewById(R.id.fmc_layout)
         fmcLayout.setOnClickListener {
             requireContext().openActivity(FillMyCycle::class.java)
+        }
+
+        learningLayout = rootView.findViewById(R.id.learning_layout)
+        learningLayout.setOnClickListener {
+            rootView.findNavController().navigate(R.id.learningFragment)
         }
 
 //        logoutButton = rootView.findViewById(R.id.logout)

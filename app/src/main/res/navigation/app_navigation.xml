@@ -11,6 +11,15 @@
         android:label="Home"
         tools:layout="@layout/fragment_home"/>
     <fragment
+        android:id="@+id/learningFragment"
+        android:name="com.example.gdsc_hackathon.fragments.LearningFragment"
+        android:label="Learning"
+        tools:layout="@layout/fragment_learning">
+        <action
+            android:id="@+id/action_learningFragment_to_subTopicFragment"
+            app:destination="@id/subTopicFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/moduleFragment"
         android:name="com.example.gdsc_hackathon.fragments.ModuleFragment"
         android:label="Modules"
@@ -242,5 +251,18 @@
         android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.computerGraphics.ComputerGraphicsPracticalFragment"
         android:label="Computer Graphics Fragment Practical"
         tools:layout="@layout/fragment_computer_graphics" />
+    <fragment
+        android:id="@+id/subTopicFragment"
+        android:name="com.example.gdsc_hackathon.fragments.SubTopicFragment"
+        android:label="SubTopicFragment" >
+        <action
+            android:id="@+id/action_subTopicFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.example.gdsc_hackathon.fragments.VideoFragment"
+        android:label="VideoFragment" />
+
 
 </navigation>
