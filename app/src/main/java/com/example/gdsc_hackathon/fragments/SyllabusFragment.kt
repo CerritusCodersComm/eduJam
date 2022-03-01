@@ -1,4 +1,4 @@
-package com.example.gdsc_hackathon.fragments.syllabus
+package com.example.gdsc_hackathon.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

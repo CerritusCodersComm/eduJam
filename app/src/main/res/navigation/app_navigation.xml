@@ -49,7 +49,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/syllabusFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.SyllabusFragment"
+        android:name="com.example.gdsc_hackathon.fragments.SyllabusFragment"
         android:label="Syllabus"
         tools:layout="@layout/fragment_syllabus">
         <action
@@ -192,64 +192,5 @@
         android:name="com.example.gdsc_hackathon.fragments.NotificationFragment"
         android:label="Notifications"
         tools:layout="@layout/fragment_notification" />
-    <fragment
-        android:id="@+id/mathsFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.maths.MathsFragment"
-        android:label="Maths"
-        tools:layout="@layout/fragment_maths" />
-
-    <fragment
-        android:id="@+id/mathsTutorialFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.maths.MathsTutorialFragment"
-        android:label="Maths Tutorials"
-        tools:layout="@layout/fragment_maths_tutorial" />
-
-    <fragment
-        android:id="@+id/designAnalysisOfAlgorithmsFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.designAnalysisOfAlgorithms.DesignAnalysisOfAlgorithmsFragment"
-        android:label="Maths"
-        tools:layout="@layout/fragment_maths" />
-
-    <fragment
-        android:id="@+id/designAnalysisOfAlgorithmsPracticalFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.designAnalysisOfAlgorithms.DesignAnalysisOfAlgorithmsPracticalFragment"
-        android:label="Design Analysis Of Algorithms Practicals"
-        tools:layout="@layout/fragment_design_analysis_of_algorithms" />
-
-    <fragment
-        android:id="@+id/operatingSystemsFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.operatingSystems.OperatingSystemsFragment"
-        android:label="Operating Systems"
-        tools:layout="@layout/fragment_operating_systems" />
-
-    <fragment
-        android:id="@+id/operatingSystemPracticalFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.operatingSystems.OperatingSystemsPracticalFragment"
-        android:label="Operating Systems Practicals"
-        tools:layout="@layout/fragment_operating_systems_practical" />
-
-    <fragment
-        android:id="@+id/computerNetworksFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.computerGraphics.ComputerGraphicsFragment"
-        android:label="Computer Networks Fragment"
-        tools:layout="@layout/fragment_computer_networks" />
-
-    <fragment
-        android:id="@+id/computerNetworksPracticalFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.computerNetworks.ComputerNetworksPracticalFragment"
-        android:label="Computer Networks Fragment Practicals"
-        tools:layout="@layout/fragment_computer_networks" />
-
-    <fragment
-        android:id="@+id/computerGraphicsFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.computerGraphics.ComputerGraphicsFragment"
-        android:label="Computer Graphics Fragment"
-        tools:layout="@layout/fragment_computer_graphics" />
-
-    <fragment
-        android:id="@+id/computerGraphicsPracticalFragment"
-        android:name="com.example.gdsc_hackathon.fragments.syllabus.fourth_sem.computerGraphics.ComputerGraphicsPracticalFragment"
-        android:label="Computer Graphics Fragment Practical"
-        tools:layout="@layout/fragment_computer_graphics" />
 
 </navigation>
